@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Playables;
 using static Define;
@@ -11,7 +12,7 @@ public class PlayerController : MonoBehaviour
     float Speed = 5.0f;
 
     protected EPlayerState _creatureState = EPlayerState.Idle;
-
+    protected EPlayerFacing _facing = EPlayerFacing.Down;
     public EPlayerState PlayerState
     {
         get { return _creatureState; }
@@ -25,6 +26,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public EPlayerFacing PlayerFacing
+    {
+        get { return _facing; }
+        set
+        {
+            if (_facing != value)
+            {
+                _facing = value;
+                UpdateFacing();
+            }
+        }
+    }
+
     Animator Animator { get; set; }
     Rigidbody2D Rigidbody { get; set; }
     Animation Animation { get; set; }
@@ -34,26 +48,25 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer Bottom { get; set; }
 
     Sprite CharacterSprite { get; set; }
-    Sprite[] Head_Sprites { get; set; }
-    Sprite[] Bottom_Sprites { get; set; }
 
-    private float xMove;
-    private float yMove;
+    private Vector3 _moveDir;
 
-    void Start()
+    private void Awake()
     {
-        Animator = GetComponentInChildren<Animator>();
+        Animator = transform.GetChild(1).GetComponentInChildren<Animator>();
         Rigidbody = GetComponent<Rigidbody2D>();
         Head = transform.Find("Head").GetComponent<SpriteRenderer>();
         Bottom = transform.Find("Bottom").GetComponent<SpriteRenderer>();
+    }
 
-        CharacterSprite = Resources.Load<Sprite>("@Resources/Sprites/Issac/characters/costumes/character_001_isaac");
-        Debug.Log("Sprite Load");
+    void Start()
+    {
+
     }
 
     void Update()
     {
-        if (Input.GetKey("up")) 
+        if (Input.GetKey("up"))
         {
             Debug.Log("Up");
             //Head.sprite
@@ -71,42 +84,61 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Left");
         }
 
-        
+        Vector2 vel = Rigidbody.velocity;
+        vel.x = Input.GetAxis("Horizontal") * Speed;
+        vel.y = Input.GetAxis("Vertical") * Speed;
+
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
-        {
-            if (Math.Abs(xMove) < 0.05)
-                xMove = 0f;
-
-            xMove *= 0.9f;
-        }
-        else
-        {
-            xMove = Input.GetAxis("Horizontal");
-        }
-
+            vel.x = 0;
         if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S))
+            vel.y = 0;
+
+
+        Rigidbody.velocity = vel;
+        if (vel != Vector2.zero)
         {
-            if (Math.Abs(yMove) < 0.05)
-                yMove = 0f;
-
-            yMove *= 0.9f;
-        }
-        else
-        {
-            yMove = Input.GetAxis("Vertical");
-        }
-
-
-        Vector3 _moveDir = new Vector3(xMove, yMove, 0);
-
-        if (_moveDir != Vector3.zero)
-        {
-            PlayerState = EPlayerState.Move;
-            transform.Translate(_moveDir * Time.deltaTime * Speed);
-        }
-        else
+            if (vel.y != 0 && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))
+            {
+                PlayerFacing = vel.y > 0 ? EPlayerFacing.Up : EPlayerFacing.Down;
+                PlayerState = EPlayerState.MoveVertical;
+            }
+            else
+            {
+                PlayerFacing = vel.x > 0 ? EPlayerFacing.Right : EPlayerFacing.Left;
+                PlayerState = EPlayerState.MoveHorizen;
+            }
+        } else
         {
             PlayerState = EPlayerState.Idle;
+        }
+
+        
+
+
+    }
+
+    public void UpdateFacing()
+    {
+        switch (_facing)
+        {
+            case EPlayerFacing.Down:
+                Head.flipX = false;
+                Head.sprite = Managers.Resource.Load<Sprite>("isaac_down");
+                break;
+            case EPlayerFacing.Up:
+                Head.flipX = false;
+                Head.sprite = Managers.Resource.Load<Sprite>("isaac_up");
+                break;
+            case EPlayerFacing.Right:
+                Head.flipX = false;
+                Bottom.flipX = false;
+                Head.sprite = Managers.Resource.Load<Sprite>("isaac_right");
+                break;
+            case EPlayerFacing.Left:
+                Head.flipX = true;
+                Bottom.flipX = true;
+                Head.sprite = Managers.Resource.Load<Sprite>("isaac_right");
+                break;
         }
     }
 
@@ -117,8 +149,11 @@ public class PlayerController : MonoBehaviour
             case EPlayerState.Idle:
                 Animator.Play("Idle");
                 break;
-            case EPlayerState.Move:
+            case EPlayerState.MoveVertical:
                 Animator.Play("Walk_Down");
+                break;
+            case EPlayerState.MoveHorizen:
+                Animator.Play("Walk_Horiz");
                 break;
             case EPlayerState.Attack:
                 break;

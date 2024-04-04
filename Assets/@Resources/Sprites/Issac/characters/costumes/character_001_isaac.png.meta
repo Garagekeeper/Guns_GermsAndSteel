@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: down
+      name: isaac_down
       rect:
         serializedVersion: 2
         x: 2
@@ -157,7 +157,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: down_pop
+      name: isaac_down_pop
       rect:
         serializedVersion: 2
         x: 34
@@ -178,7 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: right
+      name: isaac_right
       rect:
         serializedVersion: 2
         x: 66
@@ -199,7 +199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: right_pop
+      name: isaac_right_pop
       rect:
         serializedVersion: 2
         x: 98
@@ -220,7 +220,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up
+      name: isaac_up
       rect:
         serializedVersion: 2
         x: 130
@@ -241,7 +241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: up_pop
+      name: isaac_up_pop
       rect:
         serializedVersion: 2
         x: 162
@@ -262,7 +262,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_1
+      name: isaac_walk_1
       rect:
         serializedVersion: 2
         x: 199
@@ -283,7 +283,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_2
+      name: isaac_walk_2
       rect:
         serializedVersion: 2
         x: 231
@@ -304,7 +304,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_8
+      name: isaac_8
       rect:
         serializedVersion: 2
         x: 258
@@ -325,7 +325,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_9
+      name: isaac_9
       rect:
         serializedVersion: 2
         x: 451
@@ -346,7 +346,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_10
+      name: isaac_10
       rect:
         serializedVersion: 2
         x: 483
@@ -367,7 +367,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_3
+      name: isaac_walk_3
       rect:
         serializedVersion: 2
         x: 7
@@ -388,7 +388,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_4
+      name: isaac_walk_4
       rect:
         serializedVersion: 2
         x: 39
@@ -409,7 +409,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_5
+      name: isaac_walk_5
       rect:
         serializedVersion: 2
         x: 72
@@ -430,7 +430,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_6
+      name: isaac_walk_6
       rect:
         serializedVersion: 2
         x: 103
@@ -451,7 +451,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_7
+      name: isaac_walk_7
       rect:
         serializedVersion: 2
         x: 135
@@ -472,7 +472,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_8
+      name: isaac_walk_8
       rect:
         serializedVersion: 2
         x: 167
@@ -493,7 +493,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_9
+      name: isaac_walk_9
       rect:
         serializedVersion: 2
         x: 199
@@ -514,7 +514,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walk_10
+      name: isaac_walk_10
       rect:
         serializedVersion: 2
         x: 230
@@ -535,7 +535,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_19
+      name: isaac_19
       rect:
         serializedVersion: 2
         x: 259
@@ -556,7 +556,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_20
+      name: isaac_20
       rect:
         serializedVersion: 2
         x: 291
@@ -577,7 +577,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_21
+      name: isaac_21
       rect:
         serializedVersion: 2
         x: 323
@@ -598,7 +598,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_22
+      name: isaac_22
       rect:
         serializedVersion: 2
         x: 355
@@ -619,7 +619,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_23
+      name: isaac_23
       rect:
         serializedVersion: 2
         x: 387
@@ -640,7 +640,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_24
+      name: isaac_24
       rect:
         serializedVersion: 2
         x: 419
@@ -661,7 +661,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_25
+      name: isaac_25
       rect:
         serializedVersion: 2
         x: 451
@@ -682,7 +682,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_26
+      name: isaac_26
       rect:
         serializedVersion: 2
         x: 483
@@ -703,7 +703,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: horiz_walk_1
+      name: isaac_horiz_walk_1
       rect:
         serializedVersion: 2
         x: 8
@@ -724,7 +724,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: horiz_walk_2
+      name: isaac_horiz_walk_2
       rect:
         serializedVersion: 2
         x: 39
@@ -745,7 +745,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: horiz_walk_3
+      name: isaac_horiz_walk_3
       rect:
         serializedVersion: 2
         x: 71
@@ -766,7 +766,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: horiz_walk_4
+      name: isaac_horiz_walk_4
       rect:
         serializedVersion: 2
         x: 103
@@ -787,7 +787,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: horiz_walk_5
+      name: isaac_horiz_walk_5
       rect:
         serializedVersion: 2
         x: 135
@@ -808,7 +808,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: horiz_walk_6
+      name: isaac_horiz_walk_6
       rect:
         serializedVersion: 2
         x: 168
@@ -829,7 +829,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: horiz_walk_7
+      name: isaac_horiz_walk_7
       rect:
         serializedVersion: 2
         x: 200
@@ -850,10 +850,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: horiz_walk_8
+      name: isaac_horiz_walk_8
       rect:
         serializedVersion: 2
-        x: 231
+        x: 230
         y: 423
         width: 18
         height: 15
@@ -871,7 +871,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_35
+      name: isaac_35
       rect:
         serializedVersion: 2
         x: 259
@@ -892,10 +892,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_36
+      name: isaac_36
       rect:
         serializedVersion: 2
-        x: 291
+        x: 290
         y: 423
         width: 26
         height: 17
@@ -913,7 +913,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_37
+      name: isaac_37
       rect:
         serializedVersion: 2
         x: 323
@@ -934,11 +934,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_38
+      name: isaac_38
       rect:
         serializedVersion: 2
         x: 355
-        y: 423
+        y: 424
         width: 26
         height: 17
       alignment: 0
@@ -955,7 +955,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_39
+      name: isaac_39
       rect:
         serializedVersion: 2
         x: 387
@@ -976,7 +976,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_40
+      name: isaac_40
       rect:
         serializedVersion: 2
         x: 419
@@ -997,7 +997,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_41
+      name: isaac_41
       rect:
         serializedVersion: 2
         x: 451
@@ -1018,7 +1018,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_42
+      name: isaac_42
       rect:
         serializedVersion: 2
         x: 483
@@ -1039,7 +1039,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: horiz_walk_9
+      name: isaac_horiz_walk_9
       rect:
         serializedVersion: 2
         x: 7
@@ -1060,7 +1060,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: horiz_walk_10
+      name: isaac_horiz_walk_10
       rect:
         serializedVersion: 2
         x: 39
@@ -1081,7 +1081,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_45
+      name: isaac_45
       rect:
         serializedVersion: 2
         x: 259
@@ -1102,7 +1102,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_46
+      name: isaac_46
       rect:
         serializedVersion: 2
         x: 291
@@ -1123,11 +1123,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_47
+      name: isaac_47
       rect:
         serializedVersion: 2
         x: 18
-        y: 327
+        y: 328
         width: 28
         height: 33
       alignment: 0
@@ -1144,7 +1144,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_48
+      name: isaac_48
       rect:
         serializedVersion: 2
         x: 82
@@ -1165,7 +1165,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_49
+      name: isaac_49
       rect:
         serializedVersion: 2
         x: 145
@@ -1186,7 +1186,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_50
+      name: isaac_50
       rect:
         serializedVersion: 2
         x: 205
@@ -1207,7 +1207,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_51
+      name: isaac_51
       rect:
         serializedVersion: 2
         x: 274
@@ -1228,7 +1228,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_52
+      name: isaac_52
       rect:
         serializedVersion: 2
         x: 18
@@ -1249,7 +1249,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_53
+      name: isaac_53
       rect:
         serializedVersion: 2
         x: 82
@@ -1270,7 +1270,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_54
+      name: isaac_54
       rect:
         serializedVersion: 2
         x: 148
@@ -1291,11 +1291,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_55
+      name: isaac_55
       rect:
         serializedVersion: 2
         x: 210
-        y: 261
+        y: 262
         width: 28
         height: 30
       alignment: 0
@@ -1312,7 +1312,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_56
+      name: isaac_56
       rect:
         serializedVersion: 2
         x: 18
@@ -1333,7 +1333,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_57
+      name: isaac_57
       rect:
         serializedVersion: 2
         x: 82
@@ -1354,7 +1354,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_58
+      name: isaac_58
       rect:
         serializedVersion: 2
         x: 146
@@ -1375,7 +1375,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_59
+      name: isaac_59
       rect:
         serializedVersion: 2
         x: 209
@@ -1396,7 +1396,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_60
+      name: isaac_60
       rect:
         serializedVersion: 2
         x: 18
@@ -1417,7 +1417,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_61
+      name: isaac_61
       rect:
         serializedVersion: 2
         x: 50
@@ -1438,7 +1438,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_62
+      name: isaac_62
       rect:
         serializedVersion: 2
         x: 80
@@ -1459,7 +1459,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_63
+      name: isaac_63
       rect:
         serializedVersion: 2
         x: 201
@@ -1480,7 +1480,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_64
+      name: isaac_64
       rect:
         serializedVersion: 2
         x: 16
@@ -1501,7 +1501,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_65
+      name: isaac_65
       rect:
         serializedVersion: 2
         x: 32
@@ -1522,11 +1522,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_66
+      name: isaac_66
       rect:
         serializedVersion: 2
         x: 48
-        y: 133
+        y: 134
         width: 14
         height: 11
       alignment: 0
@@ -1543,7 +1543,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_67
+      name: isaac_67
       rect:
         serializedVersion: 2
         x: 66
@@ -1564,7 +1564,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_68
+      name: isaac_68
       rect:
         serializedVersion: 2
         x: 82
@@ -1585,7 +1585,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_69
+      name: isaac_69
       rect:
         serializedVersion: 2
         x: 18
@@ -1606,7 +1606,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_70
+      name: isaac_70
       rect:
         serializedVersion: 2
         x: 50
@@ -1627,7 +1627,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_71
+      name: isaac_71
       rect:
         serializedVersion: 2
         x: 18
@@ -1648,7 +1648,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: character_001_isaac_72
+      name: isaac_72
       rect:
         serializedVersion: 2
         x: 130
@@ -1679,79 +1679,79 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      character_001_isaac_10: -969780536
-      character_001_isaac_19: 105182135
-      character_001_isaac_20: 1982442025
-      character_001_isaac_21: 878521096
-      character_001_isaac_22: -805239377
-      character_001_isaac_23: -1490777664
-      character_001_isaac_24: 185170619
-      character_001_isaac_25: -506887942
-      character_001_isaac_26: 173817120
-      character_001_isaac_35: 1817342390
-      character_001_isaac_36: 2119079409
-      character_001_isaac_37: 1345697929
-      character_001_isaac_38: -629242659
-      character_001_isaac_39: -560205694
-      character_001_isaac_40: 274025282
-      character_001_isaac_41: 818305433
-      character_001_isaac_42: -2022678644
-      character_001_isaac_45: -1864195024
-      character_001_isaac_46: 441748057
-      character_001_isaac_47: -2105793560
-      character_001_isaac_48: 1668871478
-      character_001_isaac_49: -409278408
-      character_001_isaac_50: 952999975
-      character_001_isaac_51: -1258057515
-      character_001_isaac_52: -1167430884
-      character_001_isaac_53: 1877485625
-      character_001_isaac_54: 1834533583
-      character_001_isaac_55: 1093411736
-      character_001_isaac_56: -492127267
-      character_001_isaac_57: -1789564361
-      character_001_isaac_58: -1980215465
-      character_001_isaac_59: -1592694007
-      character_001_isaac_60: 555884873
-      character_001_isaac_61: -2072051656
-      character_001_isaac_62: 1207350051
-      character_001_isaac_63: -393921452
-      character_001_isaac_64: -1428505999
-      character_001_isaac_65: 2130114058
-      character_001_isaac_66: -100406404
-      character_001_isaac_67: -1034336744
-      character_001_isaac_68: 567832272
-      character_001_isaac_69: 1542333394
-      character_001_isaac_70: -1399239881
-      character_001_isaac_71: 482672580
-      character_001_isaac_72: -1587030304
-      character_001_isaac_8: -1542323941
-      character_001_isaac_9: -1680102055
-      down: -415026870
-      down_pop: 1217229111
-      horiz_walk_1: 766554442
-      horiz_walk_10: 1148017317
-      horiz_walk_2: 2057956192
-      horiz_walk_3: 1162451745
-      horiz_walk_4: -348439131
-      horiz_walk_5: 265855695
-      horiz_walk_6: -2126564730
-      horiz_walk_7: 1669251484
-      horiz_walk_8: 747460256
-      horiz_walk_9: 1269594228
-      right: 1008427491
-      right_pop: 1944522281
-      up: 1042613858
-      up_pop: 908119160
-      walk_1: -1859979829
-      walk_10: -1054632413
-      walk_2: 1743053370
-      walk_3: 66775411
-      walk_4: -1958130825
-      walk_5: -596627687
-      walk_6: 2087143426
-      walk_7: 198040730
-      walk_8: 246857873
-      walk_9: -1450810057
+      isaac_10: 1982442025
+      isaac_19: 878521096
+      isaac_20: -805239377
+      isaac_21: -1490777664
+      isaac_22: 185170619
+      isaac_23: -506887942
+      isaac_24: 173817120
+      isaac_25: 1817342390
+      isaac_26: 2119079409
+      isaac_35: 1345697929
+      isaac_36: -629242659
+      isaac_37: -560205694
+      isaac_38: 274025282
+      isaac_39: 818305433
+      isaac_40: -2022678644
+      isaac_41: -1864195024
+      isaac_42: 441748057
+      isaac_45: -2105793560
+      isaac_46: -1258057515
+      isaac_47: -1167430884
+      isaac_48: 1668871478
+      isaac_49: -409278408
+      isaac_50: -1542323941
+      isaac_51: 1877485625
+      isaac_52: 1834533583
+      isaac_53: 1093411736
+      isaac_54: -1592694007
+      isaac_55: -492127267
+      isaac_56: -492127267
+      isaac_57: -1789564361
+      isaac_58: -1980215465
+      isaac_59: -1680102055
+      isaac_60: 2130114058
+      isaac_61: -1428505999
+      isaac_62: 555884873
+      isaac_63: 1269594228
+      isaac_64: -100406404
+      isaac_65: -1034336744
+      isaac_66: 567832272
+      isaac_67: -1399239881
+      isaac_68: 1542333394
+      isaac_69: -1587030304
+      isaac_70: 482672580
+      isaac_71: -393921452
+      isaac_72: 1148017317
+      isaac_8: -415026870
+      isaac_9: 1217229111
+      isaac_down: 1008427491
+      isaac_down_pop: 1944522281
+      isaac_horiz_walk_1: 2057956192
+      isaac_horiz_walk_10: 1269594228
+      isaac_horiz_walk_2: 1162451745
+      isaac_horiz_walk_3: -348439131
+      isaac_horiz_walk_4: 265855695
+      isaac_horiz_walk_5: -2126564730
+      isaac_horiz_walk_6: 1669251484
+      isaac_horiz_walk_7: 747460256
+      isaac_horiz_walk_8: -1054632413
+      isaac_horiz_walk_9: 766554442
+      isaac_right: 1042613858
+      isaac_right_pop: 908119160
+      isaac_up: -1859979829
+      isaac_up_pop: -1054632413
+      isaac_walk_1: 1743053370
+      isaac_walk_10: -1958130825
+      isaac_walk_2: -596627687
+      isaac_walk_3: 2087143426
+      isaac_walk_4: 198040730
+      isaac_walk_5: 246857873
+      isaac_walk_6: -1450810057
+      isaac_walk_7: 952999975
+      isaac_walk_8: 1207350051
+      isaac_walk_9: -2072051656
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

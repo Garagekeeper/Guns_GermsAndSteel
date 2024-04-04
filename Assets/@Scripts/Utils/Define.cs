@@ -7,10 +7,19 @@ public class Define
     public enum EPlayerState
     {
         Idle,
-        Move,
+        MoveHorizen,
+        MoveVertical,
         Attack,
         OnDamaged,
         OnDead
+    }
+
+    public enum EPlayerFacing
+    {
+        Down,
+        Up,
+        Left,
+        Right,
     }
 
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -11,9 +12,21 @@ public class ResourceManager
     private Dictionary<string, UnityEngine.Object> _resources = new Dictionary<string, UnityEngine.Object>();
     private Dictionary<string, AsyncOperationHandle> _handles = new Dictionary<string, AsyncOperationHandle>();
 
-    //Addresible¿¡¼­ ÇØ´ç lableÀ» °¡Áø ¸®¼Ò½º ·Îµù
 
-    public void LoadAsync<T> (string key, Action<T> callback = null) where T : UnityEngine.Object
+
+    public T Load<T>(string key) where T : UnityEngine.Object
+    {
+        if (_resources.TryGetValue(key, out Object resource))
+        {
+            return resource as T;
+        }
+            return null;
+    }
+
+    #region Addresible
+    //Addresibleì—ì„œ í•´ë‹¹ lableì„ ê°€ì§„ ë¦¬ì†ŒìŠ¤ ë¡œë”©
+
+    public void LoadAsync<T> (string key, bool isSprite = false, Action<T> callback = null) where T : UnityEngine.Object
     {
         //Cache
         if (_resources.TryGetValue(key, out UnityEngine.Object resource))
@@ -21,19 +34,38 @@ public class ResourceManager
             callback?.Invoke(resource as T);
             return;
         }
-
         string loadKey = key;
 
-        //LoadAssetAsync¸¦ È£ÃâÇØµµ ¹Ù·Î »ç¿ëÇÒ ¼ö ÀÖ´Â°ÍÀÌ ¾Æ´Ï¶ó
-        //¹İÈ¯µÈ AsyncOperationHandle¸¦ ÅëÇØ¼­ Á¢±ÙÇÏ°í »ç¿ëÇÒ ¼ö ÀÖ´Ù°í ÇÑ´Ù.
-        //°á°ú¸¦ »ç¿ëÇÏ·Á´Â ±â°£¿¡´Â ÇÚµé ¿ÀºêÁ§Æ®¸¦ À¯ÁöÇØ¾ß ÇÑ´Ù°í ÇÔ
-        var asyncOpHandle = Addressables.LoadAssetAsync<T>(loadKey);
-        asyncOpHandle.Completed += (op) =>
+         if (isSprite)
         {
-            _resources.Add(key, op.Result);
-            _handles.Add(key, asyncOpHandle);
-            callback?.Invoke(op.Result);
-        };
+            var asyncOpHandle = Addressables.LoadAssetAsync<IList<Sprite>>(loadKey);
+            asyncOpHandle.Completed += (op) =>
+            {
+                foreach (var val in op.Result)
+                {
+                    key = val.name;
+                    _resources.Add(key, val);
+                    _handles.Add(key, asyncOpHandle);
+                    callback?.Invoke(val as T);
+                }
+            };
+        }
+        else
+        {
+            var asyncOpHandle = Addressables.LoadAssetAsync<T>(loadKey);
+            asyncOpHandle.Completed += (op) =>
+            {
+
+                _resources.Add(key, op.Result);
+                _handles.Add(key, asyncOpHandle);
+                callback?.Invoke(op.Result);
+            };
+        }
+            
+        //LoadAssetAsyncë¥¼ í˜¸ì¶œí•´ë„ ë°”ë¡œ ì‚¬ìš©í•  ìˆ˜ ìˆëŠ”ê²ƒì´ ì•„ë‹ˆë¼
+        //ë°˜í™˜ëœ AsyncOperationHandleë¥¼ í†µí•´ì„œ ì ‘ê·¼í•˜ê³  ì‚¬ìš©í•  ìˆ˜ ìˆë‹¤ê³  í•œë‹¤.
+        //ê²°ê³¼ë¥¼ ì‚¬ìš©í•˜ë ¤ëŠ” ê¸°ê°„ì—ëŠ” í•¸ë“¤ ì˜¤ë¸Œì íŠ¸ë¥¼ ìœ ì§€í•´ì•¼ í•œë‹¤ê³  í•¨
+
     }
 
 
@@ -44,10 +76,15 @@ public class ResourceManager
         {
             int total = op.Result.Count;
             int loaded = 0;
+            bool isSprite = false;
 
             foreach (var result in op.Result)
             {
-                LoadAsync<T>(result.PrimaryKey, (obj) =>
+                var tempChar = result.PrimaryKey;
+                if (result.InternalId.Contains(".png"))
+                    isSprite = true;  
+
+                LoadAsync<T>(result.PrimaryKey, isSprite, (obj) =>
                 {
                     loaded++;
                     callback?.Invoke(result.PrimaryKey, loaded, total);
@@ -55,4 +92,23 @@ public class ResourceManager
             }
         };
     }
+
+    #endregion
+    public GameObject Instantiate(string key, Transform parent = null)
+    {
+        GameObject prefab = Load<GameObject>(key);
+
+        if (prefab == null)
+        {
+            Debug.LogError($"Faild to load:{key} prefab");
+            return null;
+        }
+
+        GameObject go = Object.Instantiate(prefab, parent);
+        go.name = prefab.name;
+
+        return go;
+    }
+
+
 }
