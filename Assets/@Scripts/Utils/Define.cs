@@ -4,20 +4,28 @@ using UnityEngine;
 
 public class Define
 {
-    public enum EPlayerState
+    public enum EPlayerBottomState
     {
         Idle,
-        MoveHorizen,
-        MoveVertical,
-        Attack,
+        MoveRight,
+        MoveLeft,
+        MoveUp,
+        MoveDown,
         OnDamaged,
         OnDead
     }
 
-    public enum EPlayerFacing
+    public enum EPlayerHeadState
     {
-        Down,
+        Idle,
+        Attack,
+    }
+
+    public enum EPlayerHeadDirState
+    {
+        None,
         Up,
+        Down,
         Left,
         Right,
     }
