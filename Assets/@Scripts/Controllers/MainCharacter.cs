@@ -6,7 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 using static Define;
-public class PlayerController : MonoBehaviour
+public class MainCharacter : MonoBehaviour
 {
 
     [SerializeField]
@@ -262,5 +262,37 @@ public class PlayerController : MonoBehaviour
                 break;
 
         }
+    }
+
+
+    public void GenerateProjectile()
+    {
+        switch (HeadDirState)
+        {
+            case EPlayerHeadDirState.Up:
+                SpawnProjectile(0,1);
+                break;
+            case EPlayerHeadDirState.Down:
+                SpawnProjectile(0, -1);
+                break;
+            case EPlayerHeadDirState.Left:
+                SpawnProjectile(-1, 0);
+                break;
+            case EPlayerHeadDirState.Right:
+                SpawnProjectile(1, 0);
+                break;
+        }
+    }
+
+    public void SpawnProjectile(float x, float y)
+    {
+        GameObject go = Managers.Resource.Instantiate("Projectile");
+        go.name = "Projectile";
+        Vector2 pos;
+        pos.x =  x;
+        pos.y =  y;
+
+        Projectile projectile = go.GetComponent<Projectile>();
+        projectile.SetInfo(transform.GetChild(0).transform.position,pos);
     }
 }
