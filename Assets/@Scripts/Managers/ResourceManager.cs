@@ -7,7 +7,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using Object = UnityEngine.Object;
 
-public class ResourceManager 
+public class ResourceManager
 {
     private Dictionary<string, UnityEngine.Object> _resources = new Dictionary<string, UnityEngine.Object>();
     private Dictionary<string, AsyncOperationHandle> _handles = new Dictionary<string, AsyncOperationHandle>();
@@ -20,13 +20,13 @@ public class ResourceManager
         {
             return resource as T;
         }
-            return null;
+        return null;
     }
 
     #region Addresible
     //Addresible에서 해당 lable을 가진 리소스 로딩
 
-    public void LoadAsync<T> (string key, bool isSprite = false, Action<T> callback = null) where T : UnityEngine.Object
+    public void LoadAsync<T>(string key, bool isSprite = false, Action<T> callback = null) where T : UnityEngine.Object
     {
         //Cache
         if (_resources.TryGetValue(key, out UnityEngine.Object resource))
@@ -36,7 +36,7 @@ public class ResourceManager
         }
         string loadKey = key;
 
-         if (isSprite)
+        if (isSprite)
         {
             var asyncOpHandle = Addressables.LoadAssetAsync<IList<Sprite>>(loadKey);
             asyncOpHandle.Completed += (op) =>
@@ -46,8 +46,8 @@ public class ResourceManager
                     key = val.name;
                     _resources.Add(key, val);
                     _handles.Add(key, asyncOpHandle);
-                    callback?.Invoke(val as T);
                 }
+                callback?.Invoke(op.Result as T);
             };
         }
         else
@@ -61,7 +61,7 @@ public class ResourceManager
                 callback?.Invoke(op.Result);
             };
         }
-            
+
         //LoadAssetAsync를 호출해도 바로 사용할 수 있는것이 아니라
         //반환된 AsyncOperationHandle를 통해서 접근하고 사용할 수 있다고 한다.
         //결과를 사용하려는 기간에는 핸들 오브젝트를 유지해야 한다고 함
@@ -69,7 +69,7 @@ public class ResourceManager
     }
 
 
-    public void LoadAllAsync<T> (string lable, Action<string, int ,int> callback) where T : UnityEngine.Object
+    public void LoadAllAsync<T>(string lable, Action<string, int, int> callback) where T : UnityEngine.Object
     {
         var asyncOpHandle = Addressables.LoadResourceLocationsAsync(lable, typeof(T));
         asyncOpHandle.Completed += (op) =>
@@ -82,7 +82,7 @@ public class ResourceManager
             {
                 var tempChar = result.PrimaryKey;
                 if (result.InternalId.Contains(".png"))
-                    isSprite = true;  
+                    isSprite = true;
 
                 LoadAsync<T>(result.PrimaryKey, isSprite, (obj) =>
                 {
