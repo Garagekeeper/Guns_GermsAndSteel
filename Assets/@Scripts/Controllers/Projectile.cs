@@ -5,14 +5,15 @@ using static UnityEditor.PlayerSettings;
 
 public class Projectile : MonoBehaviour
 {
-    private float Speed = 3.0f;
-    protected MainCharacter Owner { get; set; }
+    public Creature Owner { get; set; }
     protected Rigidbody2D Rigidbody { get; set; }
 
     protected Collider2D Collider { get; set; }
 
+
     private SpriteRenderer _spriteRenderer;
-    private Vector2 target;
+    private Vector2 _target;
+    private Coroutine _coroutine;
 
     private void Awake()
     {
@@ -24,20 +25,39 @@ public class Projectile : MonoBehaviour
 
     }
 
-    public void SetInfo(Vector2 origin, Vector2 targetDir)
+    public void SetInfo(Vector2 origin, Vector2 targetDir, Creature owner)
     {
+        Owner = owner;
         transform.position = origin;
-        target = targetDir * Speed;
-        Rigidbody.velocity = target;
+        Vector2 correction = new Vector2(0, 0);
+        if (Vector2.Dot(targetDir, owner.Rigidbody.velocity) > 0)
+            correction = owner.Rigidbody.velocity * 0.5f;
+        _target = targetDir * Owner.AttackSpeed + correction;
+        Rigidbody.velocity = _target;
         LayerMask mask = 0;
         mask |= (1 << 6);
         Collider.excludeLayers = mask;
+
+        _coroutine = StartCoroutine(CoRserveDestroy(Owner.Range));
     }
 
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.name == "Collider")
+        {
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
             Destroy(gameObject);
+        }
+    }
+
+    private IEnumerator CoRserveDestroy(float lifetime)
+    {
+        yield return new WaitForSeconds(lifetime * 0.8f);
+        if (Mathf.Abs(Rigidbody.velocity.x) > Mathf.Abs(Rigidbody.velocity.y))
+            Rigidbody.velocity += new Vector2(0, -2.0f);
+        yield return new WaitForSeconds(lifetime * 0.2f);
+        Destroy(gameObject);
     }
 
 }
