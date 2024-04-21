@@ -6,88 +6,39 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 using static Define;
-public class MainCharacter : MonoBehaviour
+public class MainCharacter : Creature
 {
+    #region Stat
 
-    [SerializeField]
-    float Speed = 5.0f;
-
-    Animator AnimatorHead { get; set; }
-    Animator AnimatorBottom { get; set; }
-    Rigidbody2D Rigidbody { get; set; }
-
-    Sprite[] HeadSprite { get; set; }
-
-    SpriteRenderer Head { get; set; }
-    SpriteRenderer Bottom { get; set; }
-
+    //Todo
+    //float PercentageOfDevil;
+    //float PercentageOfAngel;
+    int Coin;
+    int Bomb = 1;
+    //TODO
+    //var SubItem;
+    //var ActiveItem;
+    //List<int> AcquiredItemList;
+    //
+    #endregion
 
     private Vector3 _moveDir;
-
-    protected EPlayerBottomState _bottomState = EPlayerBottomState.Idle;
-    protected EPlayerHeadState _headState = EPlayerHeadState.Idle;
-    protected EPlayerHeadDirState _headDirState = EPlayerHeadDirState.None;
-    public EPlayerBottomState BottomState
-    {
-        get { return _bottomState; }
-        set
-        {
-            if (_bottomState != value)
-            {
-                _bottomState = value;
-                UpdateBottomAnimation();
-            }
-        }
-    }
-
-    public EPlayerHeadState HeadState
-    {
-        get { return _headState; }
-        set
-        {
-            if (_headState != value)
-            {
-                _headState = value;
-            }
-        }
-    }
-
-    public EPlayerHeadDirState HeadDirState
-    {
-        get { return _headDirState; }
-        set
-        {
-            if (_headDirState != value)
-            {
-                _headDirState = value;
-                UpdateFacing();
-            }
-        }
-    }
-
 
 
     private void Awake()
     {
-        AnimatorHead = transform.GetChild(0).GetComponentInChildren<Animator>();
-        AnimatorHead.enabled = false;
-        AnimatorBottom = transform.GetChild(1).GetComponentInChildren<Animator>();
+        Init();
+    }
 
-        Rigidbody = GetComponent<Rigidbody2D>();
-        Head = transform.Find("Head").GetComponent<SpriteRenderer>();
-        Bottom = transform.Find("Bottom").GetComponent<SpriteRenderer>();
-
+    public override void Init()
+    {
+        base.Init();
         HeadSprite = new Sprite[]
-        {
+       {
             Managers.Resource.Load<Sprite>("isaac_up"),
             Managers.Resource.Load<Sprite>("isaac_down"),
             Managers.Resource.Load<Sprite>("isaac_right"),
-        };
-    }
-
-    void Start()
-    {
-
+       };
     }
 
     void Update()
@@ -118,31 +69,6 @@ public class MainCharacter : MonoBehaviour
         UpdateMovement(vel);
         #endregion
     }
-
-    public void UpdateAttack(Vector2 attackVel)
-    {
-        if (attackVel != Vector2.zero)
-        {
-            HeadDirState = EPlayerHeadDirState.None;
-            AnimatorHead.enabled = true;
-            HeadState = EPlayerHeadState.Attack;
-
-            if (attackVel.y != 0 && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)))
-            {
-                HeadDirState = attackVel.y > 0 ? EPlayerHeadDirState.Up : EPlayerHeadDirState.Down;
-            }
-            else if (attackVel.x != 0)
-            {
-                HeadDirState = attackVel.x > 0 ? EPlayerHeadDirState.Right : EPlayerHeadDirState.Left;
-            }
-        }
-        else
-        {
-            AnimatorHead.enabled = false;
-            HeadState = EPlayerHeadState.Idle;
-        }
-    }
-
     public void UpdateMovement(Vector2 vel)
     {
         Rigidbody.velocity = vel;
@@ -151,148 +77,47 @@ public class MainCharacter : MonoBehaviour
         {
             if (vel.y != 0 && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))
             {
-                BottomState = vel.y > 0 ? EPlayerBottomState.MoveUp : EPlayerBottomState.MoveDown;
-                if (HeadState == EPlayerHeadState.Idle)
-                    HeadDirState = vel.y > 0 ? EPlayerHeadDirState.Up : EPlayerHeadDirState.Down;
+                BottomState = vel.y > 0 ? ECreatureBottomState.MoveUp : ECreatureBottomState.MoveDown;
+                if (HeadState == ECreatureHeadState.Idle)
+                    HeadDirState = vel.y > 0 ? ECreatureHeadDirState.Up : ECreatureHeadDirState.Down;
             }
             else if (vel.x != 0)
             {
-                BottomState = vel.x > 0 ? EPlayerBottomState.MoveRight : EPlayerBottomState.MoveLeft;
-                if (HeadState == EPlayerHeadState.Idle)
-                    HeadDirState = vel.x > 0 ? EPlayerHeadDirState.Right : EPlayerHeadDirState.Left;
+                BottomState = vel.x > 0 ? ECreatureBottomState.MoveRight : ECreatureBottomState.MoveLeft;
+                if (HeadState == ECreatureHeadState.Idle)
+                    HeadDirState = vel.x > 0 ? ECreatureHeadDirState.Right : ECreatureHeadDirState.Left;
             }
         }
         else
         {
-            BottomState = EPlayerBottomState.Idle;
-            if (HeadState == EPlayerHeadState.Idle)
-                HeadDirState = EPlayerHeadDirState.Down;
+            BottomState = ECreatureBottomState.Idle;
+            if (HeadState == ECreatureHeadState.Idle)
+                HeadDirState = ECreatureHeadDirState.Down;
         }
     }
 
-    public void UpdateFacing()
+    public void UpdateAttack(Vector2 attackVel)
     {
-        if (HeadState == EPlayerHeadState.Attack)
+        if (attackVel != Vector2.zero)
         {
+            HeadDirState = ECreatureHeadDirState.None;
             AnimatorHead.enabled = true;
-            UpdateHeadAnimation();
+            HeadState = ECreatureHeadState.Attack;
+
+            if (attackVel.y != 0 && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)))
+            {
+                HeadDirState = attackVel.y > 0 ? ECreatureHeadDirState.Up : ECreatureHeadDirState.Down;
+            }
+            else if (attackVel.x != 0)
+            {
+                HeadDirState = attackVel.x > 0 ? ECreatureHeadDirState.Right : ECreatureHeadDirState.Left;
+            }
         }
         else
         {
             AnimatorHead.enabled = false;
-            UpdateHeadSprite();
-        }
-
-
-    }
-
-    public void UpdateHeadAnimation()
-    {
-        switch (HeadDirState)
-        {
-            case EPlayerHeadDirState.Up:
-                Head.flipX = false;
-                AnimatorHead.Play("Attack_Up");
-                break;
-            case EPlayerHeadDirState.Down:
-                Head.flipX = false;
-                AnimatorHead.Play("Attack_Down");
-                break;
-            case EPlayerHeadDirState.Left:
-                Head.flipX = true;
-                AnimatorHead.Play("Attack_Right");
-                break;
-            case EPlayerHeadDirState.Right:
-                Head.flipX = false;
-                AnimatorHead.Play("Attack_Right");
-                break;
+            HeadState = ECreatureHeadState.Idle;
         }
     }
-
-    public void UpdateHeadSprite()
-    {
-        switch (HeadDirState)
-        {
-            case EPlayerHeadDirState.Up:
-                Head.flipX = false;
-                Head.sprite = HeadSprite[0];
-                break;
-            case EPlayerHeadDirState.Down:
-                Head.flipX = false;
-                Head.sprite = HeadSprite[1];
-                break;
-            case EPlayerHeadDirState.Left:
-                Head.flipX = true;
-                Head.sprite = HeadSprite[2];
-                break;
-            case EPlayerHeadDirState.Right:
-                Head.flipX = false;
-                Head.sprite = HeadSprite[2];
-                break;
-        }
-    }
-
-    public void UpdateBottomAnimation()
-    {
-        switch (BottomState)
-        {
-            case EPlayerBottomState.Idle:
-                Bottom.flipX = false;
-                AnimatorBottom.Play("Idle");
-                break;
-            case EPlayerBottomState.MoveDown:
-                Bottom.flipX = false;
-                AnimatorBottom.Play("Walk_Down");
-                break;
-            case EPlayerBottomState.MoveUp:
-                Bottom.flipX = true;
-                AnimatorBottom.Play("Walk_Down");
-                break;
-            case EPlayerBottomState.MoveLeft:
-                Bottom.flipX = true;
-                AnimatorBottom.Play("Walk_Horiz");
-                break;
-            case EPlayerBottomState.MoveRight:
-                Bottom.flipX = false;
-                AnimatorBottom.Play("Walk_Horiz");
-                break;
-            case EPlayerBottomState.OnDamaged:
-                break;
-            case EPlayerBottomState.OnDead:
-                break;
-
-        }
-    }
-
-
-    public void GenerateProjectile()
-    {
-        switch (HeadDirState)
-        {
-            case EPlayerHeadDirState.Up:
-                SpawnProjectile(0,1);
-                break;
-            case EPlayerHeadDirState.Down:
-                SpawnProjectile(0, -1);
-                break;
-            case EPlayerHeadDirState.Left:
-                SpawnProjectile(-1, 0);
-                break;
-            case EPlayerHeadDirState.Right:
-                SpawnProjectile(1, 0);
-                break;
-        }
-    }
-
-    public void SpawnProjectile(float x, float y)
-    {
-        GameObject go = Managers.Resource.Instantiate("Projectile");
-        go.name = "Projectile";
-        Vector2 pos;
-        pos.x =  x;
-        pos.y =  y;
-
-        Projectile projectile = go.GetComponent<Projectile>();
-        projectile.SetInfo(transform.GetChild(0).transform.position,pos);
-    }
+    
 }

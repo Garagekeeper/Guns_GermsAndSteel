@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Define
 {
-    public enum EPlayerBottomState
+    public enum ECreatureBottomState
     {
         Idle,
         MoveRight,
@@ -15,13 +15,13 @@ public class Define
         OnDead
     }
 
-    public enum EPlayerHeadState
+    public enum ECreatureHeadState
     {
         Idle,
         Attack,
     }
 
-    public enum EPlayerHeadDirState
+    public enum ECreatureHeadDirState
     {
         None,
         Up,
