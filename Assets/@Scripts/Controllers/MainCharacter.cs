@@ -39,6 +39,8 @@ public class MainCharacter : Creature
             Managers.Resource.Load<Sprite>("isaac_down"),
             Managers.Resource.Load<Sprite>("isaac_right"),
        };
+
+        CreatureType = ECreatureType.MainCharacter;
     }
 
     void Update()
@@ -67,6 +69,9 @@ public class MainCharacter : Creature
             vel.y = 0;
 
         UpdateMovement(vel);
+
+        if (Input.GetKey(KeyCode.X))
+            SpawnBomb();
         #endregion
     }
     public void UpdateMovement(Vector2 vel)
@@ -119,5 +124,14 @@ public class MainCharacter : Creature
             HeadState = ECreatureHeadState.Idle;
         }
     }
-    
+
+    public void SpawnBomb()
+    {
+        GameObject go = Managers.Resource.Instantiate("Bomb");
+        go.name = "Bomb";
+
+        Bomb bomb = go.GetComponent<Bomb>();
+        bomb.SetInfo(transform.position);
+    }
+
 }

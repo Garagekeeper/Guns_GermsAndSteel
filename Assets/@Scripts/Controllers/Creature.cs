@@ -14,9 +14,9 @@ public class Creature : MonoBehaviour
     public float ShotSpeed { get; set; }
     public float Luck { get; set; }
 
-    int Coin;
-    int Bomb = 1;
     #endregion
+
+    public ECreatureType CreatureType { get; protected set; } = ECreatureType.None;
 
     protected Animator AnimatorHead { get; set; }
     protected Animator AnimatorBottom { get; set; }
@@ -108,7 +108,6 @@ public class Creature : MonoBehaviour
             AnimatorHead.enabled = false;
             UpdateHeadSprite();
         }
-
 
     }
 
@@ -222,12 +221,31 @@ public class Creature : MonoBehaviour
     }
 
 
+    public void OnDamaged(Creature owner) 
+    {
+        if (Hp <= 0)
+        {
+            OnDead();
+            return;
+        }
+        else
+        {
+            Hp -= owner.AttackDamage;
+            //TODO
+            //Damaged Animation
+        }
+    }
+
+    public void OnDead()
+    {
+        //TODO
+        //Dead Animation
+        Destroy(this);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        GameObject go = collision.gameObject;
-        if (go.name == "Projectile" && go.GetComponent<Projectile>().Owner)
-            return;
-        //TODO
+
     }
 
 }

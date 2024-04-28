@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEditor.PlayerSettings;
+using static Define;
 
 public class Projectile : MonoBehaviour
 {
@@ -30,12 +31,18 @@ public class Projectile : MonoBehaviour
         Owner = owner;
         transform.position = origin;
         Vector2 correction = new Vector2(0, 0);
+        
         if (Vector2.Dot(targetDir, owner.Rigidbody.velocity) > 0)
             correction = owner.Rigidbody.velocity * 0.5f;
         _target = targetDir * Owner.AttackSpeed + correction;
         Rigidbody.velocity = _target;
+        
         LayerMask mask = 0;
-        mask |= (1 << 6);
+        if (owner.CreatureType == ECreatureType.MainCharacter) mask |= (1 << 6);
+        if (owner.CreatureType == ECreatureType.Monster) mask |= (1 << 7);
+
+
+
         Collider.excludeLayers = mask;
 
         _coroutine = StartCoroutine(CoRserveDestroy(Owner.Range));
@@ -49,6 +56,12 @@ public class Projectile : MonoBehaviour
                 StopCoroutine(_coroutine);
             Destroy(gameObject);
         }
+        else
+        {
+            other.GetComponent<Creature>().OnDamaged(Owner);
+        }
+
+        
     }
 
     private IEnumerator CoRserveDestroy(float lifetime)
