@@ -13,6 +13,7 @@ public class Creature : MonoBehaviour
     public float Range { get; set; }
     public float ShotSpeed { get; set; }
     public float Luck { get; set; }
+    public float BombDamage { get; set; }
 
     #endregion
 
@@ -85,6 +86,7 @@ public class Creature : MonoBehaviour
         Range = 1.0f;
         ShotSpeed = 1.0f;
         Luck = 0f;
+        BombDamage = 100f;
 
         AnimatorHead = transform.GetChild(0).GetComponentInChildren<Animator>();
         AnimatorHead.enabled = false;
@@ -221,26 +223,40 @@ public class Creature : MonoBehaviour
     }
 
 
-    public void OnDamaged(Creature owner) 
+    public virtual void OnDamaged(Creature owner, ESkillType skillType)
     {
-        if (Hp <= 0)
+        switch (skillType)
+        {
+            case ESkillType.BodySlam:
+                //TODO
+                break;
+            case ESkillType.Bomb:
+                Hp -= BombDamage;
+                break;
+            case ESkillType.Projectile:
+                Hp -= AttackDamage;
+                break;
+            case ESkillType.Fire:
+                break;
+            case ESkillType.Spike:
+                break;
+        }
+
+        Debug.Log(Hp);
+
+        if (Hp < 0)
         {
             OnDead();
             return;
         }
-        else
-        {
-            Hp -= owner.AttackDamage;
-            //TODO
-            //Damaged Animation
-        }
+
     }
 
     public void OnDead()
     {
         //TODO
         //Dead Animation
-        Destroy(this);
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -22,12 +22,6 @@ public static class Define
         OnDead
     }
 
-    public enum ECreatureHeadState
-    {
-        Idle,
-        Attack,
-    }
-
     public enum ECreatureHeadDirState
     {
         None,
@@ -35,6 +29,21 @@ public static class Define
         Down,
         Left,
         Right,
+    }
+
+    public enum ECreatureHeadState
+    {
+        Idle,
+        Attack,
+    }
+
+    public enum ESkillType
+    {
+        BodySlam,
+        Bomb,
+        Fire,
+        Projectile,
+        Spike,
     }
 
 }

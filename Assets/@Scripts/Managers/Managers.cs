@@ -8,8 +8,10 @@ public class Managers : MonoBehaviour
     private static Managers Instance { get { Init(); return m_instance; } }
 
     private ResourceManager _resource = new ResourceManager();
+    private ResourceManager _map = new ResourceManager();
 
     public static ResourceManager Resource { get { return Instance?._resource; } }
+    public static ResourceManager Map { get { return Instance?._map; } }
 
     public static void Init()
     {

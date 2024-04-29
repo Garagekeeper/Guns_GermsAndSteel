@@ -20,6 +20,9 @@ public class MainCharacter : Creature
     //var ActiveItem;
     //List<int> AcquiredItemList;
     //
+
+    public float DamageByOtherConstant { get; set; } = 0.5f;
+
     #endregion
 
     private Vector3 _moveDir;
@@ -70,7 +73,7 @@ public class MainCharacter : Creature
 
         UpdateMovement(vel);
 
-        if (Input.GetKey(KeyCode.X))
+        if (Input.GetKeyDown(KeyCode.E))
             SpawnBomb();
         #endregion
     }
@@ -128,10 +131,23 @@ public class MainCharacter : Creature
     public void SpawnBomb()
     {
         GameObject go = Managers.Resource.Instantiate("Bomb");
-        go.name = "Bomb";
 
         Bomb bomb = go.GetComponent<Bomb>();
-        bomb.SetInfo(transform.position);
+        bomb.SetInfo(this);
+    }
+
+    public override void OnDamaged(Creature owner, ESkillType skillType)
+    {
+        Hp -= DamageByOtherConstant;
+
+        Debug.Log(Hp);
+
+        if (Hp < 0)
+        {
+            OnDead();
+            return;
+        }
+
     }
 
 }

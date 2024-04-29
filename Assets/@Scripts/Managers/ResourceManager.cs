@@ -80,6 +80,7 @@ public class ResourceManager
 
             foreach (var result in op.Result)
             {
+                isSprite = false;
                 var tempChar = result.PrimaryKey;
                 if (result.InternalId.Contains(".png"))
                     isSprite = true;

@@ -16,7 +16,21 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 661158fbcd809d048818ff93521f4887
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 2301727e45ebbe849a76d845bd598568
+    m_Address: effect_029_explosion
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4500259fc99b36f4b985b58a6e131b87
+    m_Address: bomb
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

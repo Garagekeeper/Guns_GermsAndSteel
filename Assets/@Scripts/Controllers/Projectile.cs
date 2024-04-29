@@ -16,6 +16,8 @@ public class Projectile : MonoBehaviour
     private Vector2 _target;
     private Coroutine _coroutine;
 
+    private ESkillType _skillType = ESkillType.Projectile;
+
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -58,7 +60,7 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            other.GetComponent<Creature>().OnDamaged(Owner);
+            other.GetComponent<Creature>().OnDamaged(Owner, _skillType);
         }
 
         
