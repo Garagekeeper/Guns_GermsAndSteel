@@ -1,3 +1,4 @@
+using Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,19 +15,25 @@ public class MainCharacter : Creature
     //float PercentageOfDevil;
     //float PercentageOfAngel;
     int Coin;
-    int Bomb = 1;
+    int BombCount = 1;
     //TODO
     //var SubItem;
     //var ActiveItem;
     //List<int> AcquiredItemList;
-    //
+    //public int SpaceItemId { get; set; } = 43003;
+    //public int QItemId { get; set; } = 43002;
+
+    //public Item SpaceItem { get; set; }
+    //public Item QItem { get; set; }
+
+    //protected List<Item> _passiveItem;
 
     public float DamageByOtherConstant { get; set; } = 0.5f;
 
     #endregion
 
     private Vector3 _moveDir;
-
+    //private Type _target;
 
     private void Awake()
     {
@@ -42,6 +49,11 @@ public class MainCharacter : Creature
             Managers.Resource.Load<Sprite>("isaac_down"),
             Managers.Resource.Load<Sprite>("isaac_right"),
        };
+
+        //SpaceItem = new Item(SpaceItemId);
+        //QItem = new Item(QItemId);
+
+
 
         CreatureType = ECreatureType.MainCharacter;
     }
@@ -75,6 +87,13 @@ public class MainCharacter : Creature
 
         if (Input.GetKeyDown(KeyCode.E))
             SpawnBomb();
+
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //    UseItem(QItem);
+
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //    UseItem(SpaceItem);
+
         #endregion
     }
     public void UpdateMovement(Vector2 vel)
@@ -128,13 +147,28 @@ public class MainCharacter : Creature
         }
     }
 
-    public void SpawnBomb()
-    {
-        GameObject go = Managers.Resource.Instantiate("Bomb");
+    //public void UseItem(Item item)
+    //{
+    //    if (item.CoolDownGage == item.CoolTime)
+    //        ApplyitemEffect(item);
+    //}
 
-        Bomb bomb = go.GetComponent<Bomb>();
-        bomb.SetInfo(this);
-    }
+    //public void ApplyitemEffect(Item item)
+    //{
+    //    switch (item.ItemEfec)
+    //    {
+    //        case EItemEfect.Up:
+    //            var temp =_target.GetProperty(item.Target).GetValue(this);
+    //            break;
+    //        case EItemEfect.Down:
+    //            break;
+    //        case EItemEfect.Teleport:
+    //            break;
+    //        case EItemEfect.Roll:
+    //            break;
+
+    //    }
+    //}
 
     public override void OnDamaged(Creature owner, ESkillType skillType)
     {
@@ -142,12 +176,25 @@ public class MainCharacter : Creature
 
         Debug.Log(Hp);
 
-        if (Hp < 0)
+        if (Hp <= 0)
         {
             OnDead();
             return;
         }
 
     }
+
+    public void SpawnBomb()
+    {
+        if (BombCount <= 0) return;
+        GameObject go = Managers.Resource.Instantiate("Bomb");
+
+        Bomb bomb = go.GetComponent<Bomb>();
+        bomb.SetInfo(this);
+        BombCount--;
+    }
+
+    //public Event
+
 
 }
