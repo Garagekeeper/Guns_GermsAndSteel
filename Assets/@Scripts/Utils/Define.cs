@@ -46,4 +46,18 @@ public static class Define
         Spike,
     }
 
+    public enum EItemType
+    {
+        ActiveItem,
+        Cards,
+        Pills,
+    }
+
+    public enum EItemEfect
+    {
+        Down = -1,
+        Roll,
+        Up,
+        Teleport,
+    }
 }

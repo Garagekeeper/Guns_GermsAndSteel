@@ -19,12 +19,15 @@ public class MainCharacter : Creature
     //TODO
     //var SubItem;
     //var ActiveItem;
-    //List<int> AcquiredItemList;
-    //public int SpaceItemId { get; set; } = 43003;
-    //public int QItemId { get; set; } = 43002;
+    List<int> AcquiredItemList;
+   
 
-    //public Item SpaceItem { get; set; }
-    //public Item QItem { get; set; }
+    public event Action<Item> UseActiveItem;
+    public int SpaceItemId { get; set; } = 43003;
+    public int QItemId { get; set; } = 43002;
+
+    public Item SpaceItem { get; set; }
+    public Item QItem { get; set; }
 
     //protected List<Item> _passiveItem;
 
@@ -33,7 +36,7 @@ public class MainCharacter : Creature
     #endregion
 
     private Vector3 _moveDir;
-    //private Type _target;
+    private Type _target;
 
     private void Awake()
     {
@@ -50,11 +53,12 @@ public class MainCharacter : Creature
             Managers.Resource.Load<Sprite>("isaac_right"),
        };
 
-        //SpaceItem = new Item(SpaceItemId);
-        //QItem = new Item(QItemId);
+        SpaceItem = new Item(SpaceItemId);
+        QItem = new Item(QItemId);
 
 
-
+        UseActiveItem -= HandleUsingActiveItem;
+        UseActiveItem += HandleUsingActiveItem;
         CreatureType = ECreatureType.MainCharacter;
     }
 
@@ -88,11 +92,11 @@ public class MainCharacter : Creature
         if (Input.GetKeyDown(KeyCode.E))
             SpawnBomb();
 
-        //if (Input.GetKeyDown(KeyCode.Q))
-        //    UseItem(QItem);
+        if (Input.GetKeyDown(KeyCode.Q))
+            UseItem(QItem);
 
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //    UseItem(SpaceItem);
+        if (Input.GetKeyDown(KeyCode.Space))
+            UseItem(SpaceItem);
 
         #endregion
     }
@@ -147,28 +151,65 @@ public class MainCharacter : Creature
         }
     }
 
-    //public void UseItem(Item item)
-    //{
-    //    if (item.CoolDownGage == item.CoolTime)
-    //        ApplyitemEffect(item);
-    //}
+    public void UseItem(Item item)
+    {
+        if (item.CoolDownGage == item.CoolTime)
+        {
+            UseActiveItem?.Invoke(item);
+            //ApplyItemEffect(item);
+        }
+    }
 
-    //public void ApplyitemEffect(Item item)
-    //{
-    //    switch (item.ItemEfec)
-    //    {
-    //        case EItemEfect.Up:
-    //            var temp =_target.GetProperty(item.Target).GetValue(this);
-    //            break;
-    //        case EItemEfect.Down:
-    //            break;
-    //        case EItemEfect.Teleport:
-    //            break;
-    //        case EItemEfect.Roll:
-    //            break;
+    public void ApplyItemEffect(Item item)
+    {
+        switch (item.ItemEfec)
+        {
+            case EItemEfect.Up:
+                var temp = _target.GetProperty(item.Target).GetValue(this);
+                break;
+            case EItemEfect.Down:
+                break;
+            case EItemEfect.Teleport:
+                break;
+            case EItemEfect.Roll:
+                break;
 
-    //    }
-    //}
+        }
+    }
+
+    private void HandleUsingActiveItem(Item item)
+    {
+        if (item.Target == "Position")
+        {
+            System.Random random = new System.Random();
+            var x = random.NextDouble() * (7.5f + 8.5f) - 8.5f;
+            var y = random.NextDouble() * (2.5f + 3.5f) - 3.5f;
+
+            transform.position = new Vector2((float)x, (float)y);
+            //TODO
+            //방을 이동하는 TP를 구현하자
+        }else
+        {
+            switch (item.Target)
+            {
+                case "AttackDamage":
+                    AttackDamage += (float) ((int)item.ItemEfec) * item.Value;
+                    //TODO
+                    //add multiplyer
+                    break;
+
+                case "Hp":
+                    Hp += (float)((int)item.ItemEfec) * item.Value;
+                    //TODO
+                    //HPCheck (dead Check, MaxCheck)
+                    break;
+            }
+        }
+
+        Debug.Log(AttackDamage);
+        Debug.Log(Hp);
+
+    }
 
     public override void OnDamaged(Creature owner, ESkillType skillType)
     {
@@ -193,6 +234,8 @@ public class MainCharacter : Creature
         bomb.SetInfo(this);
         BombCount--;
     }
+
+    
 
     //public Event
 

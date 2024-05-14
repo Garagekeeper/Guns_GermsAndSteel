@@ -27,6 +27,7 @@ public class TitleScene : MonoBehaviour
             Debug.Log($"{key} {count}/{totalCount}");
             if (count == totalCount)
             {
+                Managers.Data.Init();
                 startText.text = "Press space Key To Start";
             }
         });

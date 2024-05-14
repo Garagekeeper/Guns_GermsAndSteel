@@ -7,11 +7,13 @@ public class Managers : MonoBehaviour
     private static Managers m_instance;
     private static Managers Instance { get { Init(); return m_instance; } }
 
-    private ResourceManager _resource = new ResourceManager();
+    private DataManager _data = new DataManager();
     private ResourceManager _map = new ResourceManager();
+    private ResourceManager _resource = new ResourceManager();
 
-    public static ResourceManager Resource { get { return Instance?._resource; } }
+    public static DataManager Data { get { return Instance?._data; } }
     public static ResourceManager Map { get { return Instance?._map; } }
+    public static ResourceManager Resource { get { return Instance?._resource; } }
 
     public static void Init()
     {

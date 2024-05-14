@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 18
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -134,7 +134,952 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: ui_cardfronts_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 125
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b4edf328b25aff4e8b0a48f08885071
+      internalID: -1569056646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_1
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 125
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27418202dd0762b4ca97cda74a03da4c
+      internalID: -1464168321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_2
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 125
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59ea55ab58c8d514085c90b08e001c71
+      internalID: 303989212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_3
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 125
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c53496c7e0a29143b2594b865d606d5
+      internalID: -663401973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_4
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 125
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e6f5d532339624cb043b6b8649e6b8
+      internalID: 1100189359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_5
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 125
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d259892af15a6524785c06278bd04e79
+      internalID: -1190278979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_6
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 125
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5367b815f0dd9b14d9e8bad7849274d5
+      internalID: -1850452553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_7
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 125
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5131bbeff8c371943924dfc969335a60
+      internalID: 1291059207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_8
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 101
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 860eed3b9d94278499a0c015b20bed81
+      internalID: 1303950175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_9
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 101
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0628009ed1bf2cd4fb72094f527d43e6
+      internalID: -622420597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_10
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 101
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1785ab77250e4e543b33b831b0765a81
+      internalID: 1807656027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_11
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 101
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6837e1e68a1e2774ea45d32d456cb2f3
+      internalID: -408614444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_12
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 101
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7268cbd63688280409767bc1f6e12508
+      internalID: 83223271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_13
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 101
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6d38f6ae865d7e418202caabbc130c4
+      internalID: 1148935774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_14
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 101
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecca3445fbc001542aaa5b47da640d86
+      internalID: 1396354310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_15
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 101
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a06d0d6cba49c2409659200ae128e52
+      internalID: 756381955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_16
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 77
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa6a0bc3ba70ea645be2099f2a8fee2a
+      internalID: -839812645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_17
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 77
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62aa0a30d7b2dda489a80c87f9150130
+      internalID: -1974955588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_18
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 77
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 591cd7f580826b846bfe29876779efc4
+      internalID: 254549025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_19
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 77
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b3f1b570c1a09641931807e9ea4a33f
+      internalID: 2098616360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_20
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 77
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ac43ef27111c7f45b2f6afb03006394
+      internalID: -1965841409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_21
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 77
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31aaa105f91688d438e22792267e35a3
+      internalID: 1017936941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_22
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 77
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f6a36c253324844086b22c3ced4a903
+      internalID: -1345940703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_23
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 53
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d217be7d72636441b914543a8c468f1
+      internalID: -1681500742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_24
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 53
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9289612758ac548a79fb8cecce733a
+      internalID: 131007181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_25
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 53
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bcfa7a734b6b55449e8ea41203f1e45
+      internalID: -401648818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_26
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 53
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a856915d61ab7d48be3db380d2b5d4f
+      internalID: -869685304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_27
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 53
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a53e034f3e7e66d41ac5229c558537bb
+      internalID: 1055679929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_28
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 53
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf464cfa3011c464aa0a3918b57320ce
+      internalID: -807267019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_29
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 53
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ca2c29097c96484eb2d3d0a2f9a6168
+      internalID: -282821092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_30
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 29
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd435c5ac7f43cf478d923aafa7576fe
+      internalID: -1101450620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_31
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 29
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9db54ef4f522d5c4b8061c50877ce15e
+      internalID: 1055411005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_32
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 29
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af9ee29ac9096b4488d6cdac91dd7588
+      internalID: -653250721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_33
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 29
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0d7ca7a3e1b9eb41b64fe0bf9bc0dd2
+      internalID: -57293389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_34
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 29
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54acb3b908d9da149900585ccd85bbcb
+      internalID: -1981291176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_35
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 29
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1837dc56930de924886e07c9df66dc82
+      internalID: 403346369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_36
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 29
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 158ae1ef11c7c0546ab37e20ee041210
+      internalID: -709008996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_37
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 5
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94525dca12392f546b161cef3d8172ea
+      internalID: -690772519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_38
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 5
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0f3fb53c4eb06d4cb96b54537835602
+      internalID: 1403030321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_39
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 5
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0481ac5bafc5ebf40a575bb6b385c4bf
+      internalID: -422583407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_40
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 5
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06bedcc65e4c55f47ab6c100d69032ac
+      internalID: -1057990077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_41
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 5
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c376519e8e4206948888c3bc73f1f422
+      internalID: 1454461787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_42
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 5
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 691b85bddb42a63428ef104f31da021c
+      internalID: 459286418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_43
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 5
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9384407f884db8498c285ea51deb353
+      internalID: -1326717232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_cardfronts_44
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 5
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb96334a3dc7591438eef6f3b8c1d116
+      internalID: -1708838260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +1090,52 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ui_cardfronts_0: -1569056646
+      ui_cardfronts_1: -1464168321
+      ui_cardfronts_10: 1807656027
+      ui_cardfronts_11: -408614444
+      ui_cardfronts_12: 83223271
+      ui_cardfronts_13: 1148935774
+      ui_cardfronts_14: 1396354310
+      ui_cardfronts_15: 756381955
+      ui_cardfronts_16: -839812645
+      ui_cardfronts_17: -1974955588
+      ui_cardfronts_18: 254549025
+      ui_cardfronts_19: 2098616360
+      ui_cardfronts_2: 303989212
+      ui_cardfronts_20: -1965841409
+      ui_cardfronts_21: 1017936941
+      ui_cardfronts_22: -1345940703
+      ui_cardfronts_23: -1681500742
+      ui_cardfronts_24: 131007181
+      ui_cardfronts_25: -401648818
+      ui_cardfronts_26: -869685304
+      ui_cardfronts_27: 1055679929
+      ui_cardfronts_28: -807267019
+      ui_cardfronts_29: -282821092
+      ui_cardfronts_3: -663401973
+      ui_cardfronts_30: -1101450620
+      ui_cardfronts_31: 1055411005
+      ui_cardfronts_32: -653250721
+      ui_cardfronts_33: -57293389
+      ui_cardfronts_34: -1981291176
+      ui_cardfronts_35: 403346369
+      ui_cardfronts_36: -709008996
+      ui_cardfronts_37: -690772519
+      ui_cardfronts_38: 1403030321
+      ui_cardfronts_39: -422583407
+      ui_cardfronts_4: 1100189359
+      ui_cardfronts_40: -1057990077
+      ui_cardfronts_41: 1454461787
+      ui_cardfronts_42: 459286418
+      ui_cardfronts_43: -1326717232
+      ui_cardfronts_44: -1708838260
+      ui_cardfronts_5: -1190278979
+      ui_cardfronts_6: -1850452553
+      ui_cardfronts_7: 1291059207
+      ui_cardfronts_8: 1303950175
+      ui_cardfronts_9: -622420597
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

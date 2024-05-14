@@ -97,6 +97,7 @@ public class ResourceManager
     #endregion
     public GameObject Instantiate(string key, Transform parent = null)
     {
+        // key에 해당하는 프리팹을 인스턴스화한다.
         GameObject prefab = Load<GameObject>(key);
 
         if (prefab == null)
