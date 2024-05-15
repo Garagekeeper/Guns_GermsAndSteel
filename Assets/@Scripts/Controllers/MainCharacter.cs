@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 using static Define;
+using static UnityEditor.Progress;
 public class MainCharacter : Creature
 {
     #region Stat
@@ -98,6 +99,13 @@ public class MainCharacter : Creature
         if (Input.GetKeyDown(KeyCode.Space))
             UseItem(SpaceItem);
 
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            SpaceItem.CoolDownGage = Math.Min(SpaceItem.CoolDownGage + 1, SpaceItem.CoolTime);
+            Managers.Game.UseActiveItem(SpaceItem.CoolDownGage, "Up");
+        }
+
+
         #endregion
     }
     public void UpdateMovement(Vector2 vel)
@@ -155,7 +163,9 @@ public class MainCharacter : Creature
     {
         if (item.CoolDownGage == item.CoolTime)
         {
+            item.CoolDownGage = 0;
             UseActiveItem?.Invoke(item);
+            Managers.Game.UseActiveItem(item.CoolDownGage, "Down");
             //ApplyItemEffect(item);
         }
     }
@@ -217,6 +227,7 @@ public class MainCharacter : Creature
 
         Debug.Log(Hp);
 
+        //TODO HpCheck
         if (Hp <= 0)
         {
             OnDead();

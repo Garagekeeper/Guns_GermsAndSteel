@@ -10,10 +10,12 @@ public class Managers : MonoBehaviour
     private DataManager _data = new DataManager();
     private ResourceManager _map = new ResourceManager();
     private ResourceManager _resource = new ResourceManager();
+    private GameManager _game = new GameManager();
 
     public static DataManager Data { get { return Instance?._data; } }
     public static ResourceManager Map { get { return Instance?._map; } }
     public static ResourceManager Resource { get { return Instance?._resource; } }
+    public static GameManager Game { get { return Instance?._game; } }
 
     public static void Init()
     {
