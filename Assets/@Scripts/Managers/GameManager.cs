@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class GameManager
 {
-    public event Action<int, string> ChargeBarEnevnt;
+    public event Action<int, int, string> ChargeBarEnevnt;
 
-    public void UseActiveItem(int coolDownGage, string type)
+    public void UseActiveItem(int coolDownGage, int coolTime, string type)
     {
-        ChargeBarEnevnt?.Invoke(coolDownGage, type);
+        ChargeBarEnevnt?.Invoke(coolDownGage, coolTime,  type);
     }
 }

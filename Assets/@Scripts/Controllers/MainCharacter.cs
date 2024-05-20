@@ -61,6 +61,9 @@ public class MainCharacter : Creature
         UseActiveItem -= HandleUsingActiveItem;
         UseActiveItem += HandleUsingActiveItem;
         CreatureType = ECreatureType.MainCharacter;
+
+
+        Managers.UI.PlayingUI.ChangeChargeBarSize("ui_chargebar_" +  (9 - SpaceItem.CoolTime));
     }
 
     void Update()
@@ -101,8 +104,9 @@ public class MainCharacter : Creature
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
+            int cnt=0;
             SpaceItem.CoolDownGage = Math.Min(SpaceItem.CoolDownGage + 1, SpaceItem.CoolTime);
-            Managers.Game.UseActiveItem(SpaceItem.CoolDownGage, "Up");
+            Managers.Game.UseActiveItem(SpaceItem.CoolDownGage, SpaceItem.CoolTime, "Up");
         }
 
 
@@ -165,7 +169,7 @@ public class MainCharacter : Creature
         {
             item.CoolDownGage = 0;
             UseActiveItem?.Invoke(item);
-            Managers.Game.UseActiveItem(item.CoolDownGage, "Down");
+            Managers.Game.UseActiveItem(item.CoolDownGage, item.CoolTime, "Down");
             //ApplyItemEffect(item);
         }
     }

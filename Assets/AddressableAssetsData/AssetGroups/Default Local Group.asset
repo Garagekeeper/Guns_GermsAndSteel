@@ -31,6 +31,13 @@ MonoBehaviour:
     - Preload
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9e00eac2f8b2944bae018530a7d6134
+    m_Address: ui_chargebar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

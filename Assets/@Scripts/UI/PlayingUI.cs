@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.Progress;
 
 public class PlayingUI : UI_Base
@@ -30,9 +31,9 @@ public class PlayingUI : UI_Base
         Managers.Game.ChargeBarEnevnt += ChargeGage;
     }
 
-    protected void UseAllGage(int coolDownGage, string type)
+    protected void UseAllGage(int coolDownGage, int coolTime, string type)
     {
-        if (type == "UP") return;
+        if (type == "Up") return;
 
         var temp = (int)Images.UnChargedBar1;
 
@@ -43,14 +44,28 @@ public class PlayingUI : UI_Base
 
     }
 
-    protected void ChargeGage(int coolDownGage, string type)
+    protected void ChargeGage(int coolDownGage, int coolTime, string type)
     {
         if (type == "Down") return;
 
-        var temp = (int)Images.UnChargedBar1;
+        var temp = 0 ;
+        if (coolDownGage == 1)
+            temp = (int)Images.UnChargedBar1;
+        else 
+            temp = (int)Images.UnChargedBar1 + (6 / coolTime);
 
-        GetImage(temp + coolDownGage).gameObject.SetActive(false);
+        for (int i=0; i< 6/coolTime; i++)
+        {
+            GetImage( (temp) + i).gameObject.SetActive(false);
 
+        }
+
+    }
+
+    public void ChangeChargeBarSize(string name)
+    {
+        Sprite sprite = Managers.Resource.Load<Sprite>(name);
+        GetImage((int)Images.ChargeBar).gameObject.GetComponent<Image>().sprite = sprite;
     }
 
 
