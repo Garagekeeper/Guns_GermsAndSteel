@@ -68,5 +68,16 @@ public class PlayingUI : UI_Base
         GetImage((int)Images.ChargeBar).gameObject.GetComponent<Image>().sprite = sprite;
     }
 
+    public void ChangeSpaceItem(string name)
+    {
+        Sprite sprite = Managers.Resource.Load<Sprite>(name);
+        GetImage((int)Images.SpaceItem).gameObject.GetComponent<Image>().sprite= sprite;
+    }
+    public void ChangeQItem(string name)
+    {
+        Sprite sprite = Managers.Resource.Load<Sprite>(name);
+        GetImage((int)Images.QItem).gameObject.GetComponent<Image>().sprite= sprite;
+    }
+
 
 }

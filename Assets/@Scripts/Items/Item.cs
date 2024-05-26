@@ -8,6 +8,8 @@ public class Item
 {
     public int TemplateId { get; set; }
 
+    public string SpriteName { get; set; } 
+    public string Name { get; set; } 
     public EItemType ItemType { get; set; }
     public EItemEfect ItemEfec { get; set; }
 
@@ -18,6 +20,8 @@ public class Item
     public int CoolTime { get; private set; }
     public int CoolDownGage { get; set; }
 
+
+
     public ItemData TemplateData
     {
         get
@@ -26,9 +30,13 @@ public class Item
         }
     }
 
+    public Item() { }
+
     public Item(int itemId)
     {
         TemplateId = itemId;
+        SpriteName = TemplateData.SpriteName;
+        Name = TemplateData.Name;
         ItemType = TemplateData.Type;
         ItemEfec = TemplateData.Effect;
         CoolTime = TemplateData.CoolTime;
@@ -36,5 +44,27 @@ public class Item
         Value = TemplateData.Value;
         CoolDownGage = CoolTime;
 
+    }
+
+    public void ChangeItem(int itemId)
+    {
+        if (itemId == 0)
+        {
+            TemplateId = 0;
+            SpriteName = "NONE";
+        }
+        else
+        {
+            TemplateId = itemId;
+            SpriteName = TemplateData.SpriteName;
+            Name = TemplateData.Name;
+            ItemType = TemplateData.Type;
+            ItemEfec = TemplateData.Effect;
+            CoolTime = TemplateData.CoolTime;
+            Target = TemplateData.Target;
+            Value = TemplateData.Value;
+            CoolDownGage = CoolTime;
+        }
+        
     }
 }

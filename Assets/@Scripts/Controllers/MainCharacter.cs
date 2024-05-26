@@ -24,7 +24,7 @@ public class MainCharacter : Creature
    
 
     public event Action<Item> UseActiveItem;
-    public int SpaceItemId { get; set; } = 43003;
+    public int SpaceItemId { get; set; } = 44;
     public int QItemId { get; set; } = 43002;
 
     public Item SpaceItem { get; set; }
@@ -38,7 +38,7 @@ public class MainCharacter : Creature
 
     private Vector3 _moveDir;
     private Type _target;
-
+    System.Random random = new System.Random();
     private void Awake()
     {
         Init();
@@ -54,8 +54,8 @@ public class MainCharacter : Creature
             Managers.Resource.Load<Sprite>("isaac_right"),
        };
 
-        SpaceItem = new Item(SpaceItemId);
-        QItem = new Item(QItemId);
+        SpaceItem = new Item();
+        QItem = new Item();
 
 
         UseActiveItem -= HandleUsingActiveItem;
@@ -63,6 +63,8 @@ public class MainCharacter : Creature
         CreatureType = ECreatureType.MainCharacter;
 
 
+        ChangeSpaceItem(SpaceItem, SpaceItemId);
+        ChangeQItem(QItem, QItemId);
         Managers.UI.PlayingUI.ChangeChargeBarSize("ui_chargebar_" +  (9 - SpaceItem.CoolTime));
     }
 
@@ -104,7 +106,6 @@ public class MainCharacter : Creature
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            int cnt=0;
             SpaceItem.CoolDownGage = Math.Min(SpaceItem.CoolDownGage + 1, SpaceItem.CoolTime);
             Managers.Game.UseActiveItem(SpaceItem.CoolDownGage, SpaceItem.CoolTime, "Up");
         }
@@ -165,13 +166,25 @@ public class MainCharacter : Creature
 
     public void UseItem(Item item)
     {
-        if (item.CoolDownGage == item.CoolTime)
+        if (item == null)
+            return;
+
+        if (item.ItemType == EItemType.ActiveItem)
         {
-            item.CoolDownGage = 0;
+            if (item.CoolDownGage == item.CoolTime)
+            {
+                item.CoolDownGage = 0;
+                UseActiveItem?.Invoke(item);
+                Managers.Game.UseActiveItem(item.CoolDownGage, item.CoolTime, "Down");
+                //ApplyItemEffect(item);
+            }
+        }else
+        {
             UseActiveItem?.Invoke(item);
-            Managers.Game.UseActiveItem(item.CoolDownGage, item.CoolTime, "Down");
-            //ApplyItemEffect(item);
+            ChangeQItem(item, 0);
+            QItem = null;
         }
+       
     }
 
     public void ApplyItemEffect(Item item)
@@ -195,7 +208,7 @@ public class MainCharacter : Creature
     {
         if (item.Target == "Position")
         {
-            System.Random random = new System.Random();
+           
             var x = random.NextDouble() * (7.5f + 8.5f) - 8.5f;
             var y = random.NextDouble() * (2.5f + 3.5f) - 3.5f;
 
@@ -250,9 +263,28 @@ public class MainCharacter : Creature
         BombCount--;
     }
 
-    
+    public void ChangeSpaceItem(Item item, int id)
+    {
+        item.ChangeItem(id);
+        Managers.UI.PlayingUI.ChangeSpaceItem(item.SpriteName);
+    }
 
-    //public Event
+    public void ChangeQItem(Item item, int id)
+    {
+        item.ChangeItem(id);
+        if (item.ItemType == EItemType.Pills)
+        {
+            Managers.UI.PlayingUI.ChangeQItem(item.SpriteName + (random.Next() % 13));
+            return;
+        }
+        Managers.UI.PlayingUI.ChangeQItem(item.SpriteName);
+    }
+
+
+    public void AcquireItem()
+    {
+        //TODO
+    }
 
 
 }

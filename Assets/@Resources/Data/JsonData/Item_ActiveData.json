@@ -10,7 +10,7 @@
       "Weight": 1,
       "DataId": 43001,
       "Description": "Health Up",
-      "SpriteName": null
+      "SpriteName": "_ui_pills_"
     },
     {
       "Name": "XV - The Devil",
@@ -22,7 +22,7 @@
       "Weight": 1,
       "DataId": 43002,
       "Description": "Damage Up",
-      "SpriteName": null
+      "SpriteName": "cardfronts_15"
     },
     {
       "Name": "Teleport",
@@ -32,9 +32,9 @@
       "Effect": 2,
       "Value": -1,
       "Weight": 1,
-      "DataId": 43003,
+      "DataId": 44,
       "Description": "Teleport Random",
-      "SpriteName": null
+      "SpriteName": "collectibles_044_teleport"
     }
   ]
 }

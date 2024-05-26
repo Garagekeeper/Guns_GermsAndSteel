@@ -51,6 +51,7 @@ public static class Define
         ActiveItem,
         Cards,
         Pills,
+        Passive
     }
 
     public enum EItemEfect

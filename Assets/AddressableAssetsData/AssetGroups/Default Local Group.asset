@@ -38,6 +38,16 @@ MonoBehaviour:
     - Sprite
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5657e01baac206d448aac8b0dad49f77
+    m_Address: Assets/@Resources/Sprites/Issac/ui/ui_cardfronts.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f16a191db9e7fd5458ab41fe39812dd4
+    m_Address: Assets/@Resources/Sprites/Issac/ui/ui_cardspills.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:
