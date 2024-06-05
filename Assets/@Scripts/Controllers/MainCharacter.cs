@@ -36,7 +36,6 @@ public class MainCharacter : Creature
 
     #endregion
 
-    private Vector3 _moveDir;
     private Type _target;
     System.Random random = new System.Random();
     private void Awake()
@@ -113,7 +112,7 @@ public class MainCharacter : Creature
 
         #endregion
     }
-    public void UpdateMovement(Vector2 vel)
+    private void UpdateMovement(Vector2 vel)
     {
         Rigidbody.velocity = vel;
 
