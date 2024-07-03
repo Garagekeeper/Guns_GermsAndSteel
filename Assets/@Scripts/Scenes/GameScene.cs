@@ -11,9 +11,10 @@ public class GameScene : MonoBehaviour
 
         Managers.UI.PlayingUI = go.GetComponent<PlayingUI>();
 
-        go = Managers.Resource.Instantiate("Player");
-        go.name = "Player";
+        MainCharacter mc = Managers.Object.Spawn<MainCharacter>(Vector3.zero);
 
-       
+        //TODO map 프리팹화 시 이름을 변경해줘야
+        GameObject map = GameObject.Find("Grid");
+        Managers.Map.LoadMap(map, "Grid");
     }
 }
