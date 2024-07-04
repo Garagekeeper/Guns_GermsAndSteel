@@ -23,6 +23,8 @@ public class Creature : MonoBehaviour
     protected Animator AnimatorBottom { get; set; }
     public Rigidbody2D Rigidbody { get; set; }
 
+    protected CapsuleCollider2D Collider { get; set; }
+
     protected Sprite[] HeadSprite { get; set; }
 
     protected SpriteRenderer Head { get; set; }
@@ -93,8 +95,10 @@ public class Creature : MonoBehaviour
         AnimatorBottom = transform.GetChild(1).GetComponentInChildren<Animator>();
 
         Rigidbody = GetComponent<Rigidbody2D>();
+        Collider = GetComponent<CapsuleCollider2D>();
         Head = transform.Find("Head").GetComponent<SpriteRenderer>();
         Bottom = transform.Find("Bottom").GetComponent<SpriteRenderer>();
+
     }
 
 

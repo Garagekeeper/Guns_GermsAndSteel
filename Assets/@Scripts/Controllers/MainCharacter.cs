@@ -56,10 +56,13 @@ public class MainCharacter : Creature
         SpaceItem = new Item();
         QItem = new Item();
 
-
         UseActiveItem -= HandleUsingActiveItem;
         UseActiveItem += HandleUsingActiveItem;
         CreatureType = ECreatureType.MainCharacter;
+
+        LayerMask mask = 0;
+        if (CreatureType == ECreatureType.MainCharacter) mask |= (1 << 6);
+        Collider.excludeLayers = mask;
 
 
         ChangeSpaceItem(SpaceItem, SpaceItemId);

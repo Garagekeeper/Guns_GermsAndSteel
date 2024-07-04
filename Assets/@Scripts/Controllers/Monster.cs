@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static Define;
 
 public class Monster : Creature
 {
@@ -24,8 +25,18 @@ public class Monster : Creature
     public override void Init()
     {
         base.Init();
+
+        //TODO 하드코딩 수정하기
+        CreatureType = ECreatureType.Monster;
+        Speed = 1.0f;
+        Hp = 10.0f;
+
+        //Monster끼리는 충돌 X
+        LayerMask mask = 0;
+        mask |= (1 << 7);
+        Collider.excludeLayers = mask;
+
         //TODO 몬스터 종류에 따른 스프라이트 불러오기
-        base.Init();
         HeadSprite = new Sprite[]
        {
             Managers.Resource.Load<Sprite>("isaac_up"),
@@ -35,8 +46,8 @@ public class Monster : Creature
 
         lr = GetComponent<LineRenderer>();
 
-        lr.startWidth = lr.endWidth = 0.1f;
-        lr.material.color = Color.blue;
+        lr.startWidth = lr.endWidth = 0.05f;
+        lr.material.color = Random.ColorHSV();
         lr.enabled = false;
 
         //StartCoroutine(CoUpdateTarget());
@@ -61,11 +72,11 @@ public class Monster : Creature
         lr.positionCount = path.Count;
 
         var from = path.First();
-        for (int i=0; i<path.Count-1; i++)
+        for (int i = 0; i < path.Count - 1; i++)
         {
-            var to = path[i+1];
+            var to = path[i + 1];
             lr.SetPosition(i, from);
-            lr.SetPosition(i+1, to);
+            lr.SetPosition(i + 1, to);
             from = to;
         }
     }
@@ -79,26 +90,19 @@ public class Monster : Creature
         Vector3Int destCellPos = Managers.Map.WorldToCell(Target.transform.position);
         List<Vector3Int> path = Managers.Map.FindPath(this, startCellPos, destCellPos);
 
-        Debug.Log(path);
+        if (path.Count < 2)
+            return;
+
         drawPath(path);
-    }
 
-    private void UpdateTarget()
-    {
-        Target = FindClosetTarget(this, Managers.Object.MainCharacters.ToList<Creature>());
-    }
+        Vector3 dir = path[1] - path[0];
+        Vector3 normalizedDir = dir.normalized;
 
-    private IEnumerator CoUpdateTarget()
-    {
-        //TODO 하드코딩! 수정
-        WaitForSeconds wait = new WaitForSeconds(0.5f);
-        yield return wait;
+        Vector2 vel = Rigidbody.velocity;
+        vel.x = normalizedDir.x * Speed;
+        vel.y = normalizedDir.y * Speed;
 
-        while (true)
-        {
-            UpdateTarget();
-            yield return wait;
-        }
+        Rigidbody.velocity = vel;
     }
 
     private Creature FindClosetTarget(Creature src, List<Creature> targets)

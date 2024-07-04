@@ -94,6 +94,22 @@ public class MapManager
         new Vector3Int(-1, 1, 0), //Top Left
     };
 
+    public bool CanGo(Vector3Int next)
+    {
+        int x = next.x;
+        int y = next.y;
+
+        if (x < _minimumX || x > _maximumX) return false;
+        if (y < _minimumY || y > _maximumY) return false;
+        if (_cellCollisionType[x + _maximumX, y + _maximumY] == ECellCollisionType.Wall) return false;
+        return true;
+    }
+
+    /*
+     *  -3 -2 -1 0 1 2 3
+     *   0  1  2 3 4 5 6
+     */
+
     public List<Vector3Int> FindPath(Creature crreature, Vector3Int startPos, Vector3Int destPos, int maxDepth = 10)
     {
         //Save Best Candidate
@@ -133,6 +149,8 @@ public class MapManager
             foreach (Vector3Int dirVec in _possibleVector)
             {
                 Vector3Int next = pos + dirVec;
+
+                if (!CanGo(next)) break;
 
                 int huristic = (dest - next).sqrMagnitude;
 

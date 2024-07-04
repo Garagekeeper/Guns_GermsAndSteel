@@ -41,7 +41,7 @@ public class MapCollisionParser
                         if (tile != null)
                         {
                             if (tile.name.Contains("not"))
-                                parser.Write(Define.MAP_TOOL_SEMI_WALL);
+                                parser.Write(Define.MAP_TOOL_WALL);
                             else
                                 parser.Write(Define.MAP_TOOL_NONE);
                             

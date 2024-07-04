@@ -8,6 +8,7 @@ public static class Define
     public const char MAP_TOOL_WALL = '0';
     public const char MAP_TOOL_NONE = '1';
     public const char MAP_TOOL_SEMI_WALL = '2';
+    public const char MAP_TOOL_DOOR = '3';
 
     public enum ECellCollisionType
     {
