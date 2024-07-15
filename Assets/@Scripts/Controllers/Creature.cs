@@ -6,7 +6,21 @@ using static Define;
 public class Creature : MonoBehaviour
 {
     #region BaseStat
-    public float Hp { get; set; }
+    private float _hp;
+    public float Hp
+    {
+        get { return _hp; }
+        set
+        {
+            if (_hp != value)
+            {
+                if (value <= 0)
+                    OnDead();
+                else
+                    _hp = value;
+            }
+        }
+    }
     public float AttackSpeed { get; set; }
     public float Speed { get; set; }
     public float AttackDamage { get; set; }
@@ -254,6 +268,12 @@ public class Creature : MonoBehaviour
             return;
         }
 
+    }
+
+    public bool IsDead()
+    {
+        if (Hp <= 0) return true;
+        return false;
     }
 
     public void OnDead()

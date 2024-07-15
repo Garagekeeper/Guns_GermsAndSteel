@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ObjectManager
 {
-    public HashSet<Monster> Monsters { get; } = new HashSet<Monster>();
     public HashSet<MainCharacter> MainCharacters { get; } = new HashSet<MainCharacter>();
+    public HashSet<Monster> Monsters { get; } = new HashSet<Monster>();
     public T Spawn<T>(object pos, int templateID = 0, string prfabName = "") where T : Creature
     {
         System.Type type = typeof(T);
@@ -26,6 +26,24 @@ public class ObjectManager
             return mt as T;
         }
         return null;
+    }
+
+    public void Despawn<T>(T obj) where T : Creature
+    {
+        System.Type type = typeof(T);
+
+        if (type == typeof(MainCharacter))
+        {
+            MainCharacters.Remove(obj as MainCharacter);
+            Object.Destroy(obj);
+        }
+        else if (type == typeof(Monster))
+        {
+            Monsters.Remove(obj as Monster);
+            Object.Destroy(obj);
+        }
+        
+        //Managers.Map.RemoveObject(obj);
     }
 }
 

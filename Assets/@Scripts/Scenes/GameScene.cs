@@ -13,8 +13,7 @@ public class GameScene : MonoBehaviour
 
         MainCharacter mc = Managers.Object.Spawn<MainCharacter>(Vector3.zero);
 
-        //TODO map 프리팹화 시 이름을 변경해줘야
-        GameObject map = GameObject.Find("Grid");
-        Managers.Map.LoadMap(map, "Grid");
+        Managers.Map.GenerateStage();
+        Managers.Map.LoadMap();
     }
 }

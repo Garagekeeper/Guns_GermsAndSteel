@@ -21,7 +21,8 @@ public class MainCharacter : Creature
     //var SubItem;
     //var ActiveItem;
     List<int> AcquiredItemList;
-   
+
+
 
     public event Action<Item> UseActiveItem;
     public int SpaceItemId { get; set; } = 44;
@@ -30,12 +31,40 @@ public class MainCharacter : Creature
     public Item SpaceItem { get; set; }
     public Item QItem { get; set; }
 
+    private bool _canMove = true;
+
+    IEnumerator DelayBoolChange()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _canMove = true;
+    }
+
+    public bool CanMove
+    {
+        get { return _canMove; }
+        set
+        {
+            if (_canMove != value)
+            {
+                if (value == true)
+                    StartCoroutine("DelayBoolChange");
+                else
+                {
+                    _canMove = value;
+                    BottomState = ECreatureBottomState.Idle;
+                    HeadState = ECreatureHeadState.Idle;
+                }
+
+            }
+        }
+    }
     //protected List<Item> _passiveItem;
 
     public float DamageByOtherConstant { get; set; } = 0.5f;
 
     #endregion
 
+    public RoomClass CurrentRoom { get; set; }
     private Type _target;
     System.Random random = new System.Random();
     private void Awake()
@@ -59,6 +88,7 @@ public class MainCharacter : Creature
         UseActiveItem -= HandleUsingActiveItem;
         UseActiveItem += HandleUsingActiveItem;
         CreatureType = ECreatureType.MainCharacter;
+        CanMove = true;
 
         LayerMask mask = 0;
         if (CreatureType == ECreatureType.MainCharacter) mask |= (1 << 6);
@@ -67,7 +97,10 @@ public class MainCharacter : Creature
 
         ChangeSpaceItem(SpaceItem, SpaceItemId);
         ChangeQItem(QItem, QItemId);
-        Managers.UI.PlayingUI.ChangeChargeBarSize("ui_chargebar_" +  (9 - SpaceItem.CoolTime));
+        Managers.UI.PlayingUI.ChangeChargeBarSize("ui_chargebar_" + (9 - SpaceItem.CoolTime));
+
+
+        CurrentRoom = Managers.Map.CurrentRoom;
     }
 
     void Update()
@@ -112,11 +145,17 @@ public class MainCharacter : Creature
             Managers.Game.UseActiveItem(SpaceItem.CoolDownGage, SpaceItem.CoolTime, "Up");
         }
 
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            Managers.Map.RoomClear();
+        }
+
 
         #endregion
     }
     private void UpdateMovement(Vector2 vel)
     {
+        if (CanMove == false) return;
         Rigidbody.velocity = vel;
 
         if (vel != Vector2.zero)
@@ -180,13 +219,14 @@ public class MainCharacter : Creature
                 Managers.Game.UseActiveItem(item.CoolDownGage, item.CoolTime, "Down");
                 //ApplyItemEffect(item);
             }
-        }else
+        }
+        else
         {
             UseActiveItem?.Invoke(item);
             ChangeQItem(item, 0);
             QItem = null;
         }
-       
+
     }
 
     public void ApplyItemEffect(Item item)
@@ -210,19 +250,14 @@ public class MainCharacter : Creature
     {
         if (item.Target == "Position")
         {
-           
-            var x = random.NextDouble() * (7.5f + 8.5f) - 8.5f;
-            var y = random.NextDouble() * (2.5f + 3.5f) - 3.5f;
-
-            transform.position = new Vector2((float)x, (float)y);
-            //TODO
-            //방을 이동하는 TP를 구현하자
-        }else
+            Managers.Game.TPToNormalRandom();
+        }
+        else
         {
             switch (item.Target)
             {
                 case "AttackDamage":
-                    AttackDamage += (float) ((int)item.ItemEfec) * item.Value;
+                    AttackDamage += (float)((int)item.ItemEfec) * item.Value;
                     //TODO
                     //add multiplyer
                     break;
@@ -288,5 +323,17 @@ public class MainCharacter : Creature
         //TODO
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag == "Door")
+        {
+            CanMove = false;
+            Managers.Game.GoToNextRoom(collision.transform.name);
+        }
 
+        if (collision.transform.tag == "Monster")
+        {
+            OnDamaged(collision.transform.gameObject.GetComponent<Monster>(), ESkillType.BodySlam);
+        }
+    }
 }

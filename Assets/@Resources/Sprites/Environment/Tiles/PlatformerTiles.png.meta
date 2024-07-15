@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 15
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -145,7 +145,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: StoneTile
+      name: PlatformerTiles_2
       rect:
         serializedVersion: 2
         x: 0
@@ -155,18 +155,22 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
+      outline:
+      - - {x: 8.013031, y: -8}
+        - {x: 7.920679, y: 8}
+        - {x: 24, y: 8}
+        - {x: 24, y: -7.9638786}
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2cab907f4b928b745ba11508df93d88e
-      internalID: 21300000
+      spriteID: 875bdd29e9ae89946ab62d781454b2c9
+      internalID: 700393737
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BrickTile
+      name: PlatformerTiles_1
       rect:
         serializedVersion: 2
         x: 16
@@ -180,14 +184,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4807686958aa9e24790e08efec3d28ce
-      internalID: 21300002
+      spriteID: d911b5b42877c7d4da6ee014eb5406fc
+      internalID: 1499452884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BlueprintTile
+      name: PlatformerTiles_0
       rect:
         serializedVersion: 2
         x: 32
@@ -199,14 +203,18 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: -8, y: 8}
-        - {x: -8, y: -8}
-        - {x: 8, y: -8}
+      - - {x: -8, y: -8}
+        - {x: -8, y: 8}
         - {x: 8, y: 8}
+        - {x: 8, y: -8}
+      - - {x: -7, y: -7}
+        - {x: -7, y: 7}
+        - {x: 7, y: 7}
+        - {x: 7, y: -7}
       tessellationDetail: 0
       bones: []
-      spriteID: ff7d7adf649684649a6d235e8be9e4f8
-      internalID: 21300004
+      spriteID: 6daa0f1634f936b4eae2632c8e07fc97
+      internalID: 1012675715
       vertices: []
       indices: 
       edges: []
@@ -222,9 +230,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BlueprintTile: 21300004
-      BrickTile: 21300002
-      StoneTile: 21300000
+      PlatformerTiles_0: 1012675715
+      PlatformerTiles_1: 1499452884
+      PlatformerTiles_2: 700393737
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
