@@ -11,7 +11,7 @@ public class GameScene : MonoBehaviour
 
         Managers.UI.PlayingUI = go.GetComponent<PlayingUI>();
 
-        MainCharacter mc = Managers.Object.Spawn<MainCharacter>(Vector3.zero);
+        MainCharacter mc = Managers.Object.Spawn<MainCharacter>(new Vector3(-0.5f, -0.5f, 0));
 
         Managers.Map.GenerateStage();
         Managers.Map.LoadMap();

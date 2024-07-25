@@ -280,14 +280,6 @@ public class MainCharacter : Creature
         Hp -= DamageByOtherConstant;
 
         Debug.Log(Hp);
-
-        //TODO HpCheck
-        if (Hp <= 0)
-        {
-            OnDead();
-            return;
-        }
-
     }
 
     public void SpawnBomb()
@@ -333,7 +325,7 @@ public class MainCharacter : Creature
 
         if (collision.transform.tag == "Monster")
         {
-            OnDamaged(collision.transform.gameObject.GetComponent<Monster>(), ESkillType.BodySlam);
+            OnDamaged(collision.gameObject.GetComponent<Monster>(), ESkillType.BodySlam);
         }
     }
 }

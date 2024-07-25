@@ -73,3 +73,5 @@ crashlytics-build.properties
 
 stage.txt
 stage.txt.meta
+StageCollision.txt
+StageCollision.txt.meta

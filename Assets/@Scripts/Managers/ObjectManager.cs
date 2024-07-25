@@ -6,7 +6,7 @@ public class ObjectManager
 {
     public HashSet<MainCharacter> MainCharacters { get; } = new HashSet<MainCharacter>();
     public HashSet<Monster> Monsters { get; } = new HashSet<Monster>();
-    public T Spawn<T>(object pos, int templateID = 0, string prfabName = "") where T : Creature
+    public T Spawn<T>(Vector3 pos, int templateID = 0, string prfabName = "") where T : Creature
     {
         System.Type type = typeof(T);
         if (type == typeof(MainCharacter))
@@ -14,6 +14,7 @@ public class ObjectManager
             GameObject go = Managers.Resource.Instantiate("Player");
             go.name = "Player";
             MainCharacter mc = go.GetComponent<MainCharacter>();
+            mc.transform.position = pos;
             MainCharacters.Add(mc);
             return mc as T;
         }
@@ -22,6 +23,7 @@ public class ObjectManager
             GameObject go = Managers.Resource.Instantiate("Monster");
             go.name = "Monster";
             Monster mt = go.GetComponent<Monster>();
+            mt.transform.position = pos;
             Monsters.Add(mt);
             return mt as T;
         }
