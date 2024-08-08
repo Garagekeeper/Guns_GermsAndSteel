@@ -96,8 +96,6 @@ public class GameManager
         Sn = res % M;
     }
 
-
-
     #region RAND_FUNCTIONS
     public void Rand()
     {
@@ -131,7 +129,7 @@ public class GameManager
 
     #endregion
 
-    public void GoToNextStage() { }
+
     public void GoToNextRoom(string dir)
     {
         RoomClass currentRoom = Managers.Map.CurrentRoom;
@@ -142,40 +140,59 @@ public class GameManager
             Debug.Log("Err Current Room is Null!");
         }
 
-        if (currentRoom.IsClear)
-        {
-            switch (dir)
-            {
-                case "Right":
-                    index = 0;
-                    break;
-                case "Down":
-                    index = 1;
-                    break;
-                case "Left":
-                    index = 2;
-                    break;
-                case "Up":
-                    index = 3;
-                    break;
-            }
-            newPos.x = currentRoom._adjacencentRooms[index].XPos;
-            newPos.y = currentRoom._adjacencentRooms[index].YPos;
 
+        switch (dir)
+        {
+            case "Right":
+                index = 0;
+                break;
+            case "Down":
+                index = 1;
+                break;
+            case "Left":
+                index = 2;
+                break;
+            case "Up":
+                index = 3;
+                break;
         }
+        newPos.x = currentRoom._adjacencentRooms[index].XPos;
+        newPos.y = currentRoom._adjacencentRooms[index].YPos;
+
         //playerMove
         MovePlayerToNextRoom(index);
         //CameraMove
         MoveCameraToNextRoom(currentRoom._adjacencentRooms[index]);
         Managers.Map.CurrentRoom = currentRoom._adjacencentRooms[index];
 
-        
+
         foreach (var temp in Managers.Object.MainCharacters)
         {
             temp.CanMove = true;
         }
     }
 
+    public void GoToNextStage()
+    {
+        foreach (var temp in Managers.Object.MainCharacters)
+        {
+            temp.CanMove = false;
+            temp.gameObject.SetActive(false);
+        }
+
+        StageNumber++;
+        Managers.Map.DestroyMap();
+        Managers.Map.GenerateStage();
+        Managers.Map.LoadMap();
+
+        Cam.transform.position = new Vector3(-0.5f, -0.5f, 0);
+        foreach (var temp in Managers.Object.MainCharacters)
+        {
+            temp.gameObject.SetActive(true);
+            temp.transform.position = new Vector3(-0.5f, -0.5f, 0);
+            temp.CanMove = true;
+        }
+    }
 
     public void MovePlayerToNextRoom(int index)
     {
@@ -206,7 +223,7 @@ public class GameManager
     {
         Vector3 newPos = nextRoom.Transform.position;
         newPos.z = -10;
-        Managers.Game.Cam.TargetPos = newPos;
+        Managers.Game.Cam.TargetPos = newPos + new Vector3(-0.5f, -0.5f, 0);
     }
 
     public void TPToNormalRandom()
@@ -221,7 +238,7 @@ public class GameManager
         }
 
         RoomClass chosen = Choice(list);
-        Vector3 newPos = chosen.Transform.position;
+        Vector3 newPos = chosen.Transform.position + new Vector3(-0.5f, -0.5f, 0);
         foreach (var mc in Managers.Object.MainCharacters)
         {
             mc.CanMove = false;

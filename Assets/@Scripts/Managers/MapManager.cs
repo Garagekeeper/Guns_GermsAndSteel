@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 using static Define;
+using static RoomClass;
 
 public class RoomClass
 {
@@ -84,6 +85,142 @@ public class RoomClass
 }
 public class MapManager
 {
+    #region A* pathFinding
+    public struct PQNode : IComparable<PQNode>
+    {
+        public int Huristic;
+        public Vector3Int Pos;
+        public int Depth;
+
+        public int CompareTo(PQNode other)
+        {
+            if (Huristic == other.Huristic)
+                return 0;
+            return Huristic < other.Huristic ? 1 : -1;
+        }
+    }
+
+    List<Vector3Int> _possibleVector = new List<Vector3Int>()
+    {
+        new Vector3Int(0, 1, 0), //Top
+        new Vector3Int(1, 1, 0), //Top Right
+        new Vector3Int(1, 0, 0), //Right
+        new Vector3Int(1, -1, 0), //Bottom Right
+        new Vector3Int(0, -1, 0), //Bottom
+        new Vector3Int(-1, -1, 0), //Bottom Left
+        new Vector3Int(-1, 0, 0), //Left
+        new Vector3Int(-1, 1, 0), //Top Left
+    };
+
+    public bool CanGo(Vector3Int next)
+    {
+        int x = next.x;
+        int y = next.y;
+
+        if (x < _minimumX || x > _maximumX) return false;
+        if (y < _minimumY || y > _maximumY) return false;
+        if (_cellCollisionType[x + _maximumX, y + _maximumY] == ECellCollisionType.Wall) return false;
+        return true;
+    }
+
+    /*
+     *  -3 -2 -1 0 1 2 3
+     *   0  1  2 3 4 5 6
+     */
+
+    public List<Vector3Int> FindPath(Creature crreature, Vector3Int startPos, Vector3Int destPos, int maxDepth = 10)
+    {
+        //Save Best Candidate
+        Dictionary<Vector3Int, int> best = new Dictionary<Vector3Int, int>();
+
+        //Path tracking
+        Dictionary<Vector3Int, Vector3Int> parent = new Dictionary<Vector3Int, Vector3Int>();
+
+        PriorityQueue<PQNode> pq = new PriorityQueue<PQNode>();
+
+
+        Vector3Int pos = startPos;
+        Vector3Int dest = destPos;
+
+        Vector3Int closestCellPos = startPos;
+        int closestHuristic = (dest - pos).sqrMagnitude;
+
+        //
+        {
+            int huristic = (dest - pos).sqrMagnitude;
+            pq.Push(new PQNode() { Huristic = huristic, Pos = pos, Depth = 1 });
+            parent[pos] = pos;
+            best[pos] = huristic;
+        }
+
+        while (pq.Count > 0)
+        {
+            PQNode node = pq.Pop();
+            pos = node.Pos;
+
+            if (pos == dest)
+                break;
+
+            if (node.Depth >= maxDepth)
+                break;
+
+            foreach (Vector3Int dirVec in _possibleVector)
+            {
+                Vector3Int next = pos + dirVec;
+
+                if (!CanGo(next)) break;
+
+                int huristic = (dest - next).sqrMagnitude;
+
+                if (best.ContainsKey(next) == false)
+                    best[next] = int.MaxValue;
+
+                if (best[next] <= huristic)
+                    continue;
+
+                best[next] = huristic;
+
+                pq.Push(new PQNode() { Huristic = huristic, Pos = next, Depth = node.Depth + 1 });
+                parent[next] = pos;
+
+                if (closestHuristic > huristic)
+                {
+                    closestHuristic = huristic;
+                    closestCellPos = next;
+                }
+            }
+        }
+        if (parent.ContainsKey(dest) == false)
+            return CalcCellPathFromParent(parent, closestCellPos);
+
+        return CalcCellPathFromParent(parent, dest);
+    }
+
+    List<Vector3Int> CalcCellPathFromParent(Dictionary<Vector3Int, Vector3Int> parent, Vector3Int dest)
+    {
+        List<Vector3Int> cells = new List<Vector3Int>();
+
+        if (parent.ContainsKey(dest) == false)
+            return cells;
+
+        Vector3Int now = dest;
+
+        int cnt = 0;
+        while (parent[now] != now)
+        {
+            if (cnt++ > 500) break;
+            cells.Add(now);
+            now = parent[now];
+        }
+
+        cells.Add(now);
+        cells.Reverse();
+
+        return cells;
+    }
+
+    #endregion
+
     #region MAP_GENERATING
     public static int s_mapMaxX = 9;
     public static int s_mapMaxY = 9;
@@ -123,10 +260,6 @@ public class MapManager
     public RoomClass BossRoom { get; set; }
     public RoomClass CurrentRoom { get; set; }
 
-    public void Init()
-    {
-
-    }
 
     public bool CanCreateRoom(int x, int y)
     {
@@ -269,6 +402,16 @@ public class MapManager
             //TODO
             //비밀방은 겉으로 표시되는게 아니라
             //연결되지 않은 취급하자
+            //R D L U
+            //0 1 2 3
+            for (int i = 0; i < 4; i++)
+            {
+                if (rc._adjacencentRooms[i] != null)
+                {
+                    rc._adjacencentRooms[i]._adjacencentRooms[(i + 2) % 4] = null;
+                    rc._adjacencentRooms[i] = null;
+                }
+            }
         }
 
         //6. 황금방 설정
@@ -402,142 +545,6 @@ public class MapManager
     }
     #endregion
 
-    #region A* pathFinding
-    public struct PQNode : IComparable<PQNode>
-    {
-        public int Huristic;
-        public Vector3Int Pos;
-        public int Depth;
-
-        public int CompareTo(PQNode other)
-        {
-            if (Huristic == other.Huristic)
-                return 0;
-            return Huristic < other.Huristic ? 1 : -1;
-        }
-    }
-
-    List<Vector3Int> _possibleVector = new List<Vector3Int>()
-    {
-        new Vector3Int(0, 1, 0), //Top
-        new Vector3Int(1, 1, 0), //Top Right
-        new Vector3Int(1, 0, 0), //Right
-        new Vector3Int(1, -1, 0), //Bottom Right
-        new Vector3Int(0, -1, 0), //Bottom
-        new Vector3Int(-1, -1, 0), //Bottom Left
-        new Vector3Int(-1, 0, 0), //Left
-        new Vector3Int(-1, 1, 0), //Top Left
-    };
-
-    public bool CanGo(Vector3Int next)
-    {
-        int x = next.x;
-        int y = next.y;
-
-        if (x < _minimumX || x > _maximumX) return false;
-        if (y < _minimumY || y > _maximumY) return false;
-        if (_cellCollisionType[x + _maximumX, y + _maximumY] == ECellCollisionType.Wall) return false;
-        return true;
-    }
-
-    /*
-     *  -3 -2 -1 0 1 2 3
-     *   0  1  2 3 4 5 6
-     */
-
-    public List<Vector3Int> FindPath(Creature crreature, Vector3Int startPos, Vector3Int destPos, int maxDepth = 10)
-    {
-        //Save Best Candidate
-        Dictionary<Vector3Int, int> best = new Dictionary<Vector3Int, int>();
-
-        //Path tracking
-        Dictionary<Vector3Int, Vector3Int> parent = new Dictionary<Vector3Int, Vector3Int>();
-
-        PriorityQueue<PQNode> pq = new PriorityQueue<PQNode>();
-
-
-        Vector3Int pos = startPos;
-        Vector3Int dest = destPos;
-
-        Vector3Int closestCellPos = startPos;
-        int closestHuristic = (dest - pos).sqrMagnitude;
-
-        //
-        {
-            int huristic = (dest - pos).sqrMagnitude;
-            pq.Push(new PQNode() { Huristic = huristic, Pos = pos, Depth = 1 });
-            parent[pos] = pos;
-            best[pos] = huristic;
-        }
-
-        while (pq.Count > 0)
-        {
-            PQNode node = pq.Pop();
-            pos = node.Pos;
-
-            if (pos == dest)
-                break;
-
-            if (node.Depth >= maxDepth)
-                break;
-
-            foreach (Vector3Int dirVec in _possibleVector)
-            {
-                Vector3Int next = pos + dirVec;
-
-                if (!CanGo(next)) break;
-
-                int huristic = (dest - next).sqrMagnitude;
-
-                if (best.ContainsKey(next) == false)
-                    best[next] = int.MaxValue;
-
-                if (best[next] <= huristic)
-                    continue;
-
-                best[next] = huristic;
-
-                pq.Push(new PQNode() { Huristic = huristic, Pos = next, Depth = node.Depth + 1 });
-                parent[next] = pos;
-
-                if (closestHuristic > huristic)
-                {
-                    closestHuristic = huristic;
-                    closestCellPos = next;
-                }
-            }
-        }
-        if (parent.ContainsKey(dest) == false)
-            return CalcCellPathFromParent(parent, closestCellPos);
-
-        return CalcCellPathFromParent(parent, dest);
-    }
-
-    List<Vector3Int> CalcCellPathFromParent(Dictionary<Vector3Int, Vector3Int> parent, Vector3Int dest)
-    {
-        List<Vector3Int> cells = new List<Vector3Int>();
-
-        if (parent.ContainsKey(dest) == false)
-            return cells;
-
-        Vector3Int now = dest;
-
-        int cnt = 0;
-        while (parent[now] != now)
-        {
-            if (cnt++ > 500) break;
-            cells.Add(now);
-            now = parent[now];
-        }
-
-        cells.Add(now);
-        cells.Reverse();
-
-        return cells;
-    }
-
-    #endregion
-
     private int _minimumX;
     private int _minimumY;
     private int _maximumX;
@@ -558,7 +565,7 @@ public class MapManager
     {
         Map = Managers.Resource.Instantiate("Stage");
         CellGrid = Map.GetComponent<Grid>();
-
+        int index = 0;
         foreach (RoomClass r in Rooms)
         {
             //배열과 좌표의 차이 때문에 신경써줘야함
@@ -571,7 +578,7 @@ public class MapManager
 
             GameObject room = Managers.Resource.Instantiate("Room");
             room.transform.Translate(posDiff);
-            room.name = r.RoomType.ToString();
+            room.name = r.RoomType.ToString() + (r.RoomType == ERoomType.Normal ? index++ : "");
             room.transform.parent = Map.transform;
             r.Transform = room.transform;
             r.RoomObject = room;
@@ -726,8 +733,8 @@ public class MapManager
             yMax = Math.Max(yMax, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.yMax-1 + (int)room.Transform.position.y);
         }
 
-        Debug.Log(xMin + ", " + yMin + ", " + xMax + ", " + yMax);
-        Debug.Log(xMax - xMin + 1 + ", " + (yMax - yMin + 1));
+        //Debug.Log(xMin + ", " + yMin + ", " + xMax + ", " + yMax);
+        //Debug.Log(xMax - xMin + 1 + ", " + (yMax - yMin + 1));
 
         collisionData = new int[yMax - yMin + 1, xMax - xMin + 1];
 

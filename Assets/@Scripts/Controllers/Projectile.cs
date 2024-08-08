@@ -21,7 +21,9 @@ public class Projectile : MonoBehaviour
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        //하드코딩 수정
         _spriteRenderer.sprite = Managers.Resource.Load<Sprite>("bulletatlas_7");
+        _spriteRenderer.sortingOrder = 12;
         Rigidbody = GetComponent<Rigidbody2D>();
         transform.localScale = new Vector2(0.5f, 0.5f);
         Collider = gameObject.GetComponent<Collider2D>();
@@ -52,7 +54,7 @@ public class Projectile : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.name == "Collider")
+        if ("RightDownLeftUpCollider".Contains(other.gameObject.name))
         {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);

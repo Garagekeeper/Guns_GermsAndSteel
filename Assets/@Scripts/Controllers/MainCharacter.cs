@@ -98,9 +98,6 @@ public class MainCharacter : Creature
         ChangeSpaceItem(SpaceItem, SpaceItemId);
         ChangeQItem(QItem, QItemId);
         Managers.UI.PlayingUI.ChangeChargeBarSize("ui_chargebar_" + (9 - SpaceItem.CoolTime));
-
-
-        CurrentRoom = Managers.Map.CurrentRoom;
     }
 
     void Update()
@@ -120,13 +117,21 @@ public class MainCharacter : Creature
 
         #region Movement
         Vector2 vel = Rigidbody.velocity;
-        vel.x = Input.GetAxis("Horizontal") * Speed;
-        vel.y = Input.GetAxis("Vertical") * Speed;
+        if (CanMove)
+        {
+            vel.x = Input.GetAxis("Horizontal") * Speed;
+            vel.y = Input.GetAxis("Vertical") * Speed;
 
-        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
-            vel.x = 0;
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S))
-            vel.y = 0;
+            if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+                vel.x = 0;
+            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S))
+                vel.y = 0;
+
+        }
+        else
+        {
+            vel = Vector2.zero;
+        }
 
         UpdateMovement(vel);
 
@@ -155,7 +160,6 @@ public class MainCharacter : Creature
     }
     private void UpdateMovement(Vector2 vel)
     {
-        if (CanMove == false) return;
         Rigidbody.velocity = vel;
 
         if (vel != Vector2.zero)
@@ -185,10 +189,7 @@ public class MainCharacter : Creature
     {
         if (attackVel != Vector2.zero)
         {
-            HeadDirState = ECreatureHeadDirState.None;
-            AnimatorHead.enabled = true;
             HeadState = ECreatureHeadState.Attack;
-
             if (attackVel.y != 0 && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)))
             {
                 HeadDirState = attackVel.y > 0 ? ECreatureHeadDirState.Up : ECreatureHeadDirState.Down;
@@ -200,8 +201,9 @@ public class MainCharacter : Creature
         }
         else
         {
-            AnimatorHead.enabled = false;
             HeadState = ECreatureHeadState.Idle;
+            if (BottomState == ECreatureBottomState.Idle)
+                HeadDirState = ECreatureHeadDirState.Down;
         }
     }
 
@@ -270,9 +272,6 @@ public class MainCharacter : Creature
             }
         }
 
-        Debug.Log(AttackDamage);
-        Debug.Log(Hp);
-
     }
 
     public override void OnDamaged(Creature owner, ESkillType skillType)
@@ -317,10 +316,15 @@ public class MainCharacter : Creature
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag == "Door")
+        if (collision.transform.tag == "Door" && Managers.Map.CurrentRoom.IsClear)
         {
             CanMove = false;
             Managers.Game.GoToNextRoom(collision.transform.name);
+        }
+
+        if (collision.transform.tag == "StageDoor" && Managers.Map.CurrentRoom.IsClear)
+        {
+            Managers.Game.GoToNextStage();
         }
 
         if (collision.transform.tag == "Monster")

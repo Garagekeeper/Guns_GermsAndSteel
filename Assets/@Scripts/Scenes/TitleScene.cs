@@ -24,7 +24,7 @@ public class TitleScene : MonoBehaviour
         TextMeshProUGUI startText = GameObject.Find("StartingUI").transform.Find("StartingText").GetComponent<TextMeshProUGUI>();
         Managers.Resource.LoadAllAsync<Object>("Preload", (key, count, totalCount) =>
         {
-            Debug.Log($"{key} {count}/{totalCount}");
+            //Debug.Log($"{key} {count}/{totalCount}");
             if (count == totalCount)
             {
                 Managers.Data.Init();

@@ -60,6 +60,8 @@ public class Creature : MonoBehaviour
         }
     }
 
+    public bool HeadStateChanged { get; set; } = false;
+
     public ECreatureHeadState HeadState
     {
         get { return _headState; }
@@ -68,6 +70,11 @@ public class Creature : MonoBehaviour
             if (_headState != value)
             {
                 _headState = value;
+                HeadStateChanged = true;
+            }
+            else
+            {
+                HeadStateChanged = false;
             }
         }
     }
@@ -77,7 +84,7 @@ public class Creature : MonoBehaviour
         get { return _headDirState; }
         set
         {
-            if (_headDirState != value)
+            if (_headDirState != value || HeadStateChanged)
             {
                 _headDirState = value;
                 UpdateFacing();
@@ -105,7 +112,7 @@ public class Creature : MonoBehaviour
         BombDamage = 100f;
 
         AnimatorHead = transform.GetChild(0).GetComponentInChildren<Animator>();
-        AnimatorHead.enabled = false;
+        //AnimatorHead.enabled = false;
         AnimatorBottom = transform.GetChild(1).GetComponentInChildren<Animator>();
 
         Rigidbody = GetComponent<Rigidbody2D>();
@@ -118,64 +125,81 @@ public class Creature : MonoBehaviour
 
     public void UpdateFacing()
     {
-        if (HeadState == ECreatureHeadState.Attack)
-        {
-            AnimatorHead.enabled = true;
-            UpdateHeadAnimation();
-        }
-        else
-        {
-            AnimatorHead.enabled = false;
-            UpdateHeadSprite();
-        }
-
+        UpdateHeadAnimation();
     }
 
     public void UpdateHeadAnimation()
     {
-        switch (HeadDirState)
+        if (HeadState == ECreatureHeadState.Attack)
         {
-            case ECreatureHeadDirState.Up:
-                Head.flipX = false;
-                AnimatorHead.Play("Attack_Up");
-                break;
-            case ECreatureHeadDirState.Down:
-                Head.flipX = false;
-                AnimatorHead.Play("Attack_Down");
-                break;
-            case ECreatureHeadDirState.Left:
-                Head.flipX = true;
-                AnimatorHead.Play("Attack_Right");
-                break;
-            case ECreatureHeadDirState.Right:
-                Head.flipX = false;
-                AnimatorHead.Play("Attack_Right");
-                break;
+            switch (HeadDirState)
+            {
+                case ECreatureHeadDirState.Up:
+                    Head.flipX = false;
+                    AnimatorHead.Play("Attack_Up");
+                    break;
+                case ECreatureHeadDirState.Down:
+                    Head.flipX = false;
+                    AnimatorHead.Play("Attack_Down");
+                    break;
+                case ECreatureHeadDirState.Left:
+                    Head.flipX = true;
+                    AnimatorHead.Play("Attack_Right");
+                    break;
+                case ECreatureHeadDirState.Right:
+                    Head.flipX = false;
+                    AnimatorHead.Play("Attack_Right");
+                    break;
+            }
         }
+        else
+        {
+            switch (HeadDirState)
+            {
+                case ECreatureHeadDirState.Up:
+                    Head.flipX = false;
+                    AnimatorHead.Play("Look_Up");
+                    break;
+                case ECreatureHeadDirState.Down:
+                    Head.flipX = false;
+                    AnimatorHead.Play("Look_Down");
+                    break;
+                case ECreatureHeadDirState.Left:
+                    Head.flipX = true;
+                    AnimatorHead.Play("Look_Right");
+                    break;
+                case ECreatureHeadDirState.Right:
+                    Head.flipX = false;
+                    AnimatorHead.Play("Look_Right");
+                    break;
+            }
+        }
+
     }
 
-    public void UpdateHeadSprite()
-    {
-        switch (HeadDirState)
-        {
-            case ECreatureHeadDirState.Up:
-                Head.flipX = false;
-                Head.sprite = HeadSprite[0];
-                break;
-            case ECreatureHeadDirState.Down:
-                Head.flipX = false;
-                Head.sprite = HeadSprite[1];
-                break;
-            case ECreatureHeadDirState.Left:
-                Head.flipX = true;
-                Head.sprite = HeadSprite[2];
-                break;
-            case ECreatureHeadDirState.Right:
-                Head.flipX = false;
-                Head.sprite = HeadSprite[2];
-                break;
-        }
-    }
+    //public void UpdateHeadSprite()
+    //{
+    //    AnimatorHead.StopPlayback();
+    //    switch (HeadDirState)
+    //    {
+    //        case ECreatureHeadDirState.Up:
+    //            Head.flipX = false;
+    //            Head.sprite = HeadSprite[0];
+    //            break;
+    //        case ECreatureHeadDirState.Down:
+    //            Head.flipX = false;
+    //            Head.sprite = HeadSprite[1];
+    //            break;
+    //        case ECreatureHeadDirState.Left:
+    //            Head.flipX = true;
+    //            Head.sprite = HeadSprite[2];
+    //            break;
+    //        case ECreatureHeadDirState.Right:
+    //            Head.flipX = false;
+    //            Head.sprite = HeadSprite[2];
+    //            break;
+    //    }
+    //}
 
     public void UpdateBottomAnimation()
     {

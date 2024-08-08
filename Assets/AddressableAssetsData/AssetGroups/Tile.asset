@@ -12,11 +12,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
   m_Name: Tile
   m_EditorClassIdentifier: 
-  m_GroupName: Packed Assets
+  m_GroupName: Tile
   m_Data:
     m_SerializedData: []
   m_GUID: fe006ce42bc8d4546aa4b8f4942547b1
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 68c1faf0394732e478ce870281af17d4
+    m_Address: Spike
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88ed6a2964b34424792e6f9f0788a228
+    m_Address: Fire
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c6cc5a30b33d85488f66ef90b794043
+    m_Address: Door
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0eedc6cffa50ef4dbba08c1690b1a3f
+    m_Address: door_01_normaldoor_0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 803235e4f9ed51f41aaf801b6f1fa8c1
+    m_Address: door_01_normaldoor_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 486440ccc28821f47843995eaa6dd2cd
+    m_Address: door_01_normaldoor_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 287a72bce2e6ba842829e01ec2a57ce9
+    m_Address: door_01_normaldoor_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:
