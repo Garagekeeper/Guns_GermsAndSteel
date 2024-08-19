@@ -49,8 +49,8 @@ MonoBehaviour:
     m_Address: ui_chargebar
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Sprite
     - Preload
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5657e01baac206d448aac8b0dad49f77
     m_Address: ui_cardfronts
@@ -3904,6 +3904,27 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a415c5d09e3f15c4b9e837b45214c8f6
     m_Address: questionmark
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d3da7c055a7794c4fb94585f533a3f3a
+    m_Address: grid_spikes
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ddbae2fed9c739a469ed651def80d026
+    m_Address: grid_fireplace
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 523f4a0aee5f5c24b8210fee684fc184
+    m_Address: effect_005_fire
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload

@@ -73,4 +73,10 @@ public static class Define
         Up,
         Teleport,
     }
+
+    public enum ETileType
+    {
+        Fire,
+
+    }
 }

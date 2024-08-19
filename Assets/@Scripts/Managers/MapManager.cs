@@ -1,15 +1,16 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Unity.Mathematics;
-using Unity.VisualScripting.Antlr3.Runtime;
+using UnityEditor.AddressableAssets;
+using UnityEditor.AddressableAssets.Settings;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.UIElements;
 using static Define;
 using static RoomClass;
+using Object = UnityEngine.Object;
+
 
 public class RoomClass
 {
@@ -57,16 +58,19 @@ public class RoomClass
     private GameObject _doorSide1;
     private GameObject _doorSide2;
     private GameObject _doorCenter;
+    private GameObject _obstacle;
     private Tilemap _tilemap;
 
 
     public GameObject TilemapPrefab { get { return _tilemapPrefab; } set { _tilemapPrefab = value; } }
     public GameObject TilemapCollisionPrefab { get { return _tilemap_CollisionPrefab; } set { _tilemap_CollisionPrefab = value; } }
-    public GameObject Colliderefab { get { return _ColliderPrefab; } set { _ColliderPrefab = value; } }
+    public GameObject CollidePrefab { get { return _ColliderPrefab; } set { _ColliderPrefab = value; } }
     public GameObject DoorFrame { get { return _doorFrame; } set { _doorFrame = value; } }
     public GameObject DoorSide1 { get { return _doorSide1; } set { _doorSide1 = value; } }
     public GameObject DoorSide2 { get { return _doorSide2; } set { _doorSide2 = value; } }
     public GameObject DoorCenter { get { return _doorCenter; } set { _doorCenter = value; } }
+
+    public GameObject Obstacle { get { return _obstacle; } set { _obstacle = value; } }
     public Tilemap Tilemap { get { return _tilemap; } set { _tilemap = value; } }
 
 
@@ -545,10 +549,38 @@ public class MapManager
     }
     #endregion
 
+
     private int _minimumX;
     private int _minimumY;
     private int _maximumX;
     private int _maximumY;
+
+
+    public List<int> RoomCollisionCnt { get; } = new List<int>();
+
+    public void Init(Action callback)
+    {
+        for (int i = 0; i < Enum.GetValues(typeof(ERoomType)).Length; i++)
+            RoomCollisionCnt.Add(0);
+
+        Managers.Resource.LoadAllAsync<Object>("Tile_Map_Collision", (key, count, totalCount) =>
+        {
+            foreach (string name in Enum.GetNames(typeof(ERoomType)))
+            {
+                if (key.Contains(name))
+                {
+                    RoomCollisionCnt[(int)Enum.Parse(typeof(ERoomType), name)]++;
+                }
+            }
+
+            if (count == totalCount)
+            {
+                GenerateStage();
+                LoadMap();
+                callback?.Invoke();
+            }
+        });
+    }
 
     public GameObject Map { get; private set; }
     public Grid CellGrid { get; private set; }
@@ -577,6 +609,15 @@ public class MapManager
             //Debug.Log(r.RoomType + " diff: (" + posDiff.x + "|" + posDiff.y + ") ");
 
             GameObject room = Managers.Resource.Instantiate("Room");
+
+            #region Select Random Map Collision
+            string roomName;
+
+            roomName = "Tile_Map_Collision_" + r.RoomType.ToString() + "_" + Managers.Game.RandInt(0, RoomCollisionCnt[(int)r.RoomType] - 1);
+            GameObject roomTileMap = Managers.Resource.Instantiate(roomName);
+            roomTileMap.transform.SetParent(room.transform);
+
+            #endregion
             room.transform.Translate(posDiff);
             room.name = r.RoomType.ToString() + (r.RoomType == ERoomType.Normal ? index++ : "");
             room.transform.parent = Map.transform;
@@ -587,11 +628,14 @@ public class MapManager
             r.DoorFrame = room.transform.GetChild(1).gameObject;
             r.DoorSide1 = room.transform.GetChild(2).gameObject;
             r.DoorSide2 = room.transform.GetChild(3).gameObject;
-            r.TilemapCollisionPrefab = room.transform.GetChild(4).gameObject;
-            r.Colliderefab = room.transform.GetChild(5).gameObject;
+            r.Obstacle = room.transform.GetChild(4).gameObject;
+            r.CollidePrefab = room.transform.GetChild(5).gameObject;
+            r.TilemapCollisionPrefab = roomTileMap;
 
             r.Tilemap = r.TilemapPrefab.GetComponent<Tilemap>();
 
+
+            SetObstacle(r);
             ChangeDoorTile(r);
             r.TilemapCollisionPrefab.SetActive(false);
         }
@@ -697,7 +741,7 @@ public class MapManager
                 int nx = 0 + dx[i];
                 int ny = 0 + dy[i];
                 Vector3Int newPos = new Vector3Int(nx, ny);
-                Tilemap tm = room.Colliderefab.GetComponent<Tilemap>();
+                Tilemap tm = room.CollidePrefab.GetComponent<Tilemap>();
                 if (i == 3)
                     tm.SetTransformMatrix(newPos, Matrix4x4.Translate(new Vector3(qx3[i], qy3[i], 0)));
                 else
@@ -713,7 +757,7 @@ public class MapManager
         if (Map != null)
             UnityEngine.Object.Destroy(Map);
     }
-  
+
     //RoomEditing 적용을 위한 함수
     //에디팅 툴에서 장애물을 만들면 적용해서 충돌배열에 저장
     void ParseRoomCollisionData()
@@ -728,9 +772,9 @@ public class MapManager
         foreach (var room in Rooms)
         {
             xMin = Math.Min(xMin, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.xMin + (int)room.Transform.position.x);
-            xMax = Math.Max(xMax, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.xMax-1 + (int)room.Transform.position.x);
+            xMax = Math.Max(xMax, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.xMax - 1 + (int)room.Transform.position.x);
             yMin = Math.Min(yMin, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.yMin + (int)room.Transform.position.y);
-            yMax = Math.Max(yMax, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.yMax-1 + (int)room.Transform.position.y);
+            yMax = Math.Max(yMax, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.yMax - 1 + (int)room.Transform.position.y);
         }
 
         //Debug.Log(xMin + ", " + yMin + ", " + xMax + ", " + yMax);
@@ -741,7 +785,7 @@ public class MapManager
         foreach (var room in Rooms)
         {
             Tilemap tm = room.TilemapCollisionPrefab.GetComponent<Tilemap>();
-            for (int y = tm.cellBounds.yMax-1; y >= tm.cellBounds.yMin; y--)
+            for (int y = tm.cellBounds.yMax - 1; y >= tm.cellBounds.yMin; y--)
             {
                 for (int x = tm.cellBounds.xMin; x < tm.cellBounds.xMax; x++)
                 {
@@ -754,21 +798,21 @@ public class MapManager
                     switch (t)
                     {
                         case "CannotGo":
-                            collsionInt = 0;
+                            collsionInt = (int)ECellCollisionType.Wall;
                             break;
                         case "CanGo":
-                            collsionInt = 1;
+                            collsionInt = (int)ECellCollisionType.None;
                             break;
                         case "Door":
-                            collsionInt = 2;
+                            collsionInt = (int)ECellCollisionType.SemiWall;
                             break;
                         case "Spike":
-                            collsionInt = 3;
+                            collsionInt = (int)ECellCollisionType.SemiWall;
                             break;
                         case "Fire":
-                            collsionInt = 4;
+                            collsionInt = (int)ECellCollisionType.SemiWall;
                             break;
-                    } 
+                    }
                     collisionData[y + math.abs(yMin) + (int)room.WorldCenterPos.y, x + math.abs(xMin) + (int)room.WorldCenterPos.x] = collsionInt;
                 }
             }
@@ -776,7 +820,7 @@ public class MapManager
         var parser = File.CreateText($"Assets/@Resources/Data/MapData/StageCollision.txt");
         for (int i = yMax - yMin; i >= 0; i--)
         {
-            parser.Write("{0,-4}",i);
+            parser.Write("{0,-4}", i);
             for (int j = 0; j <= xMax - xMin; j++)
             {
                 parser.Write(collisionData[i, j]);
@@ -784,7 +828,52 @@ public class MapManager
             parser.WriteLine();
         }
         parser.Close();
-      
-        
+
+
     }
+
+
+    public void SetObstacle(RoomClass room)
+    {
+        Tilemap tmp = room.TilemapCollisionPrefab.GetComponent<Tilemap>();
+        Tilemap obstmp = room.Obstacle.GetComponent<Tilemap>();
+        int maxX = tmp.cellBounds.xMax;
+        int minX = tmp.cellBounds.xMin;
+        int maxY = tmp.cellBounds.yMax;
+        int minY = tmp.cellBounds.yMin;
+        int Tx = 1 ;
+
+        for (int y = maxY - 1; y > minY; y--)
+        {
+            for (int x = minX; x < maxX - 1; x++)
+            {
+                TileBase tile = tmp.GetTile(new Vector3Int(x, y));
+
+                switch (tile.name)
+                {
+                    case "CannotGo":
+                        break;
+                    case "CanGo":
+                        break;
+                    case "Door":
+                        break;
+                    case "Monster":
+                        break;
+                    case "Spike":
+                        break;
+                    case "Fire":
+                        break;
+                    case "ItemHolder":
+                        GameObject itemHolder = Managers.Resource.Instantiate("ItemHolder");
+                        // SetParent      vs  parent
+                        // 로컬 좌표 유지      로컬 좌표가 부모 기준으로 변경
+                        itemHolder.transform.SetParent(room.Obstacle.transform);
+                        itemHolder.transform.position = (room.Transform.position + new Vector3(-0.5f, -0.5f));
+                        break;       
+                }
+
+            }
+        }
+    }
+
 }
