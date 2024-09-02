@@ -36,6 +36,7 @@ public class RoomClass
     public Vector2 WorldCenterPos { get; set; }
 
     public GameObject RoomObject { get; set; }
+    public GameObject ItemHolder { get; set; }
 
     private bool _isClear = false;
     public bool IsClear
@@ -651,6 +652,11 @@ public class MapManager
     public void RoomClear()
     {
         CurrentRoom.IsClear = true;
+        if (CurrentRoom.ItemHolder != null )
+        {
+            int TemplateId = CurrentRoom.ItemHolder.GetComponent<ItemHolder>().ItemId;
+            Managers.Data.ItemDic[TemplateId].Weight = 0;
+        }
         ChangeDoorTile(CurrentRoom);
         ChangeCollider(CurrentRoom);
     }
@@ -841,7 +847,6 @@ public class MapManager
         int minX = tmp.cellBounds.xMin;
         int maxY = tmp.cellBounds.yMax;
         int minY = tmp.cellBounds.yMin;
-        int Tx = 1 ;
 
         for (int y = maxY - 1; y > minY; y--)
         {
@@ -864,11 +869,14 @@ public class MapManager
                     case "Fire":
                         break;
                     case "ItemHolder":
-                        GameObject itemHolder = Managers.Resource.Instantiate("ItemHolder");
+                        room.ItemHolder = Managers.Resource.Instantiate("ItemHolder");
+                        int TemplateId = Managers.Game.SlectItem();
+                        room.ItemHolder.GetComponent<ItemHolder>().ItemId = TemplateId;
+                        room.ItemHolder.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(Managers.Data.ItemDic[TemplateId].SpriteName);
                         // SetParent      vs  parent
                         // 로컬 좌표 유지      로컬 좌표가 부모 기준으로 변경
-                        itemHolder.transform.SetParent(room.Obstacle.transform);
-                        itemHolder.transform.position = (room.Transform.position + new Vector3(-0.5f, -0.5f));
+                        room.ItemHolder.transform.SetParent(room.Obstacle.transform);
+                        room.ItemHolder.transform.position = (room.Transform.position + new Vector3(-0.5f, -0.5f));
                         break;       
                 }
 

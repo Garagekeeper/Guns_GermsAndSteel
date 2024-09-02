@@ -17,15 +17,15 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 0580ec683d0924a40aef046eae4e0a32
   m_SerializeEntries:
-  - m_GUID: 7f7879a5b361d7742aef84df4b381b18
-    m_Address: Item_ActiveData
+  - m_GUID: 3b63f341e28110d4db2552b67047bffc
+    m_Address: GridCollision
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
     - Data
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3b63f341e28110d4db2552b67047bffc
-    m_Address: GridCollision
+  - m_GUID: 9a713894d192ee041a6edc55ed8bfb76
+    m_Address: Item_Data
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload

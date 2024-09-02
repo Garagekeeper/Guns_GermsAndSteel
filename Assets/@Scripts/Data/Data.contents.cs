@@ -20,9 +20,17 @@ namespace Data
         public string Name;
         public int CoolTime;
         public EItemType Type;
-        public string Target;
-        public EItemEfect Effect;
-        public int Value;
+        public int Hp;
+        public float AttackDamage;
+        public float Tears;
+        public float Range;
+        public float ShotSpeed;
+        public float Speed;
+        public float Luck;
+        public int Life;
+        public string SetItem;
+        public EShotType ShotType;
+        public ESpecialEffectOfActive EffectOfActive;
         public int Weight;
     }
 

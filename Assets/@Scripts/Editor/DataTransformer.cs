@@ -39,7 +39,7 @@ public class DataTransformer : EditorWindow
     [MenuItem("Tools/ParseExcel _F4")]  // 추가 단축키: Control + K
     public static void ParseExcelDataToJson()
     {
-        ParseExcelDataToJson<ItemDataLoader, ItemData>("Item_Active");
+        ParseExcelDataToJson<ItemDataLoader, ItemData>("Item_Data");
 
 
         Debug.Log("Complete DataTransformer");
@@ -53,7 +53,7 @@ public class DataTransformer : EditorWindow
         field.SetValue(loader, ParseExcelDataToList<LoaderData>(filename));
 
         string jsonStr = JsonConvert.SerializeObject(loader, Formatting.Indented);
-        File.WriteAllText($"{Application.dataPath}/@Resources/Data/JsonData/{filename}Data.json", jsonStr);
+        File.WriteAllText($"{Application.dataPath}/@Resources/Data/JsonData/{filename}.json", jsonStr);
         AssetDatabase.Refresh();
     }
 

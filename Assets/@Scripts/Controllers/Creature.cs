@@ -21,13 +21,20 @@ public class Creature : MonoBehaviour
             }
         }
     }
-    public float AttackSpeed { get; set; }
+    public float Tears { get; set; }
     public float Speed { get; set; }
     public float AttackDamage { get; set; }
     public float Range { get; set; }
     public float ShotSpeed { get; set; }
     public float Luck { get; set; }
     public float BombDamage { get; set; }
+
+    public List<GameObject> Familiar = new List<GameObject>();
+
+    public int Life { get; set; } = 0;
+
+    public bool IsGuided { get; set; } = false;
+
 
     #endregion
 
@@ -103,7 +110,7 @@ public class Creature : MonoBehaviour
     {
         //base stat
         Hp = 3.5f;
-        AttackSpeed = 10.0f;
+        Tears = 10.0f;
         Speed = 5.0f;
         AttackDamage = 3.5f;
         Range = 1.0f;

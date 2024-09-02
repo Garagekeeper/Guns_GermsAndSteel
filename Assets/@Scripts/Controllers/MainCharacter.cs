@@ -20,18 +20,20 @@ public class MainCharacter : Creature
     //TODO
     //var SubItem;
     //var ActiveItem;
-    List<int> AcquiredItemList;
+    List<Item> AcquiredPassiveItemList;
+    List<Familiar> AcquiredFamiliarItemList;
 
 
 
     public event Action<Item> UseActiveItem;
-    public int SpaceItemId { get; set; } = 44;
-    public int QItemId { get; set; } = 43002;
+    public int SpaceItemId { get; set; } = 45044;
+    public int QItemId { get; set; } = 44002;
 
     public Item SpaceItem { get; set; }
     public Item QItem { get; set; }
 
     private bool _canMove = true;
+    private bool _oneTimeActive = false;
 
     IEnumerator DelayBoolChange()
     {
@@ -231,47 +233,93 @@ public class MainCharacter : Creature
 
     }
 
-    public void ApplyItemEffect(Item item)
+    public void GetItem(Item item)
     {
-        switch (item.ItemEfec)
+        if (item.ItemType == EItemType.Familliar)
         {
-            case EItemEfect.Up:
-                var temp = _target.GetProperty(item.Target).GetValue(this);
-                break;
-            case EItemEfect.Down:
-                break;
-            case EItemEfect.Teleport:
-                break;
-            case EItemEfect.Roll:
-                break;
-
+            AcquiredFamiliarItemList.Add(new Familiar(item));
+        }
+        else if (item.ItemType == EItemType.Passive)
+        {
+            AcquiredPassiveItemList.Add(item);
+            ApplyPassiveItemEffect(item);
+        }
+        else if (item.ItemType == EItemType.ActiveItem)
+        {
+            if (SpaceItem == null)
+            {
+                SpaceItem = item;
+                SpaceItemId = item.TemplateId;
+            }
+            else
+                ChangeSpaceItem(SpaceItem, item.TemplateId);
+        }
+        else if (item.ItemType == EItemType.Cards)
+        {
+            if (QItem == null)
+            {
+                QItem = item;
+                QItemId = item.TemplateId;
+            }
+            else
+                ChangeQItem(QItem, item.TemplateId);
+        }
+        else if (item.ItemType == EItemType.Pills)
+        {
+            if (QItem == null)
+            {
+                QItem = item;
+                QItemId = item.TemplateId;
+            }
+            else
+                ChangeQItem(QItem, item.TemplateId);
         }
     }
 
+    public void DeleteItem(Item item)
+    {
+
+    }
+
+    public void ApplyPassiveItemEffect(Item item, bool isOneTime = false)
+    {
+        if (isOneTime)
+        {
+            //TODO
+        }
+
+        Hp += item.Hp;
+        AttackDamage += item.AttackDamage;
+        Tears += item.Tears;
+        Range += item.Range;
+        ShotSpeed += item.ShotSpeed;
+        Speed += item.Speed;
+        Luck += item.Luck;
+        Life += item.Life;
+        //item.SetItem;
+        //item.ShotType;
+    }
+
+    //issac에는 그 방에서만 능력치를 올려주는 액티브 아이템이 있다.
+    //일회성 버프 아이템은 패시브 아이템처럼 적용하되, 방이 클리어되면회수 되도록한다.
+    //다른 액티브 아이템은 
     private void HandleUsingActiveItem(Item item)
     {
-        if (item.Target == "Position")
-        {
-            Managers.Game.TPToNormalRandom();
-        }
+        if (item.EffectOfActive == ESpecialEffectOfActive.Null)
+            ApplyPassiveItemEffect(item, true);
         else
         {
-            switch (item.Target)
+            switch (item.EffectOfActive)
             {
-                case "AttackDamage":
-                    AttackDamage += (float)((int)item.ItemEfec) * item.Value;
-                    //TODO
-                    //add multiplyer
+                case ESpecialEffectOfActive.RandomTeleport:
+                    Managers.Game.TPToNormalRandom();
                     break;
-
-                case "Hp":
-                    Hp += (float)((int)item.ItemEfec) * item.Value;
-                    //TODO
-                    //HPCheck (dead Check, MaxCheck)
+                case ESpecialEffectOfActive.UncheckedRoomTeleport:
+                    break;
+                case ESpecialEffectOfActive.Roll:
                     break;
             }
         }
-
     }
 
     public override void OnDamaged(Creature owner, ESkillType skillType)
@@ -306,12 +354,6 @@ public class MainCharacter : Creature
             return;
         }
         Managers.UI.PlayingUI.ChangeQItem(item.SpriteName);
-    }
-
-
-    public void AcquireItem()
-    {
-        //TODO
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

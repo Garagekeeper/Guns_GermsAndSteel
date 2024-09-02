@@ -63,15 +63,25 @@ public static class Define
         ActiveItem,
         Cards,
         Pills,
-        Passive
+        Passive,
+        Familliar,
+    }
+    
+    public enum ESpecialEffectOfActive
+    {
+        Null=0,
+        RandomTeleport,
+        UncheckedRoomTeleport,
+        Roll,
+
     }
 
-    public enum EItemEfect
+
+    public enum EShotType
     {
-        Down = -1,
-        Roll,
-        Up,
-        Teleport,
+        Null = 0,
+        Guided,
+        Boomerang,
     }
 
     public enum ETileType

@@ -38,7 +38,7 @@ public class Projectile : MonoBehaviour
         
         if (Vector2.Dot(targetDir, owner.Rigidbody.velocity) > 0)
             correction = owner.Rigidbody.velocity * 0.5f;
-        _target = targetDir * Owner.AttackSpeed + correction;
+        _target = targetDir * Owner.Tears + correction;
         Rigidbody.velocity = _target;
         
         LayerMask mask = 0;

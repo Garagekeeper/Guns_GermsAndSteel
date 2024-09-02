@@ -13,7 +13,7 @@ public class DataManager
     public Dictionary<int, Data.ItemData> ItemDic { get; private set; } = new Dictionary<int, Data.ItemData>();
     public void Init()
     {
-        ItemDic = LoadJson<Data.ItemDataLoader, int, Data.ItemData>("Item_ActiveData").MakeDict();
+        ItemDic = LoadJson<Data.ItemDataLoader, int, Data.ItemData>("Item_Data").MakeDict();
     }
         private Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
     {

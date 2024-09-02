@@ -1,4 +1,0 @@
-DataId,Description,SpriteName,Name,CoolTime,Type,Target,Effect,Value,Weight
-43001,Health Up,_ui_pills_,Health Up,0,Pills,Hp,Up,1,1
-43002,Damage Up,cardfronts_15,XV - The Devil,0,Cards,AttackDamage,Up,1,1
-44,Teleport Random,collectibles_044_teleport,Teleport,2,ActiveItem,Position,Teleport,-1,1

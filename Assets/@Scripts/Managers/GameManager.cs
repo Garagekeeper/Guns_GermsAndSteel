@@ -259,4 +259,17 @@ public class GameManager
         newPos.z = -10f;
         Cam.MoveCameraWithoutLerp(newPos);
     }
+
+    public int SlectItem()
+    {
+        int TemplateId;
+        while (true)
+        {
+            TemplateId = RandInt(45001, 45044);
+            if (Managers.Data.ItemDic[TemplateId].Weight != 0)
+                break;
+        }
+        //TODO 하드코딩 수정
+        return TemplateId;
+    }
 }

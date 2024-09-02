@@ -1,0 +1,46 @@
+DataId,Description,SpriteName,Name,CoolTime,Type,Hp,AttackDamage,Tears,Range,ShotSpeed,Speed,Luck,Life,SetItem,ShotType,EffectOfActive,Weight
+43001,Health Up,_ui_pills_,Health Up,0,Pills,1,0,0,0,0,0,0,0,,Null,Null,10
+44002,Damage Up,cardfronts_15,XV - The Devil,0,Cards,,1,,,,,,,,Null,Null,10
+45001,,collectibles_001_thesadonion,thesadonion,0,Passive,,,1,,,,,,,Null,Null,10
+45002,,collectibles_002_theinnereye,theinnereye,0,Passive,,,,,,,,,,Null,Null,10
+45003,,collectibles_003_spoonbender,spoonbender,0,Passive,,,,,,,,,,Guided,Null,10
+45004,,collectibles_004_cricketshead,cricketshead,0,Passive,,1,,,,,,,,Null,Null,10
+45005,,collectibles_005_myreflection,myreflection,0,Passive,,,,,,,,,,Null,Null,10
+45006,,collectibles_006_numberone,numberone,0,Passive,,,,,,,,,,Null,Null,10
+45007,,collectibles_007_bloodofthemartyr,bloodofthemartyr,0,Passive,,1,,,,,,,,Null,Null,10
+45008,,collectibles_008_brotherbobby,brotherbobby,0,Familliar,,,,,,,,,,Null,Null,10
+45009,,collectibles_009_skatole,skatole,0,Passive,,,,,,,,,,Null,Null,10
+45010,,collectibles_010_haloofflies,haloofflies,0,Passive,,,,,,,,,,Null,Null,10
+45011,,collectibles_011_1up,1up,0,Passive,,,,,,,,1,,Null,Null,10
+45012,,collectibles_012_magicmushroom,magicmushroom,0,Passive,,,,,,,,,,Null,Null,10
+45013,,collectibles_013_thevirus,thevirus,0,Passive,,,,,,,,,,Null,Null,10
+45014,,collectibles_014_roidrage,roidrage,0,Passive,,,,,,,,,,Null,Null,10
+45015,,collectibles_015_heart,heart,0,Passive,,,,,,,,,,Null,Null,10
+45016,,collectibles_016_rawliver,rawliver,0,Passive,,,,,,,,,,Null,Null,10
+45017,,collectibles_017_skeletonkey,skeletonkey,0,Passive,,,,,,,,,,Null,Null,10
+45018,,collectibles_018_adollar,adollar,0,Passive,,,,,,,,,,Null,Null,10
+45019,,collectibles_019_boom,boom,0,Passive,,,,,,,,,,Null,Null,10
+45020,,collectibles_020_transcendence,transcendence,0,Passive,,,,,,,,,,Null,Null,10
+45021,,collectibles_021_thecompass,thecompass,0,Passive,,,,,,,,,,Null,Null,10
+45022,,collectibles_022_lunch,lunch,0,Passive,,,,,,,,,,Null,Null,10
+45023,,collectibles_023_dinner,dinner,0,Passive,,,,,,,,,,Null,Null,10
+45024,,collectibles_024_dessert,dessert,0,Passive,,,,,,,,,,Null,Null,10
+45025,,collectibles_025_breakfast,breakfast,0,Passive,,,,,,,,,,Null,Null,10
+45026,,collectibles_026_rottenmeat,rottenmeat,0,Passive,,,,,,,,,,Null,Null,10
+45027,,collectibles_027_woodenspoon,woodenspoon,0,Passive,,,,,,,,,,Null,Null,10
+45028,,collectibles_028_thebelt,thebelt,0,Passive,,,,,,,,,,Null,Null,10
+45029,,collectibles_029_momsunderwear,momsunderwear,0,Passive,,,,,,,,,,Null,Null,10
+45030,,collectibles_030_momsheels,momsheels,0,Passive,,,,,,,,,,Null,Null,10
+45031,,collectibles_031_momslipstick,momslipstick,0,Passive,,,,,,,,,,Null,Null,10
+45032,,collectibles_032_wirecoathanger,wirecoathanger,0,Passive,,,,,,,,,,Null,Null,10
+45033,,collectibles_033_thebible,thebible,0,ActiveItem,,,,,,,,,,Null,Null,10
+45034,,collectibles_034_thebookofbelial,thebookofbelial,0,ActiveItem,,,,,,,,,,Null,Null,10
+45035,,collectibles_035_thenecronomicon,thenecronomicon,0,ActiveItem,,,,,,,,,,Null,Null,10
+45036,,collectibles_036_thepoop,thepoop,0,ActiveItem,,,,,,,,,,Null,Null,10
+45037,,collectibles_037_mrboom,mrboom,0,ActiveItem,,,,,,,,,,Null,Null,10
+45038,,collectibles_038_tammyshead,tammyshead,0,ActiveItem,,,,,,,,,,Null,Null,10
+45039,,collectibles_039_momsbra,momsbra,0,ActiveItem,,,,,,,,,,Null,Null,10
+45040,,collectibles_040_kamikaze,kamikaze,0,ActiveItem,,,,,,,,,,Null,Null,10
+45041,,collectibles_041_momspad,momspad,0,ActiveItem,,,,,,,,,,Null,Null,10
+45042,,collectibles_042_bobsrottenhead,bobsrottenhead,0,ActiveItem,,,,,,,,,,Null,Null,10
+45044,Teleport Random,collectibles_044_teleport,teleport,2,ActiveItem,,,,,,,,,,Null,RandomTeleport,10
