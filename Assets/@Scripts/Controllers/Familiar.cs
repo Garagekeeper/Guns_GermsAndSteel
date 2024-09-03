@@ -4,8 +4,5 @@ using UnityEngine;
 
 public class Familiar : MonoBehaviour
 {
-    public Familiar(Item item)
-    {
 
-    }
 }

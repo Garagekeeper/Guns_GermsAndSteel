@@ -168,6 +168,8 @@ public class GameManager
 
         foreach (var temp in Managers.Object.MainCharacters)
         {
+            if (temp.OneTimeActive)
+                WithdrawOneTimeItemEffect(temp);
             temp.CanMove = true;
         }
     }
@@ -266,10 +268,25 @@ public class GameManager
         while (true)
         {
             TemplateId = RandInt(45001, 45044);
-            if (Managers.Data.ItemDic[TemplateId].Weight != 0)
+            if (Managers.Data.ItemDic.ContainsKey(TemplateId) && Managers.Data.ItemDic[TemplateId].Weight != 0)
                 break;
         }
         //TODO 하드코딩 수정
         return TemplateId;
+    }
+
+    public void WithdrawOneTimeItemEffect(MainCharacter player)
+    {
+        player.OneTimeActive = false;
+        player.Hp -= player.SpaceItem.Hp;
+        player.AttackDamage -= player.SpaceItem.AttackDamage;
+        player.Tears -= player.SpaceItem.Tears;
+        player.Range -= player.SpaceItem.Range;
+        player.ShotSpeed -= player.SpaceItem.ShotSpeed;
+        player.Speed -= player.SpaceItem.Speed;
+        player.Luck -= player.SpaceItem.Luck;
+        player.Life -= player.SpaceItem.Life;
+        //item.SetItem;
+        //item.ShotType;
     }
 }

@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
+using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
 using UnityEngine.Playables;
 using static Define;
@@ -15,8 +16,9 @@ public class MainCharacter : Creature
     //Todo
     //float PercentageOfDevil;
     //float PercentageOfAngel;
-    int Coin;
-    int BombCount = 1;
+    public int Coin { get; private set; } = 0;
+    public int BombCount { get; private set; } = 1;
+    public int KeyCount { get; private set; } = 0;
     //TODO
     //var SubItem;
     //var ActiveItem;
@@ -33,7 +35,7 @@ public class MainCharacter : Creature
     public Item QItem { get; set; }
 
     private bool _canMove = true;
-    private bool _oneTimeActive = false;
+    public bool OneTimeActive { get; set; } = false;
 
     IEnumerator DelayBoolChange()
     {
@@ -96,10 +98,14 @@ public class MainCharacter : Creature
         if (CreatureType == ECreatureType.MainCharacter) mask |= (1 << 6);
         Collider.excludeLayers = mask;
 
+        AcquiredPassiveItemList = new List<Item>();
+        AcquiredFamiliarItemList = new List<Familiar>();
 
-        ChangeSpaceItem(SpaceItem, SpaceItemId);
+        ChangeSpaceItem(SpaceItemId);
         ChangeQItem(QItem, QItemId);
         Managers.UI.PlayingUI.ChangeChargeBarSize("ui_chargebar_" + (9 - SpaceItem.CoolTime));
+        Managers.UI.PlayingUI.RefreshText(this);
+
     }
 
     void Update()
@@ -138,7 +144,10 @@ public class MainCharacter : Creature
         UpdateMovement(vel);
 
         if (Input.GetKeyDown(KeyCode.E))
+        {
             SpawnBomb();
+            Managers.UI.PlayingUI.RefreshText(this);
+        }
 
         if (Input.GetKeyDown(KeyCode.Q))
             UseItem(QItem);
@@ -155,6 +164,11 @@ public class MainCharacter : Creature
         if (Input.GetKeyDown(KeyCode.X))
         {
             Managers.Map.RoomClear();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            //Managers.UI.ShowUpStatUI();
         }
 
 
@@ -224,38 +238,46 @@ public class MainCharacter : Creature
                 //ApplyItemEffect(item);
             }
         }
-        else
+        else if (item.ItemType == EItemType.Cards || item.ItemType == EItemType.Pills)
         {
             UseActiveItem?.Invoke(item);
             ChangeQItem(item, 0);
             QItem = null;
         }
-
+        Managers.UI.PlayingUI.RefreshText(this);
     }
 
-    public void GetItem(Item item)
+    public void GetItem(ItemHolder itemHolder)
     {
+        bool active = false;
+        Item item = new Item(itemHolder.ItemId);
         if (item.ItemType == EItemType.Familliar)
         {
-            AcquiredFamiliarItemList.Add(new Familiar(item));
+            itemHolder.ChangeItemOnItemHolder(0);
+            //GameObject go = Managers.Resource.Instantiate("Player");
+            //AcquiredFamiliarItemList.Add(item);
         }
         else if (item.ItemType == EItemType.Passive)
         {
+            itemHolder.ChangeItemOnItemHolder(0);
             AcquiredPassiveItemList.Add(item);
             ApplyPassiveItemEffect(item);
         }
         else if (item.ItemType == EItemType.ActiveItem)
         {
+            active = true;
+            itemHolder.ChangeItemOnItemHolder(SpaceItemId);
             if (SpaceItem == null)
             {
                 SpaceItem = item;
                 SpaceItemId = item.TemplateId;
             }
             else
-                ChangeSpaceItem(SpaceItem, item.TemplateId);
+                ChangeSpaceItem(item.TemplateId);
         }
         else if (item.ItemType == EItemType.Cards)
         {
+            itemHolder.ChangeItemOnItemHolder(0);
             if (QItem == null)
             {
                 QItem = item;
@@ -266,6 +288,7 @@ public class MainCharacter : Creature
         }
         else if (item.ItemType == EItemType.Pills)
         {
+            itemHolder.ChangeItemOnItemHolder(0);
             if (QItem == null)
             {
                 QItem = item;
@@ -274,6 +297,8 @@ public class MainCharacter : Creature
             else
                 ChangeQItem(QItem, item.TemplateId);
         }
+        Managers.UI.PlayingUI.RefreshText(this);
+        if (itemHolder.transform.GetChild(1) != null) itemHolder.transform.GetChild(1).gameObject.SetActive(active);
     }
 
     public void DeleteItem(Item item)
@@ -285,7 +310,7 @@ public class MainCharacter : Creature
     {
         if (isOneTime)
         {
-            //TODO
+            OneTimeActive = true;
         }
 
         Hp += item.Hp;
@@ -300,9 +325,11 @@ public class MainCharacter : Creature
         //item.ShotType;
     }
 
+
+
     //issac에는 그 방에서만 능력치를 올려주는 액티브 아이템이 있다.
     //일회성 버프 아이템은 패시브 아이템처럼 적용하되, 방이 클리어되면회수 되도록한다.
-    //다른 액티브 아이템은 
+    //다른 액티브 아이템은 enum을통해서 별도로 효과를 적용시켜준다.
     private void HandleUsingActiveItem(Item item)
     {
         if (item.EffectOfActive == ESpecialEffectOfActive.Null)
@@ -339,10 +366,11 @@ public class MainCharacter : Creature
         BombCount--;
     }
 
-    public void ChangeSpaceItem(Item item, int id)
+    public void ChangeSpaceItem(int id)
     {
-        item.ChangeItem(id);
-        Managers.UI.PlayingUI.ChangeSpaceItem(item.SpriteName);
+        SpaceItem.ChangeItem(id);
+        SpaceItemId = id;
+        Managers.UI.PlayingUI.ChangeSpaceItem(SpaceItem.SpriteName);
     }
 
     public void ChangeQItem(Item item, int id)
@@ -372,6 +400,15 @@ public class MainCharacter : Creature
         if (collision.transform.tag == "Monster")
         {
             OnDamaged(collision.gameObject.GetComponent<Monster>(), ESkillType.BodySlam);
+        }
+
+        if (collision.transform.tag == "ItemHolder")
+        {
+            ItemHolder itemHolder = collision.transform.GetComponent<ItemHolder>();
+            if (itemHolder.ItemId != 0)
+            {
+                GetItem(itemHolder);
+            }
         }
     }
 }

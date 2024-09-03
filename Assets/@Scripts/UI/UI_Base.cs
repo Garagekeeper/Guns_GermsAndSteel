@@ -90,6 +90,7 @@ public class UI_Base : MonoBehaviour
     protected void BindObject(Type type) { Bind<GameObject>(type); }
     protected void BindImage(Type type) { Bind<Image>(type); }
     protected void BindText(Type type) { Bind<TMP_Text>(type); }
+    protected void BindTextLegacy(Type type) { Bind<Text>(type); }
     protected void BindButton(Type type) { Bind<Button>(type); }
 
 
@@ -106,6 +107,7 @@ public class UI_Base : MonoBehaviour
     protected GameObject GetObject(int idx) { return Get<GameObject>(idx); }
     protected Image GetImage(int idx) { return Get<Image>(idx); }
     protected TMP_Text GetText(int idx) { return Get<TMP_Text>(idx); }
+    protected Text GetTextLegacy(int idx) { return Get<Text>(idx); }
     protected Button GetButton(int idx) { return Get<Button>(idx); }
 
 }

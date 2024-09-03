@@ -659,6 +659,12 @@ public class MapManager
         }
         ChangeDoorTile(CurrentRoom);
         ChangeCollider(CurrentRoom);
+        foreach (var player in Managers.Object.MainCharacters)
+        {
+            if (player.OneTimeActive)
+                Managers.Game.WithdrawOneTimeItemEffect(player);
+        }
+       
     }
 
     //Door Tile을 생성하거나, 변경하는 함수

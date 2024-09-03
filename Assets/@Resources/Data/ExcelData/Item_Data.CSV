@@ -33,14 +33,14 @@ DataId,Description,SpriteName,Name,CoolTime,Type,Hp,AttackDamage,Tears,Range,Sho
 45030,,collectibles_030_momsheels,momsheels,0,Passive,,,,,,,,,,Null,Null,10
 45031,,collectibles_031_momslipstick,momslipstick,0,Passive,,,,,,,,,,Null,Null,10
 45032,,collectibles_032_wirecoathanger,wirecoathanger,0,Passive,,,,,,,,,,Null,Null,10
-45033,,collectibles_033_thebible,thebible,0,ActiveItem,,,,,,,,,,Null,Null,10
-45034,,collectibles_034_thebookofbelial,thebookofbelial,0,ActiveItem,,,,,,,,,,Null,Null,10
-45035,,collectibles_035_thenecronomicon,thenecronomicon,0,ActiveItem,,,,,,,,,,Null,Null,10
-45036,,collectibles_036_thepoop,thepoop,0,ActiveItem,,,,,,,,,,Null,Null,10
-45037,,collectibles_037_mrboom,mrboom,0,ActiveItem,,,,,,,,,,Null,Null,10
-45038,,collectibles_038_tammyshead,tammyshead,0,ActiveItem,,,,,,,,,,Null,Null,10
-45039,,collectibles_039_momsbra,momsbra,0,ActiveItem,,,,,,,,,,Null,Null,10
-45040,,collectibles_040_kamikaze,kamikaze,0,ActiveItem,,,,,,,,,,Null,Null,10
-45041,,collectibles_041_momspad,momspad,0,ActiveItem,,,,,,,,,,Null,Null,10
-45042,,collectibles_042_bobsrottenhead,bobsrottenhead,0,ActiveItem,,,,,,,,,,Null,Null,10
+45033,,collectibles_033_thebible,thebible,1,ActiveItem,,,,,,,,,,Null,Null,10
+45034,,collectibles_034_thebookofbelial,thebookofbelial,1,ActiveItem,,,,,,,,,,Null,Null,10
+45035,,collectibles_035_thenecronomicon,thenecronomicon,1,ActiveItem,,,,,,,,,,Null,Null,10
+45036,,collectibles_036_thepoop,thepoop,1,ActiveItem,,,,,,,,,,Null,Null,10
+45037,,collectibles_037_mrboom,mrboom,1,ActiveItem,,,,,,,,,,Null,Null,10
+45038,,collectibles_038_tammyshead,tammyshead,1,ActiveItem,,,,,,,,,,Null,Null,10
+45039,,collectibles_039_momsbra,momsbra,1,ActiveItem,,,,,,,,,,Null,Null,10
+45040,,collectibles_040_kamikaze,kamikaze,1,ActiveItem,,,,,,,,,,Null,Null,10
+45041,,collectibles_041_momspad,momspad,1,ActiveItem,,,,,,,,,,Null,Null,10
+45042,,collectibles_042_bobsrottenhead,bobsrottenhead,1,ActiveItem,,,,,,,,,,Null,Null,10
 45044,Teleport Random,collectibles_044_teleport,teleport,2,ActiveItem,,,,,,,,,,Null,RandomTeleport,10

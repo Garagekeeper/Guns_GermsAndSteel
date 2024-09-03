@@ -54,7 +54,7 @@ public class Projectile : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if ("RightDownLeftUpCollider".Contains(other.gameObject.name))
+        if ("RightDownLeftUpColliderItemHolder".Contains(other.gameObject.name))
         {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);

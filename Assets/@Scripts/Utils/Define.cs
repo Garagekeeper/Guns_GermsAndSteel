@@ -60,6 +60,7 @@ public static class Define
 
     public enum EItemType
     {
+        Null,
         ActiveItem,
         Cards,
         Pills,

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Monster
   - Door
+  - StageDoor
+  - ItemHolder
   layers:
   - Default
   - TransparentFX
