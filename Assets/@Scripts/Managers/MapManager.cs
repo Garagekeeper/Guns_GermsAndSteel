@@ -11,21 +11,20 @@ using static Define;
 using static RoomClass;
 using Object = UnityEngine.Object;
 
-
 public class RoomClass
 {
     public enum ERoomType
     {
-        Normal,
-        Boss,
-        Secret,
-        Gold,
         Start,
-        Curse,
+        Normal,
+        Gold,
         Sacrifice,
+        SelfSacrifice,
+        Shop,
+        Boss,
         Angel,
         Devil,
-        Shop,
+        Secret,
     }
 
     public ERoomType RoomType { get; set; }
@@ -55,23 +54,17 @@ public class RoomClass
     private GameObject _tilemapPrefab;
     private GameObject _tilemap_CollisionPrefab;
     private GameObject _ColliderPrefab;
-    private GameObject _doorFrame;
-    private GameObject _doorSide1;
-    private GameObject _doorSide2;
-    private GameObject _doorCenter;
     private GameObject _obstacle;
+    private GameObject _doors;
     private Tilemap _tilemap;
 
 
     public GameObject TilemapPrefab { get { return _tilemapPrefab; } set { _tilemapPrefab = value; } }
     public GameObject TilemapCollisionPrefab { get { return _tilemap_CollisionPrefab; } set { _tilemap_CollisionPrefab = value; } }
     public GameObject CollidePrefab { get { return _ColliderPrefab; } set { _ColliderPrefab = value; } }
-    public GameObject DoorFrame { get { return _doorFrame; } set { _doorFrame = value; } }
-    public GameObject DoorSide1 { get { return _doorSide1; } set { _doorSide1 = value; } }
-    public GameObject DoorSide2 { get { return _doorSide2; } set { _doorSide2 = value; } }
-    public GameObject DoorCenter { get { return _doorCenter; } set { _doorCenter = value; } }
-
     public GameObject Obstacle { get { return _obstacle; } set { _obstacle = value; } }
+
+    public GameObject Doors { get { return _doors; } set { _doors = value; } }
     public Tilemap Tilemap { get { return _tilemap; } set { _tilemap = value; } }
 
 
@@ -90,6 +83,45 @@ public class RoomClass
 }
 public class MapManager
 {
+    string[,] doorFrame =
+{
+    { "door_01_normaldoor_0" , "door_01_normaldoor_4"},
+    { "door_01_normaldoor_0" , "door_01_normaldoor_4"},
+    { "door_02_treasureroomdoor_0" , "door_01_normaldoor_4"},
+    { "door_03_sacrificeroomdoor_0" , "door_03_sacrificeroomdoor_4"},
+    { "door_04_selfsacrificeroomdoor_0" , "door_04_selfsacrificeroomdoor_4"},
+    { "door_05_shopdoor_0" , "door_05_shopdoor_4"},
+    { "door_06_bossroomdoor_0" , "door_06_bossroomdoor_4"},
+    { "door_07_devilroomdoor_0" , "door_07_devilroomdoor_4"},
+    { "door_07_holyroomdoor_0" , "door_07_holyroomdoor_4"},
+};
+
+    string[] doorBackGround =
+    {
+    "door_01_normaldoor_1",
+    "door_01_normaldoor_1",
+    "door_01_normaldoor_1",
+    "door_03_sacrificeroomdoor_1",
+    "door_01_normaldoor_1",
+    "door_05_shopdoor_1",
+    "door_06_bossroomdoor_1",
+    "door_07_devilroomdoor_1",
+    "door_07_holyroomdoor_1",
+};
+
+    string[,] doorSide =
+    {
+    { "door_01_normaldoor_2", "door_01_normaldoor_3","door_01_normaldoor_5", "door_01_normaldoor_6"},
+    { "door_01_normaldoor_2", "door_01_normaldoor_3","door_01_normaldoor_5", "door_01_normaldoor_6"},
+    { "door_01_normaldoor_2", "door_01_normaldoor_3", "door_02_treasureroomdoor_5", "door_02_treasureroomdoor_6"},
+    { "door_03_sacrificeroomdoor_2","door_03_sacrificeroomdoor_3","door_03_sacrificeroomdoor_5","door_03_sacrificeroomdoor_6"},
+    { "door_04_selfsacrificeroomdoor_2","door_04_selfsacrificeroomdoor_3","door_04_selfsacrificeroomdoor_5","door_04_selfsacrificeroomdoor_6"},
+    { "door_05_shopdoor_2","door_05_shopdoor_3","door_05_shopdoor_5","door_05_shopdoor_6"},
+    { "door_06_bossroomdoor_2","door_06_bossroomdoor_3","door_06_bossroomdoor_5","door_06_bossroomdoor_6"},
+    { "door_07_devilroomdoor_2","door_07_devilroomdoor_3","door_07_devilroomdoor_5","door_07_devilroomdoor_6"},
+    { "door_07_holyroomdoor_2","door_07_holyroomdoor_3","door_07_holyroomdoor_5","door_07_holyroomdoor_6"},
+};
+
     #region A* pathFinding
     public struct PQNode : IComparable<PQNode>
     {
@@ -397,7 +429,25 @@ public class MapManager
         BossRoom.RoomType = RoomClass.ERoomType.Boss;
         special.Remove(BossRoom);
 
-        //5.비밀방 설정
+        //5. 황금방 설정
+        if (special.Count > 0)
+        {
+            rc = Managers.Game.Choice(special);
+            rc.RoomType = RoomClass.ERoomType.Gold;
+            special.Remove(rc);
+
+            //방의 개수가 15개가 넘는경우 2개 배정을 시도한다.
+            if (Managers.Game.N >= 15 && special.Count > 0)
+            {
+                if (Managers.Game.Chance(25))
+                {
+                    rc = Managers.Game.Choice(special);
+                    rc.RoomType = RoomClass.ERoomType.Gold;
+                    special.Remove(rc);
+                }
+            }
+        }
+        //6.비밀방 설정
         if (special.Count > 0)
         {
             rc = Managers.Game.Choice(special);
@@ -419,24 +469,7 @@ public class MapManager
             }
         }
 
-        //6. 황금방 설정
-        if (special.Count > 0)
-        {
-            rc = Managers.Game.Choice(special);
-            rc.RoomType = RoomClass.ERoomType.Gold;
-            special.Remove(rc);
 
-            //방의 개수가 15개가 넘는경우 2개 배정을 시도한다.
-            if (Managers.Game.N >= 15 && special.Count > 0)
-            {
-                if (Managers.Game.Chance(25))
-                {
-                    rc = Managers.Game.Choice(special);
-                    rc.RoomType = RoomClass.ERoomType.Gold;
-                    special.Remove(rc);
-                }
-            }
-        }
 
         //7. 상점 설정
         if (special.Count > 0)
@@ -508,10 +541,10 @@ public class MapManager
                 if (temp.RoomType == RoomClass.ERoomType.Devil) isDevil = true;
             }
 
-            if (isDevil && Managers.Game.Chance(50))
+            if (isDevil && Managers.Game.Chance(20))
             {
                 rc = Managers.Game.Choice(special);
-                rc.RoomType = RoomClass.ERoomType.Curse;
+                rc.RoomType = ERoomType.SelfSacrifice;
                 special.Remove(rc);
             }
         }
@@ -564,7 +597,7 @@ public class MapManager
         for (int i = 0; i < Enum.GetValues(typeof(ERoomType)).Length; i++)
             RoomCollisionCnt.Add(0);
 
-        Managers.Resource.LoadAllAsync<Object>("Tile_Map_Collision", (key, count, totalCount) =>
+        Managers.Resource.LoadAllAsync<Object>("InGame", (key, count, totalCount) =>
         {
             foreach (string name in Enum.GetNames(typeof(ERoomType)))
             {
@@ -626,18 +659,16 @@ public class MapManager
             r.RoomObject = room;
 
             r.TilemapPrefab = room.transform.GetChild(0).gameObject;
-            r.DoorFrame = room.transform.GetChild(1).gameObject;
-            r.DoorSide1 = room.transform.GetChild(2).gameObject;
-            r.DoorSide2 = room.transform.GetChild(3).gameObject;
-            r.Obstacle = room.transform.GetChild(4).gameObject;
-            r.CollidePrefab = room.transform.GetChild(5).gameObject;
+            r.Obstacle = room.transform.GetChild(1).gameObject;
+            r.CollidePrefab = room.transform.GetChild(2).gameObject;
+            r.Doors = room.transform.GetChild(3).gameObject;
             r.TilemapCollisionPrefab = roomTileMap;
 
             r.Tilemap = r.TilemapPrefab.GetComponent<Tilemap>();
 
 
             SetObstacle(r);
-            ChangeDoorTile(r);
+            GenerateDoor(r);
             r.TilemapCollisionPrefab.SetActive(false);
         }
 
@@ -652,83 +683,59 @@ public class MapManager
     public void RoomClear()
     {
         CurrentRoom.IsClear = true;
-        if (CurrentRoom.ItemHolder != null )
+        if (CurrentRoom.ItemHolder != null)
         {
             int TemplateId = CurrentRoom.ItemHolder.GetComponent<ItemHolder>().ItemId;
             Managers.Data.ItemDic[TemplateId].Weight = 0;
         }
-        ChangeDoorTile(CurrentRoom);
-        ChangeCollider(CurrentRoom);
+        HideSideDoor(CurrentRoom);
+        //ChangeCollider(CurrentRoom);
         foreach (var player in Managers.Object.MainCharacters)
         {
             if (player.OneTimeActive)
                 Managers.Game.WithdrawOneTimeItemEffect(player);
         }
-       
+
     }
 
     //Door Tile을 생성하거나, 변경하는 함수
     //TODO 여러 종류의 타일
     //여러 타일 바꾸도록
-    public void ChangeDoorTile(RoomClass room)
+    public void GenerateDoor(RoomClass room)
     {
-        string[] DoorTiles;
-        if (room.IsClear)
-            DoorTiles = new string[] { "door_01_normaldoor_0", "door_01_normaldoor_1", null };
-        else
-            DoorTiles = new string[] { "door_01_normaldoor_0", "door_01_normaldoor_2", "door_01_normaldoor_3" };
-        //오른쪽 문
-        //왼쪽문
-        //문 프레임
-
-        //TODO
-        //이런식으로 레이어를 일일히 쌓아서 만드는 것 말고 다른 건 없을까
         for (int i = 0; i < 4; i++)
         {
-            int[] dx = { 8, -1, -10, -1 };
-            int[] dy = { -1, -6, -1, 4 };
-            int[] Q = { 270, 180, 90, 0 };
-            float[] qx = { -0.1f, 0.22f, 0.1f, -0.22f };
-            float[] qy = { 0.22f, 0.1f, -0.22f, -0.1f };
-            //            1       -1      1     -1
-            //           -1        1      -1     1
-            float[] qx2 = { -0.1f, -0.22f, 0.1f, 0.22f };
-            float[] qy2 = { -0.22f, 0.1f, 0.22f, -0.1f };
-
-            float[] qx3 = { -0.1f, 0, 0.1f, 0 };
-            float[] qy3 = { 0, 0.1f, 0, -0.1f };
             if (room._adjacencentRooms[i] != null)
             {
-                int nx = 0 + dx[i];
-                int ny = 0 + dy[i];
-                Quaternion qt = Quaternion.Euler(0, 0, Q[i]);
-                Vector3 scale = new Vector3(3.5f, 3.5f, 0);
-                Vector3Int newPos = new Vector3Int(nx, ny);
-
-                Tilemap temp = room.TilemapCollisionPrefab.GetComponent<Tilemap>();
-                temp.SetTile(newPos, Managers.Resource.Load<Tile>("Door"));
-
-                temp = room.DoorFrame.GetComponent<Tilemap>();
-                temp.SetTile(newPos, Managers.Resource.Load<Tile>(DoorTiles[0]));
-                temp.SetTransformMatrix(newPos, Matrix4x4.TRS(Vector3.zero, qt, scale));
-
-                temp = room.DoorSide1.GetComponent<Tilemap>();
-                newPos = new Vector3Int(nx, ny);
-                temp.SetTile(newPos, Managers.Resource.Load<Tile>(DoorTiles[1]));
-                if (room.IsClear)
-                    temp.SetTransformMatrix(newPos, Matrix4x4.TRS(new Vector3(qx3[i], qy3[i]), qt, new Vector3(4f, 3.5f, 0)));
+                int temp;
+                if ((int)room.RoomType < (int)room._adjacencentRooms[i].RoomType)
+                    temp = (int)room._adjacencentRooms[i].RoomType;
                 else
-                    temp.SetTransformMatrix(newPos, Matrix4x4.TRS(new Vector3(qx[i], qy[i], 0), qt, scale));
+                    temp = (int)room.RoomType;
 
-                temp = room.DoorSide2.GetComponent<Tilemap>();
-                newPos = new Vector3Int(nx, ny);
-                if (room.IsClear)
-                    temp.SetTile(newPos, null);
-                else
-                    temp.SetTile(newPos, Managers.Resource.Load<Tile>(DoorTiles[2]));
-                temp.SetTransformMatrix(newPos, Matrix4x4.TRS(new Vector3(qx2[i], qy2[i], 0), qt, scale));
+                GameObject door = room.Doors.transform.GetChild(i).gameObject;
+                door.gameObject.SetActive(true);
+                //bg
+                door.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorBackGround[temp]);
+                //left
+                door.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorSide[temp, 0]);
+                //right
+                door.transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorSide[temp, 1]);
+                //frame
+                door.transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorFrame[temp, 0]);
+            }
+        }
+    }
 
-
+    public void HideSideDoor(RoomClass room)
+    {
+        for (int i = 0; i<4; i++)
+        {
+            GameObject door = room.Doors.transform.GetChild(i).gameObject;
+            if (door.gameObject.activeSelf)
+            {
+                door.transform.GetChild(1).gameObject.SetActive(false);
+                door.transform.GetChild(2).gameObject.SetActive(false);
             }
         }
     }
@@ -883,7 +890,7 @@ public class MapManager
                         // 로컬 좌표 유지      로컬 좌표가 부모 기준으로 변경
                         room.ItemHolder.transform.SetParent(room.Obstacle.transform);
                         room.ItemHolder.transform.position = (room.Transform.position + new Vector3(-0.5f, -0.5f));
-                        break;       
+                        break;
                 }
 
             }

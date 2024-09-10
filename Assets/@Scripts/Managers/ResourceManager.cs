@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.AddressableAssets.Settings;
+using UnityEditor.AddressableAssets;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -60,7 +62,13 @@ public class ResourceManager
                 _handles.Add(key, asyncOpHandle);
                 callback?.Invoke(op.Result);
             };
+
         }
+
+        AddressableAssetSettings settings = AddressableAssetSettingsDefaultObject.Settings;
+
+        // 라벨 이름으로 라벨을 찾습니다.
+        //AddressableAssetGroup[] labeledGroups = settings.FindGroup
 
         //LoadAssetAsync를 호출해도 바로 사용할 수 있는것이 아니라
         //반환된 AsyncOperationHandle를 통해서 접근하고 사용할 수 있다고 한다.

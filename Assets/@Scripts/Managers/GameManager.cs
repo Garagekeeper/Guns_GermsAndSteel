@@ -202,16 +202,16 @@ public class GameManager
         switch (index)
         {
             case 0:
-                newPos = new Vector3(4.5f, 0);
+                newPos = new Vector3(5.0f, 0);
                 break;
             case 1:
-                newPos = new Vector3(0, -4.5f);
+                newPos = new Vector3(0, -5.0f);
                 break;
             case 2:
-                newPos = new Vector3(-4.5f, 0);
+                newPos = new Vector3(-5.0f, 0);
                 break;
             case 3:
-                newPos = new Vector3(0, 4.5f);
+                newPos = new Vector3(0, 5.0f);
                 break;
         }
 
