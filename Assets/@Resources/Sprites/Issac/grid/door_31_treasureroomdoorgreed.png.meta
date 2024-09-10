@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 26
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -134,7 +134,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: door_31_treasureroomdoorgreed_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 189
+        width: 49
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 843bf3021f9a17248ab914d7bf247797
+      internalID: -70170446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_31_treasureroomdoorgreed_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 200
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d040b0d5459de243bcd7265c7b5d61e
+      internalID: -403200802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_31_treasureroomdoorgreed_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 152
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30a4a12e1a4e9ac4395de91ef04caee9
+      internalID: 1543549110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_31_treasureroomdoorgreed_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 152
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54bb232033b2fe34c8242a0e98f0f444
+      internalID: 953257671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_31_treasureroomdoorgreed_5
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 104
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77e3d1253e3831247a31c429d0466dc6
+      internalID: -1586936914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_31_treasureroomdoorgreed_6
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 104
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5db37b22518d022439ef7a33f953a185
+      internalID: -1063777372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +271,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      door_31_treasureroomdoorgreed_0: -70170446
+      door_31_treasureroomdoorgreed_1: -403200802
+      door_31_treasureroomdoorgreed_10: 1477733192
+      door_31_treasureroomdoorgreed_11: -815625913
+      door_31_treasureroomdoorgreed_12: 1564646958
+      door_31_treasureroomdoorgreed_13: 708508948
+      door_31_treasureroomdoorgreed_14: 1593493590
+      door_31_treasureroomdoorgreed_15: -40374891
+      door_31_treasureroomdoorgreed_16: -335196592
+      door_31_treasureroomdoorgreed_17: -1568502361
+      door_31_treasureroomdoorgreed_18: -2041795908
+      door_31_treasureroomdoorgreed_19: -1144360133
+      door_31_treasureroomdoorgreed_2: 1543549110
+      door_31_treasureroomdoorgreed_20: 539462957
+      door_31_treasureroomdoorgreed_21: -1562972842
+      door_31_treasureroomdoorgreed_22: 481382629
+      door_31_treasureroomdoorgreed_23: -62536087
+      door_31_treasureroomdoorgreed_3: 953257671
+      door_31_treasureroomdoorgreed_4: -66114662
+      door_31_treasureroomdoorgreed_5: -1586936914
+      door_31_treasureroomdoorgreed_6: -1063777372
+      door_31_treasureroomdoorgreed_7: -1818184253
+      door_31_treasureroomdoorgreed_8: -1985369263
+      door_31_treasureroomdoorgreed_9: -516550995
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 26
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -134,7 +134,154 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: door_14_depthsdoor_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 190
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c87f27c1d4f15d4fa0ac681372168db
+      internalID: -2118880199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_14_depthsdoor_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 200
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d0453677f80cbe4a9648d3eb3cbe727
+      internalID: 424251817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_14_depthsdoor_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 152
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cc2ee600f61e4b48a97f494cd0fe3eb
+      internalID: 1339482311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_14_depthsdoor_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 152
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 795ae050d099c5946b654666c487b566
+      internalID: -715888076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_14_depthsdoor_4
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 96
+        width: 49
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db7934dd2338ec846ad519a3b93b7ef6
+      internalID: -602516882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_14_depthsdoor_5
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 104
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 052cc8ddb17b49641a5e1032312ea359
+      internalID: -1273753915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_14_depthsdoor_6
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 104
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33f09632524295a4f83b446166b3e7cb
+      internalID: -530062169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +292,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      door_14_depthsdoor_0: -2118880199
+      door_14_depthsdoor_1: 424251817
+      door_14_depthsdoor_10: 612694046
+      door_14_depthsdoor_11: 1864596584
+      door_14_depthsdoor_12: -582245007
+      door_14_depthsdoor_13: -1936243130
+      door_14_depthsdoor_14: 1450534081
+      door_14_depthsdoor_15: -1605360696
+      door_14_depthsdoor_16: -1064265535
+      door_14_depthsdoor_17: 542573210
+      door_14_depthsdoor_18: 1025658836
+      door_14_depthsdoor_19: 1572875965
+      door_14_depthsdoor_2: 1339482311
+      door_14_depthsdoor_20: 638258174
+      door_14_depthsdoor_21: -985199484
+      door_14_depthsdoor_22: 1129645119
+      door_14_depthsdoor_23: -456133600
+      door_14_depthsdoor_3: -715888076
+      door_14_depthsdoor_4: -602516882
+      door_14_depthsdoor_5: -1273753915
+      door_14_depthsdoor_6: -530062169
+      door_14_depthsdoor_7: -2003196034
+      door_14_depthsdoor_8: -1126375421
+      door_14_depthsdoor_9: 1237086129
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 26
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -134,7 +134,154 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: door_21_darkroomdoor_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 190
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c162aee1d40d44db9691ab467b27f5
+      internalID: -540193870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_21_darkroomdoor_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 200
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98b2ce93a2f303c4592fbce5c211ae62
+      internalID: -607736542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_21_darkroomdoor_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 152
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab83898dc60f33b4987b68d2a13748f9
+      internalID: -507693223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_21_darkroomdoor_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 152
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 126845cb0043abb4198466e3ecf9eb71
+      internalID: 317206966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_21_darkroomdoor_4
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 96
+        width: 49
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5468e754497c7649a8f99ca5a3073f2
+      internalID: 555606975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_21_darkroomdoor_5
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 104
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55a24e2968373fb43bf03b1365629516
+      internalID: 524439854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_21_darkroomdoor_6
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 104
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ac2b4853e99a374f913732414f423dd
+      internalID: -1434359124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +292,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      door_21_darkroomdoor_0: -540193870
+      door_21_darkroomdoor_1: -607736542
+      door_21_darkroomdoor_10: 1796132974
+      door_21_darkroomdoor_11: -1365368171
+      door_21_darkroomdoor_12: -1638504994
+      door_21_darkroomdoor_13: 100695629
+      door_21_darkroomdoor_14: 728888517
+      door_21_darkroomdoor_15: -1118435163
+      door_21_darkroomdoor_16: 1908663887
+      door_21_darkroomdoor_17: -469804459
+      door_21_darkroomdoor_18: -2073201846
+      door_21_darkroomdoor_19: 101353162
+      door_21_darkroomdoor_2: -507693223
+      door_21_darkroomdoor_20: -1258883061
+      door_21_darkroomdoor_21: -1754305281
+      door_21_darkroomdoor_22: -330459935
+      door_21_darkroomdoor_23: -1710015633
+      door_21_darkroomdoor_3: 317206966
+      door_21_darkroomdoor_4: 555606975
+      door_21_darkroomdoor_5: 524439854
+      door_21_darkroomdoor_6: -1434359124
+      door_21_darkroomdoor_7: -97518650
+      door_21_darkroomdoor_8: 1183275166
+      door_21_darkroomdoor_9: -2008740691
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

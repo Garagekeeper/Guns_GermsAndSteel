@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa87595a99b03f940b2f806685b8321e
+guid: 6d5fdeb746abbe847b6e8d98498ac002
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_07_holyroomdoor_0
+      name: door_00_diceroomdoor_0
       rect:
         serializedVersion: 2
         x: 8
-        y: 189
+        y: 190
         width: 49
-        height: 51
+        height: 45
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be02cba40112bbe4c8b22bd7e752f544
-      internalID: -1686825075
+      spriteID: 0c83a23cb87368d4bae68b75e418d1f9
+      internalID: -1068135206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_07_holyroomdoor_1
+      name: door_00_diceroomdoor_1
       rect:
         serializedVersion: 2
         x: 84
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e310ed029b0c5a241b07755e79bbaf48
-      internalID: -1734964179
+      spriteID: dcfa68b25514cc4488437b4ac605288c
+      internalID: -1423406504
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_07_holyroomdoor_2
+      name: door_00_diceroomdoor_2
       rect:
         serializedVersion: 2
         x: 19
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d23244d2de6bf6f43beb2eef88ee5c6e
-      internalID: 1535779891
+      spriteID: 0b848b638ed6366459ced7872f7c50a3
+      internalID: 2082871739
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_07_holyroomdoor_3
+      name: door_00_diceroomdoor_3
       rect:
         serializedVersion: 2
         x: 96
@@ -213,14 +213,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 327ab5b9149a62444baf4f19ff17d607
-      internalID: 1705079629
+      spriteID: 9bba5f5776d51f8459ab4c918ad065c2
+      internalID: -991996949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_07_holyroomdoor_5
+      name: door_00_diceroomdoor_4
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 96
+        width: 49
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d80c598612b03b640b059d414c61f553
+      internalID: -1375408708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_00_diceroomdoor_5
       rect:
         serializedVersion: 2
         x: 91
@@ -234,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49baf199435418f45abc02cc151d5ec4
-      internalID: -1635426176
+      spriteID: 21739099e9e8f2d469e16ca9ecc4098b
+      internalID: 1596988676
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_07_holyroomdoor_6
+      name: door_00_diceroomdoor_6
       rect:
         serializedVersion: 2
         x: 157
@@ -255,8 +276,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bb1f089bdcc70049892a89586b4542c
-      internalID: -1596801858
+      spriteID: 76c1b5347b922b649a6c478974dde389
+      internalID: 1374030198
       vertices: []
       indices: 
       edges: []
@@ -272,30 +293,31 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      door_07_holyroomdoor_0: -1686825075
-      door_07_holyroomdoor_1: -1734964179
-      door_07_holyroomdoor_10: 682804384
-      door_07_holyroomdoor_11: 1833220350
-      door_07_holyroomdoor_12: 567765752
-      door_07_holyroomdoor_13: -828084412
-      door_07_holyroomdoor_14: -721964913
-      door_07_holyroomdoor_15: 562396294
-      door_07_holyroomdoor_16: -1406298807
-      door_07_holyroomdoor_17: 1538242778
-      door_07_holyroomdoor_18: -134577109
-      door_07_holyroomdoor_19: 268941374
-      door_07_holyroomdoor_2: 1535779891
-      door_07_holyroomdoor_20: -364612199
-      door_07_holyroomdoor_21: 185884199
-      door_07_holyroomdoor_22: 259183817
-      door_07_holyroomdoor_23: -82844709
-      door_07_holyroomdoor_3: 1705079629
-      door_07_holyroomdoor_4: 96340785
-      door_07_holyroomdoor_5: -1635426176
-      door_07_holyroomdoor_6: -1596801858
-      door_07_holyroomdoor_7: -2096629039
-      door_07_holyroomdoor_8: -1964093741
-      door_07_holyroomdoor_9: 600458603
+      door_00_diceroomdoor_0: -1068135206
+      door_00_diceroomdoor_1: -1423406504
+      door_00_diceroomdoor_10: 111173372
+      door_00_diceroomdoor_11: 1582795158
+      door_00_diceroomdoor_12: 286207082
+      door_00_diceroomdoor_13: -308683533
+      door_00_diceroomdoor_14: 1601888674
+      door_00_diceroomdoor_15: -2132868126
+      door_00_diceroomdoor_16: -1616331650
+      door_00_diceroomdoor_17: -681226267
+      door_00_diceroomdoor_18: -387469207
+      door_00_diceroomdoor_19: 928247417
+      door_00_diceroomdoor_2: 2082871739
+      door_00_diceroomdoor_20: -110444447
+      door_00_diceroomdoor_21: 1206044739
+      door_00_diceroomdoor_22: -606916200
+      door_00_diceroomdoor_23: -542691489
+      door_00_diceroomdoor_24: 848447477
+      door_00_diceroomdoor_3: -991996949
+      door_00_diceroomdoor_4: -1375408708
+      door_00_diceroomdoor_5: 1596988676
+      door_00_diceroomdoor_6: 1374030198
+      door_00_diceroomdoor_7: 843842789
+      door_00_diceroomdoor_8: -2038124808
+      door_00_diceroomdoor_9: -57155007
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

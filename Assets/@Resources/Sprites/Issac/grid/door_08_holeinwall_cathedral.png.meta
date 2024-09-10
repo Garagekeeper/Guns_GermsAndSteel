@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 26
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -134,7 +134,343 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: door_08_holeinwall_cathedral_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 205
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 607b12c96ae928e4da129d64e5643183
+      internalID: 421741311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_cathedral_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 205
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcf536cebeeff174083995c72cc8bf23
+      internalID: 687312234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_cathedral_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 205
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f3ea6328ac6a146b0f30e4263d5d1d
+      internalID: -1175609066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_cathedral_3
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 205
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 334d61c3deb338b498bd95c68adac48b
+      internalID: 590530263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_cathedral_4
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 141
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6fd9b6bf1e39ad499700303ecb2e06a
+      internalID: -1058432184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_cathedral_5
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 141
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 524bff7dd71557a439142f52608d9c31
+      internalID: -711622283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_cathedral_6
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 141
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f5207599aa7fdd4fa2344d2a34512b6
+      internalID: -481087308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_cathedral_7
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 141
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d98031b168c9ee4691337e2a5b26159
+      internalID: -2111056908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_cathedral_8
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 77
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f8e9282f3762044a8d2adb6c28ab6c5
+      internalID: 1583285472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_cathedral_9
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 77
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3728a5db564e434a96fd42cfa299964
+      internalID: -2050934420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_cathedral_10
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 77
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58cd1c15003533145b9db3c5a2104d56
+      internalID: 86301490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_cathedral_11
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 77
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41e4af1a3f52a2e4f9f557e1d0a17f7f
+      internalID: 414044041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_cathedral_12
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 13
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea0bc6a280a396d418f1adc58934ee79
+      internalID: -1677167869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_cathedral_13
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 13
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cb0c1135d5109647a3777f1028243eb
+      internalID: -749533335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_cathedral_14
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 13
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f49757db65bdde4c9eb5327114ab060
+      internalID: 2046531677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_cathedral_15
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 13
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcf54c7ca1e66914e8249256d8d43ffe
+      internalID: -1376732280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +481,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      door_08_holeinwall_cathedral_0: 421741311
+      door_08_holeinwall_cathedral_1: 687312234
+      door_08_holeinwall_cathedral_10: 86301490
+      door_08_holeinwall_cathedral_11: 414044041
+      door_08_holeinwall_cathedral_12: -1677167869
+      door_08_holeinwall_cathedral_13: -749533335
+      door_08_holeinwall_cathedral_14: 2046531677
+      door_08_holeinwall_cathedral_15: -1376732280
+      door_08_holeinwall_cathedral_2: -1175609066
+      door_08_holeinwall_cathedral_3: 590530263
+      door_08_holeinwall_cathedral_4: -1058432184
+      door_08_holeinwall_cathedral_5: -711622283
+      door_08_holeinwall_cathedral_6: -481087308
+      door_08_holeinwall_cathedral_7: -2111056908
+      door_08_holeinwall_cathedral_8: 1583285472
+      door_08_holeinwall_cathedral_9: -2050934420
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

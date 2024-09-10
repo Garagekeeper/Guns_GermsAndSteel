@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 661158fbcd809d048818ff93521f4887
   m_currentHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+    Hash: 1ffbed30e59698a8631a8a2b866c18af
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -51,6 +51,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 45c46409486e58e4488ceb666531a11d, type: 2}
   - {fileID: 11400000, guid: d0edfe2045b2e5e499871d61108f88c1, type: 2}
   - {fileID: 11400000, guid: 2edcef8ac12657640b09f467b86ab684, type: 2}
+  - {fileID: 11400000, guid: c184b41105145d54bb5dde935b222980, type: 2}
+  - {fileID: 11400000, guid: 5ab1b803a96f7bf4881591b7d4cca52a, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -95,7 +97,7 @@ MonoBehaviour:
     - Preload
     - Sprite
     - Data
-    - Tile_Map_Collision
+    - InGame
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 6a99facc048f8674f9376dd3e8a676e7, type: 2}

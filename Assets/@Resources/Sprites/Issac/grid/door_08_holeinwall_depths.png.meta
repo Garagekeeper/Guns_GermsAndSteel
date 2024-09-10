@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 26
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -134,7 +134,343 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: door_08_holeinwall_depths_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 205
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d35bc5d0675d9a5469394c2649fec927
+      internalID: -357690715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_depths_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 205
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9abda4489203bdd448dab67ef48522ca
+      internalID: 1460429223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_depths_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 205
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca447077efddcfd48bc13c4b8c97deee
+      internalID: 1536631474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_depths_3
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 205
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80c647f3e703014449ecaa7505a8bb72
+      internalID: 1213100114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_depths_4
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 141
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f79ad7236d3c3e4f9168af870cc97a2
+      internalID: 142843431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_depths_5
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 141
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dc9d482ec718ba4290bce20729518d1
+      internalID: -65826580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_depths_6
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 141
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9f3c5ae02248da468a0be2595ab951e
+      internalID: -1373595131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_depths_7
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 141
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d28f642fa09a75b46824575f9548d25f
+      internalID: 816703668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_depths_8
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 77
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92c1b96582a593048b59c5068537c063
+      internalID: -245696523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_depths_9
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 77
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cc9970319aeab342ac4cd288d01eedf
+      internalID: -1523595738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_depths_10
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 77
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40fd9045071679f42a96148b954a5e88
+      internalID: -1427540089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_depths_11
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 77
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d153f7dca5fda634d93cfebde297d834
+      internalID: 408102332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_depths_12
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 13
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2be22f83d7d97954dbf8f7c7a9ea9bf4
+      internalID: 579895588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_depths_13
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 13
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 675b041160e5fc34d87fcc7430bdde4d
+      internalID: 142004626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_depths_14
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 13
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5751aa0a7f617540814c4107c4d438b
+      internalID: 41856111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_depths_15
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 13
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cb35b70d5f97534498428dd85fad127
+      internalID: 1473344859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +481,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      door_08_holeinwall_depths_0: -357690715
+      door_08_holeinwall_depths_1: 1460429223
+      door_08_holeinwall_depths_10: -1427540089
+      door_08_holeinwall_depths_11: 408102332
+      door_08_holeinwall_depths_12: 579895588
+      door_08_holeinwall_depths_13: 142004626
+      door_08_holeinwall_depths_14: 41856111
+      door_08_holeinwall_depths_15: 1473344859
+      door_08_holeinwall_depths_2: 1536631474
+      door_08_holeinwall_depths_3: 1213100114
+      door_08_holeinwall_depths_4: 142843431
+      door_08_holeinwall_depths_5: -65826580
+      door_08_holeinwall_depths_6: -1373595131
+      door_08_holeinwall_depths_7: 816703668
+      door_08_holeinwall_depths_8: -245696523
+      door_08_holeinwall_depths_9: -1523595738
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

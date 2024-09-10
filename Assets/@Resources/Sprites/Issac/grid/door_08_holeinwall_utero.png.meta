@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 26
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -134,7 +134,343 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: door_08_holeinwall_utero_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 205
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff539dcaa0c94a4a9d7e310c1b0ab86
+      internalID: 1701642077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_utero_1
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 205
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fac5f3dafe9dc9c4b92155884e67eded
+      internalID: 1768253631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_utero_2
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 205
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71f181f42138f4a4586f8faa05c806d8
+      internalID: 766801328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_utero_3
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 205
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7ca891edf0b5d8428819189c49d7308
+      internalID: -351858456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_utero_4
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 141
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d1b02a8115889b4f8bd668c13a8a170
+      internalID: -1523522242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_utero_5
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 141
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 180c593b8bf65c74d9eae3017c146c18
+      internalID: -1961239301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_utero_6
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 141
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 842400cec681bdd45a3b777fa5d01dc1
+      internalID: -1712194105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_utero_7
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 141
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f64d4cef44d2c6549bc1219d88f7b975
+      internalID: -931559278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_utero_8
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 77
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 348ce1df4776f5140af44bb9ffa53385
+      internalID: -1506656236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_utero_9
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 77
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d6975dddb3f6c748960a68f6fa3446d
+      internalID: 262412911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_utero_10
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 77
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f671795ce02742042a8b46fe3f4aa389
+      internalID: 1882296092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_utero_11
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 77
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d854324053338c4587928254a9c2d63
+      internalID: 1090091305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_utero_12
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 13
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71a3297d6dc4a224ba33afa4c03058fe
+      internalID: -1668570426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_utero_13
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 13
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40da22b0e8cc8ef45995c69dc18d30a6
+      internalID: -987352025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_utero_14
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 13
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e26e9472ba735e2478dc96edff78ab16
+      internalID: -1321386823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_08_holeinwall_utero_15
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 13
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 479e53dc76fd2c642baf0f6e34ed77b9
+      internalID: -2039243438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +481,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      door_08_holeinwall_utero_0: 1701642077
+      door_08_holeinwall_utero_1: 1768253631
+      door_08_holeinwall_utero_10: 1882296092
+      door_08_holeinwall_utero_11: 1090091305
+      door_08_holeinwall_utero_12: -1668570426
+      door_08_holeinwall_utero_13: -987352025
+      door_08_holeinwall_utero_14: -1321386823
+      door_08_holeinwall_utero_15: -2039243438
+      door_08_holeinwall_utero_2: 766801328
+      door_08_holeinwall_utero_3: -351858456
+      door_08_holeinwall_utero_4: -1523522242
+      door_08_holeinwall_utero_5: -1961239301
+      door_08_holeinwall_utero_6: -1712194105
+      door_08_holeinwall_utero_7: -931559278
+      door_08_holeinwall_utero_8: -1506656236
+      door_08_holeinwall_utero_9: 262412911
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

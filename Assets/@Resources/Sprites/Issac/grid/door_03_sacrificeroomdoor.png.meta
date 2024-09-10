@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa87595a99b03f940b2f806685b8321e
+guid: 0c93d8b4602e3c546b814893d1c88a4a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_07_holyroomdoor_0
+      name: door_03_sacrificeroomdoor_0
       rect:
         serializedVersion: 2
         x: 8
         y: 189
         width: 49
-        height: 51
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be02cba40112bbe4c8b22bd7e752f544
-      internalID: -1686825075
+      spriteID: ed9fdda4ca5a7904cb5bd53f8f4f1ae0
+      internalID: 1470498878
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_07_holyroomdoor_1
+      name: door_03_sacrificeroomdoor_1
       rect:
         serializedVersion: 2
         x: 84
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e310ed029b0c5a241b07755e79bbaf48
-      internalID: -1734964179
+      spriteID: 48587a54775bdb04dab25c9554a4047d
+      internalID: 1539950599
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_07_holyroomdoor_2
+      name: door_03_sacrificeroomdoor_2
       rect:
         serializedVersion: 2
         x: 19
@@ -192,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d23244d2de6bf6f43beb2eef88ee5c6e
-      internalID: 1535779891
+      spriteID: 4c2a84520e4a1624e96a2a8c9f6e203b
+      internalID: -1476058581
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_07_holyroomdoor_3
+      name: door_03_sacrificeroomdoor_3
       rect:
         serializedVersion: 2
         x: 96
@@ -213,14 +213,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 327ab5b9149a62444baf4f19ff17d607
-      internalID: 1705079629
+      spriteID: 58633124827c9524b88176b1f2690b79
+      internalID: 536768745
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_07_holyroomdoor_5
+      name: door_03_sacrificeroomdoor_4
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 96
+        width: 49
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c5e0ea428d946b489b900e661bb1ea5
+      internalID: -1087542984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_03_sacrificeroomdoor_5
       rect:
         serializedVersion: 2
         x: 91
@@ -234,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49baf199435418f45abc02cc151d5ec4
-      internalID: -1635426176
+      spriteID: bb63ade8ae987bc4ab283dc903d90be8
+      internalID: -1972071521
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_07_holyroomdoor_6
+      name: door_03_sacrificeroomdoor_6
       rect:
         serializedVersion: 2
         x: 157
@@ -255,8 +276,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bb1f089bdcc70049892a89586b4542c
-      internalID: -1596801858
+      spriteID: c3ebf43de6f5cb74aaab8d4e36ab9fa0
+      internalID: -888530061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_00_sacrificeroomdoor_21
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 21
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af32dae313290b648b46da108e8798b5
+      internalID: 1040714107
       vertices: []
       indices: 
       edges: []
@@ -272,30 +314,31 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      door_07_holyroomdoor_0: -1686825075
-      door_07_holyroomdoor_1: -1734964179
-      door_07_holyroomdoor_10: 682804384
-      door_07_holyroomdoor_11: 1833220350
-      door_07_holyroomdoor_12: 567765752
-      door_07_holyroomdoor_13: -828084412
-      door_07_holyroomdoor_14: -721964913
-      door_07_holyroomdoor_15: 562396294
-      door_07_holyroomdoor_16: -1406298807
-      door_07_holyroomdoor_17: 1538242778
-      door_07_holyroomdoor_18: -134577109
-      door_07_holyroomdoor_19: 268941374
-      door_07_holyroomdoor_2: 1535779891
-      door_07_holyroomdoor_20: -364612199
-      door_07_holyroomdoor_21: 185884199
-      door_07_holyroomdoor_22: 259183817
-      door_07_holyroomdoor_23: -82844709
-      door_07_holyroomdoor_3: 1705079629
-      door_07_holyroomdoor_4: 96340785
-      door_07_holyroomdoor_5: -1635426176
-      door_07_holyroomdoor_6: -1596801858
-      door_07_holyroomdoor_7: -2096629039
-      door_07_holyroomdoor_8: -1964093741
-      door_07_holyroomdoor_9: 600458603
+      door_00_sacrificeroomdoor_10: -1915456547
+      door_00_sacrificeroomdoor_11: 1443487976
+      door_00_sacrificeroomdoor_12: 1552287854
+      door_00_sacrificeroomdoor_13: -1510359754
+      door_00_sacrificeroomdoor_14: -424307110
+      door_00_sacrificeroomdoor_15: 398356222
+      door_00_sacrificeroomdoor_16: 1229445673
+      door_00_sacrificeroomdoor_17: -235098767
+      door_00_sacrificeroomdoor_18: -1722801247
+      door_00_sacrificeroomdoor_19: 1826796358
+      door_00_sacrificeroomdoor_20: 1838825121
+      door_00_sacrificeroomdoor_21: 1040714107
+      door_00_sacrificeroomdoor_22: -1535380809
+      door_00_sacrificeroomdoor_23: -1643812539
+      door_00_sacrificeroomdoor_24: -258439815
+      door_00_sacrificeroomdoor_7: -860788952
+      door_00_sacrificeroomdoor_8: 1723903561
+      door_00_sacrificeroomdoor_9: 1579077612
+      door_03_sacrificeroomdoor_0: 1470498878
+      door_03_sacrificeroomdoor_1: 1539950599
+      door_03_sacrificeroomdoor_2: -1476058581
+      door_03_sacrificeroomdoor_3: 536768745
+      door_03_sacrificeroomdoor_4: -1087542984
+      door_03_sacrificeroomdoor_5: -1972071521
+      door_03_sacrificeroomdoor_6: -888530061
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

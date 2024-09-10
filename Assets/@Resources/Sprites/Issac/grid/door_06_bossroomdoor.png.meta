@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 67c4faf1dfb924a44a13856dc83f8a6f
+guid: 77ff32fbfe5f45a46b0d533b00c99b6c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,337 +136,232 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_08_holeinwall_caves_0
+      name: door_06_bossroomdoor_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 205
-        width: 49
-        height: 41
+        x: 0
+        y: 183
+        width: 64
+        height: 57
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6ee307373ab061b40a79f9fc1d0bb00c
-      internalID: 338469540
+      spriteID: 491a2ae4d751b024189f4fcb934c1b78
+      internalID: 1120147053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_08_holeinwall_caves_1
+      name: door_06_bossroomdoor_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 200
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 310f3b73790700a47a5ae91eb620c57e
+      internalID: -336407568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_06_bossroomdoor_2
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 152
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba8b7f85f012fa04bb88306ea78a8f5d
+      internalID: 284485285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_06_bossroomdoor_3
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 152
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e35127214d13cd4e908467012d2f406
+      internalID: 328381368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_06_bossroomdoor_4
       rect:
         serializedVersion: 2
         x: 71
-        y: 205
-        width: 49
-        height: 41
+        y: 50
+        width: 52
+        height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62757ca882def9a4db00e1fa7f1ff5b1
-      internalID: -1831090848
+      spriteID: edd16ee94839609488b5bca251c67466
+      internalID: -1369910209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_08_holeinwall_caves_2
+      name: door_06_bossroomdoor_233
       rect:
         serializedVersion: 2
-        x: 135
-        y: 205
-        width: 49
-        height: 41
+        x: 6
+        y: 76
+        width: 15
+        height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3f2275d2ece5a843a2f4d100d224a5c
-      internalID: -557628357
+      spriteID: 85f0ce4c29610c8439b557326a6f3e10
+      internalID: -1198575205
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_08_holeinwall_caves_3
+      name: door_06_bossroomdoor_33
       rect:
         serializedVersion: 2
-        x: 199
-        y: 205
-        width: 49
-        height: 41
+        x: 6
+        y: 60
+        width: 15
+        height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55c27cd7c953ee141bf05bd22ffd4c8d
-      internalID: -2027777270
+      spriteID: 877858335cda77d4f8f1e1a7ee56aa84
+      internalID: -1964722864
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_08_holeinwall_caves_4
+      name: door_06_bossroomdoor_43
       rect:
         serializedVersion: 2
-        x: 7
-        y: 141
-        width: 49
-        height: 41
+        x: 38
+        y: 76
+        width: 15
+        height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 632fb10e5e58ce34fb97ec4684bc6f19
-      internalID: 1457475432
+      spriteID: 14c4c1e446b80754491e193b76ba2666
+      internalID: -1567111318
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_08_holeinwall_caves_5
+      name: door_06_bossroomdoor_63
       rect:
         serializedVersion: 2
-        x: 71
-        y: 141
-        width: 49
-        height: 41
+        x: 38
+        y: 60
+        width: 15
+        height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1c601b7b866b6240a0146fea967a43b
-      internalID: 1409965563
+      spriteID: 494729bb156392447b0f0d23cc3eb20d
+      internalID: 1501048418
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_08_holeinwall_caves_6
+      name: door_06_bossroomdoor_5
       rect:
         serializedVersion: 2
-        x: 135
-        y: 141
-        width: 49
-        height: 41
+        x: 90
+        y: 104
+        width: 25
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7779127bcbc73c459c0d59c704ebf52
-      internalID: -949708742
+      spriteID: a75f6967dffd38542be6065c52a603a2
+      internalID: -1810200488
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_08_holeinwall_caves_7
+      name: door_06_bossroomdoor_6
       rect:
         serializedVersion: 2
-        x: 199
-        y: 141
-        width: 49
-        height: 41
+        x: 156
+        y: 104
+        width: 22
+        height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b45db65d941ba8d499ac34ea23c6c275
-      internalID: -1273060263
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_08_holeinwall_caves_8
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 77
-        width: 49
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 21a8abc7b241b6c428d103d39e62e534
-      internalID: 668204266
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_08_holeinwall_caves_9
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 77
-        width: 49
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a8fa3797ac354a4b8f42dc2dddbd94f
-      internalID: -477060787
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_08_holeinwall_caves_10
-      rect:
-        serializedVersion: 2
-        x: 135
-        y: 77
-        width: 49
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c40088daf08b2f8459ac663f4785d72e
-      internalID: 368244046
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_08_holeinwall_caves_11
-      rect:
-        serializedVersion: 2
-        x: 199
-        y: 77
-        width: 49
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1083effdd65d9e9428322c9ff4a48eb7
-      internalID: -1236244427
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_08_holeinwall_caves_12
-      rect:
-        serializedVersion: 2
-        x: 7
-        y: 13
-        width: 49
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9968c24cd00ded64a991add6f06893fa
-      internalID: -1253446011
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_08_holeinwall_caves_13
-      rect:
-        serializedVersion: 2
-        x: 71
-        y: 13
-        width: 49
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 65b7017a604b4964694fe0320ce6398f
-      internalID: 1982014422
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_08_holeinwall_caves_14
-      rect:
-        serializedVersion: 2
-        x: 135
-        y: 13
-        width: 49
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4beac63a06afb1c4fa405aef570eb857
-      internalID: -1444559894
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_08_holeinwall_caves_15
-      rect:
-        serializedVersion: 2
-        x: 199
-        y: 13
-        width: 49
-        height: 41
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1e1d4016a3257cc4b89a6dcdc68a21e3
-      internalID: 573211660
+      spriteID: 730d0b9ce94e7d34baf4c812354641d4
+      internalID: -2092671007
       vertices: []
       indices: 
       edges: []
@@ -482,22 +377,31 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      door_08_holeinwall_caves_0: 338469540
-      door_08_holeinwall_caves_1: -1831090848
-      door_08_holeinwall_caves_10: 368244046
-      door_08_holeinwall_caves_11: -1236244427
-      door_08_holeinwall_caves_12: -1253446011
-      door_08_holeinwall_caves_13: 1982014422
-      door_08_holeinwall_caves_14: -1444559894
-      door_08_holeinwall_caves_15: 573211660
-      door_08_holeinwall_caves_2: -557628357
-      door_08_holeinwall_caves_3: -2027777270
-      door_08_holeinwall_caves_4: 1457475432
-      door_08_holeinwall_caves_5: 1409965563
-      door_08_holeinwall_caves_6: -949708742
-      door_08_holeinwall_caves_7: -1273060263
-      door_08_holeinwall_caves_8: 668204266
-      door_08_holeinwall_caves_9: -477060787
+      door_06_bossroomdoor_0: 1120147053
+      door_06_bossroomdoor_1: -336407568
+      door_06_bossroomdoor_2: 284485285
+      door_06_bossroomdoor_233: -1198575205
+      door_06_bossroomdoor_3: 328381368
+      door_06_bossroomdoor_33: -1964722864
+      door_06_bossroomdoor_4: -1369910209
+      door_06_bossroomdoor_43: -1567111318
+      door_06_bossroomdoor_5: -1810200488
+      door_06_bossroomdoor_6: -2092671007
+      door_06_bossroomdoor_63: 1501048418
+      door_10_bossroomdoor_10: 35967682
+      door_10_bossroomdoor_11: 2027703560
+      door_10_bossroomdoor_12: -48727462
+      door_10_bossroomdoor_13: 184716195
+      door_10_bossroomdoor_16: -208962783
+      door_10_bossroomdoor_17: 676692654
+      door_10_bossroomdoor_18: -979426699
+      door_10_bossroomdoor_19: -262953834
+      door_10_bossroomdoor_20: 1988718375
+      door_10_bossroomdoor_21: -526308776
+      door_10_bossroomdoor_22: 1301308524
+      door_10_bossroomdoor_24: -1846415317
+      door_10_bossroomdoor_8: 1171997061
+      door_10_bossroomdoor_9: 1785781928
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 26
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -134,7 +134,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: door_02b_chestroomdoor_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 190
+        width: 49
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64d5390b57bad1e43939fead0876f9b3
+      internalID: 1741485372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_02b_chestroomdoor_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 152
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39e27ff4fca45064eb3cb6bd802f1d9e
+      internalID: 96192038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_02b_chestroomdoor_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 152
+        width: 14
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25893004e464d014a8e71c365b1a379a
+      internalID: -543833421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_02b_chestroomdoor_5
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 104
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 314eafa0424d90347be21895c39a224b
+      internalID: -1617958340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_02b_chestroomdoor_6
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 104
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e2cc333873416549a9f5521e22ee021
+      internalID: 1102209496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +250,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      door_02b_chestroomdoor_0: 1741485372
+      door_02b_chestroomdoor_1: 1632709470
+      door_02b_chestroomdoor_10: -541526449
+      door_02b_chestroomdoor_11: 452191663
+      door_02b_chestroomdoor_12: -743367878
+      door_02b_chestroomdoor_13: 1698104298
+      door_02b_chestroomdoor_14: 2077525600
+      door_02b_chestroomdoor_15: 1470438017
+      door_02b_chestroomdoor_16: -624489025
+      door_02b_chestroomdoor_17: -286849914
+      door_02b_chestroomdoor_18: -1672510434
+      door_02b_chestroomdoor_19: 1333102863
+      door_02b_chestroomdoor_2: 96192038
+      door_02b_chestroomdoor_20: -2123794995
+      door_02b_chestroomdoor_21: -1272659022
+      door_02b_chestroomdoor_22: 2009291117
+      door_02b_chestroomdoor_23: 1992543340
+      door_02b_chestroomdoor_3: -543833421
+      door_02b_chestroomdoor_4: 558331680
+      door_02b_chestroomdoor_5: -1617958340
+      door_02b_chestroomdoor_6: 1102209496
+      door_02b_chestroomdoor_7: -1891175620
+      door_02b_chestroomdoor_8: -656234755
+      door_02b_chestroomdoor_9: -992211727
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

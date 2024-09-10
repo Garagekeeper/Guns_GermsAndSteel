@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 26
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -134,7 +134,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: door_29_doortobluewomb_blue_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 131
+        width: 94
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c1500c2ac13ada449cb82f6a10078cf
+      internalID: -1521634054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_29_doortobluewomb_blue_3
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 143
+        width: 52
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63039fd2f9a4de143b837c180cf82e40
+      internalID: -350762298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_29_doortobluewomb_blue_10
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 75
+        width: 56
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d3bc16466b090b4fb61a69e7fe95deb
+      internalID: 667453714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_29_doortobluewomb_blue_11
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 19
+        width: 122
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76946e2237a72404b998b5ef85a6221e
+      internalID: -1855701809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_29_doortobluewomb_blue_1
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 68
+        width: 94
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7164e6384265e904281b5d44b1459cc9
+      internalID: 152907222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +250,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      door_29_doortobluewomb_blue_0: -1521634054
+      door_29_doortobluewomb_blue_1: 152907222
+      door_29_doortobluewomb_blue_10: 667453714
+      door_29_doortobluewomb_blue_11: -1855701809
+      door_29_doortobluewomb_blue_2: 1149581073
+      door_29_doortobluewomb_blue_3: -350762298
+      door_29_doortobluewomb_blue_4: 1116765079
+      door_29_doortobluewomb_blue_5: 900280065
+      door_29_doortobluewomb_blue_6: 94346419
+      door_29_doortobluewomb_blue_7: 344467557
+      door_29_doortobluewomb_blue_8: 1857370436
+      door_29_doortobluewomb_blue_9: -1034179378
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

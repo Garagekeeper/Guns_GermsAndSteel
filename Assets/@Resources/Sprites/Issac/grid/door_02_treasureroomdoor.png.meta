@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 26
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -134,7 +134,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: door_02_treasureroomdoor_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 190
+        width: 49
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59d18575db09cda488edfdaa16e28d75
+      internalID: 1064258245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_02_treasureroomdoor_5
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 104
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36efe5a877a482e4b93735ef55160ae8
+      internalID: -578517382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_02_treasureroomdoor_6
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 104
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9740305c69f8d36428b0010f6676a07d
+      internalID: 1831066743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +208,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      door_02_treasureroomdoor_0: 1064258245
+      door_02_treasureroomdoor_1: 1966229152
+      door_02_treasureroomdoor_10: 442054676
+      door_02_treasureroomdoor_11: 358218417
+      door_02_treasureroomdoor_12: -427002771
+      door_02_treasureroomdoor_13: -155267192
+      door_02_treasureroomdoor_14: 1191184862
+      door_02_treasureroomdoor_15: -1138620604
+      door_02_treasureroomdoor_16: 1871836463
+      door_02_treasureroomdoor_17: -232236013
+      door_02_treasureroomdoor_18: -1422593746
+      door_02_treasureroomdoor_19: 2131954514
+      door_02_treasureroomdoor_2: -932820474
+      door_02_treasureroomdoor_20: 184395917
+      door_02_treasureroomdoor_21: -1670884063
+      door_02_treasureroomdoor_22: 1325879045
+      door_02_treasureroomdoor_23: -1766175490
+      door_02_treasureroomdoor_3: -2106334868
+      door_02_treasureroomdoor_4: -905294089
+      door_02_treasureroomdoor_5: -578517382
+      door_02_treasureroomdoor_6: 1831066743
+      door_02_treasureroomdoor_7: -1083455028
+      door_02_treasureroomdoor_8: 1548038488
+      door_02_treasureroomdoor_9: 1566443487
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

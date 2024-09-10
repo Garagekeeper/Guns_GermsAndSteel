@@ -21,61 +21,60 @@ MonoBehaviour:
     m_Address: Tile_Map_Collision_Start_0
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Tile_Map_Collision
+    - InGame
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eab45cd9a8c529d468863baaff614af5
     m_Address: Tile_Map_Collision_Shop_0
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Tile_Map_Collision
+    - InGame
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c57f27c4e3373ea4095e41bac0c46064
     m_Address: Tile_Map_Collision_Secret_0
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Tile_Map_Collision
+    - InGame
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8ef1ff4740509d745a327966dc3d45e4
     m_Address: Tile_Map_Collision_Sacrifice_0
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Tile_Map_Collision
+    - InGame
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 584a507e6cb9bdb46aa2a8b645efd2f7
     m_Address: Tile_Map_Collision_Normal_0
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Tile_Map_Collision
+    - InGame
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b0db7006cbf18446859e673bf6e532f
     m_Address: Tile_Map_Collision_Gold_0
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Tile_Map_Collision
+    - InGame
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e1a660299cd3824aa71d210f8a67bf9
     m_Address: Tile_Map_Collision_Devil_0
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Tile_Map_Collision
+    - InGame
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a57aefb6adbf9842806aa9105451ac1
-    m_Address: Tile_Map_Collision_Curse_0
+    m_Address: Tile_Map_Collision_SelfSacrifice_0
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Tile_Map_Collision
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7dc277435ad1b0f47af3f99c4ffd41fb
     m_Address: Tile_Map_Collision_Boss_0
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Tile_Map_Collision
+    - InGame
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1593c71e0d1963847a4118c54a2186d2
     m_Address: Tile_Map_Collision_Angel_0
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Tile_Map_Collision
+    - InGame
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}

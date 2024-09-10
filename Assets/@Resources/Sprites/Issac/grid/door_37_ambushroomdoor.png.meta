@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 26
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -134,7 +134,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: door_03_ambushroomdoor_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 143
+        width: 49
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1043a68dbb47e304190fa6a9486bad6a
+      internalID: 1519550055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_03_ambushroomdoor_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 152
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee232731ef91dd5418e8cc48b6be1625
+      internalID: 629768030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_03_ambushroomdoor_2
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 104
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a7cfe835f167dd4fa90991d157ef2cc
+      internalID: -1878303669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +208,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      door_03_ambushroomdoor_0: 1519550055
+      door_03_ambushroomdoor_1: 629768030
+      door_03_ambushroomdoor_10: 1130842880
+      door_03_ambushroomdoor_11: -2035237104
+      door_03_ambushroomdoor_12: 1851729574
+      door_03_ambushroomdoor_13: 921458083
+      door_03_ambushroomdoor_14: -262728975
+      door_03_ambushroomdoor_15: 1951653040
+      door_03_ambushroomdoor_2: -1878303669
+      door_03_ambushroomdoor_3: -1015750935
+      door_03_ambushroomdoor_4: 1338434750
+      door_03_ambushroomdoor_5: -412545074
+      door_03_ambushroomdoor_6: 962399779
+      door_03_ambushroomdoor_7: 1742616275
+      door_03_ambushroomdoor_8: 1219068970
+      door_03_ambushroomdoor_9: -2053541523
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

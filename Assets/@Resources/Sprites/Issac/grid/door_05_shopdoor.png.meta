@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fa87595a99b03f940b2f806685b8321e
+guid: 8382e838080596b4e865d797ce67bf88
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,28 +136,28 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_07_holyroomdoor_0
+      name: door_05_shopdoor_0
       rect:
         serializedVersion: 2
         x: 8
         y: 189
         width: 49
-        height: 51
-      alignment: 0
+        height: 43
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be02cba40112bbe4c8b22bd7e752f544
-      internalID: -1686825075
+      spriteID: d6aaf8fee9bef7f4b90d297dd145a836
+      internalID: -2019789075
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_07_holyroomdoor_1
+      name: door_05_shopdoor_1
       rect:
         serializedVersion: 2
         x: 84
@@ -171,41 +171,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e310ed029b0c5a241b07755e79bbaf48
-      internalID: -1734964179
+      spriteID: b86233934a4ebbc4e87f085b2d784449
+      internalID: -1525191425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_07_holyroomdoor_2
+      name: door_05_shopdoor_2
       rect:
         serializedVersion: 2
         x: 19
         y: 152
         width: 14
         height: 24
-      alignment: 0
+      alignment: 9
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d23244d2de6bf6f43beb2eef88ee5c6e
-      internalID: 1535779891
+      spriteID: 29ab6e699e4f54e449895b7c3e2bd118
+      internalID: -1842618764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_07_holyroomdoor_3
+      name: door_05_shopdoor_3
       rect:
         serializedVersion: 2
         x: 96
         y: 152
         width: 14
         height: 24
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ea983d5a50ec25469e66a486b7549e3
+      internalID: 967834403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_4
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 96
+        width: 49
+        height: 40
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 327ab5b9149a62444baf4f19ff17d607
-      internalID: 1705079629
+      spriteID: f43cdef46d5c66b49b443c572d056b13
+      internalID: 202000538
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_07_holyroomdoor_5
+      name: door_05_shopdoor_5
       rect:
         serializedVersion: 2
         x: 91
@@ -234,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49baf199435418f45abc02cc151d5ec4
-      internalID: -1635426176
+      spriteID: ceaeca569508069478f04c062014963e
+      internalID: -1207728596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_07_holyroomdoor_6
+      name: door_05_shopdoor_6
       rect:
         serializedVersion: 2
         x: 157
@@ -255,8 +276,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8bb1f089bdcc70049892a89586b4542c
-      internalID: -1596801858
+      spriteID: 351e5cac071f4554eb5307a69f21ea09
+      internalID: 600823960
       vertices: []
       indices: 
       edges: []
@@ -272,30 +293,30 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      door_07_holyroomdoor_0: -1686825075
-      door_07_holyroomdoor_1: -1734964179
-      door_07_holyroomdoor_10: 682804384
-      door_07_holyroomdoor_11: 1833220350
-      door_07_holyroomdoor_12: 567765752
-      door_07_holyroomdoor_13: -828084412
-      door_07_holyroomdoor_14: -721964913
-      door_07_holyroomdoor_15: 562396294
-      door_07_holyroomdoor_16: -1406298807
-      door_07_holyroomdoor_17: 1538242778
-      door_07_holyroomdoor_18: -134577109
-      door_07_holyroomdoor_19: 268941374
-      door_07_holyroomdoor_2: 1535779891
-      door_07_holyroomdoor_20: -364612199
-      door_07_holyroomdoor_21: 185884199
-      door_07_holyroomdoor_22: 259183817
-      door_07_holyroomdoor_23: -82844709
-      door_07_holyroomdoor_3: 1705079629
-      door_07_holyroomdoor_4: 96340785
-      door_07_holyroomdoor_5: -1635426176
-      door_07_holyroomdoor_6: -1596801858
-      door_07_holyroomdoor_7: -2096629039
-      door_07_holyroomdoor_8: -1964093741
-      door_07_holyroomdoor_9: 600458603
+      door_00_shopdoor_10: 890669719
+      door_00_shopdoor_11: -1813076484
+      door_00_shopdoor_12: -3492838
+      door_00_shopdoor_13: -606219134
+      door_00_shopdoor_14: -1766977531
+      door_00_shopdoor_15: 1331413705
+      door_00_shopdoor_16: -2010912289
+      door_00_shopdoor_17: 2020764048
+      door_00_shopdoor_18: -1195447592
+      door_00_shopdoor_19: -529397725
+      door_00_shopdoor_20: 480501139
+      door_00_shopdoor_21: -966292251
+      door_00_shopdoor_22: -810673544
+      door_00_shopdoor_23: 2129858849
+      door_00_shopdoor_7: -1319444579
+      door_00_shopdoor_8: 891448106
+      door_00_shopdoor_9: -1646285270
+      door_05_shopdoor_0: -2019789075
+      door_05_shopdoor_1: -1525191425
+      door_05_shopdoor_2: -1842618764
+      door_05_shopdoor_3: 967834403
+      door_05_shopdoor_4: 202000538
+      door_05_shopdoor_5: -1207728596
+      door_05_shopdoor_6: 600823960
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
