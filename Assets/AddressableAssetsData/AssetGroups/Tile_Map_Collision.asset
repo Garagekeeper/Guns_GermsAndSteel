@@ -60,9 +60,10 @@ MonoBehaviour:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a57aefb6adbf9842806aa9105451ac1
-    m_Address: Tile_Map_Collision_SelfSacrifice_0
+    m_Address: Tile_Map_Collision_Curse_0
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - InGame
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7dc277435ad1b0f47af3f99c4ffd41fb
     m_Address: Tile_Map_Collision_Boss_0

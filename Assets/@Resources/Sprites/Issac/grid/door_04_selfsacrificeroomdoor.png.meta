@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_04_selfsacrificeroomdoor_0
+      name: door_04_cursedoor_0
       rect:
         serializedVersion: 2
         x: 8
@@ -157,7 +157,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_04_selfsacrificeroomdoor_2
+      name: door_04_cursedoor_2
       rect:
         serializedVersion: 2
         x: 19
@@ -178,7 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_04_selfsacrificeroomdoor_3
+      name: door_04_cursedoor_3
       rect:
         serializedVersion: 2
         x: 96
@@ -199,7 +199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_04_selfsacrificeroomdoor_4
+      name: door_04_cursedoor_4
       rect:
         serializedVersion: 2
         x: 8
@@ -220,7 +220,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_04_selfsacrificeroomdoor_5
+      name: door_04_cursedoor_5
       rect:
         serializedVersion: 2
         x: 91
@@ -241,7 +241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_04_selfsacrificeroomdoor_6
+      name: door_04_cursedoor_6
       rect:
         serializedVersion: 2
         x: 157
@@ -272,7 +272,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      door_04_selfsacrificeroomdoor_0: -641542323
+      door_04_cursedoor_0: -641542323
+      door_04_cursedoor_2: 1289916121
+      door_04_cursedoor_3: -667364603
+      door_04_cursedoor_4: 966046071
+      door_04_cursedoor_5: 1412812050
+      door_04_cursedoor_6: 1160862753
       door_04_selfsacrificeroomdoor_1: 726503559
       door_04_selfsacrificeroomdoor_10: 687711241
       door_04_selfsacrificeroomdoor_11: 1955436877
@@ -284,15 +289,10 @@ TextureImporter:
       door_04_selfsacrificeroomdoor_17: 1876576623
       door_04_selfsacrificeroomdoor_18: -2045838701
       door_04_selfsacrificeroomdoor_19: 754269167
-      door_04_selfsacrificeroomdoor_2: 1289916121
       door_04_selfsacrificeroomdoor_20: -1490654950
       door_04_selfsacrificeroomdoor_21: -477022909
       door_04_selfsacrificeroomdoor_22: -722154363
       door_04_selfsacrificeroomdoor_23: -235507844
-      door_04_selfsacrificeroomdoor_3: -667364603
-      door_04_selfsacrificeroomdoor_4: 966046071
-      door_04_selfsacrificeroomdoor_5: 1412812050
-      door_04_selfsacrificeroomdoor_6: 1160862753
       door_04_selfsacrificeroomdoor_7: 1668467877
       door_04_selfsacrificeroomdoor_8: 1323102940
       door_04_selfsacrificeroomdoor_9: -483034816

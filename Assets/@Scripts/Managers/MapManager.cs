@@ -19,12 +19,13 @@ public class RoomClass
         Normal,
         Gold,
         Sacrifice,
-        SelfSacrifice,
+        Curse,
         Shop,
         Boss,
         Angel,
         Devil,
         Secret,
+        SSecret,
     }
 
     public ERoomType RoomType { get; set; }
@@ -89,7 +90,7 @@ public class MapManager
     { "door_01_normaldoor_0" , "door_01_normaldoor_4"},
     { "door_02_treasureroomdoor_0" , "door_01_normaldoor_4"},
     { "door_03_sacrificeroomdoor_0" , "door_03_sacrificeroomdoor_4"},
-    { "door_04_selfsacrificeroomdoor_0" , "door_04_selfsacrificeroomdoor_4"},
+    { "door_04_curseroomdoor_0" , "door_04_curseroomdoor_4"},
     { "door_05_shopdoor_0" , "door_05_shopdoor_4"},
     { "door_06_bossroomdoor_0" , "door_06_bossroomdoor_4"},
     { "door_07_devilroomdoor_0" , "door_07_devilroomdoor_4"},
@@ -115,7 +116,7 @@ public class MapManager
     { "door_01_normaldoor_2", "door_01_normaldoor_3","door_01_normaldoor_5", "door_01_normaldoor_6"},
     { "door_01_normaldoor_2", "door_01_normaldoor_3", "door_02_treasureroomdoor_5", "door_02_treasureroomdoor_6"},
     { "door_03_sacrificeroomdoor_2","door_03_sacrificeroomdoor_3","door_03_sacrificeroomdoor_5","door_03_sacrificeroomdoor_6"},
-    { "door_04_selfsacrificeroomdoor_2","door_04_selfsacrificeroomdoor_3","door_04_selfsacrificeroomdoor_5","door_04_selfsacrificeroomdoor_6"},
+    { "door_04_curseroomdoor_2","door_04_curseroomdoor_3","door_04_curseroomdoor_5","door_04_curseroomdoor_6"},
     { "door_05_shopdoor_2","door_05_shopdoor_3","door_05_shopdoor_5","door_05_shopdoor_6"},
     { "door_06_bossroomdoor_2","door_06_bossroomdoor_3","door_06_bossroomdoor_5","door_06_bossroomdoor_6"},
     { "door_07_devilroomdoor_2","door_07_devilroomdoor_3","door_07_devilroomdoor_5","door_07_devilroomdoor_6"},
@@ -136,6 +137,7 @@ public class MapManager
             return Huristic < other.Huristic ? 1 : -1;
         }
     }
+
 
     List<Vector3Int> _possibleVector = new List<Vector3Int>()
     {
@@ -259,9 +261,22 @@ public class MapManager
     #endregion
 
     #region MAP_GENERATING
+    public struct PQRNode : IComparable<PQRNode>
+    {
+        public RoomClass RoomClass;
+        public int ManhattanDistance;
+
+        public int CompareTo(PQRNode other)
+        {
+            if (ManhattanDistance == other.ManhattanDistance)
+                return 0;
+            return ManhattanDistance < other.ManhattanDistance ? 1 : -1;
+        }
+    }
+
     public static int s_mapMaxX = 9;
     public static int s_mapMaxY = 9;
-    public static int[,] s_roomGraph = new int[9, 9];
+    public static int[,] s_roomGraph;
     public int[,] collisionData;
 
     public List<RoomClass> Rooms { get; private set; }
@@ -288,8 +303,6 @@ public class MapManager
 
     public Vector2Int StartingPos { get; set; } = new Vector2Int(4, 4);
 
-    public int StageNumber { get; set; } = 0;
-
     //int _baseRoomCountMax = 20;
     //int _baseRoomCountMin = 10;
 
@@ -308,6 +321,69 @@ public class MapManager
         // 위조건을 만족해도 50보다 작아야 방을 생성
         if (!Managers.Game.Chance(50)) return false;
         return true;
+    }
+
+    public RoomClass TryPlacingSecretRoom()
+    {
+        Dictionary<Vector3, int> values = new Dictionary<Vector3, int>();
+
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                if (s_roomGraph[i, j] == 1) break;
+                int adjacent = 0;
+                int weighjt = 14;
+                int[] dx = { 0, 0, 1, -1 };
+                int[] dy = { 1, -1, 0, 0, };
+
+                int itr = 0;
+                for (int k = 0; k < 4; k++)
+                {
+                    int nx = i + dx[k];
+                    int ny = j + dy[k];
+                    if (nx < 0 || nx >= s_mapMaxX) break;
+                    if (ny < 0 || ny >= s_mapMaxY) break;
+                    if (nx == BossRoom.XPos && ny == BossRoom.YPos) break;
+                    if (s_roomGraph[nx, ny] == 1)
+                    {
+                        adjacent++;
+                        itr++;
+                    }
+                }
+                if (adjacent >= 3)
+                {
+                    values.Add(new Vector3(i, j), weighjt - 3);
+                }
+                else if (adjacent == 2)
+                {
+                    values.Add(new Vector3(i, j), weighjt - 6);
+                }
+                else if (adjacent == 1)
+                {
+                    values.Add(new Vector3(i, j), weighjt - 9);
+                }
+                else
+                {
+                    values.Add(new Vector3(i, j), weighjt - 12);
+                }
+
+            }
+        }
+
+        Vector3 pos = new Vector3(0, 0);
+        int maxWeight = 0;
+        foreach (var pl in values)
+        {
+            if (pl.Value > maxWeight)
+            {
+                pos = pl.Key; maxWeight = pl.Value;
+            }
+        }
+
+        s_roomGraph[(int)pos.x, (int)pos.y] = 1;
+        RoomClass SecretRoom = new RoomClass((int)pos.x, (int)pos.y);
+        return (SecretRoom);
     }
 
     public int CheckAdjacencyRoomCnt(int x, int y)
@@ -339,14 +415,15 @@ public class MapManager
     }
 
 
-    public void GenerateStage()
+    public int GenerateStage()
     {
         Queue<RoomClass> roomClassQueue = new Queue<RoomClass>();
         RoomClass rc;
         Rooms = new List<RoomClass>();
         int roomCnt = 0;
 
-
+        s_roomGraph = new int[9, 9];
+        Rooms.Clear();
 
         //시작 위치
         s_roomGraph[4, 4] = 1;
@@ -395,97 +472,247 @@ public class MapManager
 
         Rooms.Remove(StartingRoom);
 
+
+
+        #region OLD_VER
+        ////3. special (인접한 방이 1개인 방들을 나열) 생성
+        ////dead ends
+        //List<RoomClass> special = new List<RoomClass>();
+        //foreach (var room in Rooms)
+        //{
+        //    //인접한 방이 1개이면 special추가
+        //    if (room._adjacencentRooms.Count(s => s != null) == 1) special.Add(room);
+        //    //아닌경우 방의 난이도 설정
+        //    else room.DiffiCulty = Managers.Game.Choice(_difficulty);
+        //}
+
+        ////4. 보스방 설정
+        ////1) spcial에서 시작방과 인접하지 않은 방들을 넣은것
+        //List<RoomClass> boss = new List<RoomClass>();
+        //foreach (RoomClass spc in special)
+        //{
+        //    bool startAdjacnecy = false;
+        //    for (int i = 0; i < 4; i++)
+        //    {
+        //        RoomClass temp = spc._adjacencentRooms[i];
+        //        if (temp == null) continue;
+        //        if (temp == StartingRoom) startAdjacnecy = true;
+        //        if (!startAdjacnecy)
+        //        {
+        //            boss.Add(spc);
+        //            break;
+        //        }
+        //    }
+        //}
+
+        ////5. 황금방 설정
+        //if (special.Count > 0)
+        //{
+        //    rc = Managers.Game.Choice(special);
+        //    rc.RoomType = RoomClass.ERoomType.Gold;
+        //    special.Remove(rc);
+
+        //    //방의 개수가 15개가 넘는경우 2개 배정을 시도한다.
+        //    if (Managers.Game.N >= 15 && special.Count > 0)
+        //    {
+        //        if (Managers.Game.Chance(25))
+        //        {
+        //            rc = Managers.Game.Choice(special);
+        //            rc.RoomType = RoomClass.ERoomType.Gold;
+        //            special.Remove(rc);
+        //        }
+        //    }
+        //}
+
+        ////6.비밀방 설정
+        //if (special.Count > 0)
+        //{
+        //    rc = Managers.Game.Choice(special);
+        //    rc.RoomType = RoomClass.ERoomType.Secret;
+        //    special.Remove(rc);
+
+        //    //TODO
+        //    //비밀방은 겉으로 표시되는게 아니라
+        //    //연결되지 않은 취급하자
+        //    //R D L U
+        //    //0 1 2 3
+        //    for (int i = 0; i < 4; i++)
+        //    {
+        //        if (rc._adjacencentRooms[i] != null)
+        //        {
+        //            rc._adjacencentRooms[i]._adjacencentRooms[(i + 2) % 4] = null;
+        //            rc._adjacencentRooms[i] = null;
+        //        }
+        //    }
+        //}
+
+
+
+        ////7. 상점 설정
+        //if (special.Count > 0)
+        //{
+        //    if (Managers.Game.N <= 15)
+        //    {
+        //        rc = Managers.Game.Choice(special);
+        //        rc.RoomType = RoomClass.ERoomType.Shop;
+        //        special.Remove(rc);
+        //    }
+        //    else if (Managers.Game.Chance(66))
+        //    {
+        //        rc = Managers.Game.Choice(special);
+        //        rc.RoomType = RoomClass.ERoomType.Shop;
+        //        special.Remove(rc);
+        //    }
+        //}
+
+        ////8.천사방, 악마방 설정
+        //if (Managers.Game.Chance(20))
+        //{
+        //    int[] dx = { 0, 0, 1, -1 };
+        //    int[] dy = { 1, -1, 0, 0, };
+        //    List<RoomClass> reward = new List<RoomClass>();
+        //    for (int i = 0; i < 4; i++)
+        //    {
+        //        int nx = BossRoom.XPos + dx[i];
+        //        int ny = BossRoom.YPos + dy[i];
+
+        //        if (nx < 0 || nx >= s_mapMaxX) continue;
+        //        if (ny < 0 || ny >= s_mapMaxY) continue;
+        //        if (s_roomGraph[nx, ny] == 1) continue;
+        //        if (nx > XMax || nx < XMin) continue;
+        //        if (ny > YMax || ny < YMin) continue;
+        //        RoomClass temp = new RoomClass(nx, ny);
+
+        //        reward.Add(temp);
+        //    }
+
+        //    rc = Managers.Game.Choice(reward);
+        //    Rooms.Add(rc);
+        //    s_roomGraph[rc.XPos, rc.YPos] = 1;
+        //    rc.RoomType = Managers.Game.Chance(50) ? RoomClass.ERoomType.Devil : RoomClass.ERoomType.Angel;
+        //}
+
+        ////9. 희생방 설정
+        //if (special.Count > 0)
+        //{
+        //    bool isAngel = false;
+        //    foreach (var temp in Rooms)
+        //    {
+        //        if (temp.RoomType == RoomClass.ERoomType.Angel) isAngel = true;
+        //    }
+
+        //    if (isAngel || Managers.Game.Chance(14))
+        //    {
+        //        rc = Managers.Game.Choice(special);
+        //        rc.RoomType = RoomClass.ERoomType.Sacrifice;
+        //        special.Remove(rc);
+        //    }
+        //}
+
+        ////10. 저주방 설정
+        //if (special.Count > 0)
+        //{
+        //    bool isDevil = false;
+        //    foreach (var temp in Rooms)
+        //    {
+        //        if (temp.RoomType == RoomClass.ERoomType.Devil) isDevil = true;
+        //    }
+
+        //    if (isDevil && Managers.Game.Chance(20))
+        //    {
+        //        rc = Managers.Game.Choice(special);
+        //        rc.RoomType = ERoomType.Curse;
+        //        special.Remove(rc);
+        //    }
+        //}
+
+        ////11. special 배열이 빌 때까지 일반 방 설정
+        //if (special.Count > 0)
+        //{
+        //    foreach (var temp in special)
+        //    {
+        //        temp.DiffiCulty = Managers.Game.Choice(_difficulty);
+        //    }
+        //}
+
+        #endregion
+
         //3. special (인접한 방이 1개인 방들을 나열) 생성
-        List<RoomClass> special = new List<RoomClass>();
+        //dead ends
+        PriorityQueue<PQRNode> dead_ends = new PriorityQueue<PQRNode>();
         foreach (var room in Rooms)
         {
             //인접한 방이 1개이면 special추가
-            if (room._adjacencentRooms.Count(s => s != null) == 1) special.Add(room);
+            if (room._adjacencentRooms.Count(s => s != null) == 1) dead_ends.Push(new PQRNode() { RoomClass = room, ManhattanDistance = Math.Abs(4 - room.XPos) + (Math.Abs(4 - room.YPos)) });
             //아닌경우 방의 난이도 설정
             else room.DiffiCulty = Managers.Game.Choice(_difficulty);
         }
 
         //4. 보스방 설정
-        //1) spcial에서 시작방과 인접하지 않은 방들을 넣은것
-        List<RoomClass> boss = new List<RoomClass>();
-        foreach (RoomClass spc in special)
+        //가장 거리가 먼 것을 먼저 뽑기
+        BossRoom = dead_ends.Pop().RoomClass;
+        for (int i = 0; i < 4; i++)
         {
-            bool startAdjacnecy = false;
-            for (int i = 0; i < 4; i++)
-            {
-                RoomClass temp = spc._adjacencentRooms[i];
-                if (temp == null) continue;
-                if (temp == StartingRoom) startAdjacnecy = true;
-                if (!startAdjacnecy)
-                {
-                    boss.Add(spc);
-                    break;
-                }
-            }
+            RoomClass temp = BossRoom._adjacencentRooms[i];
+            if (temp == null) continue;
+            if (temp == StartingRoom) return 0;
         }
 
-        //2) 지정된 보스방을 special에서 제거
-        BossRoom = Managers.Game.Choice(boss);
-        BossRoom.RoomType = RoomClass.ERoomType.Boss;
-        special.Remove(BossRoom);
+        BossRoom.RoomType = ERoomType.Boss;
 
-        //5. 황금방 설정
-        if (special.Count > 0)
+        //5. 상점 설정
+        if (dead_ends.Count > 0)
         {
-            rc = Managers.Game.Choice(special);
-            rc.RoomType = RoomClass.ERoomType.Gold;
-            special.Remove(rc);
-
-            //방의 개수가 15개가 넘는경우 2개 배정을 시도한다.
-            if (Managers.Game.N >= 15 && special.Count > 0)
+            if (Managers.Game.StageNumber < 5)
             {
-                if (Managers.Game.Chance(25))
-                {
-                    rc = Managers.Game.Choice(special);
-                    rc.RoomType = RoomClass.ERoomType.Gold;
-                    special.Remove(rc);
-                }
-            }
-        }
-        //6.비밀방 설정
-        if (special.Count > 0)
-        {
-            rc = Managers.Game.Choice(special);
-            rc.RoomType = RoomClass.ERoomType.Secret;
-            special.Remove(rc);
-
-            //TODO
-            //비밀방은 겉으로 표시되는게 아니라
-            //연결되지 않은 취급하자
-            //R D L U
-            //0 1 2 3
-            for (int i = 0; i < 4; i++)
-            {
-                if (rc._adjacencentRooms[i] != null)
-                {
-                    rc._adjacencentRooms[i]._adjacencentRooms[(i + 2) % 4] = null;
-                    rc._adjacencentRooms[i] = null;
-                }
-            }
-        }
-
-
-
-        //7. 상점 설정
-        if (special.Count > 0)
-        {
-            if (Managers.Game.N <= 15)
-            {
-                rc = Managers.Game.Choice(special);
-                rc.RoomType = RoomClass.ERoomType.Shop;
-                special.Remove(rc);
+                dead_ends.Pop().RoomClass.RoomType = ERoomType.Shop;
             }
             else if (Managers.Game.Chance(66))
             {
-                rc = Managers.Game.Choice(special);
-                rc.RoomType = RoomClass.ERoomType.Shop;
-                special.Remove(rc);
+                dead_ends.Pop().RoomClass.RoomType = ERoomType.Shop;
             }
+        }
+        else
+        {
+            return 0;
+        }
+
+
+        //6. 황금방 설정
+        if (dead_ends.Count > 0)
+        {
+            if (Managers.Game.StageNumber < 5)
+                dead_ends.Pop().RoomClass.RoomType = ERoomType.Gold;
+
+            //TODO XL
+        }
+
+        //7.희생방
+        if (dead_ends.Count > 0)
+        {
+            if (Managers.Game.Chance(14))
+            {
+                dead_ends.Pop().RoomClass.RoomType = ERoomType.Curse;
+            }
+        }
+
+        //8. 저주방
+        if (dead_ends.Count > 0)
+        {
+            int chance = 50; //TODO Devil 방문여부에 따른 +
+            if (Managers.Game.Chance(chance))
+                dead_ends.Pop().RoomClass.RoomType = ERoomType.Curse;
+        }
+
+        //9. 비밀방
+        RoomClass secret;
+        (secret) = TryPlacingSecretRoom();
+
+        if (secret == null) return 0;
+        else
+        {
+            secret.RoomType = ERoomType.Secret;
+            Rooms.Add(secret);
         }
 
         //8.천사방, 악마방 설정
@@ -515,51 +742,14 @@ public class MapManager
             rc.RoomType = Managers.Game.Chance(50) ? RoomClass.ERoomType.Devil : RoomClass.ERoomType.Angel;
         }
 
-        //9. 희생방 설정
-        if (special.Count > 0)
-        {
-            bool isAngel = false;
-            foreach (var temp in Rooms)
-            {
-                if (temp.RoomType == RoomClass.ERoomType.Angel) isAngel = true;
-            }
-
-            if (isAngel || Managers.Game.Chance(14))
-            {
-                rc = Managers.Game.Choice(special);
-                rc.RoomType = RoomClass.ERoomType.Sacrifice;
-                special.Remove(rc);
-            }
-        }
-
-        //10. 저주방 설정
-        if (special.Count > 0)
-        {
-            bool isDevil = false;
-            foreach (var temp in Rooms)
-            {
-                if (temp.RoomType == RoomClass.ERoomType.Devil) isDevil = true;
-            }
-
-            if (isDevil && Managers.Game.Chance(20))
-            {
-                rc = Managers.Game.Choice(special);
-                rc.RoomType = ERoomType.SelfSacrifice;
-                special.Remove(rc);
-            }
-        }
-
         //11. special 배열이 빌 때까지 일반 방 설정
-        if (special.Count > 0)
+        while (dead_ends.Count > 0)
         {
-            foreach (var temp in special)
-            {
-                temp.DiffiCulty = Managers.Game.Choice(_difficulty);
-            }
+            var temp = dead_ends.Pop().RoomClass.DiffiCulty = Managers.Game.Choice(_difficulty);
         }
+
 
         Rooms.Add(StartingRoom);
-
 
         //temp
         using (var parser = File.CreateText($"Assets/@Resources/Data/MapData/Stage.txt"))
@@ -580,6 +770,8 @@ public class MapManager
                 parser.WriteLine();
             }
         }
+
+        return 1;
     }
     #endregion
 
@@ -609,7 +801,11 @@ public class MapManager
 
             if (count == totalCount)
             {
-                GenerateStage();
+                while (true)
+                {
+                    if (GenerateStage() == 1)
+                        break;
+                }
                 LoadMap();
                 callback?.Invoke();
             }
@@ -647,6 +843,7 @@ public class MapManager
             #region Select Random Map Collision
             string roomName;
 
+            Debug.Log(r.RoomType.ToString());
             roomName = "Tile_Map_Collision_" + r.RoomType.ToString() + "_" + Managers.Game.RandInt(0, RoomCollisionCnt[(int)r.RoomType] - 1);
             GameObject roomTileMap = Managers.Resource.Instantiate(roomName);
             roomTileMap.transform.SetParent(room.transform);
@@ -729,7 +926,7 @@ public class MapManager
 
     public void HideSideDoor(RoomClass room)
     {
-        for (int i = 0; i<4; i++)
+        for (int i = 0; i < 4; i++)
         {
             GameObject door = room.Doors.transform.GetChild(i).gameObject;
             if (door.gameObject.activeSelf)

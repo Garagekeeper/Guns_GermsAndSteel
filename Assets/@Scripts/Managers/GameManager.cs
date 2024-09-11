@@ -44,7 +44,7 @@ public class GameManager
 
     public int N { get; set; }
 
-    public int StageNumber { get; set; } = 0;
+    public int StageNumber { get; set; } = 1;
 
     int _baseRoomCountMax = 20;
     int _baseRoomCountMin = 10;
@@ -57,8 +57,11 @@ public class GameManager
         Debug.Log(Seed);
 
         //0. N(스테이지에 만들 방의 개수) 설정
-        N = (int)(Sn % ((_baseRoomCountMax - _baseRoomCountMin) + 1 + StageNumber * 2) + _baseRoomCountMin);
-
+        //N = (int)(Sn % ((_baseRoomCountMax - _baseRoomCountMin) + 1 + StageNumber * 2) + _baseRoomCountMin);
+        //https://gist.github.com/bladecoding/d75aef7e830c738ad5e3d66d146a095c
+        //위 링크와는 다르게 특수방의 개수가 늘어났기 때문에 적절한 수치 변경
+        N = Math.Min(_baseRoomCountMax, RandInt(0, 1) + 7 + ((StageNumber * _baseRoomCountMin) / 3));
+        Debug.Log(N);
     }
 
     private string GenerateSeed()
