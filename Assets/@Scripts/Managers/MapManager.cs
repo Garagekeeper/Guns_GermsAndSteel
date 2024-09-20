@@ -793,7 +793,7 @@ public class MapManager
         {
             foreach (string name in Enum.GetNames(typeof(ERoomType)))
             {
-                if (key.Contains(name))
+                if (key.Contains(name) && key.Contains("Tile_Map"))
                 {
                     RoomCollisionCnt[(int)Enum.Parse(typeof(ERoomType), name)]++;
                 }
@@ -838,7 +838,10 @@ public class MapManager
             r.WorldCenterPos = posDiff;
             //Debug.Log(r.RoomType + " diff: (" + posDiff.x + "|" + posDiff.y + ") ");
 
-            GameObject room = Managers.Resource.Instantiate("Room");
+            string roomPrefabname = "Room_";
+            if (r.RoomType == ERoomType.Gold || r.RoomType == ERoomType.Boss || r.RoomType == ERoomType.Normal || r.RoomType == ERoomType.Start) roomPrefabname += "Normal_" + Managers.Game.StageNumber.ToString();
+            else roomPrefabname += r.RoomType.ToString();
+            GameObject room = Managers.Resource.Instantiate(roomPrefabname);
 
             #region Select Random Map Collision
             string roomName;

@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Rooms
+  m_EditorClassIdentifier: 
+  m_GroupName: Rooms
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 0299d97a2defd374aa1d747677c11040
+  m_SerializeEntries:
+  - m_GUID: 4ac8cac4e7707c0489fe96e234f4cf7c
+    m_Address: Room_Start
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ae3ca16c94bfde46b7d8c9b89048904
+    m_Address: Room_Sacrifice
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b783f8f147cdd7941a1c87992814bc76
+    m_Address: Room_Curse
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 589e3eeec11040546a7b7906d0f070a2
+    m_Address: Room_Angel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 118572e1071a64b439a7734ac9e5005d
+    m_Address: Room_Devil
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8473eabcccbd32a4ca964d0c5bf6a994
+    m_Address: Room_Secret
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32df1b2a50215f344bed372f11aa0388
+    m_Address: Room_Shop
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef5c68baaa20643439dd4430628e4458
+    m_Address: Room_Normal_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cf67331a78dfd949a5d3e03f328913d
+    m_Address: Room_Normal_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c1ef87232d7e854d8698d3042330a42
+    m_Address: Room_Normal_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b24238cb568ff0f4185f07084ae882a6
+    m_Address: Room_Normal_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8be6c5347cd2dca4c8f0068d7362e569
+    m_Address: Room_Normal_6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3321d28825e813c4ba5f522ad7c9c4b4
+    m_Address: Room_Normal_7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70d26021f27c1e54eb43fcf4456a066c
+    m_Address: Room_Normal_8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58418a2f7aeb24b4a997dc931f5b547b
+    m_Address: Room_Normal_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 485dcb22a74afa040b058f8897cccfda, type: 2}
+    - {fileID: 11400000, guid: 11100e8555d141244bda76ddbad5ed8d, type: 2}

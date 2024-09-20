@@ -74,7 +74,7 @@ MonoBehaviour:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a8e2a83dc4448184a952d18722ad1bb5
-    m_Address: door_04_selfsacrificeroomdoor
+    m_Address: door_04_curseroomdoor
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite
