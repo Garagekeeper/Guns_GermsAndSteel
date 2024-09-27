@@ -61,7 +61,7 @@ public class GameManager
         //https://gist.github.com/bladecoding/d75aef7e830c738ad5e3d66d146a095c
         //위 링크와는 다르게 특수방의 개수가 늘어났기 때문에 적절한 수치 변경
         N = Math.Min(_baseRoomCountMax, RandInt(0, 1) + 7 + ((StageNumber * _baseRoomCountMin) / 3));
-        Debug.Log(N);
+        //Debug.Log(N);
     }
 
     private string GenerateSeed()
@@ -162,12 +162,19 @@ public class GameManager
         newPos.x = currentRoom._adjacencentRooms[index].XPos;
         newPos.y = currentRoom._adjacencentRooms[index].YPos;
 
+
         //playerMove
         MovePlayerToNextRoom(index);
         //CameraMove
         MoveCameraToNextRoom(currentRoom._adjacencentRooms[index]);
         Managers.Map.CurrentRoom = currentRoom._adjacencentRooms[index];
 
+        //ItemHolder에 있는 아이템의 비중을 줄인다.
+        if (Managers.Map.CurrentRoom.ItemHolder != null)
+        {
+            int TemplateId = Managers.Map.CurrentRoom.ItemHolder.GetComponent<ItemHolder>().ItemId;
+            Managers.Data.ItemDic[TemplateId].Weight = 0;
+        }
 
         foreach (var temp in Managers.Object.MainCharacters)
         {
@@ -175,6 +182,7 @@ public class GameManager
                 WithdrawOneTimeItemEffect(temp);
             temp.CanMove = true;
         }
+        RoomConditionCheck();
     }
 
     public void GoToNextStage()
@@ -190,7 +198,7 @@ public class GameManager
         Managers.Map.GenerateStage();
         Managers.Map.LoadMap();
 
-        Cam.transform.position = new Vector3(-0.5f, -0.5f, 0);
+        Cam.MoveCameraWithoutLerp(new Vector3(-0.5f, -0.5f, -10f));
         foreach (var temp in Managers.Object.MainCharacters)
         {
             temp.gameObject.SetActive(true);
@@ -208,13 +216,13 @@ public class GameManager
                 newPos = new Vector3(5.0f, 0);
                 break;
             case 1:
-                newPos = new Vector3(0, -5.0f);
+                newPos = new Vector3(0, -5.5f);
                 break;
             case 2:
                 newPos = new Vector3(-5.0f, 0);
                 break;
             case 3:
-                newPos = new Vector3(0, 5.0f);
+                newPos = new Vector3(0, 5.5f);
                 break;
         }
 
@@ -263,6 +271,7 @@ public class GameManager
 
         newPos.z = -10f;
         Cam.MoveCameraWithoutLerp(newPos);
+        RoomConditionCheck();
     }
 
     public int SlectItem()
@@ -291,5 +300,26 @@ public class GameManager
         player.Life -= player.SpaceItem.Life;
         //item.SetItem;
         //item.ShotType;
+    }
+
+    //방의 클리어 조건을 충족했을 때 실행되는 함수
+    //DoorTile이 열린 모양으로 변경됨
+    public void RoomClear()
+    {
+        var curRoom = Managers.Map.CurrentRoom;
+        curRoom.IsClear = true;
+       
+        Managers.Map.ChangeDoorSprite(curRoom);
+        foreach (var player in Managers.Object.MainCharacters)
+        {
+            if (player.OneTimeActive)
+                Managers.Game.WithdrawOneTimeItemEffect(player);
+        }
+
+    }
+
+    public void RoomConditionCheck()
+    {
+        if (Managers.Object.Monsters.Count == 0) RoomClear();
     }
 }

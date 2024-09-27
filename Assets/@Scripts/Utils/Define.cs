@@ -21,6 +21,7 @@ public static class Define
         None,
         MainCharacter,
         Monster,
+        Boss,
     }
 
     public enum ECreatureBottomState

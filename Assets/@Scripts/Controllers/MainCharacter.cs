@@ -1,14 +1,8 @@
-using Data;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditorInternal.Profiling.Memory.Experimental;
 using UnityEngine;
-using UnityEngine.Playables;
 using static Define;
-using static UnityEditor.Progress;
 public class MainCharacter : Creature
 {
     #region Stat
@@ -163,7 +157,7 @@ public class MainCharacter : Creature
 
         if (Input.GetKeyDown(KeyCode.X))
         {
-            Managers.Map.RoomClear();
+            Managers.Game.RoomClear();
         }
 
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -392,7 +386,7 @@ public class MainCharacter : Creature
             Managers.Game.GoToNextRoom(collision.transform.name);
         }
 
-        if (collision.transform.tag == "StageDoor" && Managers.Map.CurrentRoom.IsClear)
+        if (collision.transform.tag == "TrapDoor" && Managers.Map.CurrentRoom.IsClear)
         {
             Managers.Game.GoToNextStage();
         }
@@ -410,5 +404,6 @@ public class MainCharacter : Creature
                 GetItem(itemHolder);
             }
         }
+
     }
 }

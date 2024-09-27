@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameScene : MonoBehaviour
 {
     private void Awake()
     {
-        Managers.Map.Init(() => { LoadUI(); SpawnCharacer(); });
+        Managers.Map.Init(() => { LoadUI(); SpawnCharacter(); Managers.Game.RoomConditionCheck(); });
     }
 
     public void LoadUI()
@@ -16,7 +14,7 @@ public class GameScene : MonoBehaviour
         Managers.UI.PlayingUI = go.GetComponent<PlayingUI>();
     }
 
-    public void SpawnCharacer()
+    public void SpawnCharacter()
     {
         MainCharacter mc = Managers.Object.Spawn<MainCharacter>(new Vector3(-0.5f, -0.5f, 0));
     }

@@ -1,9 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.AddressableAssets.Settings;
-using UnityEditor.AddressableAssets;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -46,6 +42,7 @@ public class ResourceManager
                 foreach (var val in op.Result)
                 {
                     key = val.name;
+                    if (_resources.ContainsKey(key)) continue;
                     _resources.Add(key, val);
                     _handles.Add(key, asyncOpHandle);
                 }
@@ -64,8 +61,6 @@ public class ResourceManager
             };
 
         }
-
-        AddressableAssetSettings settings = AddressableAssetSettingsDefaultObject.Settings;
 
         // 라벨 이름으로 라벨을 찾습니다.
         //AddressableAssetGroup[] labeledGroups = settings.FindGroup

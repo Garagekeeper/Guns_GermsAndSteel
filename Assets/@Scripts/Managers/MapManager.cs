@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Unity.Mathematics;
-using UnityEditor.AddressableAssets;
-using UnityEditor.AddressableAssets.Settings;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using static Define;
@@ -270,7 +268,7 @@ public class MapManager
         {
             if (ManhattanDistance == other.ManhattanDistance)
                 return 0;
-            return ManhattanDistance < other.ManhattanDistance ? 1 : -1;
+            return ManhattanDistance > other.ManhattanDistance ? 1 : -1;
         }
     }
 
@@ -799,6 +797,8 @@ public class MapManager
                 }
             }
 
+            Debug.Log($"{key} {count}/{totalCount}");
+
             if (count == totalCount)
             {
                 while (true)
@@ -839,14 +839,15 @@ public class MapManager
             //Debug.Log(r.RoomType + " diff: (" + posDiff.x + "|" + posDiff.y + ") ");
 
             string roomPrefabname = "Room_";
-            if (r.RoomType == ERoomType.Gold || r.RoomType == ERoomType.Boss || r.RoomType == ERoomType.Normal || r.RoomType == ERoomType.Start) roomPrefabname += "Normal_" + Managers.Game.StageNumber.ToString();
+            if (r.RoomType == ERoomType.Start && Managers.Game.StageNumber == 1) roomPrefabname += r.RoomType.ToString();
+            else if (r.RoomType == ERoomType.Gold || r.RoomType == ERoomType.Boss || r.RoomType == ERoomType.Normal || r.RoomType == ERoomType.Start) roomPrefabname += "Normal_" + Managers.Game.StageNumber.ToString();
             else roomPrefabname += r.RoomType.ToString();
             GameObject room = Managers.Resource.Instantiate(roomPrefabname);
 
             #region Select Random Map Collision
             string roomName;
 
-            Debug.Log(r.RoomType.ToString());
+            //Debug.Log(r.RoomType.ToString());
             roomName = "Tile_Map_Collision_" + r.RoomType.ToString() + "_" + Managers.Game.RandInt(0, RoomCollisionCnt[(int)r.RoomType] - 1);
             GameObject roomTileMap = Managers.Resource.Instantiate(roomName);
             roomTileMap.transform.SetParent(room.transform);
@@ -878,26 +879,6 @@ public class MapManager
         ParseRoomCollisionData();
     }
 
-    //방의 클리어 조건을 충족했을 때 실행되는 함수
-    //DoorTile이 열린 모양으로 변경됨
-    public void RoomClear()
-    {
-        CurrentRoom.IsClear = true;
-        if (CurrentRoom.ItemHolder != null)
-        {
-            int TemplateId = CurrentRoom.ItemHolder.GetComponent<ItemHolder>().ItemId;
-            Managers.Data.ItemDic[TemplateId].Weight = 0;
-        }
-        HideSideDoor(CurrentRoom);
-        //ChangeCollider(CurrentRoom);
-        foreach (var player in Managers.Object.MainCharacters)
-        {
-            if (player.OneTimeActive)
-                Managers.Game.WithdrawOneTimeItemEffect(player);
-        }
-
-    }
-
     //Door Tile을 생성하거나, 변경하는 함수
     //TODO 여러 종류의 타일
     //여러 타일 바꾸도록
@@ -925,20 +906,44 @@ public class MapManager
                 door.transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorFrame[temp, 0]);
             }
         }
+
+        if (room.RoomType == ERoomType.Boss)
+        {
+            GenerateTrapDoor(room);
+        }
     }
 
-    public void HideSideDoor(RoomClass room)
+    public void GenerateTrapDoor(RoomClass room, Vector3 doorPos)
     {
+        GameObject go = GenerateTrapDoor(room);
+        go.transform.transform.position += doorPos;
+    }
+
+    public GameObject GenerateTrapDoor(RoomClass room)
+    {
+        GameObject go = Managers.Resource.Instantiate("TrapDoor", room.Doors.transform);
+        go.transform.position = room.Doors.transform.position + new Vector3(-0.5f, -0.5f);
+        go.SetActive(false);
+        return go;
+    }
+
+    public void ChangeDoorSprite(RoomClass room)
+    {
+        GameObject doorParent = room.Doors;
+
         for (int i = 0; i < 4; i++)
         {
-            GameObject door = room.Doors.transform.GetChild(i).gameObject;
+            GameObject door = doorParent.transform.GetChild(i).gameObject;
             if (door.gameObject.activeSelf)
             {
                 door.transform.GetChild(1).gameObject.SetActive(false);
                 door.transform.GetChild(2).gameObject.SetActive(false);
             }
         }
+
+        doorParent.transform.Find("TrapDoor")?.gameObject.SetActive(true);
     }
+
 
     //실행 도중 collider가 변경될 필요가 있을 때 사용
     public void ChangeCollider(RoomClass room)
@@ -1076,6 +1081,7 @@ public class MapManager
                     case "Door":
                         break;
                     case "Monster":
+                        Managers.Object.Spawn<Monster>(new Vector3Int(x, y));
                         break;
                     case "Spike":
                         break;

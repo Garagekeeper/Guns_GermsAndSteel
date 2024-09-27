@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 using static Define;
 
 public class Projectile : MonoBehaviour
@@ -20,13 +18,13 @@ public class Projectile : MonoBehaviour
 
     private void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer = transform.GetChild(0).GetComponent<SpriteRenderer>();
         //하드코딩 수정
         _spriteRenderer.sprite = Managers.Resource.Load<Sprite>("bulletatlas_7");
         _spriteRenderer.sortingOrder = 12;
         Rigidbody = GetComponent<Rigidbody2D>();
         transform.localScale = new Vector2(0.5f, 0.5f);
-        Collider = gameObject.GetComponent<Collider2D>();
+        Collider = transform.GetChild(1).gameObject.GetComponent<Collider2D>();
 
     }
 
@@ -62,7 +60,7 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            other.GetComponent<Creature>().OnDamaged(Owner, _skillType);
+            other.GetComponent<Creature>()?.OnDamaged(Owner, _skillType);
         }
 
         
@@ -72,8 +70,18 @@ public class Projectile : MonoBehaviour
     {
         yield return new WaitForSeconds(lifetime * 0.8f);
         if (Mathf.Abs(Rigidbody.velocity.x) > Mathf.Abs(Rigidbody.velocity.y))
-            Rigidbody.velocity += new Vector2(0, -2.0f);
-        yield return new WaitForSeconds(lifetime * 0.2f);
+            SpriteDownAnim();
+    }
+
+    private void SpriteDownAnim()
+    {
+        //transform.GetChild(0).position = Vector3.Lerp(transform.position, new Vector3(0,-0.4f,0), 6f * Time.fixedDeltaTime);
+        //transform.GetChild(0).GetComponent<Rigidbody2D>().gravityScale = 1;
+        transform.GetComponent<Animator>().Play("BulletDown");
+    }
+
+    private void DestroyProjectile()
+    {
         Destroy(gameObject);
     }
 
