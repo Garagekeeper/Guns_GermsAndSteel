@@ -345,10 +345,11 @@ public class MainCharacter : Creature
 
     public override void OnDamaged(Creature owner, ESkillType skillType)
     {
-        Hp -= DamageByOtherConstant;
+        //Hp -= DamageByOtherConstant;
 
         Debug.Log(Hp);
     }
+
 
     public void SpawnBomb()
     {

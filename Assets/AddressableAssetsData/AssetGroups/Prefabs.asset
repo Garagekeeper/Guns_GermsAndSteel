@@ -65,6 +65,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb2a4d235fe73c54fafae407d16de0f6
+    m_Address: Boss_Monstro
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

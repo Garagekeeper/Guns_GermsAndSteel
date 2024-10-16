@@ -24,7 +24,7 @@ public class DevScene : MonoBehaviour
             Debug.Log($"{key} {count}/{totalCount}");
             if (count == totalCount)
             {
-                LoadUI(); SpawnCharacter();
+                LoadUI(); SpawnCharacter(); SpawnBossMonster();
             }
         });
     }
@@ -43,6 +43,6 @@ public class DevScene : MonoBehaviour
 
     public void SpawnBossMonster()
     {
-
+        Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-4.0f, -0.5f, 0), 0,"Boss_Monstro");
     }
 }

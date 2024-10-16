@@ -320,6 +320,8 @@ public class GameManager
 
     public void RoomConditionCheck()
     {
-        if (Managers.Object.Monsters.Count == 0) RoomClear();
+        if (Managers.Object.Monsters.Count == 0) 
+            RoomClear();
+        return;
     }
 }

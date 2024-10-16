@@ -8,6 +8,7 @@ TagManager:
   - Door
   - ItemHolder
   - TrapDoor
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - Monster
   - Projectile
   - Door
-  - 
-  - 
+  - Boss
+  - HitBox
   - 
   - 
   - 

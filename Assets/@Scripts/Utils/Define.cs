@@ -19,9 +19,23 @@ public static class Define
     public enum ECreatureType
     {
         None,
+        Boss,
         MainCharacter,
         Monster,
-        Boss,
+    }
+
+    public enum EBossType
+    {
+        None,
+        Monstro,
+    }
+
+    public enum EBossState
+    {
+        None,
+        Idle,
+        Skill,
+        Move,
     }
 
     public enum ECreatureBottomState

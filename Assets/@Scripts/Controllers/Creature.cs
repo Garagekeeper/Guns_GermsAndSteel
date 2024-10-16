@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Define;
 
-public class Creature : MonoBehaviour
+public class Creature : BaseObject
 {
     #region BaseStat
     private float _hp;
@@ -38,13 +38,21 @@ public class Creature : MonoBehaviour
 
     #endregion
 
+    private Creature _target;
+    public Creature Target
+    {
+        get => _target;
+        set { _target = value; }
+
+    }
+
     public ECreatureType CreatureType { get; protected set; } = ECreatureType.None;
 
     protected Animator AnimatorHead { get; set; }
     protected Animator AnimatorBottom { get; set; }
     public Rigidbody2D Rigidbody { get; set; }
 
-    protected CapsuleCollider2D Collider { get; set; }
+    protected CircleCollider2D Collider { get; set; }
 
     protected Sprite[] HeadSprite { get; set; }
 
@@ -94,7 +102,7 @@ public class Creature : MonoBehaviour
             if (_headDirState != value || HeadStateChanged)
             {
                 _headDirState = value;
-                UpdateFacing();
+                UpdateFacing(true);
             }
         }
     }
@@ -106,7 +114,7 @@ public class Creature : MonoBehaviour
         Init();
     }
 
-    public virtual void Init()
+    public override void Init()
     {
         //base stat
         Hp = 3.5f;
@@ -123,16 +131,26 @@ public class Creature : MonoBehaviour
         AnimatorBottom = transform.GetChild(1).GetComponentInChildren<Animator>();
 
         Rigidbody = GetComponent<Rigidbody2D>();
-        Collider = GetComponent<CapsuleCollider2D>();
+        Collider = GetComponent<CircleCollider2D>();
         Head = transform.Find("Head").GetComponent<SpriteRenderer>();
         Bottom = transform.Find("Bottom").GetComponent<SpriteRenderer>();
 
     }
 
 
-    public void UpdateFacing()
+    public void UpdateFacing(bool isSeperate)
     {
-        UpdateHeadAnimation();
+        if (isSeperate)
+            UpdateHeadAnimation();
+        else
+        {
+            if (Target == null) return;
+            if (Vector3.Cross(Vector2.down, (Target.transform.position - transform.position)).x > 0)
+                transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
+            else
+                transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+
+        }
     }
 
     public void UpdateHeadAnimation()
@@ -245,32 +263,55 @@ public class Creature : MonoBehaviour
         switch (HeadDirState)
         {
             case ECreatureHeadDirState.Up:
-                SpawnProjectile(0, 1);
+                SpawnProjectile(Vector3.up);
                 break;
             case ECreatureHeadDirState.Down:
-                SpawnProjectile(0, -1);
+                SpawnProjectile(Vector3.down);
                 break;
             case ECreatureHeadDirState.Left:
-                SpawnProjectile(-1, 0);
+                SpawnProjectile(Vector3.left);
                 break;
             case ECreatureHeadDirState.Right:
-                SpawnProjectile(1, 0);
+                SpawnProjectile(Vector3.right);
                 break;
         }
     }
 
-    public void SpawnProjectile(float x, float y)
+    public void GenerateProjectile(Vector3 tarGetDir, bool _isRandom = false)
+    {
+        SpawnProjectile(tarGetDir, _isRandom);
+    }
+
+    public void SpawnProjectile(Vector3 tarGetDir, bool _isRandom = false)
     {
         GameObject go = Managers.Resource.Instantiate("Projectile");
         go.name = "Projectile";
-        Vector2 pos;
-        pos.x = x;
-        pos.y = y;
+        Vector2 pos = tarGetDir;
 
         Projectile projectile = go.GetComponent<Projectile>();
-        projectile.SetInfo(transform.GetChild(0).transform.position, pos, this);
+        projectile.SetInfo(transform.GetChild(0).transform.position + tarGetDir * 0.5f, pos, this, _isRandom);
     }
 
+    public Creature FindClosetTarget(Creature src, List<Creature> targets)
+    {
+        float minDistance = float.MaxValue;
+        Creature closestTarget = null;
+
+        foreach (Creature target in targets)
+        {
+            float dist = (src.transform.position - target.transform.position).sqrMagnitude;
+            if (target == null || target.isActiveAndEnabled == false)
+                continue;
+
+            if (dist < minDistance)
+            {
+                minDistance = dist;
+                closestTarget = target;
+            }
+        }
+
+        return closestTarget;
+    }
 
     public virtual void OnDamaged(Creature owner, ESkillType skillType)
     {
@@ -307,12 +348,24 @@ public class Creature : MonoBehaviour
         return false;
     }
 
-    public void OnDead()
+    public override void OnDead()
     {
-        //TODO
-        //Dead Animation
-        Destroy(gameObject);
+        switch (CreatureType)
+        {
+            case ECreatureType.Boss:
+                Managers.Object.Bosses.Remove((Boss)this);
+                break;
+            case ECreatureType.Monster:
+                Managers.Object.Monsters.Remove((Monster)this);
+                break;
+            case ECreatureType.MainCharacter:
+                Managers.Object.MainCharacters.Remove((MainCharacter)this);
+                break;
+            default:
+                break;
+        }
     }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -7,13 +7,6 @@ using static Define;
 public class Monster : Creature
 {
     //public HashSet<>
-    private Creature _target;
-    public Creature Target
-    {
-        get => _target;
-        set { _target = value; }
-
-    }
 
     private LineRenderer lr;
 
@@ -103,26 +96,5 @@ public class Monster : Creature
         vel.y = normalizedDir.y * Speed;
 
         Rigidbody.velocity = vel;
-    }
-
-    private Creature FindClosetTarget(Creature src, List<Creature> targets)
-    {
-        float minDistance = float.MaxValue;
-        Creature closestTarget = null;
-
-        foreach (Creature target in targets)
-        {
-            float dist = (src.transform.position - target.transform.position).sqrMagnitude;
-            if (target == null || target.isActiveAndEnabled == false)
-                continue;
-
-            if (dist < minDistance)
-            {
-                minDistance = dist;
-                closestTarget = target;
-            }
-        }
-
-        return closestTarget;
     }
 }
