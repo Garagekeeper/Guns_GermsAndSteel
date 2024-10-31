@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using static Define;
 
@@ -59,18 +60,20 @@ public class Projectile : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+        if (other == null) return;
         if ("RightDownLeftUpColliderItemHolder".Contains(other.gameObject.name))
         {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
-            Destroy(gameObject);
+           
         }
         else
         {
-            other.GetComponent<Creature>()?.OnDamaged(Owner, _skillType);
+            var go = other.GetComponent<Creature>() == null ? other.transform.parent.GetComponent<Creature>() : other.GetComponent<Creature>();
+            if (Owner.CreatureType == go.CreatureType) return;
+            go.OnDamaged(Owner, _skillType);
         }
-
-        
+        Destroy(gameObject);
     }
 
     private IEnumerator CoRserveDestroy(float lifetime)

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static Define;
 public class MainCharacter : Creature
 {
@@ -31,6 +32,29 @@ public class MainCharacter : Creature
     private bool _canMove = true;
     public bool OneTimeActive { get; set; } = false;
 
+    private bool _isInvincible = false;
+    public bool IsInvincible
+    {
+        get { return _isInvincible; }
+        set
+        {
+            _isInvincible = value;
+            if (_isInvincible != value)
+            {
+                _isInvincible = value;
+                int mask = 0;
+                mask |= 1 << (int)ELayer.Projectile;
+                mask |= 1 << (int)ELayer.Boss;
+                mask |= 1 << (int)ELayer.Obstacle;
+                if (value)
+                    Collider.excludeLayers = mask;
+                else 
+                    Collider.includeLayers = mask;
+
+                    
+            }
+        }
+    }
     IEnumerator DelayBoolChange()
     {
         yield return new WaitForSeconds(0.5f);
@@ -89,7 +113,7 @@ public class MainCharacter : Creature
         CanMove = true;
 
         LayerMask mask = 0;
-        if (CreatureType == ECreatureType.MainCharacter) mask |= (1 << 6);
+        if (CreatureType == ECreatureType.MainCharacter) mask |= (1 << (int)ELayer.Player);
         Collider.excludeLayers = mask;
 
         AcquiredPassiveItemList = new List<Item>();
@@ -99,6 +123,7 @@ public class MainCharacter : Creature
         ChangeQItem(QItem, QItemId);
         Managers.UI.PlayingUI.ChangeChargeBarSize("ui_chargebar_" + (9 - SpaceItem.CoolTime));
         Managers.UI.PlayingUI.RefreshText(this);
+        Managers.UI.PlayingUI.RefreshHpImage(this);
 
     }
 
@@ -345,11 +370,40 @@ public class MainCharacter : Creature
 
     public override void OnDamaged(Creature owner, ESkillType skillType)
     {
-        //Hp -= DamageByOtherConstant;
+        if (IsInvincible) return;
 
-        Debug.Log(Hp);
+        Hp -= DamageByOtherConstant;
+        IsInvincible = true;
+        StartCoroutine(CoInvincible());
+        Managers.UI.PlayingUI.RefreshHpImage(this);
+        //Debug.Log(Hp);
     }
 
+    //Total 1sec
+    public IEnumerator CoInvincible()
+    {
+        //Change Sprite
+        for (int i=1; i <= 10; i++)
+        {
+            if ( i % 2 == 0)
+            {
+                Head.color = new Color32(255, 255, 255, 90);
+                Bottom.color = new Color32(255, 255, 255, 90);
+            }
+            else
+            {
+                Head.color = new Color32(255, 255, 255, 180);
+                Bottom.color = new Color32(255, 255, 255, 180);
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        //Change Sprite
+        yield return null;
+        Head.color = new Color32(255, 255, 255, 255);
+        Bottom.color = new Color32(255, 255, 255, 255);
+        IsInvincible = false;
+    }
 
     public void SpawnBomb()
     {
@@ -392,9 +446,9 @@ public class MainCharacter : Creature
             Managers.Game.GoToNextStage();
         }
 
-        if (collision.transform.tag == "Monster")
+        if (collision.transform.tag == "Monster" || collision.transform.tag == "Boss")
         {
-            OnDamaged(collision.gameObject.GetComponent<Monster>(), ESkillType.BodySlam);
+            OnDamaged(collision.gameObject.GetComponent<Creature>(), ESkillType.BodySlam);
         }
 
         if (collision.transform.tag == "ItemHolder")

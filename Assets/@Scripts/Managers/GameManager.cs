@@ -182,6 +182,12 @@ public class GameManager
                 WithdrawOneTimeItemEffect(temp);
             temp.CanMove = true;
         }
+
+        if (currentRoom.IsClear == false)
+        {
+            Managers.Map.SpawnMonsterAndBossInRoom(currentRoom);
+        }
+
         RoomConditionCheck();
     }
 
@@ -269,6 +275,11 @@ public class GameManager
             mc.CanMove = true;
         }
 
+        if (Managers.Map.CurrentRoom.IsClear == false)
+        {
+            Managers.Map.SpawnMonsterAndBossInRoom(Managers.Map.CurrentRoom);
+        }
+
         newPos.z = -10f;
         Cam.MoveCameraWithoutLerp(newPos);
         RoomConditionCheck();
@@ -316,11 +327,15 @@ public class GameManager
                 Managers.Game.WithdrawOneTimeItemEffect(player);
         }
 
+        if (curRoom.RoomType == RoomClass.ERoomType.Boss)
+        {
+            Managers.Map.CurrentRoom.ItemHolder.SetActive(true);
+        }
     }
 
     public void RoomConditionCheck()
     {
-        if (Managers.Object.Monsters.Count == 0) 
+        if (Managers.Object.Monsters.Count == 0 && Managers.Object.Bosses.Count == 0) 
             RoomClear();
         return;
     }

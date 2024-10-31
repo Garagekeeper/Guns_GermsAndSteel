@@ -14,10 +14,9 @@ public class Creature : BaseObject
         {
             if (_hp != value)
             {
+                _hp = value;
                 if (value <= 0)
                     OnDead();
-                else
-                    _hp = value;
             }
         }
     }
@@ -321,10 +320,11 @@ public class Creature : BaseObject
                 //TODO
                 break;
             case ESkillType.Bomb:
-                Hp -= BombDamage;
+                Hp -= owner.BombDamage;
                 break;
             case ESkillType.Projectile:
-                Hp -= AttackDamage;
+                Hp -= owner.AttackDamage;
+                Debug.Log(Hp);
                 break;
             case ESkillType.Fire:
                 break;
@@ -332,7 +332,7 @@ public class Creature : BaseObject
                 break;
         }
 
-        Debug.Log(Hp);
+        //Debug.Log(Hp);
 
         if (Hp < 0)
         {
@@ -353,13 +353,13 @@ public class Creature : BaseObject
         switch (CreatureType)
         {
             case ECreatureType.Boss:
-                Managers.Object.Bosses.Remove((Boss)this);
+                Managers.Object.Despawn(this);
                 break;
             case ECreatureType.Monster:
-                Managers.Object.Monsters.Remove((Monster)this);
+                Managers.Object.Despawn(this);
                 break;
             case ECreatureType.MainCharacter:
-                Managers.Object.MainCharacters.Remove((MainCharacter)this);
+                Managers.Object.Despawn(this);
                 break;
             default:
                 break;

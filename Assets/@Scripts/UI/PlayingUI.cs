@@ -16,6 +16,18 @@ public class PlayingUI : UI_Base
         UnChargedBar6,
         ChargeBar,
         QItem,
+        Heart1,
+        Heart2,
+        Heart3,
+        Heart4,
+        Heart5,
+        Heart6,
+        Heart7,
+        Heart8,
+        Heart9,
+        Heart10,
+        Heart11,
+        Heart12,
     }
 
     enum Texts
@@ -102,6 +114,21 @@ public class PlayingUI : UI_Base
         GetTextLegacy((int)Texts.CoinText).text = player.Coin.ToString();
         GetTextLegacy((int)Texts.BombText).text = player.BombCount.ToString();
         GetTextLegacy((int)Texts.KeyText).text = player.KeyCount.ToString();
+    }
+
+    public void RefreshHpImage(MainCharacter player)
+    {
+        float hp = player.Hp;
+        for (int i = 0; i < 12; i++)
+        {
+            string spriteNmae;
+            if ((int)hp / (i+1) !=0) spriteNmae = "ui_hearts_0";
+            else if ( i < hp && hp < i+1) spriteNmae = "ui_hearts_1";
+            else  spriteNmae = "ui_hearts_18";
+            GetImage((int)Images.Heart1 + i).gameObject.GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>(spriteNmae);
+        }
+
+       
     }
 
 }

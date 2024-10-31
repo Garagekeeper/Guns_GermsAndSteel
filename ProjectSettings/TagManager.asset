@@ -22,8 +22,8 @@ TagManager:
   - Door
   - Boss
   - HitBox
-  - 
-  - 
+  - ItemHolder
+  - Obstacle
   - 
   - 
   - 

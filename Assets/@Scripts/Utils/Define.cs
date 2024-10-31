@@ -105,4 +105,16 @@ public static class Define
         Fire,
 
     }
+
+    public enum ELayer
+    {
+        Player = 6,
+        Monster,
+        Projectile,
+        Door,
+        Boss,
+        HitBox,
+        ItemHolder,
+        Obstacle,
+    }
 }

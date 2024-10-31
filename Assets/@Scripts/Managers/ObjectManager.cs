@@ -43,19 +43,22 @@ public class ObjectManager
 
     public void Despawn<T>(T obj) where T : Creature
     {
-        System.Type type = typeof(T);
-
-        if (type == typeof(MainCharacter))
+        if (obj.CreatureType == Define.ECreatureType.MainCharacter)
         {
             MainCharacters.Remove(obj as MainCharacter);
-            Object.Destroy(obj);
+            Object.Destroy(obj.gameObject);
         }
-        else if (type == typeof(Monster))
+        else if (obj.CreatureType == Define.ECreatureType.Monster)
         {
             Monsters.Remove(obj as Monster);
-            Object.Destroy(obj);
+            Object.Destroy(obj.gameObject);
         }
-        
+        else if (obj.CreatureType == Define.ECreatureType.Boss)
+        {
+            Bosses.Remove(obj as Boss);
+            Object.Destroy(obj.gameObject);
+        }
+
         //Managers.Map.RemoveObject(obj);
     }
 }

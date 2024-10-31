@@ -54,7 +54,7 @@ public class Boss : Creature
         BossState = EBossState.None;
         Rigidbody = GetComponent<Rigidbody2D>();
         Range = 10;
-        Tears = 10.0f;
+        Tears = 5.0f;
     }
     public float UpdateAITick { get; protected set; } = 0.0f;
 

@@ -11,6 +11,7 @@ public class Boss_Monstro : Boss
     private Vector3 _targetPos;
     private Vector3 _startPos;
     Vector2 projectileDir = Vector2.zero;
+    private new PolygonCollider2D Collider;
     private void Awake()
     {
         base.Init();
@@ -22,7 +23,7 @@ public class Boss_Monstro : Boss
     {
         UpdateFacing(false);
         Rigidbody.velocity = Vector3.zero;
-        Debug.Log(BossState);
+        //Debug.Log(Hp);
         //Debug.Log(Time.deltaTime);
     }
 
@@ -33,7 +34,7 @@ public class Boss_Monstro : Boss
         BossState = EBossState.Idle;
 
         AnimatorBottom = transform.GetComponent<Animator>();
-        Collider = GetComponent<CircleCollider2D>();
+        Collider = GetComponent<PolygonCollider2D>();
 
         //Debug
         //foreach (var clip in AnimatorBottom.runtimeAnimatorController.animationClips)
@@ -119,7 +120,7 @@ public class Boss_Monstro : Boss
         transform.position = Vector3.Lerp(transform.position, _targetPos, Time.deltaTime * 2f);
     }
 
-    private void SkillC()
+    public void SkillC()
     {
         //부채꼴 모양으로 projectile 생성
         //for (int i = 0; i < 10; i++)
@@ -141,6 +142,7 @@ public class Boss_Monstro : Boss
 
     public void setTargetPos()
     {
+        if (Target == null) return; 
         _targetPos = Target.transform.position;
         _startPos = transform.position;
     }
@@ -149,5 +151,11 @@ public class Boss_Monstro : Boss
     {
         if (bossState == EBossState.Idle) _currentSkill = EBossSkill.Normal;
         BossState = bossState;
+    }
+
+    public void ChangeCollider(int on)
+    {
+        Collider.enabled = on == 1 ? true : false;
+        transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = on == 1 ? true : false;
     }
 }

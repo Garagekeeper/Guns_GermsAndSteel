@@ -1060,7 +1060,6 @@ public class MapManager
     public void SetObstacle(RoomClass room)
     {
         Tilemap tmp = room.TilemapCollisionPrefab.GetComponent<Tilemap>();
-        Tilemap obstmp = room.Obstacle.GetComponent<Tilemap>();
         int maxX = tmp.cellBounds.xMax;
         int minX = tmp.cellBounds.xMin;
         int maxY = tmp.cellBounds.yMax;
@@ -1080,9 +1079,6 @@ public class MapManager
                         break;
                     case "Door":
                         break;
-                    case "Monster":
-                        Managers.Object.Spawn<Monster>(new Vector3Int(x, y));
-                        break;
                     case "Spike":
                         break;
                     case "Fire":
@@ -1096,6 +1092,39 @@ public class MapManager
                         // 로컬 좌표 유지      로컬 좌표가 부모 기준으로 변경
                         room.ItemHolder.transform.SetParent(room.Obstacle.transform);
                         room.ItemHolder.transform.position = (room.Transform.position + new Vector3(-0.5f, -0.5f));
+                        if (room.RoomType == ERoomType.Boss)
+                            room.ItemHolder.SetActive(false);
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+        }
+    }
+    public void SpawnMonsterAndBossInRoom(RoomClass room)
+    {
+        Tilemap tmp = room.TilemapCollisionPrefab.GetComponent<Tilemap>();
+        int maxX = tmp.cellBounds.xMax;
+        int minX = tmp.cellBounds.xMin;
+        int maxY = tmp.cellBounds.yMax;
+        int minY = tmp.cellBounds.yMin;
+
+        for (int y = maxY - 1; y > minY; y--)
+        {
+            for (int x = minX; x < maxX - 1; x++)
+            {
+                TileBase tile = tmp.GetTile(new Vector3Int(x, y));
+
+                switch (tile.name)
+                {
+                    case "Monster":
+                        Managers.Object.Spawn<Monster>(new Vector3Int(x, y));
+                        break;
+                    case "Boss":
+                        Managers.Object.Spawn<Boss>(new Vector3Int(x, y));
+                        break;
+                    default:
                         break;
                 }
 
