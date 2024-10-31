@@ -55,6 +55,10 @@ public class Boss : Creature
         Rigidbody = GetComponent<Rigidbody2D>();
         Range = 10;
         Tears = 5.0f;
+
+#if UNITY_EDITOR
+        Managers.UI.PlayingUI.BossHpActive(true);
+#endif 
     }
     public float UpdateAITick { get; protected set; } = 0.0f;
 
@@ -117,5 +121,11 @@ public class Boss : Creature
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
+    }
+
+    public override void OnDamaged(Creature owner, ESkillType skillType)
+    {
+        base.OnDamaged(owner, skillType);
+        Managers.UI.PlayingUI.BossHpSlider(Hp / MaxHp);
     }
 }

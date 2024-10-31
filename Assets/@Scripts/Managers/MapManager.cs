@@ -1123,6 +1123,7 @@ public class MapManager
                         break;
                     case "Boss":
                         Managers.Object.Spawn<Boss>(new Vector3Int(x, y));
+                        Managers.UI.PlayingUI.BossHpActive(true);
                         break;
                     default:
                         break;

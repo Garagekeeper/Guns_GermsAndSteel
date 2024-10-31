@@ -43,12 +43,18 @@ public class PlayingUI : UI_Base
         KeyText,
     }
 
+    enum GameObjects
+    {
+        BossHp,
+    }
+
     protected override void Init()
     {
         base.Init();
 
         BindImage(typeof(Images));
         BindTextLegacy(typeof(Texts));
+        BindObject(typeof(GameObjects));
         Managers.Game.ChargeBarEnevnt -= UseAllGage;
         Managers.Game.ChargeBarEnevnt += UseAllGage;
         Managers.Game.ChargeBarEnevnt -= ChargeGage;
@@ -127,8 +133,16 @@ public class PlayingUI : UI_Base
             else  spriteNmae = "ui_hearts_18";
             GetImage((int)Images.Heart1 + i).gameObject.GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>(spriteNmae);
         }
+    }
 
-       
+    public void BossHpActive (bool isActive)
+    {
+        GetObject((int)GameObjects.BossHp).SetActive(isActive);
+    }
+
+    public void BossHpSlider (float ratio)
+    {
+        GetObject((int)GameObjects.BossHp).GetComponent<Slider>().value = ratio;
     }
 
 }

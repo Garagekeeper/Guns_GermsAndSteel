@@ -7,6 +7,7 @@ public class Creature : BaseObject
 {
     #region BaseStat
     private float _hp;
+    public float MaxHp { get; set; }
     public float Hp
     {
         get { return _hp; }

@@ -110,6 +110,7 @@ public class UI_Base : MonoBehaviour
     protected Text GetTextLegacy(int idx) { return Get<Text>(idx); }
     protected Button GetButton(int idx) { return Get<Button>(idx); }
 
+
 }
 
 

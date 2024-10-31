@@ -30,6 +30,7 @@ public class Boss_Monstro : Boss
     public override void Init()
     {
         Hp = 250.0f;
+        MaxHp = 250.0f;
         BossType = EBossType.Monstro;
         BossState = EBossState.Idle;
 
@@ -157,5 +158,11 @@ public class Boss_Monstro : Boss
     {
         Collider.enabled = on == 1 ? true : false;
         transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = on == 1 ? true : false;
+    }
+
+    public override void OnDead()
+    {
+        base.OnDead();
+        Managers.UI.PlayingUI.BossHpActive(false);
     }
 }
