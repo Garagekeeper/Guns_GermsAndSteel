@@ -36,6 +36,8 @@ public static class Define
         Idle,
         Skill,
         Move,
+        Dead,
+        Explosion,
     }
 
     public enum ECreatureBottomState

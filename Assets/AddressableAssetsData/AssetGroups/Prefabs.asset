@@ -71,6 +71,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8b7c5a748df2cc458fd00db294a451e
+    m_Address: BossDeathEffect
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

@@ -6,6 +6,10 @@ using static Define;
 public class Creature : BaseObject
 {
     #region BaseStat
+
+    protected Vector3 _targetPos;
+    protected Vector3 _startPos;
+
     private float _hp;
     public float MaxHp { get; set; }
     public float Hp
@@ -17,7 +21,10 @@ public class Creature : BaseObject
             {
                 _hp = value;
                 if (value <= 0)
+                {
+                    _hp = 0;
                     OnDead();
+                }
             }
         }
     }
@@ -325,7 +332,7 @@ public class Creature : BaseObject
                 break;
             case ESkillType.Projectile:
                 Hp -= owner.AttackDamage;
-                Debug.Log(Hp);
+                //Debug.Log(Hp);
                 break;
             case ESkillType.Fire:
                 break;
@@ -334,12 +341,6 @@ public class Creature : BaseObject
         }
 
         //Debug.Log(Hp);
-
-        if (Hp < 0)
-        {
-            OnDead();
-            return;
-        }
 
     }
 

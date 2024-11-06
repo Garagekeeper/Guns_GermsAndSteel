@@ -6,8 +6,8 @@ using static Define;
 
 public class Boss : Creature
 {
+    protected PolygonCollider2D PgCollider2D;
     public EBossType BossType { get; protected set; } = 0;
-
     protected EBossState _bossState;
     public virtual EBossState BossState
     {
@@ -79,6 +79,10 @@ public class Boss : Creature
                 case EBossState.Move:
                     UpdateMove();
                     break;
+                case EBossState.Dead:
+                    break;
+                case EBossState.Explosion:
+                    break;
             }
 
             if (UpdateAITick > 0)
@@ -128,4 +132,50 @@ public class Boss : Creature
         base.OnDamaged(owner, skillType);
         Managers.UI.PlayingUI.BossHpSlider(Hp / MaxHp);
     }
+
+    public void ChangeBossState(EBossState bossState)
+    {
+        if (bossState == EBossState.Idle) _currentSkill = EBossSkill.Normal;
+        BossState = bossState;
+    }
+
+    public void ChangeCollider(int on)
+    {
+        PgCollider2D.enabled = on == 1 ? true : false;
+        transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = on == 1 ? true : false;
+    }
+
+    public void setTargetPos()
+    {
+        if (Target == null) return;
+        _targetPos = Target.transform.position;
+        _startPos = transform.position;
+    }
+
+    public override void OnDead()
+    {
+        if (BossState == EBossState.Dead) return;
+        BossState = EBossState.Dead;
+        Managers.UI.PlayingUI.BossHpActive(false);
+        StartCoroutine(BossDeadAnim());
+    }
+
+    IEnumerator BossDeadAnim()
+    {
+        PgCollider2D.enabled = false;
+        GameObject go = Managers.Resource.Instantiate("BossDeathEffect");
+        go.transform.SetParent(transform,false);
+        go.transform.localPosition = Vector3.zero;
+        go.transform.GetComponent<Animator>().Play("BossDeathEffect");
+
+        AnimatorBottom.Play("Dead");
+        //Debug.Log(_skillName[(int)_currentSkill]);
+        float delay = AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        yield return new WaitForSeconds(delay * 0.75f);
+        transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(delay);
+        base.OnDead();
+    }
+
 }

@@ -97,6 +97,9 @@ public class MainCharacter : Creature
     public override void Init()
     {
         base.Init();
+#if UNITY_EDITOR
+        AttackDamage = 50.0f;
+#endif
         HeadSprite = new Sprite[]
        {
             Managers.Resource.Load<Sprite>("isaac_up"),

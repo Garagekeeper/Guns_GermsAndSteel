@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 26
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -134,7 +134,259 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: effect_077_largebloodexplosion_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 488
+        width: 30
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d09681b5a6b4ffd439de50fce348167f
+      internalID: 488246234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_077_largebloodexplosion_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 429
+        width: 48
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 289aac7187300e842b93213f03ac76a2
+      internalID: -1158330856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_077_largebloodexplosion_2
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 432
+        width: 76
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdb612346228b3d4ab3af9de52664d88
+      internalID: -1640494474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_077_largebloodexplosion_3
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 428
+        width: 109
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fd7b1bed4a4462418d48108478690e0
+      internalID: 2138669286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_077_largebloodexplosion_4
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 428
+        width: 128
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7e4b83006e3aa74e8e947e4721924b2
+      internalID: -1510437075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_077_largebloodexplosion_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 145
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5af37fa8358bafb4291de4755f0e7796
+      internalID: 496494157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_077_largebloodexplosion_6
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 320
+        width: 145
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c40b7dc0931820b43af7e3131856a779
+      internalID: 690738203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_077_largebloodexplosion_7
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 312
+        width: 145
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5457019aba57fc449716fbd2fac9efe
+      internalID: -812276962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_077_largebloodexplosion_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 187
+        width: 145
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db6d4837e65996444b563d0c54260c45
+      internalID: 889789174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_077_largebloodexplosion_9
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 187
+        width: 145
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b0ec8542b2e54e4eb666901424e16d4
+      internalID: -1214598149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_077_largebloodexplosion_10
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 187
+        width: 145
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 788885857c9decf478933213d508c905
+      internalID: 1053158834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: effect_077_largebloodexplosion_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 75
+        width: 145
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24fcdb7cdb88393439dc37502e452d68
+      internalID: -184263062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +397,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      effect_077_largebloodexplosion_0: 488246234
+      effect_077_largebloodexplosion_1: -1158330856
+      effect_077_largebloodexplosion_10: 1053158834
+      effect_077_largebloodexplosion_11: -184263062
+      effect_077_largebloodexplosion_2: -1640494474
+      effect_077_largebloodexplosion_3: 2138669286
+      effect_077_largebloodexplosion_4: -1510437075
+      effect_077_largebloodexplosion_5: 496494157
+      effect_077_largebloodexplosion_6: 690738203
+      effect_077_largebloodexplosion_7: -812276962
+      effect_077_largebloodexplosion_8: 889789174
+      effect_077_largebloodexplosion_9: -1214598149
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

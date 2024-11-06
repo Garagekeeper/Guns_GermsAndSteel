@@ -8,10 +8,8 @@ using static Define;
 
 public class Boss_Monstro : Boss
 {
-    private Vector3 _targetPos;
-    private Vector3 _startPos;
     Vector2 projectileDir = Vector2.zero;
-    private new PolygonCollider2D Collider;
+
     private void Awake()
     {
         base.Init();
@@ -25,6 +23,7 @@ public class Boss_Monstro : Boss
         Rigidbody.velocity = Vector3.zero;
         //Debug.Log(Hp);
         //Debug.Log(Time.deltaTime);
+        //Debug.Log(BossState);
     }
 
     public override void Init()
@@ -35,7 +34,7 @@ public class Boss_Monstro : Boss
         BossState = EBossState.Idle;
 
         AnimatorBottom = transform.GetComponent<Animator>();
-        Collider = GetComponent<PolygonCollider2D>();
+        PgCollider2D = GetComponent<PolygonCollider2D>();
 
         //Debug
         //foreach (var clip in AnimatorBottom.runtimeAnimatorController.animationClips)
@@ -139,30 +138,5 @@ public class Boss_Monstro : Boss
         {
             GenerateProjectile(projectileDir,true);
         }
-    }
-
-    public void setTargetPos()
-    {
-        if (Target == null) return; 
-        _targetPos = Target.transform.position;
-        _startPos = transform.position;
-    }
-
-    public void ChangeBossState(EBossState bossState)
-    {
-        if (bossState == EBossState.Idle) _currentSkill = EBossSkill.Normal;
-        BossState = bossState;
-    }
-
-    public void ChangeCollider(int on)
-    {
-        Collider.enabled = on == 1 ? true : false;
-        transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = on == 1 ? true : false;
-    }
-
-    public override void OnDead()
-    {
-        base.OnDead();
-        Managers.UI.PlayingUI.BossHpActive(false);
     }
 }
