@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using UnityEditor;
 #endif
 
-public class MapCollisionParser 
+public class MapCollisionParser
 {
 #if UNITY_EDITOR
 
@@ -44,7 +44,7 @@ public class MapCollisionParser
                                 parser.Write(Define.MAP_TOOL_WALL);
                             else
                                 parser.Write(Define.MAP_TOOL_NONE);
-                            
+
                         }
                         else
                             parser.Write(Define.MAP_TOOL_WALL);

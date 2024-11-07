@@ -61,7 +61,7 @@ public class Monster : Creature
     void drawPath(List<Vector3Int> path)
     {
         lr.enabled = true;
-        //점의 개수
+        //점의 개수 
         lr.positionCount = path.Count;
 
         var from = path.First();

@@ -164,7 +164,7 @@ public class Boss : Creature
     {
         PgCollider2D.enabled = false;
         GameObject go = Managers.Resource.Instantiate("BossDeathEffect");
-        go.transform.SetParent(transform,false);
+        go.transform.SetParent(transform, false);
         go.transform.localPosition = Vector3.zero;
         go.transform.GetComponent<Animator>().Play("BossDeathEffect");
 

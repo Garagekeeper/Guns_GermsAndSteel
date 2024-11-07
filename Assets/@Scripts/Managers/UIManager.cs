@@ -7,8 +7,8 @@ public class UIManager
 
     private PlayingUI _playingUI = null;
 
-    public PlayingUI PlayingUI 
-    { 
+    public PlayingUI PlayingUI
+    {
         set => _playingUI = value;
         get => _playingUI;
     }

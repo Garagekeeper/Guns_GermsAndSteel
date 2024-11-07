@@ -45,7 +45,7 @@ public class Boss_Monstro : Boss
 
     protected override void UpdateIdle()
     {
-        if (Managers.Object.MainCharacters.Count == 0) return; 
+        if (Managers.Object.MainCharacters.Count == 0) return;
         projectileDir = Vector3.zero;
 
         //0. 가장 가까운 목표 검색
@@ -64,7 +64,7 @@ public class Boss_Monstro : Boss
         else
         {
             //1) 보스가 동서남북(근처)에 있는 경우
-            bool Up = Vector2.Dot(Vector2.up, normalizedDir)  > MathF.Cos(10 * Mathf.Deg2Rad);
+            bool Up = Vector2.Dot(Vector2.up, normalizedDir) > MathF.Cos(10 * Mathf.Deg2Rad);
             bool Right = Vector2.Dot(Vector2.right, normalizedDir) > MathF.Cos(10 * Mathf.Deg2Rad);
             bool Down = Vector2.Dot(Vector2.down, normalizedDir) > MathF.Cos(10 * Mathf.Deg2Rad);
             bool Left = Vector2.Dot(Vector2.left, normalizedDir) > MathF.Cos(10 * Mathf.Deg2Rad);
@@ -128,15 +128,15 @@ public class Boss_Monstro : Boss
         //    float random = UnityEngine.Random.Range(-10, 10) * Mathf.Deg2Rad;
         //    Debug.Log("random" + random);
 
-        //    //a * cosΘ - b* sinΘ,  a*sinΘ + b*cosΘ ;
+        //    //a * cosΘ - b* sinΘ,  a*sinΘ + b*cosΘ; 
         //    var temp = new Vector3(projectileDir.x * Mathf.Cos(random) - projectileDir.y * Mathf.Sin(random), projectileDir.x * Mathf.Sin(random) + projectileDir.y * Mathf.Cos(random));
         //    GenerateProjectile(temp);
         //    Debug.Log(temp);
         //}
 
-       for (int i=0; i<10; i++)
+        for (int i = 0; i < 10; i++)
         {
-            GenerateProjectile(projectileDir,true);
+            GenerateProjectile(projectileDir, true);
         }
     }
 }

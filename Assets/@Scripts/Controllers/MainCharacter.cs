@@ -48,10 +48,10 @@ public class MainCharacter : Creature
                 mask |= 1 << (int)ELayer.Obstacle;
                 if (value)
                     Collider.excludeLayers = mask;
-                else 
+                else
                     Collider.includeLayers = mask;
 
-                    
+
             }
         }
     }
@@ -351,7 +351,7 @@ public class MainCharacter : Creature
 
     //issac에는 그 방에서만 능력치를 올려주는 액티브 아이템이 있다.
     //일회성 버프 아이템은 패시브 아이템처럼 적용하되, 방이 클리어되면회수 되도록한다.
-    //다른 액티브 아이템은 enum을통해서 별도로 효과를 적용시켜준다.
+    //다른 액티브 아이템은 enum을통해서 별도로 효과를 적용시켜준다. 
     private void HandleUsingActiveItem(Item item)
     {
         if (item.EffectOfActive == ESpecialEffectOfActive.Null)
@@ -386,9 +386,9 @@ public class MainCharacter : Creature
     public IEnumerator CoInvincible()
     {
         //Change Sprite
-        for (int i=1; i <= 10; i++)
+        for (int i = 1; i <= 10; i++)
         {
-            if ( i % 2 == 0)
+            if (i % 2 == 0)
             {
                 Head.color = new Color32(255, 255, 255, 90);
                 Bottom.color = new Color32(255, 255, 255, 90);

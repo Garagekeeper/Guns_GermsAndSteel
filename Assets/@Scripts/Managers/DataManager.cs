@@ -15,7 +15,7 @@ public class DataManager
     {
         ItemDic = LoadJson<Data.ItemDataLoader, int, Data.ItemData>("Item_Data").MakeDict();
     }
-        private Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
+    private Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
     {
         Debug.Log($"{path}");
         TextAsset textAsset = Managers.Resource.Load<TextAsset>($"{path}");

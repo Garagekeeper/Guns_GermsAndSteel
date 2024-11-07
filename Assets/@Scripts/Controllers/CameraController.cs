@@ -15,7 +15,7 @@ public class CameraController : MonoBehaviour
     {
         transform.position = Vector3.Lerp(transform.position, TargetPos, smoothSpeed * Time.fixedDeltaTime);
     }
-    
+
     public void MoveCameraWithoutLerp(Vector3 pos)
     {
         TargetPos = pos;

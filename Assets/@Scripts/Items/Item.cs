@@ -9,8 +9,8 @@ public class Item
 {
     public int TemplateId { get; set; }
 
-    public string SpriteName { get; set; } 
-    public string Name { get; set; } 
+    public string SpriteName { get; set; }
+    public string Name { get; set; }
     public int CoolTime { get; private set; }
     public EItemType ItemType { get; set; }
 
@@ -87,6 +87,6 @@ public class Item
             EffectOfActive = TemplateData.EffectOfActive;
             CoolDownGage = CoolTime;
         }
-        
+
     }
 }

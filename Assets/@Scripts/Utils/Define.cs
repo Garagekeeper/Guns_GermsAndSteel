@@ -84,10 +84,10 @@ public static class Define
         Passive,
         Familliar,
     }
-    
+
     public enum ESpecialEffectOfActive
     {
-        Null=0,
+        Null = 0,
         RandomTeleport,
         UncheckedRoomTeleport,
         Roll,

@@ -319,7 +319,7 @@ public class GameManager
     {
         var curRoom = Managers.Map.CurrentRoom;
         curRoom.IsClear = true;
-       
+
         Managers.Map.ChangeDoorSprite(curRoom);
         foreach (var player in Managers.Object.MainCharacters)
         {
@@ -335,7 +335,7 @@ public class GameManager
 
     public void RoomConditionCheck()
     {
-        if (Managers.Object.Monsters.Count == 0 && Managers.Object.Bosses.Count == 0) 
+        if (Managers.Object.Monsters.Count == 0 && Managers.Object.Bosses.Count == 0)
             RoomClear();
         return;
     }

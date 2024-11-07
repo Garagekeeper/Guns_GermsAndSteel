@@ -128,19 +128,19 @@ public class PlayingUI : UI_Base
         for (int i = 0; i < 12; i++)
         {
             string spriteNmae;
-            if ((int)hp / (i+1) !=0) spriteNmae = "ui_hearts_0";
-            else if ( i < hp && hp < i+1) spriteNmae = "ui_hearts_1";
-            else  spriteNmae = "ui_hearts_18";
+            if ((int)hp / (i + 1) != 0) spriteNmae = "ui_hearts_0";
+            else if (i < hp && hp < i + 1) spriteNmae = "ui_hearts_1";
+            else spriteNmae = "ui_hearts_18";
             GetImage((int)Images.Heart1 + i).gameObject.GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>(spriteNmae);
         }
     }
 
-    public void BossHpActive (bool isActive)
+    public void BossHpActive(bool isActive)
     {
         GetObject((int)GameObjects.BossHp).SetActive(isActive);
     }
 
-    public void BossHpSlider (float ratio)
+    public void BossHpSlider(float ratio)
     {
         GetObject((int)GameObjects.BossHp).GetComponent<Slider>().value = ratio;
     }

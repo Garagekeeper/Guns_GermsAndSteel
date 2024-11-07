@@ -7,7 +7,6 @@ public class TitleScene : MonoBehaviour
 {
     private void Start()
     {
-        
         //EventSystem이 없으면  UI가 동작하지 않기 때문에
         //체크하고 없으면 붙여준다
         Object obj = GameObject.FindObjectOfType(typeof(EventSystem));
@@ -33,9 +32,9 @@ public class TitleScene : MonoBehaviour
 
     private void Update()
     {
-         if (Input.GetKeyDown(KeyCode.Space)) 
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-           
+
             Debug.Log("ChangeScene");
             SceneManager.LoadScene("GameScene");
         }

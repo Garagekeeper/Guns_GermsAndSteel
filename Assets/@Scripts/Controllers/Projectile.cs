@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour
 
     }
 
-    public void SetInfo(Vector2 origin, Vector2 targetDir, Creature owner, bool _isRandom = false,string spriteName = "bulletatlas_7")
+    public void SetInfo(Vector2 origin, Vector2 targetDir, Creature owner, bool _isRandom = false, string spriteName = "bulletatlas_7")
     {
         _spriteRenderer.sprite = Managers.Resource.Load<Sprite>("bulletatlas_7");
         Owner = owner;
@@ -39,12 +39,12 @@ public class Projectile : MonoBehaviour
             if (Mathf.Abs(targetDir.x) < Mathf.Abs(targetDir.y)) transform.position += new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(0.0f, 1.0f) * targetDir.y);
         }
         Vector2 correction = new Vector2(0, 0);
-        
+
         if (Vector2.Dot(targetDir, owner.Rigidbody.velocity) > 0)
             correction = owner.Rigidbody.velocity * 0.5f;
         _target = targetDir * Owner.Tears + correction;
         Rigidbody.velocity = _target;
-        
+
         LayerMask mask = 0;
         if (owner.CreatureType == ECreatureType.MainCharacter) mask |= (1 << 6);
         if (owner.CreatureType == ECreatureType.Monster) mask |= (1 << 7);
@@ -65,7 +65,7 @@ public class Projectile : MonoBehaviour
         {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
-           
+
         }
         else
         {
