@@ -4,7 +4,9 @@ public class GameScene : MonoBehaviour
 {
     private void Awake()
     {
-        Managers.Map.Init(() => { LoadUI(); SpawnCharacter(); Managers.Game.RoomConditionCheck(); });
+        LoadUI();
+        Managers.UI.PlayingUI.gameObject.SetActive(false);
+        Managers.Map.Init(() => {  SpawnCharacter(); Managers.Game.RoomConditionCheck(); Managers.UI.PlayingUI.gameObject.SetActive(true);});
     }
 
     public void LoadUI()
@@ -18,4 +20,10 @@ public class GameScene : MonoBehaviour
     {
         MainCharacter mc = Managers.Object.Spawn<MainCharacter>(new Vector3(-0.5f, -0.5f, 0));
     }
+
+    public void LoadMiniMap()
+    {
+        Managers.Map.GenerateMinimap();
+    }
+
 }

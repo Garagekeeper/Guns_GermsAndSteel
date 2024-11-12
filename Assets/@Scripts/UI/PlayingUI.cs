@@ -46,6 +46,7 @@ public class PlayingUI : UI_Base
     enum GameObjects
     {
         BossHp,
+        Minimap_Pannel,
     }
 
     protected override void Init()
@@ -140,9 +141,14 @@ public class PlayingUI : UI_Base
         GetObject((int)GameObjects.BossHp).SetActive(isActive);
     }
 
-    public void BossHpSlider(float ratio)
+    public void ChangeBossHpSliderRatio(float ratio)
     {
         GetObject((int)GameObjects.BossHp).GetComponent<Slider>().value = ratio;
+    }
+
+    public GameObject GetMinimapPannel()
+    {
+        return GetObject((int)GameObjects.Minimap_Pannel);
     }
 
 }

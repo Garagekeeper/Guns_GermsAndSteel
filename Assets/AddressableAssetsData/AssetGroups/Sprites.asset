@@ -101,6 +101,27 @@ MonoBehaviour:
     - Sprite
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef172b79fbf06fb40a2ebef51ae8ba47
+    m_Address: minimap2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf7690f21966e3e42b0a24fd61e825fa
+    m_Address: minimap1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 578ed0ca9dcb78b4b8052f311b6dc22c
+    m_Address: minimap_icons
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

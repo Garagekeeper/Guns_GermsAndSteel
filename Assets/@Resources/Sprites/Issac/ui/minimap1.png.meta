@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -134,7 +134,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: minimap1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 206
+        width: 55
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dc4781bb9d397a4a97673a799c813a4
+      internalID: -177878665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minimap1_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 244
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e28b729e6a765b4478c95acbb6c4ffdf
+      internalID: 1258891168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minimap1_2
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 88
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c588925587a42b498f3917bb4441d13
+      internalID: 391482313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minimap1_3
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 56
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da2bfa91a5f3a94428928eef1165542f
+      internalID: -663392663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minimap1_4
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 24
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1991316f1916cb64fa7deed134441104
+      internalID: -573843947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +250,34 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      minimap1_0: -177878665
+      minimap1_1: 1258891168
+      minimap1_10: 104774314
+      minimap1_11: -1997386684
+      minimap1_12: 777248074
+      minimap1_13: -518453681
+      minimap1_14: 1621915037
+      minimap1_15: -1797015236
+      minimap1_16: 150570359
+      minimap1_17: 1117916748
+      minimap1_18: 2064781410
+      minimap1_19: 393240149
+      minimap1_2: 391482313
+      minimap1_20: -1515302615
+      minimap1_21: -984060615
+      minimap1_22: -1979855410
+      minimap1_23: -667503736
+      minimap1_24: 113195350
+      minimap1_25: -566076377
+      minimap1_26: -2127599705
+      minimap1_27: 546259699
+      minimap1_3: -663392663
+      minimap1_4: -573843947
+      minimap1_5: -1673573091
+      minimap1_6: -1196559719
+      minimap1_7: 697471881
+      minimap1_9: 1743967553
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -61,6 +61,7 @@ public class Projectile : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other == null) return;
+        if (other.gameObject.tag == "Trapdoor") return;
         if ("RightDownLeftUpColliderItemHolder".Contains(other.gameObject.name))
         {
             if (_coroutine != null)

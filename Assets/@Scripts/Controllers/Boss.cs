@@ -130,7 +130,7 @@ public class Boss : Creature
     public override void OnDamaged(Creature owner, ESkillType skillType)
     {
         base.OnDamaged(owner, skillType);
-        Managers.UI.PlayingUI.BossHpSlider(Hp / MaxHp);
+        Managers.UI.PlayingUI.ChangeBossHpSliderRatio(Hp / MaxHp);
     }
 
     public void ChangeBossState(EBossState bossState)

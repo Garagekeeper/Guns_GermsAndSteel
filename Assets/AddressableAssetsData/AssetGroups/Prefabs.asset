@@ -76,7 +76,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame
-    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87edcf41578c41f46aa4625a7d2c4740
+    m_Address: Minimap_Cell
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}

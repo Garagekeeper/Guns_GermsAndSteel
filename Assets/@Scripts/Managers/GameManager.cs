@@ -201,7 +201,11 @@ public class GameManager
 
         StageNumber++;
         Managers.Map.DestroyMap();
-        Managers.Map.GenerateStage();
+        while (true)
+        {
+            if (Managers.Map.GenerateStage() == 1)
+                break;
+        }
         Managers.Map.LoadMap();
 
         Cam.MoveCameraWithoutLerp(new Vector3(-0.5f, -0.5f, -10f));
@@ -211,6 +215,8 @@ public class GameManager
             temp.transform.position = new Vector3(-0.5f, -0.5f, 0);
             temp.CanMove = true;
         }
+
+        RoomConditionCheck();
     }
 
     public void MovePlayerToNextRoom(int index)
@@ -329,7 +335,7 @@ public class GameManager
 
         if (curRoom.RoomType == RoomClass.ERoomType.Boss)
         {
-            Managers.Map.CurrentRoom.ItemHolder.SetActive(true);
+            //Managers.Map.CurrentRoom.ItemHolder.SetActive(true);
         }
     }
 
