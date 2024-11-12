@@ -1,14 +1,17 @@
+using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using static Define;
+using static UnityEngine.Rendering.DebugUI;
+using Random = UnityEngine.Random;
 
 public class Projectile : MonoBehaviour
 {
     public Creature Owner { get; set; }
     protected Rigidbody2D Rigidbody { get; set; }
 
-    protected Collider2D Collider { get; set; }
+    protected CircleCollider2D Collider { get; set; }
 
 
     private SpriteRenderer _spriteRenderer;
@@ -23,14 +26,17 @@ public class Projectile : MonoBehaviour
         //하드코딩 수정
         _spriteRenderer.sortingOrder = 12;
         Rigidbody = GetComponent<Rigidbody2D>();
-        transform.localScale = new Vector2(0.5f, 0.5f);
-        Collider = transform.GetChild(1).gameObject.GetComponent<Collider2D>();
+        transform.localScale = new Vector2(1f, 1f);
+        Collider = transform.GetChild(1).gameObject.GetComponent<CircleCollider2D>();
 
     }
 
     public void SetInfo(Vector2 origin, Vector2 targetDir, Creature owner, bool _isRandom = false, string spriteName = "bulletatlas_7")
     {
-        _spriteRenderer.sprite = Managers.Resource.Load<Sprite>("bulletatlas_7");
+        //공격력에 따라서 눈물의 크기가 바뀌도록
+        _spriteRenderer.sprite = Managers.Resource.Load<Sprite>("bulletatlas_" + Mathf.Clamp(((Mathf.RoundToInt(owner.AttackDamage) - 1 / 3) + 1), 0 ,12));
+        Collider.radius = _spriteRenderer.bounds.size.x / 2;
+        
         Owner = owner;
         transform.position = origin;
         if (_isRandom)

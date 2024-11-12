@@ -12,6 +12,7 @@ public class Creature : BaseObject
 
     private float _hp;
     public float MaxHp { get; set; }
+    //public float MaxDamage { get; set; } = 26f;
     public float Hp
     {
         get { return _hp; }
