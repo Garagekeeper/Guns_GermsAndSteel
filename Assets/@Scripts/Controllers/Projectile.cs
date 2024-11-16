@@ -13,10 +13,11 @@ public class Projectile : MonoBehaviour
 
     protected CircleCollider2D Collider { get; set; }
 
-
     private SpriteRenderer _spriteRenderer;
     private Vector2 _target;
     private Coroutine _coroutine;
+
+    private bool _isColliding = false;
 
     private ESkillType _skillType = ESkillType.Projectile;
 
@@ -34,9 +35,9 @@ public class Projectile : MonoBehaviour
     public void SetInfo(Vector2 origin, Vector2 targetDir, Creature owner, bool _isRandom = false, string spriteName = "bulletatlas_7")
     {
         //공격력에 따라서 눈물의 크기가 바뀌도록
-        _spriteRenderer.sprite = Managers.Resource.Load<Sprite>("bulletatlas_" + Mathf.Clamp(((Mathf.RoundToInt(owner.AttackDamage) - 1 / 3) + 1), 0 ,12));
+        _spriteRenderer.sprite = Managers.Resource.Load<Sprite>("bulletatlas_" + Mathf.Clamp(((Mathf.RoundToInt(owner.AttackDamage) - 1 / 3) + 1), 0, 12));
         Collider.radius = _spriteRenderer.bounds.size.x / 2;
-        
+
         Owner = owner;
         transform.position = origin;
         if (_isRandom)
@@ -66,6 +67,8 @@ public class Projectile : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
+        if (_isColliding) return;
+        _isColliding = true;
         if (other == null) return;
         if (other.gameObject.tag == "Trapdoor") return;
         if ("RightDownLeftUpColliderItemHolder".Contains(other.gameObject.name))
@@ -76,9 +79,9 @@ public class Projectile : MonoBehaviour
         }
         else
         {
-            var go = other.GetComponent<Creature>() == null ? other.transform.parent.GetComponent<Creature>() : other.GetComponent<Creature>();
+            var go = Utility.GetTFromParentComponent<Creature>(other.gameObject);
             if (Owner.CreatureType == go.CreatureType) return;
-            go.OnDamaged(Owner, _skillType);
+            go.OnDamaged(Owner, _skillType, other.gameObject.name);
         }
         Destroy(gameObject);
     }

@@ -28,6 +28,7 @@ public static class Define
     {
         None,
         Monstro,
+        Fistula,
     }
 
     public enum EBossState

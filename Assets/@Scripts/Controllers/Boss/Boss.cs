@@ -7,6 +7,7 @@ using static Define;
 public class Boss : Creature
 {
     protected PolygonCollider2D PgCollider2D;
+    protected CircleCollider2D CCollider2D;
     public EBossType BossType { get; protected set; } = 0;
     protected EBossState _bossState;
     public virtual EBossState BossState
@@ -55,6 +56,7 @@ public class Boss : Creature
         Rigidbody = GetComponent<Rigidbody2D>();
         Range = 10;
         Tears = 5.0f;
+        Speed = 3f;
 
 #if UNITY_EDITOR
         Managers.UI.PlayingUI.BossHpActive(true);
@@ -127,7 +129,7 @@ public class Boss : Creature
 
     }
 
-    public override void OnDamaged(Creature owner, ESkillType skillType)
+    public override void OnDamaged(Creature owner, ESkillType skillType, string name = "")
     {
         base.OnDamaged(owner, skillType);
         Managers.UI.PlayingUI.ChangeBossHpSliderRatio(Hp / MaxHp);
@@ -157,12 +159,19 @@ public class Boss : Creature
         if (BossState == EBossState.Dead) return;
         BossState = EBossState.Dead;
         Managers.UI.PlayingUI.BossHpActive(false);
-        StartCoroutine(BossDeadAnim());
+
+        if (gameObject.GetComponent<Animator>() != null)
+            StartCoroutine(BossDeadAnim());
     }
 
     IEnumerator BossDeadAnim()
     {
-        PgCollider2D.enabled = false;
+        if (CCollider2D != null)
+            CCollider2D.enabled = false;
+        if (PgCollider2D != null)
+            PgCollider2D.enabled = false;
+
+        gameObject.GetComponent<SpriteRenderer>().enabled = true;
         GameObject go = Managers.Resource.Instantiate("BossDeathEffect");
         go.transform.SetParent(transform, false);
         go.transform.localPosition = Vector3.zero;

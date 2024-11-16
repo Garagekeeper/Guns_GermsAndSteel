@@ -167,7 +167,9 @@ public class GameManager
         MovePlayerToNextRoom(index);
         //CameraMove
         MoveCameraToNextRoom(currentRoom._adjacencentRooms[index]);
+        
         Managers.Map.CurrentRoom = currentRoom._adjacencentRooms[index];
+        Managers.UI.PlayingUI.BossHpActive(true);
 
         //ItemHolder에 있는 아이템의 비중을 줄인다.
         if (Managers.Map.CurrentRoom.ItemHolder != null)

@@ -12,7 +12,6 @@ public class Boss_Monstro : Boss
 
     private void Awake()
     {
-        base.Init();
         Init();
         StartCoroutine(CoUpdateAI());
     }
@@ -28,6 +27,7 @@ public class Boss_Monstro : Boss
 
     public override void Init()
     {
+        base.Init();
         Hp = 250.0f;
         MaxHp = 250.0f;
         BossType = EBossType.Monstro;

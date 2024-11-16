@@ -371,7 +371,7 @@ public class MainCharacter : Creature
         }
     }
 
-    public override void OnDamaged(Creature owner, ESkillType skillType)
+    public override void OnDamaged(Creature owner, ESkillType skillType, string name = "")
     {
         if (IsInvincible) return;
 

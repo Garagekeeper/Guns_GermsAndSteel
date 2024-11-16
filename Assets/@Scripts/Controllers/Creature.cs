@@ -321,7 +321,7 @@ public class Creature : BaseObject
         return closestTarget;
     }
 
-    public virtual void OnDamaged(Creature owner, ESkillType skillType)
+    public virtual void OnDamaged(Creature owner, ESkillType skillType, string name = "")
     {
         switch (skillType)
         {
@@ -329,10 +329,10 @@ public class Creature : BaseObject
                 //TODO
                 break;
             case ESkillType.Bomb:
-                Hp -= owner.BombDamage;
+                ChangeHpValue(-1 * owner.BombDamage);
                 break;
             case ESkillType.Projectile:
-                Hp -= owner.AttackDamage;
+                ChangeHpValue(-1 * owner.AttackDamage);
                 //Debug.Log(Hp);
                 break;
             case ESkillType.Fire:
@@ -344,6 +344,12 @@ public class Creature : BaseObject
         //Debug.Log(Hp);
 
     }
+
+    public virtual void ChangeHpValue(float value)
+    {
+        Hp += value;
+    }
+
 
     public bool IsDead()
     {
