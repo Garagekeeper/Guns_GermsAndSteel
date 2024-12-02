@@ -88,6 +88,21 @@ public class MainCharacter : Creature
 
     public RoomClass CurrentRoom { get; set; }
     private Type _target;
+    private float _pressingTime = 0;
+
+    public float PressingTime
+    {
+        get { return _pressingTime; }
+        set
+        {
+            if (_pressingTime != value)
+            {
+                _pressingTime = value;
+                Managers.UI.PlayingUI.SetFadeImageAlpha(_pressingTime);
+            }
+        }
+    }
+
     System.Random random = new System.Random();
     private void Awake()
     {
@@ -106,6 +121,8 @@ public class MainCharacter : Creature
             Managers.Resource.Load<Sprite>("isaac_down"),
             Managers.Resource.Load<Sprite>("isaac_right"),
        };
+
+        PressingTime = 0;
 
         SpaceItem = new Item();
         QItem = new Item();
@@ -193,6 +210,26 @@ public class MainCharacter : Creature
             //Managers.UI.ShowUpStatUI();
         }
 
+        //Restart with fade out
+        if (Input.GetKey(KeyCode.R))
+        {
+            PressingTime += Time.deltaTime;
+            if (PressingTime > 1)
+            {
+                PressingTime = 0;
+                //Managers.Map.DestroyMap();
+                //Managers.Map.LoadMap();
+                Managers.Game.RestartGame();
+            }
+        }
+        else
+        {
+            if (PressingTime > 0)
+            {
+                PressingTime = Mathf.Max(PressingTime - Time.deltaTime, 0);
+            }
+
+        }
 
         #endregion
     }
@@ -461,6 +498,11 @@ public class MainCharacter : Creature
             {
                 GetItem(itemHolder);
             }
+        }
+
+        if (collision.transform.tag == "ClearBox")
+        {
+            Managers.Game.ClearGame();
         }
 
     }

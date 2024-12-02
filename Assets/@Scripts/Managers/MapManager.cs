@@ -338,6 +338,7 @@ public class MapManager
     {
         if (x < 0 || x >= s_mapMaxX) return false;
         if (y < 0 || y >= s_mapMaxY) return false;
+        // 이미 방이 있다면 넘어간다.
         if (s_roomGraph[x, y] == 1) return false;
         // 인접한 방이 2개 이상이면 방을 생성하지 않는다.
         if (CheckAdjacencyRoomCnt(x, y) >= 2) return false;
@@ -850,6 +851,7 @@ public class MapManager
 
     public void LoadMap()
     {
+        CurrentRoom = null;
         Map = Managers.Resource.Instantiate("Stage");
         CellGrid = Map.GetComponent<Grid>();
         int index = 0;
@@ -894,7 +896,10 @@ public class MapManager
 
         if (room.RoomType == ERoomType.Boss)
         {
-            GenerateTrapDoor(room);
+            if (Managers.Game.StageNumber == 8)
+                GenerateClearBox(room);
+            else
+                GenerateTrapDoor(room);
         }
     }
 
@@ -950,7 +955,7 @@ public class MapManager
 
         //room 위치, 이름 조정
         room.transform.Translate(posDiff);
-        room.name = Managers.Game.StageNumber +  r.RoomType.ToString() + (r.RoomType == ERoomType.Normal ? index : "");
+        room.name = Managers.Game.Seed + " " + Managers.Game.StageNumber + r.RoomType.ToString() + (r.RoomType == ERoomType.Normal ? index : "");
         room.transform.parent = Map.transform;
 
         //클래스 멤버 변수 초기화
@@ -980,6 +985,14 @@ public class MapManager
     public GameObject GenerateTrapDoor(RoomClass room)
     {
         GameObject go = Managers.Resource.Instantiate("TrapDoor", room.Doors.transform);
+        go.transform.position = room.Doors.transform.position + new Vector3(-0.5f, -0.5f);
+        go.SetActive(false);
+        return go;
+    }
+
+    public GameObject GenerateClearBox(RoomClass room)
+    {
+        GameObject go = Managers.Resource.Instantiate("ClearBox", room.Doors.transform);
         go.transform.position = room.Doors.transform.position + new Vector3(-0.5f, -0.5f);
         go.SetActive(false);
         return go;
@@ -1019,7 +1032,7 @@ public class MapManager
         ChangeMinimapCellSprite(go.transform.Find(room.RoomObject.name).gameObject, cellSprite[(int)ECellType.currentRoom]);
         for (int i = 0; i < 4; i++)
         {
-            
+
             RoomClass adjacencentRoom = room._adjacencentRooms[i];
             if (adjacencentRoom != null)
             {
@@ -1031,7 +1044,7 @@ public class MapManager
                     temp.SetActive(true);
                     temp.GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>("minimap_icons_" + (int)adjacencentRoom.RoomType);
                 }
-               
+
 
                 child.gameObject.SetActive(true);
                 string spriteName;
@@ -1041,7 +1054,7 @@ public class MapManager
                     spriteName = cellSprite[(int)ECellType.UnVisited];
 
                 ChangeMinimapCellSprite(child.gameObject, spriteName);
-                Debug.Log(adjacencentRoom.RoomObject.name + child.gameObject.activeSelf);
+                //Debug.Log(adjacencentRoom.RoomObject.name + child.gameObject.activeSelf);
             }
 
         }

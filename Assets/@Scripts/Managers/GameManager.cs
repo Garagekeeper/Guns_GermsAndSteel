@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static Define;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
@@ -55,7 +56,8 @@ public class GameManager
         Seed = GenerateSeed();
         SeedToInt();
         Debug.Log(Seed);
-
+        Rand_Cnt = 0;
+        StageNumber = 1;
         //0. N(스테이지에 만들 방의 개수) 설정
         //N = (int)(Sn % ((_baseRoomCountMax - _baseRoomCountMin) + 1 + StageNumber * 2) + _baseRoomCountMin);
         //https://gist.github.com/bladecoding/d75aef7e830c738ad5e3d66d146a095c
@@ -167,9 +169,9 @@ public class GameManager
         MovePlayerToNextRoom(index);
         //CameraMove
         MoveCameraToNextRoom(currentRoom._adjacencentRooms[index]);
-        
+
         Managers.Map.CurrentRoom = currentRoom._adjacencentRooms[index];
-        Managers.UI.PlayingUI.BossHpActive(true);
+        //Managers.UI.PlayingUI.BossHpActive(true);
 
         //ItemHolder에 있는 아이템의 비중을 줄인다.
         if (Managers.Map.CurrentRoom.ItemHolder != null)
@@ -346,5 +348,33 @@ public class GameManager
         if (Managers.Object.Monsters.Count == 0 && Managers.Object.Bosses.Count == 0)
             RoomClear();
         return;
+    }
+
+    public void ClearGame()
+    {
+        Managers.Map.DestroyMap();
+        SceneManager.LoadScene("Title");
+    }
+
+    public void RestartGame()
+    {
+        Init();
+        Managers.Map.DestroyMap();
+        while (true)
+        {
+            if (Managers.Map.GenerateStage() == 1)
+                break;
+        }
+        Managers.Map.LoadMap();
+
+        Cam.MoveCameraWithoutLerp(new Vector3(-0.5f, -0.5f, -10f));
+        foreach (var temp in Managers.Object.MainCharacters)
+        {
+            temp.gameObject.SetActive(true);
+            temp.transform.position = new Vector3(-0.5f, -0.5f, 0);
+            temp.CanMove = true;
+        }
+        RoomConditionCheck();
+
     }
 }

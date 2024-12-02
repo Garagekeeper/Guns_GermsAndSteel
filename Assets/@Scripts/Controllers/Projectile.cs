@@ -70,7 +70,7 @@ public class Projectile : MonoBehaviour
         if (_isColliding) return;
         _isColliding = true;
         if (other == null) return;
-        if (other.gameObject.tag == "Trapdoor") return;
+        if (other.gameObject.tag == "TrapDoor") return;
         if ("RightDownLeftUpColliderItemHolder".Contains(other.gameObject.name))
         {
             if (_coroutine != null)

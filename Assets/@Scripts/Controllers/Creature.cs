@@ -373,6 +373,7 @@ public class Creature : BaseObject
             default:
                 break;
         }
+        Managers.Game.RoomConditionCheck();
     }
 
 

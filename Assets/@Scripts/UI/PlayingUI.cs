@@ -28,6 +28,7 @@ public class PlayingUI : UI_Base
         Heart10,
         Heart11,
         Heart12,
+        FadeImage,
     }
 
     enum Texts
@@ -149,6 +150,11 @@ public class PlayingUI : UI_Base
     public GameObject GetMinimapPannel()
     {
         return GetObject((int)GameObjects.Minimap_Pannel);
+    }
+
+    public void SetFadeImageAlpha(float alpha)
+    {
+        GetImage((int)Images.FadeImage).GetComponent<Image>().color = new Color(0, 0, 0, alpha);
     }
 
 }
