@@ -26,9 +26,9 @@ public class GameManager
     }
 
     public event Action<int, int, string> ChargeBarEnevnt;
-    public void UseActiveItem(int coolDownGage, int coolTime, string type)
+    public void UseActiveItem(int currentGage, int coolTime, string type)
     {
-        ChargeBarEnevnt?.Invoke(coolDownGage, coolTime, type);
+        ChargeBarEnevnt?.Invoke(currentGage, coolTime, type);
     }
 
     #region MAP_GENERATING
@@ -260,7 +260,7 @@ public class GameManager
         List<RoomClass> list = new List<RoomClass>();
         foreach (RoomClass r in Managers.Map.Rooms)
         {
-            if (r.RoomType == RoomClass.ERoomType.Normal)
+            if (r.RoomType == RoomClass.ERoomType.Normal && r != Managers.Map.CurrentRoom)
             {
                 list.Add(r);
             }

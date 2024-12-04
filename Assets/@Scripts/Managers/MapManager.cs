@@ -328,8 +328,8 @@ public class MapManager
         {
             if (_currentRoom != value)
             {
+                ChangeMinimapadjacencentCellSprite(value, _currentRoom);
                 _currentRoom = value;
-                ChangeMinimapadjacencentCellSprite(_currentRoom);
             }
         }
     }
@@ -784,7 +784,7 @@ public class MapManager
                 {
                     if (s_roomGraph[i, j] == 1)
                     {
-                        parser.Write(GetRoomClassByPos(Rooms, i, j).RoomType.ToString().PadLeft(10));
+                        parser.Write((GetRoomClassByPos(Rooms, i, j).RoomType.ToString()+"("+i+","+j+")").PadLeft(10));
                     }
                     else
                     {
@@ -1017,23 +1017,33 @@ public class MapManager
 
     public void ChangeMinimapCellSprite(GameObject cell, string spriteName)
     {
+        cell.SetActive(true);
         cell.GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>(spriteName);
     }
 
-    public void ChangeMinimapadjacencentCellSprite(RoomClass room)
+    public void ChangeMinimapadjacencentCellSprite(RoomClass next, RoomClass before)
     {
-        if (room == null) return;
+        if (next == null) return;
 
         string[] cellSprite = { "minimap1_4", "minimap1_3", "minimap1_2", };
         GameObject go = Managers.UI.PlayingUI.GetMinimapPannel();
 
-        //현재 방
-        //인접한 방
-        ChangeMinimapCellSprite(go.transform.Find(room.RoomObject.name).gameObject, cellSprite[(int)ECellType.currentRoom]);
+        //다음 방
+        ChangeMinimapCellSprite(go.transform.Find(next.RoomObject.name).gameObject, cellSprite[(int)ECellType.currentRoom]);
+
+        //이전 방 (원래 있던 방)
+        if (before != null)
+        {
+            int cellSpriteIedex = (int)ECellType.UnVisited;
+            if (before.IsClear) cellSpriteIedex = (int)ECellType.Visited;
+            ChangeMinimapCellSprite(go.transform.Find(before.RoomObject.name).gameObject, cellSprite[cellSpriteIedex]);
+        }
+        
+        //바뀐 뒤 인접한 방
         for (int i = 0; i < 4; i++)
         {
 
-            RoomClass adjacencentRoom = room._adjacencentRooms[i];
+            RoomClass adjacencentRoom = next._adjacencentRooms[i];
             if (adjacencentRoom != null)
             {
                 Transform child = go.transform.Find(adjacencentRoom.RoomObject.name);

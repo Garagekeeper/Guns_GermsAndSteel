@@ -8,12 +8,6 @@ public class PlayingUI : UI_Base
         SpaceItem,
         ChargeBarBG,
         ChargedBar,
-        UnChargedBar1,
-        UnChargedBar2,
-        UnChargedBar3,
-        UnChargedBar4,
-        UnChargedBar5,
-        UnChargedBar6,
         ChargeBar,
         QItem,
         Heart1,
@@ -48,6 +42,7 @@ public class PlayingUI : UI_Base
     {
         BossHp,
         Minimap_Pannel,
+        Charge,
     }
 
     protected override void Init()
@@ -57,46 +52,23 @@ public class PlayingUI : UI_Base
         BindImage(typeof(Images));
         BindTextLegacy(typeof(Texts));
         BindObject(typeof(GameObjects));
-        Managers.Game.ChargeBarEnevnt -= UseAllGage;
-        Managers.Game.ChargeBarEnevnt += UseAllGage;
-        Managers.Game.ChargeBarEnevnt -= ChargeGage;
-        Managers.Game.ChargeBarEnevnt += ChargeGage;
+        Managers.Game.ChargeBarEnevnt -= ChangeChargeGage;
+        Managers.Game.ChargeBarEnevnt += ChangeChargeGage;
     }
 
-    protected void UseAllGage(int coolDownGage, int coolTime, string type)
+    protected void ChangeChargeGage(int currentGage, int coolTime, string type)
     {
-        if (type == "Up") return;
-
-        var temp = (int)Images.UnChargedBar1;
-
-        for (int i = 0; i < 6; i++)
-        {
-            GetImage(temp + i).gameObject.SetActive(true);
-        }
-
+        GetImage((int)Images.ChargedBar).fillAmount = (1f / coolTime) * currentGage;
     }
 
-    protected void ChargeGage(int coolDownGage, int coolTime, string type)
+    public void ChangeChargeBarSize(string name, int coolTime)
     {
-        if (type == "Down") return;
-
-        var temp = 0;
-        if (coolDownGage == 1)
-            temp = (int)Images.UnChargedBar1;
+        if (coolTime == 0)
+            GetObject((int)GameObjects.Charge).SetActive(false);
         else
-            temp = (int)Images.UnChargedBar1 + (6 / coolTime);
+            GetObject((int)GameObjects.Charge).SetActive(true);
 
-        for (int i = 0; i < 6 / coolTime; i++)
-        {
-            GetImage((temp) + i).gameObject.SetActive(false);
-
-        }
-
-    }
-
-    public void ChangeChargeBarSize(string name)
-    {
-        Sprite sprite = Managers.Resource.Load<Sprite>(name);
+        Sprite sprite = Managers.Resource.Load<Sprite>(name + coolTime);
         GetImage((int)Images.ChargeBar).gameObject.GetComponent<Image>().sprite = sprite;
     }
 
@@ -135,6 +107,12 @@ public class PlayingUI : UI_Base
             else spriteNmae = "ui_hearts_18";
             GetImage((int)Images.Heart1 + i).gameObject.GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>(spriteNmae);
         }
+    }
+
+    public void RefreshUI(MainCharacter player)
+    {
+        RefreshText(player);
+        RefreshHpImage(player);
     }
 
     public void BossHpActive(bool isActive)

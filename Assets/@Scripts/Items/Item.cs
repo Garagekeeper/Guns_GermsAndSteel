@@ -28,7 +28,7 @@ public class Item
     public int FamiliarID { get; set; }
 
 
-    public int CoolDownGage { get; set; }
+    public int CurrentGage { get; set; }
 
 
 
@@ -58,7 +58,7 @@ public class Item
         SetItem = TemplateData.SetItem;
         ShotType = TemplateData.ShotType;
         EffectOfActive = TemplateData.EffectOfActive;
-        CoolDownGage = CoolTime;
+        CurrentGage = CoolTime;
 
     }
 
@@ -85,7 +85,7 @@ public class Item
             SetItem = TemplateData.SetItem;
             ShotType = TemplateData.ShotType;
             EffectOfActive = TemplateData.EffectOfActive;
-            CoolDownGage = CoolTime;
+            CurrentGage = CoolTime;
         }
 
     }

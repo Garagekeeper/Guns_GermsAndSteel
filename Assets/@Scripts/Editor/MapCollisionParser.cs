@@ -22,7 +22,7 @@ public class MapCollisionParser
         {
             foreach (Tilemap component in go.GetComponentsInChildren<Tilemap>())
             {
-                if (component.name == "Tile_Map_Collision")
+                if (component.name.Contains("Tile_Map_Collision"))
                     tm = component;
             }
 

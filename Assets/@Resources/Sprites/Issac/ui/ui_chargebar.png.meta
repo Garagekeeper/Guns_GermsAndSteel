@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 26
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -140,9 +140,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4
-        y: 33
+        y: 36
         width: 8
-        height: 30
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,13 +157,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_chargebar_1
+      name: ui_chargebar_13
       rect:
         serializedVersion: 2
         x: 20
-        y: 33
-        width: 8
-        height: 30
+        y: 37
+        width: 6
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,13 +178,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_chargebar_2
+      name: ui_chargebar_12
       rect:
         serializedVersion: 2
         x: 36
-        y: 33
-        width: 8
-        height: 30
+        y: 37
+        width: 6
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,13 +199,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_chargebar_3
+      name: ui_chargebar_
       rect:
         serializedVersion: 2
         x: 52
-        y: 33
-        width: 8
-        height: 30
+        y: 37
+        width: 6
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,9 +224,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 68
-        y: 33
-        width: 8
-        height: 30
+        y: 37
+        width: 6
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -245,9 +245,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4
-        y: 1
-        width: 8
-        height: 30
+        y: 5
+        width: 6
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -262,13 +262,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_chargebar_6
+      name: ui_chargebar_3
       rect:
         serializedVersion: 2
         x: 20
-        y: 1
-        width: 8
-        height: 30
+        y: 5
+        width: 6
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,13 +283,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_chargebar_7
+      name: ui_chargebar_2
       rect:
         serializedVersion: 2
         x: 36
-        y: 1
-        width: 8
-        height: 30
+        y: 5
+        width: 6
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,13 +304,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_chargebar_8
+      name: ui_chargebar_1
       rect:
         serializedVersion: 2
         x: 52
-        y: 1
-        width: 8
-        height: 30
+        y: 5
+        width: 6
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,9 +329,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 68
-        y: 1
-        width: 8
-        height: 30
+        y: 5
+        width: 6
+        height: 25
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,27 +341,6 @@ TextureImporter:
       bones: []
       spriteID: 4fda64be8c599e349b102d6e6b56d835
       internalID: 1471265143
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_chargebar_10
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 56
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e900a4385f9bd9b48ae09c802d026ac1
-      internalID: 714438177
       vertices: []
       indices: 
       edges: []
@@ -377,16 +356,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      ui_chargebar_: 1751803061
       ui_chargebar_0: 974125698
-      ui_chargebar_1: 708632104
+      ui_chargebar_1: 880832005
       ui_chargebar_10: 714438177
-      ui_chargebar_2: -952165331
-      ui_chargebar_3: 1751803061
+      ui_chargebar_12: -952165331
+      ui_chargebar_13: 708632104
+      ui_chargebar_2: 691333845
+      ui_chargebar_3: -2035606807
       ui_chargebar_4: -285611144
       ui_chargebar_5: 1193948723
-      ui_chargebar_6: -2035606807
-      ui_chargebar_7: 691333845
-      ui_chargebar_8: 880832005
       ui_chargebar_9: 1471265143
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

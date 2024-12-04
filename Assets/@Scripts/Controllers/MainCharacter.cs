@@ -141,9 +141,7 @@ public class MainCharacter : Creature
 
         ChangeSpaceItem(SpaceItemId);
         ChangeQItem(QItem, QItemId);
-        Managers.UI.PlayingUI.ChangeChargeBarSize("ui_chargebar_" + (9 - SpaceItem.CoolTime));
-        Managers.UI.PlayingUI.RefreshText(this);
-        Managers.UI.PlayingUI.RefreshHpImage(this);
+        Managers.UI.PlayingUI.RefreshUI(this);
 
     }
 
@@ -185,7 +183,7 @@ public class MainCharacter : Creature
         if (Input.GetKeyDown(KeyCode.E))
         {
             SpawnBomb();
-            Managers.UI.PlayingUI.RefreshText(this);
+            Managers.UI.PlayingUI.RefreshUI(this);
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -196,8 +194,8 @@ public class MainCharacter : Creature
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            SpaceItem.CoolDownGage = Math.Min(SpaceItem.CoolDownGage + 1, SpaceItem.CoolTime);
-            Managers.Game.UseActiveItem(SpaceItem.CoolDownGage, SpaceItem.CoolTime, "Up");
+            SpaceItem.CurrentGage = Math.Min(SpaceItem.CurrentGage + 1, SpaceItem.CoolTime);
+            Managers.Game.UseActiveItem(SpaceItem.CurrentGage, SpaceItem.CoolTime, "Up");
         }
 
         if (Input.GetKeyDown(KeyCode.X))
@@ -289,11 +287,11 @@ public class MainCharacter : Creature
 
         if (item.ItemType == EItemType.ActiveItem)
         {
-            if (item.CoolDownGage == item.CoolTime)
+            if (item.CurrentGage == item.CoolTime)
             {
-                item.CoolDownGage = 0;
+                item.CurrentGage = 0;
                 UseActiveItem?.Invoke(item);
-                Managers.Game.UseActiveItem(item.CoolDownGage, item.CoolTime, "Down");
+                Managers.Game.UseActiveItem(item.CurrentGage, item.CoolTime, "Down");
                 //ApplyItemEffect(item);
             }
         }
@@ -303,7 +301,7 @@ public class MainCharacter : Creature
             ChangeQItem(item, 0);
             QItem = null;
         }
-        Managers.UI.PlayingUI.RefreshText(this);
+        Managers.UI.PlayingUI.RefreshUI(this);
     }
 
     public void GetItem(ItemHolder itemHolder)
@@ -356,7 +354,7 @@ public class MainCharacter : Creature
             else
                 ChangeQItem(QItem, item.TemplateId);
         }
-        Managers.UI.PlayingUI.RefreshText(this);
+        Managers.UI.PlayingUI.RefreshUI(this);
         if (itemHolder.transform.GetChild(1) != null) itemHolder.transform.GetChild(1).gameObject.SetActive(active);
     }
 
@@ -415,7 +413,7 @@ public class MainCharacter : Creature
         Hp -= DamageByOtherConstant;
         IsInvincible = true;
         StartCoroutine(CoInvincible());
-        Managers.UI.PlayingUI.RefreshHpImage(this);
+        Managers.UI.PlayingUI.RefreshUI(this);
         //Debug.Log(Hp);
     }
 
@@ -460,6 +458,7 @@ public class MainCharacter : Creature
         SpaceItem.ChangeItem(id);
         SpaceItemId = id;
         Managers.UI.PlayingUI.ChangeSpaceItem(SpaceItem.SpriteName);
+        Managers.UI.PlayingUI.ChangeChargeBarSize("ui_chargebar_", SpaceItem.CoolTime);
     }
 
     public void ChangeQItem(Item item, int id)
