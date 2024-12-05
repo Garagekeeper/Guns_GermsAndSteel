@@ -56,7 +56,7 @@ public class PlayingUI : UI_Base
         Managers.Game.ChargeBarEnevnt += ChangeChargeGage;
     }
 
-    protected void ChangeChargeGage(int currentGage, int coolTime, string type)
+    protected void ChangeChargeGage(int currentGage, int coolTime)
     {
         GetImage((int)Images.ChargedBar).fillAmount = (1f / coolTime) * currentGage;
     }
@@ -69,18 +69,27 @@ public class PlayingUI : UI_Base
             GetObject((int)GameObjects.Charge).SetActive(true);
 
         Sprite sprite = Managers.Resource.Load<Sprite>(name + coolTime);
-        GetImage((int)Images.ChargeBar).gameObject.GetComponent<Image>().sprite = sprite;
+        GetImage((int)Images.ChargeBar).sprite = sprite;
     }
 
     public void ChangeSpaceItem(string name)
     {
         Sprite sprite = Managers.Resource.Load<Sprite>(name);
-        GetImage((int)Images.SpaceItem).gameObject.GetComponent<Image>().sprite = sprite;
+        GetImage((int)Images.SpaceItem).sprite = sprite;
     }
     public void ChangeQItem(string name)
     {
-        Sprite sprite = Managers.Resource.Load<Sprite>(name);
-        GetImage((int)Images.QItem).gameObject.GetComponent<Image>().sprite = sprite;
+        Sprite sprite = null;
+        if (name == null)
+        {
+            GetImage((int)Images.QItem).gameObject.SetActive(false);
+        }
+        else
+        {
+            GetImage((int)Images.QItem).gameObject.SetActive(true);
+            sprite = Managers.Resource.Load<Sprite>(name);
+        }
+        GetImage((int)Images.QItem).sprite = sprite;
     }
 
     public void RefreshText(MainCharacter player)
@@ -105,7 +114,7 @@ public class PlayingUI : UI_Base
             if ((int)hp / (i + 1) != 0) spriteNmae = "ui_hearts_0";
             else if (i < hp && hp < i + 1) spriteNmae = "ui_hearts_1";
             else spriteNmae = "ui_hearts_18";
-            GetImage((int)Images.Heart1 + i).gameObject.GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>(spriteNmae);
+            GetImage((int)Images.Heart1 + i).sprite = Managers.Resource.Load<Sprite>(spriteNmae);
         }
     }
 
@@ -132,7 +141,7 @@ public class PlayingUI : UI_Base
 
     public void SetFadeImageAlpha(float alpha)
     {
-        GetImage((int)Images.FadeImage).GetComponent<Image>().color = new Color(0, 0, 0, alpha);
+        GetImage((int)Images.FadeImage).color = new Color(0, 0, 0, alpha);
     }
 
 }

@@ -132,6 +132,7 @@ public class MainCharacter : Creature
         CreatureType = ECreatureType.MainCharacter;
         CanMove = true;
 
+        //충돌 레이어 설정
         LayerMask mask = 0;
         if (CreatureType == ECreatureType.MainCharacter) mask |= (1 << (int)ELayer.Player);
         Collider.excludeLayers = mask;
@@ -140,7 +141,7 @@ public class MainCharacter : Creature
         AcquiredFamiliarItemList = new List<Familiar>();
 
         ChangeSpaceItem(SpaceItemId);
-        ChangeQItem(QItem, QItemId);
+        ChangeQItem(QItemId);
         Managers.UI.PlayingUI.RefreshUI(this);
 
     }
@@ -195,7 +196,7 @@ public class MainCharacter : Creature
         if (Input.GetKeyDown(KeyCode.Z))
         {
             SpaceItem.CurrentGage = Math.Min(SpaceItem.CurrentGage + 1, SpaceItem.CoolTime);
-            Managers.Game.UseActiveItem(SpaceItem.CurrentGage, SpaceItem.CoolTime, "Up");
+            Managers.Game.UseActiveItem(SpaceItem.CurrentGage, SpaceItem.CoolTime);
         }
 
         if (Input.GetKeyDown(KeyCode.X))
@@ -291,14 +292,14 @@ public class MainCharacter : Creature
             {
                 item.CurrentGage = 0;
                 UseActiveItem?.Invoke(item);
-                Managers.Game.UseActiveItem(item.CurrentGage, item.CoolTime, "Down");
+                Managers.Game.UseActiveItem(item.CurrentGage, item.CoolTime);
                 //ApplyItemEffect(item);
             }
         }
         else if (item.ItemType == EItemType.Cards || item.ItemType == EItemType.Pills)
         {
             UseActiveItem?.Invoke(item);
-            ChangeQItem(item, 0);
+            ChangeQItem(null);
             QItem = null;
         }
         Managers.UI.PlayingUI.RefreshUI(this);
@@ -307,52 +308,30 @@ public class MainCharacter : Creature
     public void GetItem(ItemHolder itemHolder)
     {
         bool active = false;
-        Item item = new Item(itemHolder.ItemId);
+        Item item = itemHolder.ItemOfItemHolder;
         if (item.ItemType == EItemType.Familliar)
         {
-            itemHolder.ChangeItemOnItemHolder(0);
+            itemHolder.ChangeItemOnItemHolder(null);
             //GameObject go = Managers.Resource.Instantiate("Player");
             //AcquiredFamiliarItemList.Add(item);
         }
         else if (item.ItemType == EItemType.Passive)
         {
-            itemHolder.ChangeItemOnItemHolder(0);
+            itemHolder.ChangeItemOnItemHolder(null);
             AcquiredPassiveItemList.Add(item);
             ApplyPassiveItemEffect(item);
         }
         else if (item.ItemType == EItemType.ActiveItem)
         {
             active = true;
-            itemHolder.ChangeItemOnItemHolder(SpaceItemId);
+            itemHolder.ChangeItemOnItemHolder(SpaceItem);
             if (SpaceItem == null)
             {
                 SpaceItem = item;
                 SpaceItemId = item.TemplateId;
             }
             else
-                ChangeSpaceItem(item.TemplateId);
-        }
-        else if (item.ItemType == EItemType.Cards)
-        {
-            itemHolder.ChangeItemOnItemHolder(0);
-            if (QItem == null)
-            {
-                QItem = item;
-                QItemId = item.TemplateId;
-            }
-            else
-                ChangeQItem(QItem, item.TemplateId);
-        }
-        else if (item.ItemType == EItemType.Pills)
-        {
-            itemHolder.ChangeItemOnItemHolder(0);
-            if (QItem == null)
-            {
-                QItem = item;
-                QItemId = item.TemplateId;
-            }
-            else
-                ChangeQItem(QItem, item.TemplateId);
+                ChangeSpaceItem(item);
         }
         Managers.UI.PlayingUI.RefreshUI(this);
         if (itemHolder.transform.GetChild(1) != null) itemHolder.transform.GetChild(1).gameObject.SetActive(active);
@@ -455,21 +434,37 @@ public class MainCharacter : Creature
 
     public void ChangeSpaceItem(int id)
     {
-        SpaceItem.ChangeItem(id);
-        SpaceItemId = id;
-        Managers.UI.PlayingUI.ChangeSpaceItem(SpaceItem.SpriteName);
-        Managers.UI.PlayingUI.ChangeChargeBarSize("ui_chargebar_", SpaceItem.CoolTime);
+        ChangeSpaceItem(new Item(id));
     }
 
-    public void ChangeQItem(Item item, int id)
+    public void ChangeSpaceItem(Item item)
     {
-        item.ChangeItem(id);
-        if (item.ItemType == EItemType.Pills)
+        SpaceItem = item;
+        SpaceItemId = item.TemplateId;
+        Managers.UI.PlayingUI.ChangeSpaceItem(SpaceItem.SpriteName);
+        Managers.UI.PlayingUI.ChangeChargeBarSize("ui_chargebar_", SpaceItem.CoolTime);
+        Managers.Game.UseActiveItem(item.CurrentGage, item.CoolTime);
+    }
+
+    public void ChangeQItem(int id)
+    {
+        ChangeQItem(new Item(id));
+    }
+
+    public void ChangeQItem(Item item)
+    {
+        string spriteName = null;
+        if (item != null)
         {
-            Managers.UI.PlayingUI.ChangeQItem(item.SpriteName + (random.Next() % 13));
-            return;
+            spriteName = item.SpriteName;
+            if (item.ItemType == EItemType.Pills)
+            {
+                Managers.UI.PlayingUI.ChangeQItem(item.SpriteName + (random.Next() % 13));
+                return;
+            }
         }
-        Managers.UI.PlayingUI.ChangeQItem(item.SpriteName);
+        QItem = item;
+        Managers.UI.PlayingUI.ChangeQItem(spriteName);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -493,7 +488,7 @@ public class MainCharacter : Creature
         if (collision.transform.tag == "ItemHolder")
         {
             ItemHolder itemHolder = collision.transform.GetComponent<ItemHolder>();
-            if (itemHolder.ItemId != 0)
+            if (itemHolder.ItemOfItemHolder != null)
             {
                 GetItem(itemHolder);
             }

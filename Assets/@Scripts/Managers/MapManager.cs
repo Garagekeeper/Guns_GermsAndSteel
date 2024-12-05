@@ -705,10 +705,15 @@ public class MapManager
         //6. 황금방 설정
         if (dead_ends.Count > 0)
         {
+            if (dead_ends.Count == 0) return 0;
             if (Managers.Game.StageNumber < 5)
                 dead_ends.Pop().RoomClass.RoomType = ERoomType.Gold;
 
             //TODO XL
+        }
+        else
+        {
+            return 0;
         }
 
         //7.희생방
@@ -1220,7 +1225,7 @@ public class MapManager
                     case "ItemHolder":
                         room.ItemHolder = Managers.Resource.Instantiate("ItemHolder");
                         int TemplateId = Managers.Game.SlectItem();
-                        room.ItemHolder.GetComponent<ItemHolder>().ItemId = TemplateId;
+                        room.ItemHolder.GetComponent<ItemHolder>().ItemOfItemHolder = new Item(TemplateId);
                         room.ItemHolder.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(Managers.Data.ItemDic[TemplateId].SpriteName);
                         // SetParent      vs  parent
                         // 로컬 좌표 유지      로컬 좌표가 부모 기준으로 변경

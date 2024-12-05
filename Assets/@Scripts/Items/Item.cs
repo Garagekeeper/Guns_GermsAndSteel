@@ -44,6 +44,7 @@ public class Item
 
     public Item(int itemId)
     {
+
         TemplateId = itemId;
         SpriteName = TemplateData.SpriteName;
         Name = TemplateData.Name;
@@ -59,34 +60,6 @@ public class Item
         ShotType = TemplateData.ShotType;
         EffectOfActive = TemplateData.EffectOfActive;
         CurrentGage = CoolTime;
-
-    }
-
-    public void ChangeItem(int itemId)
-    {
-        if (itemId == 0)
-        {
-            TemplateId = 0;
-            SpriteName = "NONE";
-        }
-        else
-        {
-            TemplateId = itemId;
-            SpriteName = TemplateData.SpriteName;
-            Name = TemplateData.Name;
-            CoolTime = TemplateData.CoolTime;
-            ItemType = TemplateData.Type;
-            AttackDamage = TemplateData.AttackDamage;
-            Tears = TemplateData.Tears;
-            Range = TemplateData.Range;
-            ShotSpeed = TemplateData.ShotSpeed;
-            Speed = TemplateData.Speed;
-            Luck = TemplateData.Luck;
-            SetItem = TemplateData.SetItem;
-            ShotType = TemplateData.ShotType;
-            EffectOfActive = TemplateData.EffectOfActive;
-            CurrentGage = CoolTime;
-        }
 
     }
 }

@@ -25,10 +25,10 @@ public class GameManager
         }
     }
 
-    public event Action<int, int, string> ChargeBarEnevnt;
-    public void UseActiveItem(int currentGage, int coolTime, string type)
+    public event Action<int, int> ChargeBarEnevnt;
+    public void UseActiveItem(int currentGage, int coolTime)
     {
-        ChargeBarEnevnt?.Invoke(currentGage, coolTime, type);
+        ChargeBarEnevnt?.Invoke(currentGage, coolTime);
     }
 
     #region MAP_GENERATING
@@ -176,7 +176,7 @@ public class GameManager
         //ItemHolder에 있는 아이템의 비중을 줄인다.
         if (Managers.Map.CurrentRoom.ItemHolder != null)
         {
-            int TemplateId = Managers.Map.CurrentRoom.ItemHolder.GetComponent<ItemHolder>().ItemId;
+            int TemplateId = Managers.Map.CurrentRoom.ItemHolder.GetComponent<ItemHolder>().ItemOfItemHolder.TemplateId;
             Managers.Data.ItemDic[TemplateId].Weight = 0;
         }
 
@@ -375,6 +375,10 @@ public class GameManager
             temp.CanMove = true;
         }
         RoomConditionCheck();
+        foreach (var mainCharacter in Managers.Object.MainCharacters)
+        {
+            mainCharacter.Init();
+        }
 
     }
 }
