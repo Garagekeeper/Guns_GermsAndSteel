@@ -10,6 +10,7 @@ TagManager:
   - TrapDoor
   - Boss
   - ClearBox
+  - Projectile
   layers:
   - Default
   - TransparentFX

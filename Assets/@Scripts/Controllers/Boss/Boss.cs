@@ -3,11 +3,24 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using static Define;
+using static Utility;
 
 public class Boss : Creature
 {
-    protected PolygonCollider2D PgCollider2D;
-    protected CircleCollider2D CCollider2D;
+
+    /// <summary>
+    /// default collider. Normally, this collider does 2 things (for collision and projectile)
+    /// <br/>
+    /// when Boss need 2 Collider Use this for projectile 
+    /// </summary>
+    protected CircleCollider2D GPCollider2D;
+
+    /// <summary>
+    /// Collider for general physics
+    /// <br/>
+    /// when Boss need second collider, Use this for projectile
+    /// </summary>
+    protected CircleCollider2D PTCollider2D;
     public EBossType BossType { get; protected set; } = 0;
     protected EBossState _bossState;
     public virtual EBossState BossState
@@ -50,10 +63,13 @@ public class Boss : Creature
 
     public override void Init()
     {
+        Transform temp;
         CreatureType = ECreatureType.Boss;
         BossType = EBossType.None;
         BossState = EBossState.None;
         Rigidbody = GetComponent<Rigidbody2D>();
+        AnimatorBottom = transform.GetComponent<Animator>();
+        GPCollider2D = transform.GetComponent<CircleCollider2D>();
         Range = 10;
         Tears = 5.0f;
         Speed = 3f;
@@ -124,35 +140,17 @@ public class Boss : Creature
     }
     #endregion
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-    }
-
-    public override void OnDamaged(Creature owner, ESkillType skillType, string name = "")
-    {
-        base.OnDamaged(owner, skillType);
-        Managers.UI.PlayingUI.ChangeBossHpSliderRatio(Hp / MaxHp);
-    }
-
     public void ChangeBossState(EBossState bossState)
     {
         if (bossState == EBossState.Idle) _currentSkill = EBossSkill.Normal;
         BossState = bossState;
     }
 
-    public void ChangeCollider(int on)
+    public void ChangeCollider(CircleCollider2D collider, bool on)
     {
-        PgCollider2D.enabled = on == 1 ? true : false;
-        transform.GetChild(0).GetComponent<CircleCollider2D>().enabled = on == 1 ? true : false;
+        collider.enabled = on;
     }
 
-    public void setTargetPos()
-    {
-        if (Target == null) return;
-        _targetPos = Target.transform.position;
-        _startPos = transform.position;
-    }
 
     public override void OnDead()
     {
@@ -166,12 +164,11 @@ public class Boss : Creature
 
     IEnumerator BossDeadAnim()
     {
-        if (CCollider2D != null)
-            CCollider2D.enabled = false;
-        if (PgCollider2D != null)
-            PgCollider2D.enabled = false;
+        if (PTCollider2D != null)
+            PTCollider2D.enabled = false;
+        if (GPCollider2D != null)
+            GPCollider2D.enabled = false;
 
-        gameObject.GetComponent<SpriteRenderer>().enabled = true;
         GameObject go = Managers.Resource.Instantiate("BossDeathEffect");
         go.transform.SetParent(transform, false);
         go.transform.localPosition = Vector3.zero;
@@ -181,10 +178,56 @@ public class Boss : Creature
         //Debug.Log(_skillName[(int)_currentSkill]);
         float delay = AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.length;
         yield return new WaitForSeconds(delay * 0.75f);
-        transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-        transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        FindChildByName(transform, transform.gameObject.name + "_Anim").GetComponent<SpriteRenderer>().enabled = false;
+        FindChildByName(transform, transform.gameObject.name + "_Shadow").GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(delay);
         base.OnDead();
     }
 
+    public override void OnDamaged(Creature owner, ESkillType skillType, string name = "")
+    {
+        base.OnDamaged(owner, skillType);
+        Managers.UI.PlayingUI.ChangeBossHpSliderRatio(Hp / MaxHp);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+    }
+
+    public void setTargetPos()
+    {
+        if (Target == null) return;
+        TargetPos = Target.transform.position;
+        _startPos = transform.position;
+    }
+
+    public void ReflectTargetVecor(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Projectile")
+        {
+            return;
+        }
+
+        //Debug.Log("dirVec: " + dirVec);
+        //Vector3 incomingVec = hitPos - dirVec;
+        TargetPos = Vector3.Reflect(TargetPos, collision.GetContact(0).normal);
+
+    }
+
+    public void ReflectTargetVecor(Collider2D collider2D)
+    {
+        if (collider2D.gameObject.tag == "Player")
+        {
+            return;
+        }
+
+        //Debug.Log("dirVec: " + dirVec);
+        //Vector3 incomingVec = hitPos - dirVec
+        // 충돌한 지점의 좌표.
+        // (나의 거리와 충돌한 물체의 콜라이더 좌표중에 제일 가까운 좌표)
+        Vector2 contactPoint = collider2D.ClosestPoint(transform.position);
+        TargetPos = Vector3.Reflect(TargetPos, contactPoint.normalized);
+
+    }
 }

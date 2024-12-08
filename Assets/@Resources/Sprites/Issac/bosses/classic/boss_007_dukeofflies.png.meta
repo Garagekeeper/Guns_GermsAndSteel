@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 19
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -134,7 +134,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: boss_007_dukeofflies_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 134
+        width: 66
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4df29fd9b38ebe54592c403cd7b8b351
+      internalID: 1136484307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_007_dukeofflies_1
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 133
+        width: 66
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35b9b5a51964f834281f8fa7da14214c
+      internalID: 1342151889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_007_dukeofflies_2
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 135
+        width: 66
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0ff36a7e05e0eb4385a243f4c48f2fe
+      internalID: -1376028841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_007_dukeofflies_3
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 134
+        width: 66
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a97940f289988747828384d940cab13
+      internalID: -107722507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_007_dukeofflies_4
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 70
+        width: 66
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33214b9f3420a1b4bb51e2770ccf257d
+      internalID: 1102214067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_007_dukeofflies_5
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 70
+        width: 66
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa005243a0c00ac4bacccdf210de96d7
+      internalID: -1910511257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_007_dukeofflies_6
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 70
+        width: 66
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90f487f842a52ee4d8eb0f60a3a8ea82
+      internalID: -1492697750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_007_dukeofflies_7
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 70
+        width: 66
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3016f0a06e49c89459557bd8c8fc31fb
+      internalID: 997840884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_007_dukeofflies_8
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 17
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c544fc6b644d3ff499be5686af554f9c
+      internalID: -1018179515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_007_dukeofflies_9
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 17
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d794a239c3c35284b91506c3e73408cf
+      internalID: -852244724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +355,22 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      boss_007_dukeofflies_0: 1136484307
+      boss_007_dukeofflies_1: 1342151889
+      boss_007_dukeofflies_10: 1829980706
+      boss_007_dukeofflies_11: 1724072154
+      boss_007_dukeofflies_12: 13889250
+      boss_007_dukeofflies_13: 738701833
+      boss_007_dukeofflies_14: 1754337351
+      boss_007_dukeofflies_2: -1376028841
+      boss_007_dukeofflies_3: -107722507
+      boss_007_dukeofflies_4: 1102214067
+      boss_007_dukeofflies_5: -1910511257
+      boss_007_dukeofflies_6: -1492697750
+      boss_007_dukeofflies_7: 997840884
+      boss_007_dukeofflies_8: -1018179515
+      boss_007_dukeofflies_9: -852244724
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

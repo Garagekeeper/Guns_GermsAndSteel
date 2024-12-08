@@ -10,6 +10,18 @@ public class Creature : BaseObject
     protected Vector3 _targetPos;
     protected Vector3 _startPos;
 
+    public Vector3 TargetPos
+    {
+        get { return _targetPos; }
+        set
+        {
+            if (value != _targetPos)
+            {
+                _targetPos = value;
+            }
+        }
+    }
+
     private float _hp;
     public float MaxHp { get; set; }
     //public float MaxDamage { get; set; } = 26f;
@@ -57,6 +69,9 @@ public class Creature : BaseObject
     public ECreatureType CreatureType { get; protected set; } = ECreatureType.None;
 
     protected Animator AnimatorHead { get; set; }
+    /// <summary>
+    /// Use as Default Animator
+    /// </summary>
     protected Animator AnimatorBottom { get; set; }
     public Rigidbody2D Rigidbody { get; set; }
 

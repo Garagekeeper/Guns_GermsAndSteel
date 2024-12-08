@@ -11,7 +11,6 @@ public class Boss_Fistula : Boss
     //Total HP: 60 (Large) + 4x15(Medium) +8x8(Small) = 184
     float[] middleHp = { 15f, 15f, 15f, 15f };
     float[] smallHp = { 8f, 8f, 8f, 8f, 8f, 8f, 8f, 8f };
-    Vector3 dirVec;
     Vector3[] middleDirVec = new Vector3[4];
     Vector3[] smallDirVec = new Vector3[8];
 
@@ -23,18 +22,19 @@ public class Boss_Fistula : Boss
 
     private void Update()
     {
-        Rigidbody.velocity = dirVec.normalized * Speed;
+        Rigidbody.velocity = TargetPos.normalized * Speed;
     }
 
     public override void Init()
     {
-        Hp = 60f;
-        MaxHp = 60f;
+        base.Init();
         BossType = EBossType.Fistula;
         BossState = EBossState.Idle;
-        CCollider2D = GetComponent<CircleCollider2D>();
+        GPCollider2D = GetComponent<CircleCollider2D>();
         Rigidbody = gameObject.GetComponent<Rigidbody2D>();
-        dirVec = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
+        TargetPos = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
+        MaxHp = 60f;
+        Hp = 60f;
     }
 
     public override void OnDamaged(Creature owner, ESkillType skillType, string name = "")
@@ -61,8 +61,6 @@ public class Boss_Fistula : Boss
             }
             Managers.UI.PlayingUI.ChangeBossHpSliderRatio(Hp / MaxHp);
         }
-        Debug.Log(MaxHp);
-        Debug.Log(Hp);
     }
 
     public void ChangepiecesHpValue(float value, string name = "")
@@ -173,21 +171,6 @@ public class Boss_Fistula : Boss
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Projectile" || collision.gameObject.tag == "Player")
-        {
-
-        }
-        else
-        {
-            Vector3 hitPos = collision.GetContact(0).point;
-
-            Debug.Log("dirVec: " + dirVec);
-            //Vector3 incomingVec = hitPos - dirVec;
-            Vector3 reflectVec = Vector3.Reflect(dirVec, collision.GetContact(0).normal);
-            dirVec = reflectVec;
-
-            //Debug.Log("incomingVec: " + incomingVec);
-            Debug.Log("reflectVec: " + reflectVec);
-        }
+        ReflectTargetVecor(collision);
     }
 }

@@ -326,14 +326,14 @@ AnimationClip:
     intParameter: 3
     messageOptions: 0
   - time: 0.6666667
-    functionName: ChangeCollider
+    functionName: ChangeMonstroCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 1.9166666
-    functionName: ChangeCollider
+    functionName: ChangeMonstroCollider
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

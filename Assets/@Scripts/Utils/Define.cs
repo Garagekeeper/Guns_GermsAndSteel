@@ -29,6 +29,7 @@ public static class Define
         None,
         Monstro,
         Fistula,
+        DukeOfFlies,
     }
 
     public enum EBossState

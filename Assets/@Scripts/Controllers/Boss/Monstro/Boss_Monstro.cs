@@ -5,6 +5,8 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static Define;
+using static UnityEngine.Rendering.DebugUI;
+using static Utility;
 
 public class Boss_Monstro : Boss
 {
@@ -32,15 +34,18 @@ public class Boss_Monstro : Boss
         MaxHp = 250.0f;
         BossType = EBossType.Monstro;
         BossState = EBossState.Idle;
-
-        AnimatorBottom = transform.GetComponent<Animator>();
-        PgCollider2D = GetComponent<PolygonCollider2D>();
+        AttackDamage = 5f;
 
         //Debug
         //foreach (var clip in AnimatorBottom.runtimeAnimatorController.animationClips)
         //{
         //    Debug.Log(clip.name);
         //}
+    }
+
+    public void ChangeMonstroCollider(int on)
+    {
+        ChangeCollider(GPCollider2D, (on == 1));
     }
 
     protected override void UpdateIdle()
@@ -55,7 +60,7 @@ public class Boss_Monstro : Boss
         Vector2 normalizedDir = dir.normalized;
         float distanceSqaure = dir.sqrMagnitude;
         //2. 목표가 너무 먼 경우
-        if (distanceSqaure > 16)
+        if (distanceSqaure > 25)
         {
             BossState = EBossState.Skill;
             _currentSkill = EBossSkill.SkillB;
@@ -90,7 +95,7 @@ public class Boss_Monstro : Boss
             }
 
             //3) 거리가 멀어지면 Idle 상태로
-            if (distanceSqaure > 16)
+            if (distanceSqaure > 25)
             {
                 BossState = EBossState.Idle;
                 _currentSkill = EBossSkill.Normal;
