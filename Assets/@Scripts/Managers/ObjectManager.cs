@@ -22,8 +22,8 @@ public class ObjectManager
         }
         if (type == typeof(Monster))
         {
-            GameObject go = Managers.Resource.Instantiate("Monster");
-            go.name = "Monster";
+            GameObject go = Managers.Resource.Instantiate(prfabName);
+            go.name = prfabName;
             Monster mt = go.GetComponent<Monster>();
             mt.transform.position = pos;
             Monsters.Add(mt);

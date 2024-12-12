@@ -16,13 +16,13 @@ public class Boss_Fistula : Boss
 
     private void Awake()
     {
-        base.Init();
         Init();
     }
 
     private void Update()
     {
-        Rigidbody.velocity = TargetPos.normalized * Speed;
+        //Rigidbody.velocity = TargetPos.normalized * Speed;
+        UpdateMove();
     }
 
     public override void Init()
@@ -30,8 +30,7 @@ public class Boss_Fistula : Boss
         base.Init();
         BossType = EBossType.Fistula;
         BossState = EBossState.Idle;
-        GPCollider2D = GetComponent<CircleCollider2D>();
-        Rigidbody = gameObject.GetComponent<Rigidbody2D>();
+        CreatureMoveState = ECreatureMoveState.Designated;
         TargetPos = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
         MaxHp = 60f;
         Hp = 60f;
@@ -111,18 +110,18 @@ public class Boss_Fistula : Boss
             Rigidbody.velocity = Vector3.zero;
 
             int i = 0;
-            bool On = false;
             foreach (Transform t in transform)
             {
-                if (i <= 1) On = false;
-                else On = true;
-                t.gameObject.SetActive(On);
-                i++;
-                if (i <= 2)
-                    continue;
-                t.gameObject.GetComponent<Boss_Fistula_pieces>().Init(dV[i - 3], 4f);
-                ChangepiecesHpValue(15);
-                MaxHp += 15f;
+                if (t.gameObject.name.Contains("Shadow")) t.gameObject.SetActive(false);
+                else
+                {
+                    t.gameObject.SetActive(true);
+                    t.gameObject.GetComponent<Boss_Fistula_pieces>().Init(dV[i], 4f);
+                    ChangepiecesHpValue(15);
+                    MaxHp += 15f;
+                    i++;
+                }
+                
             }
         }
         else
@@ -139,6 +138,7 @@ public class Boss_Fistula : Boss
     public void MiddleOnDead(GameObject go)
     {
         Vector3[] dV = { new Vector3(1, 1), new Vector3(-1, -1) };
+        go.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         go.GetComponent<CircleCollider2D>().enabled = false;
         go.GetComponent<SpriteRenderer>().enabled = false;
 
@@ -165,7 +165,10 @@ public class Boss_Fistula : Boss
 
     public void SmallOnDead(GameObject go)
     {
+        go.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         go.SetActive(false);
+        //TODO
+        //Managers.Object.Spawn<Monster>(new Vector3());
         OnDead();
     }
 

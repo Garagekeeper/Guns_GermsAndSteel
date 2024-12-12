@@ -35,16 +35,18 @@ public static class Define
     public enum EBossState
     {
         None,
-        Idle,
-        Skill,
-        Move,
         Dead,
         Explosion,
+        Idle,
+        Move,
+        Skill,
     }
 
     public enum ECreatureBottomState
     {
+        None,
         Idle,
+        Move,
         MoveRight,
         MoveLeft,
         MoveUp,
@@ -64,8 +66,18 @@ public static class Define
 
     public enum ECreatureHeadState
     {
+        None,
         Idle,
         Attack,
+        Skill,
+        Explosion,
+    }
+
+    public enum ECreatureMoveState
+    {
+        None,
+        TargetCreature,
+        Designated,
     }
 
     public enum ESkillType
@@ -85,6 +97,22 @@ public static class Define
         Pills,
         Passive,
         Familliar,
+    }
+
+    public enum EMonsterType
+    {
+        None,
+        Fly,
+    }
+
+    public enum EMonsterState
+    {
+        None,
+        Dead,
+        Explosion,
+        Idle,
+        Move,
+        Skill,
     }
 
     public enum ESpecialEffectOfActive

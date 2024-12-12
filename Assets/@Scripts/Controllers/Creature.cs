@@ -55,6 +55,8 @@ public class Creature : BaseObject
 
     public bool IsGuided { get; set; } = false;
 
+    public ECreatureMoveState CreatureMoveState { get; set; } = ECreatureMoveState.None;
+
 
     #endregion
 
@@ -149,15 +151,22 @@ public class Creature : BaseObject
         Luck = 0f;
         BombDamage = 100f;
 
-        AnimatorHead = transform.GetChild(0).GetComponentInChildren<Animator>();
-        //AnimatorHead.enabled = false;
-        AnimatorBottom = transform.GetChild(1).GetComponentInChildren<Animator>();
+        if (transform.childCount != 0)
+        {
+            AnimatorHead = transform.GetChild(0).GetComponentInChildren<Animator>();
+            //AnimatorHead.enabled = false;
+            AnimatorBottom = transform.GetChild(1).GetComponentInChildren<Animator>();
+            Head = transform.Find("Head").GetComponent<SpriteRenderer>();
+            Bottom = transform.Find("Bottom").GetComponent<SpriteRenderer>();
+        }
+        else
+        {
+            AnimatorBottom = transform.GetComponentInChildren<Animator>();
+        }
+       
 
         Rigidbody = GetComponent<Rigidbody2D>();
         Collider = GetComponent<CircleCollider2D>();
-        Head = transform.Find("Head").GetComponent<SpriteRenderer>();
-        Bottom = transform.Find("Bottom").GetComponent<SpriteRenderer>();
-
     }
 
 
@@ -397,4 +406,50 @@ public class Creature : BaseObject
 
     }
 
+    //UpdateAITick이 짧기 때문에
+    //애니메이션이 재생중에서는 다른 스킬을 재생할 수 없도록 처리
+    #region Wait
+    protected Coroutine _coWait = null;
+
+    protected void StartWait(float seconds)
+    {
+        CancelWait();
+        _coWait = StartCoroutine(CoWait(seconds));
+    }
+
+    IEnumerator CoWait(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        _coWait = null;
+    }
+
+
+    protected void CancelWait()
+    {
+        if (_coWait != null)
+            StopCoroutine(_coWait);
+        _coWait = null;
+    }
+    #endregion
+
+    public float UpdateAITick { get; protected set; } = 0.0f;
+
+    //코루틴을 사용한 유한상태 머신
+    //tic을 조절해서 주기를 정할 수 있다
+    protected virtual IEnumerator CoUpdateAI()
+    {
+       yield break;
+    }
+
+    protected virtual void UpdateSkill()
+    {
+
+    }
+
+    protected virtual void UpdateIdle() { }
+
+    protected virtual void UpdateMove()
+    {
+
+    }
 }

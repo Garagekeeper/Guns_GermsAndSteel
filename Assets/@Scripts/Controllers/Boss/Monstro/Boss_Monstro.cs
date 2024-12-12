@@ -34,6 +34,7 @@ public class Boss_Monstro : Boss
         MaxHp = 250.0f;
         BossType = EBossType.Monstro;
         BossState = EBossState.Idle;
+        CreatureMoveState = ECreatureMoveState.TargetCreature;
         AttackDamage = 5f;
 
         //Debug
@@ -104,26 +105,12 @@ public class Boss_Monstro : Boss
 
     }
 
-    protected override void UpdateSkill()
-    {
-        //현재 애니메이션이 재생중인 경우 종료
-        if (_coWait != null) return;
 
-        float delay = 0;
-        base.UpdateSkill();
-
-        AnimatorBottom.Play(_skillName[(int)_currentSkill], 0, 0);
-        //Debug.Log(_skillName[(int)_currentSkill]);
-        delay = AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.length;
-
-        StartWait(delay);
-    }
-
-    protected override void UpdateMove()
-    {
-        //_startPos = transform.position;
-        transform.position = Vector3.Lerp(transform.position, _targetPos, Time.deltaTime * 2f);
-    }
+    //protected override void UpdateMove()
+    //{
+    //    //_startPos = transform.position;
+    //    transform.position = Vector3.Lerp(transform.position, _targetPos, Time.deltaTime * 2f);
+    //}
 
     public void SkillC()
     {

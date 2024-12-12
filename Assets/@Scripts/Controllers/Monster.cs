@@ -7,8 +7,35 @@ using static Define;
 public class Monster : Creature
 {
     //public HashSet<>
+    protected bool _isFloating = false;
 
     private LineRenderer lr;
+
+    //나중에 creature 타음으로 통일하자.... 넘 반복됨...
+    public EMonsterType MonsterType { get; protected set; }
+    protected EMonsterState _monsterState;
+    public virtual EMonsterState MonsterState
+    {
+        get { return _monsterState; }
+        set
+        {
+            if (_monsterState != value)
+            {
+                _monsterState = value;
+                switch (value)
+                {
+                    case EMonsterState.None:
+                        break;
+                    case EMonsterState.Idle:
+                        UpdateAITick = 0.5f;
+                        break;
+                    case EMonsterState.Skill:
+                        UpdateAITick = 0.0f;
+                        break;
+                }
+            }
+        }
+    }
 
     private void Awake()
     {
@@ -24,10 +51,10 @@ public class Monster : Creature
         Speed = 1.0f;
         Hp = 10.0f;
 
-        //Monster끼리는 충돌 X
-        LayerMask mask = 0;
-        mask |= (1 << 7);
-        Collider.excludeLayers = mask;
+        ////Monster끼리는 충돌 X
+        //LayerMask mask = 0;
+        //mask |= (1 << 7);
+        //Collider.excludeLayers = mask;
 
         //TODO 몬스터 종류에 따른 스프라이트 불러오기
         HeadSprite = new Sprite[]
@@ -37,14 +64,17 @@ public class Monster : Creature
             Managers.Resource.Load<Sprite>("isaac_right"),
        };
 
-        lr = GetComponent<LineRenderer>();
 
-        lr.startWidth = lr.endWidth = 0.05f;
-        lr.material.color = Random.ColorHSV();
-        lr.enabled = false;
+        if (!_isFloating)
+        {
+            lr = GetComponent<LineRenderer>();
 
-        //StartCoroutine(CoUpdateTarget());
+            lr.startWidth = lr.endWidth = 0.05f;
+            lr.material.color = Random.ColorHSV();
+            lr.enabled = false;
 
+            //StartCoroutine(CoUpdateTarget());
+        }
     }
 
     void Update()
@@ -54,7 +84,6 @@ public class Monster : Creature
         #endregion
 
         #region Move
-        UpdateMovement();
         #endregion
     }
 
@@ -74,7 +103,27 @@ public class Monster : Creature
         }
     }
 
-    private void UpdateMovement()
+    protected override void UpdateIdle()
+    {
+
+    }
+
+    protected override void UpdateMove()
+    {
+        Target = FindClosetTarget(this, Managers.Object.MainCharacters.ToList<Creature>());
+        if (_isFloating)
+        {
+            UpdateMovementByDV();
+        }
+        else
+        {
+            UpdateMovementByAstar();
+        }
+    }
+
+
+    // Based on A* path finding
+    public void UpdateMovementByAstar()
     {
         Target = FindClosetTarget(this, Managers.Object.MainCharacters.ToList<Creature>());
 
@@ -97,4 +146,43 @@ public class Monster : Creature
 
         Rigidbody.velocity = vel;
     }
+
+    public void UpdateMovementByDV()
+    {
+        if (Target)
+            Rigidbody.velocity = (Target.transform.position - transform.position).normalized * Speed;
+        else
+            Rigidbody.velocity = TargetPos - transform.position.normalized * Speed;
+    }
+
+    protected override IEnumerator CoUpdateAI()
+    {
+        while (true)
+        {
+            switch (MonsterState)
+            {
+                case EMonsterState.Idle:
+                    UpdateIdle();
+                    break;
+                case EMonsterState.Skill:
+                    UpdateSkill();
+                    break;
+                case EMonsterState.Move:
+                    UpdateMove();
+                    break;
+                case EMonsterState.Dead:
+                    break;
+                case EMonsterState.Explosion:
+                    break;
+            }
+
+            if (UpdateAITick > 0)
+                yield return new WaitForSeconds(UpdateAITick);
+            else
+                yield return null;
+        }
+
+    }
+
+
 }

@@ -11,7 +11,7 @@ public class Boss : Creature
     /// <summary>
     /// default collider. Normally, this collider does 2 things (for collision and projectile)
     /// <br/>
-    /// when Boss need 2 Collider Use this for projectile 
+    /// when Boss need 2 Collider Use this for collision
     /// </summary>
     protected CircleCollider2D GPCollider2D;
 
@@ -63,11 +63,10 @@ public class Boss : Creature
 
     public override void Init()
     {
-        Transform temp;
         CreatureType = ECreatureType.Boss;
         BossType = EBossType.None;
         BossState = EBossState.None;
-        Rigidbody = GetComponent<Rigidbody2D>();
+        Rigidbody =  transform.GetComponent<Rigidbody2D>();
         AnimatorBottom = transform.GetComponent<Animator>();
         GPCollider2D = transform.GetComponent<CircleCollider2D>();
         Range = 10;
@@ -78,11 +77,10 @@ public class Boss : Creature
         Managers.UI.PlayingUI.BossHpActive(true);
 #endif 
     }
-    public float UpdateAITick { get; protected set; } = 0.0f;
 
     //코루틴을 사용한 유한상태 머신
     //tic을 조절해서 주기를 정할 수 있다
-    protected IEnumerator CoUpdateAI()
+    protected override IEnumerator CoUpdateAI()
     {
         while (true)
         {
@@ -111,34 +109,32 @@ public class Boss : Creature
 
     }
 
-    protected virtual void UpdateSkill() { }
-    protected virtual void UpdateIdle() { }
-    protected virtual void UpdateMove() { }
-
-    //UpdateAITick이 짧기 때문에
-    //애니메이션이 재생중에서는 다른 스킬을 재생할 수 없도록 처리
-    #region Wait
-    protected Coroutine _coWait = null;
-
-    protected void StartWait(float seconds)
+    protected override void UpdateSkill()
     {
-        CancelWait();
-        _coWait = StartCoroutine(CoWait(seconds));
+        if (_coWait != null) return;
+
+        float delay = 0;
+
+        Debug.Log(_coWait);
+        AnimatorBottom.Play(_skillName[(int)_currentSkill], 0, 0);
+        //Debug.Log(_skillName[(int)_currentSkill]);
+        if (_skillName[(int)_currentSkill] != AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.name)
+            return;
+        delay = AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+
+        StartWait(delay);
     }
 
-    IEnumerator CoWait(float seconds)
+    protected override void UpdateMove()
     {
-        yield return new WaitForSeconds(seconds);
-        _coWait = null;
-    }
+        if (BossState == EBossState.Dead) return;
 
-    protected void CancelWait()
-    {
-        if (_coWait != null)
-            StopCoroutine(_coWait);
-        _coWait = null;
+        if (CreatureMoveState == ECreatureMoveState.TargetCreature && BossState == EBossState.Move)
+            transform.position = Vector3.Lerp(transform.position, TargetPos, Time.deltaTime * 2f);
+        if (CreatureMoveState == ECreatureMoveState.Designated)
+            Rigidbody.velocity = TargetPos.normalized * Speed;
+
     }
-    #endregion
 
     public void ChangeBossState(EBossState bossState)
     {
@@ -155,6 +151,7 @@ public class Boss : Creature
     public override void OnDead()
     {
         if (BossState == EBossState.Dead) return;
+        Rigidbody.velocity = Vector3.zero;
         BossState = EBossState.Dead;
         Managers.UI.PlayingUI.BossHpActive(false);
 
@@ -178,9 +175,9 @@ public class Boss : Creature
         //Debug.Log(_skillName[(int)_currentSkill]);
         float delay = AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.length;
         yield return new WaitForSeconds(delay * 0.75f);
-        FindChildByName(transform, transform.gameObject.name + "_Anim").GetComponent<SpriteRenderer>().enabled = false;
-        FindChildByName(transform, transform.gameObject.name + "_Shadow").GetComponent<SpriteRenderer>().enabled = false;
-        yield return new WaitForSeconds(delay);
+        FindChildByName(transform, transform.gameObject.name + "_Sprite").gameObject.SetActive(false);
+        FindChildByName(transform, transform.gameObject.name + "_Shadow").gameObject.SetActive(false);
+        yield return new WaitForSeconds(delay * 0.25f);
         base.OnDead();
     }
 

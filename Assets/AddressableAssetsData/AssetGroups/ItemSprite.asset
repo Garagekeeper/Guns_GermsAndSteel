@@ -21,3837 +21,3837 @@ MonoBehaviour:
     m_Address: collectibles_001_thesadonion
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f00986b1d611a94f98465331ef81fac
     m_Address: collectibles_002_theinnereye
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e6afe52f66facb64997666f5f156a9bd
     m_Address: collectibles_003_spoonbender
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0f96d2fe070c37846bfb80eec5e257d7
     m_Address: collectibles_004_cricketshead
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fefa8b752aa22784db75be5bc3f272d9
     m_Address: collectibles_005_myreflection
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 57dc5c4947d696543b8095276cf9bffd
     m_Address: collectibles_006_numberone
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c761f58da941dac4bb04e22dcf3fb082
     m_Address: collectibles_007_bloodofthemartyr
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b35d73177de2ea348bd92cbe7c52d50d
     m_Address: collectibles_008_brotherbobby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8defbeba1b2c9aa458de83c59c69f227
     m_Address: collectibles_009_skatole
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 531deec3a96686044935d6f6c33cdf75
     m_Address: collectibles_010_haloofflies
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc6ec6fac01598e4098e2c68d0277978
     m_Address: collectibles_011_1up
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4c1b5f659441c584398d5a150c6ec18a
     m_Address: collectibles_012_magicmushroom
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 39c9fed09a26d2c4d9a1d345c1a14cf6
     m_Address: collectibles_013_thevirus
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b318319af6a99ae44b5f7b940e67d704
     m_Address: collectibles_014_roidrage
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1997604afc4d00844b7a973472f7b6f3
     m_Address: collectibles_015_heart
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2727ec0cee79ef944b0b99bc9957ce58
     m_Address: collectibles_016_rawliver
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cf20c9fc0110b5d4782d6522744163b5
     m_Address: collectibles_017_skeletonkey
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5bf628f23411b634fb3cd51d81f6310b
     m_Address: collectibles_018_adollar
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 43e4adcb35b487b468eaf6627d940218
     m_Address: collectibles_019_boom
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4550e70b6fdd5884e92e32a47c321596
     m_Address: collectibles_020_transcendence
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d561b0680f91675459f7dc13689ffe13
     m_Address: collectibles_021_thecompass
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dcb986dcd8cfd8043997969f9f22bf43
     m_Address: collectibles_022_lunch
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 132ba52d79728a94599db7bf8f77be7c
     m_Address: collectibles_023_dinner
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1bf7a1ae20369d1488d97ef8a493b1c7
     m_Address: collectibles_024_dessert
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 55b8d5317f22c5e48b751392628b6503
     m_Address: collectibles_025_breakfast
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f74f084b5f946a42bde2755b81e0b89
     m_Address: collectibles_026_rottenmeat
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 694a829daf0b08d42ab0109e61969e2b
     m_Address: collectibles_027_woodenspoon
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a363a7b92a3a2d4d880eb5861c4b9cb
     m_Address: collectibles_028_thebelt
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7be7beba21a6b3949a755431545671a0
     m_Address: collectibles_029_momsunderwear
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: af4364f42530bf64fa6fe29cebe76f79
     m_Address: collectibles_030_momsheels
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8485dd4557cbf3340bd79756044e415c
     m_Address: collectibles_031_momslipstick
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0b09ff8db82988e4590cb83d5c2cc57d
     m_Address: collectibles_032_wirecoathanger
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a22c80c0495c71479fc3f8a99b45c94
     m_Address: collectibles_033_thebible
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d129fae6f4f516e40b334ea2f914dc29
     m_Address: collectibles_034_thebookofbelial
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5589df3ad50a6db46aac030f633f2ef5
     m_Address: collectibles_035_thenecronomicon
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc635512fee38ee48ba2e47840f5d45e
     m_Address: collectibles_036_thepoop
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5873fddc9f03bbc419b9754eafedc3bc
     m_Address: collectibles_037_mrboom
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4c12c916145e32b4987d61a11df68cad
     m_Address: collectibles_038_tammyshead
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7b2f5b9fb0c04554394e83ebd586571f
     m_Address: collectibles_039_momsbra
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 064ee27e72edc6c4099971f4e9844c9b
     m_Address: collectibles_040_kamikaze
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e822fa1fef61ef4489fc2919606c78e0
     m_Address: collectibles_041_momspad
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1d7820c96e9d8fa4a80f3b2505a95323
     m_Address: collectibles_042_bobsrottenhead
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5f94667cbce50354e98cce69f1bbb527
     m_Address: collectibles_044_teleport
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f31c62d9c139d5c4586c1a00eac6e76c
     m_Address: collectibles_089_spidersbite
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: feda4410413425d4f8899359faf27a25
     m_Address: collectibles_088_littlechubby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b87c2e082d43e143918a57b31629b41
     m_Address: collectibles_087_lokishorns
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8b18e5103c336df4287ec7b2c58bb985
     m_Address: collectibles_086_monstrostooth
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 277a97ecb1a4cd24aaf2ed4797761438
     m_Address: collectibles_085_deckofcards
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4f8456e3cbbfd2a439f21ecd27ed0daa
     m_Address: collectibles_084_weneedtogodeeper
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8fef2e1467405544fa7f7b913833579e
     m_Address: collectibles_083_thenail
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a7fd80dbf6fe3e4794ce644ec56556d
     m_Address: collectibles_082_lordofthepit
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 681acece4463df14c895d260e80f08cd
     m_Address: collectibles_081_deadcat
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 626a1b22a91bd724583f8208f720c3b1
     m_Address: collectibles_080_thepact
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 84b0ecac74e034546a650ee26e70dd32
     m_Address: collectibles_079_themark
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8137aa5c91f5bd141972cc948be83290
     m_Address: collectibles_078_bookofrevelations
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8f67b3dbeb18bdc43bf756f50a58a9b3
     m_Address: collectibles_077_mylittleunicorn
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 23eec758cd0bc80479aa205afd459b26
     m_Address: collectibles_076_xrayvision
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ad1dd1aeecacc6044ad0ab3f4dfc8004
     m_Address: collectibles_075_phd
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01ba0c9dac0f2484194ff9e4926e8d19
     m_Address: collectibles_074_aquarter
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b9ec691daa5ac8a409f1a8dba17099fc
     m_Address: collectibles_073_cubeofmeat
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9df097a15498a4947bbe2879b2ef6601
     m_Address: collectibles_072_rosary
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1b2c451a17e45e14090e63bffdcb8ea6
     m_Address: collectibles_071_minimushroom
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ac058b286b867f947bbdd3c2399a4ba5
     m_Address: collectibles_070_growthhormones
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eef042eb65f31d242930a43b4a4ec973
     m_Address: collectibles_069_chocolatemilk
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3da03047b7ad7544396ebe1dadb7adfb
     m_Address: collectibles_068_technology
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab97ad18e8b2e8840a03df3b90c1da9b
     m_Address: collectibles_067_sistermaggy
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e72a207ddb19fa84595e8bc9eab1c5c2
     m_Address: collectibles_066_thehourglass
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 394da34303edbd54dad2430c27377b69
     m_Address: collectibles_065_anarchistcookbook
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8367a72de2d013745920ec400d028914
     m_Address: collectibles_064_steamsale
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 89f5e58b9477e4f4bb606de7d26a4537
     m_Address: collectibles_063_thebattery
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 391de17105862ad4ba30b582ca18dbc1
     m_Address: collectibles_062_charmofthevampire
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58512a0efa8ca144fac2a16586b1ba67
     m_Address: collectibles_060_theladder
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d581a63dab622c9468eef6e40f93304e
     m_Address: collectibles_058_bookofshadows
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ccfa1e61ef3d3b4a84b8eb7707c483e
     m_Address: collectibles_057_distantadmiration
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ac72a339bfdd3be49afa1149ab10f23f
     m_Address: collectibles_056_lemonmishap
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 155500dea54928448bf4689a286597f2
     m_Address: collectibles_055_momseye
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9cd68f9bd9075b44988f6e4687c2f5b2
     m_Address: collectibles_054_treasuremap
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f4efd37425d317b45b88169b6a2169bd
     m_Address: collectibles_053_magneto
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 135769f2a4eafb245894b21cd0d52cf8
     m_Address: collectibles_052_drfetus
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 73176e470212fdc498ff4514623d2762
     m_Address: collectibles_051_pentagram
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fb771b6fa27d37444a7f063548a5c24a
     m_Address: collectibles_050_steven
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 86af1c5449d5fae4198c6777f472157c
     m_Address: collectibles_049_shoopdawhoop
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e9a4da9c1bedaca44900a888e1d62b41
     m_Address: collectibles_048_cupidsarrow
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d9415f80cf0885247a1803fa62ed1e43
     m_Address: collectibles_047_doctorsremote
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1dfc235bad32a444eb3f3d1a14433a4e
     m_Address: collectibles_046_luckyfoot
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9ffe3c2a3d2307d47aef37210e68cf73
     m_Address: collectibles_045_yumheart
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a608f9d7ee433cb4fbfd93ee38695408
     m_Address: collectibles_090_smallrock
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7188d237c194ae34ea1811fb92d4c904
     m_Address: collectibles_091_spelunkerhat
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c702c38d58f0fb94e89b4e93e1994189
     m_Address: collectibles_092_superbandage
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f46c42af1869ee64fa67931d3877a732
     m_Address: collectibles_093_thegamekid
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1bf2d368b8c982d48b335dc7c8eb4449
     m_Address: collectibles_094_sackofpennies
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ec61cffd8b2105489f37483bf605942
     m_Address: collectibles_095_robobaby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d5d6c442d2df7d84f8c6ecd4312dc0e0
     m_Address: collectibles_096_littlechad
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a75920ec73a12e54c8ea961a074d17b2
     m_Address: collectibles_097_bookofsin
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 892caf6509d0833498ebd0e360e3018f
     m_Address: collectibles_098_therelic
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b72402f017c2f4a46a6ab3af4caec344
     m_Address: collectibles_099_littlegish
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 01f4682a505992644bd2658485c2d211
     m_Address: collectibles_100_littlesteve
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c7609af87cffd2f45ba99584c889ad90
     m_Address: collectibles_154_chemicalpeel
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b12b6b8e54518e540b8b6225e56e20c2
     m_Address: collectibles_153_mutantspider
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 435657a700d783d4bbdea352bfddd814
     m_Address: collectibles_152_technology2
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8bcb43f3eaaabba4e851d640a0dc11e2
     m_Address: collectibles_151_themulligan
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fda6339f3ff919f4388f233eb4d5f6f0
     m_Address: collectibles_150_toughlove
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: be151da0e02aca54cbc63750a2199a14
     m_Address: collectibles_149_ipecac
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a9f8462211d0354ca94ef434af8c166
     m_Address: collectibles_148_infestation
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 59a39993d92a54f40a430b46d72629d7
     m_Address: collectibles_147_notchedaxe
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0eb839ca75dae24d82e73965cc8a550
     m_Address: collectibles_146_prayercard
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 507fa937f8a9f3449b58f774688e80a4
     m_Address: collectibles_145_guppyshead
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c7f4f3ce85e8ad4ba92ba8af5980b1a
     m_Address: collectibles_144_bumfriend
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0fc161471e0df3846abde7f7a1b95d61
     m_Address: collectibles_143_speedball
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 85fd28cbe4a2d8f4781a1788112c6074
     m_Address: collectibles_142_scapular
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f79e960189539824a9fbb8e3bd577946
     m_Address: collectibles_141_pageantboy
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a335686919114541a0df14e36f6e4cc
     m_Address: collectibles_140_bobscurse
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dc5e577b450847d48804b1e7b3ca740a
     m_Address: collectibles_139_momspurse
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 24a501a92c454d54cbfc2b7bbe71da10
     m_Address: collectibles_138_stigmata
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 97c85f7c139419b4bb78a34912790d41
     m_Address: collectibles_137_remotedetonator
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ec089d2a40dc9f428e402a8752c2fa8
     m_Address: collectibles_136_bestfriend
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b73d01fc1519ea2489d9d489757e2abc
     m_Address: collectibles_135_ivbag
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8066aa4fcd10bd84aa2be8570c696d35
     m_Address: collectibles_134_guppystail
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 451bf70e65f6c044b8570dff7471386d
     m_Address: collectibles_133_guppyspaw
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cce8f430c64ea894b99dd20c04f8f020
     m_Address: collectibles_132_alumpofcoal
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 50f3d8c621b1f0849a5c2dff43f7e4e5
     m_Address: collectibles_131_bombbag
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 033f49336bef0f94fbdee3cbadafea13
     m_Address: collectibles_130_apony
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e84829293e4782746ad63d98187822e6
     m_Address: collectibles_129_bucketoflard
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 76d4833bf10906b49bf99a9e1627306d
     m_Address: collectibles_128_foreveralone
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e49be41cc8c07343b4972cd8abbecad
     m_Address: collectibles_127_forgetmenow
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 24594e68a9f1953458989410986c9c9a
     m_Address: collectibles_126_razorblade
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0b029febd3ce60a4db74aee2465085bd
     m_Address: collectibles_125_bobbybomb
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a12587f55370cc479d4c8a8ed5023b8
     m_Address: collectibles_124_deadseascrolls
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0bf61de4c20ed0742a5efa30751e76ff
     m_Address: collectibles_123_monstermanual
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ebab751b90371b459d082c5ed752103
     m_Address: collectibles_122_whoreofbabylon
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 001ceca7fc8e09e42ad247f3aad72193
     m_Address: collectibles_121_oddmushroomlarge
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8e4855f8677939748bc108bc5b49261d
     m_Address: collectibles_120_oddmushroomthin
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c10005c47ddbf8d4fa968cc803463a65
     m_Address: collectibles_119_bloodbag
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 81175431a48a198448e43051a074d744
     m_Address: collectibles_118_brimstone
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7d09c683db757b84db2d80866c25cbdc
     m_Address: collectibles_117_deadbird
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4acd0dadcd8c5e14ba7e84fd05bd8385
     m_Address: collectibles_116_9volt
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 51d0875e6dcf3184fae05db7d02ae6b5
     m_Address: collectibles_115_ouijaboard
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a0564c70ee1a0a6468fe5cfe0454f933
     m_Address: collectibles_114_momsknife
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c301046cb6b25724c9432be15f40f79c
     m_Address: collectibles_113_demonbaby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d47422baf22472418f3f63842fac205
     m_Address: collectibles_112_guardianangel
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3655d23121b769d4bb1b3dfeadfc53a5
     m_Address: collectibles_111_thebean
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3fb706088e87ad34b862fdf34733963f
     m_Address: collectibles_110_momscontacts
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b044163c38681a144920f2909b213de7
     m_Address: collectibles_109_moneyispower
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3c221ed449ebb664cbf193a597434cc2
     m_Address: collectibles_108_thewafer
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 26c64dcb37bf1bc46a67fdbea79cb772
     m_Address: collectibles_107_pinkingshears
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 08497ae1267761b4080dd90026aba58e
     m_Address: collectibles_106_mrmega
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c7415834ad445a641b9402b74b225cb2
     m_Address: collectibles_105_dice
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 676190794d3727b4eb6ada7253d8ce51
     m_Address: collectibles_104_theparasite
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2ec9a6fa446ab40439882073eb33604a
     m_Address: collectibles_103_thecommoncold
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb932cb626b9e304ebd0f7a62eee0804
     m_Address: collectibles_102_momsbottleofpills
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 059a5b5db8e32144f9b016666a4d1881
     m_Address: collectibles_101_thehalo
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c251a798604c6dd4d855f5470fe37a27
     m_Address: collectibles_155_thepeeper
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 91e747c8d922a35469b2f3f0f03ba934
     m_Address: collectibles_156_habit
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bec3369eab43ce341b09920dfafa999b
     m_Address: collectibles_157_bloodylust
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7405a1c5dada4304398376588f774664
     m_Address: collectibles_158_crystalball
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 578e304b4a8d18d4fb27f19ec2aee7f7
     m_Address: collectibles_159_spiritofthenight
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f847da9f121221548a5529d959677bab
     m_Address: collectibles_160_crackthesky
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 40052947bee5d5142828f509fc077bb2
     m_Address: collectibles_161_ankh
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62c1a6d97b8f4bd43b9d81b90b1c0eb1
     m_Address: collectibles_162_celticcross
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de0c3b39fb155674ba550c7b24da60e9
     m_Address: collectibles_163_ghostbaby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25601d79c1dc0154d9a40cb12ab6dd89
     m_Address: collectibles_164_bluecandle
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0de1e66bdbc0a764a9daaa44ca52b2ab
     m_Address: collectibles_165_catoninetails
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b6527117f0c99684a97de61301e88ed6
     m_Address: collectibles_166_d20
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cdfce9ca8a9e9444e9680a35ff36b476
     m_Address: collectibles_167_harlequinbaby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bc8021f8345b9c040baccc462a4da2e6
     m_Address: collectibles_168_epicfetus
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d7a347c679fc29c4c822be9fffbdc52c
     m_Address: collectibles_169_polyphemus
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2f32ff11a6da5064caa44d3c478a7905
     m_Address: collectibles_170_daddylonglegs
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a02a69b3b42a4c4181d8b275b1bd9bf
     m_Address: collectibles_171_spiderbutt
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d5bdde41fef6a34cb344838da579606
     m_Address: collectibles_172_sacrificialdagger
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee2ee56e7e8aa2f41a1664d5be2c3a6b
     m_Address: collectibles_173_mitre
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 53a9b12895ad612428c422f8f913a26a
     m_Address: collectibles_174_rainbowbaby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a40789dfbe6e534bad76d4f814ac419
     m_Address: collectibles_175_dadskey
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d82d22bbddf7ae04b958f36ada306be2
     m_Address: collectibles_176_stemcells
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 36fb0843e0ae56f4cb7a510ecc24b4ca
     m_Address: collectibles_177_portableslot
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2794bc48403ae73418862a325ca9d87c
     m_Address: collectibles_178_holywater
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 23a3881b977c1434f95b6cd47b94ea69
     m_Address: collectibles_179_fate
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d766ba62488155449a7941a38b1292a8
     m_Address: collectibles_180_blackbean
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f6ebf92bbc260d64992ed0c83738d7fe
     m_Address: collectibles_181_whitepony
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d8144c505a1f52743913e6a43f16677e
     m_Address: collectibles_182_sacredheart
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f2f1b40582e46643b3d9cf89f7ea702
     m_Address: collectibles_183_toothpicks
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2cc22e40c2b29d449bf33d2101f55084
     m_Address: collectibles_184_holygrail
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3a5b43a1efccfe346af90ce30b606824
     m_Address: collectibles_185_deaddove
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1b24aed9b1ba1034fb486fc2c313af64
     m_Address: collectibles_186_bloodrights
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 91b18045ad22bb34abb89457dcd2f638
     m_Address: collectibles_187_guppyshairball
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 95fde6d0330b11642afc5cf8c958d09d
     m_Address: collectibles_188_abel
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0235fd448adef5347bb8c78998429f7d
     m_Address: collectibles_189_smbsuperfan
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8cc66cbcfc5d80c4b8ee67cf923b40b3
     m_Address: collectibles_190_pyro
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e2f08e0b82b65fd4f87b1c9264f6903d
     m_Address: collectibles_191_3dollarbill
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f95f8927bb73cf2409066f6466e1de96
     m_Address: collectibles_192_telepathyfordummies
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b526ee1ff83b8134e89bc1777a437465
     m_Address: collectibles_193_meat
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2ca54250d5988844b87f7804e8df38c8
     m_Address: collectibles_194_magic8ball
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f237b590fb861314aa43fba39b020c14
     m_Address: collectibles_195_momscoinpurse
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7445f76272f1c6a4e982ba0e129b0150
     m_Address: collectibles_196_squeezy
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0795116861fe2bf4eb933793b47a4eb6
     m_Address: collectibles_197_jesusjuice
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4467f514df0d2374da7d63f2c62bcdc4
     m_Address: collectibles_198_box
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a6f88aad581124f48839f1be45007df1
     m_Address: collectibles_199_momskey
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: da99c0437f543fe4795c94d0ebbc91d2
     m_Address: collectibles_200_momseyeshadow
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f3a3c766d9ecb8649868b4291fa85ac3
     m_Address: collectibles_201_ironbar
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 400eb6fa43168fd4cbd9c34d85136e8a
     m_Address: collectibles_202_midastouch
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 72ae26446b0ec2b4ba9c2f32e5f3dcfd
     m_Address: collectibles_203_humblingbundle
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 24b8c01063d7f3344b11e98237720170
     m_Address: collectibles_204_fannypack
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2c152cf436db54a4c9db17c52e04795c
     m_Address: collectibles_205_sharpplug
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 468c42f61730a4f4497e9fc9fa664ede
     m_Address: collectibles_206_guillotine
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4c3e0cd4b89885140b23dc7128316288
     m_Address: collectibles_207_ballofbandages
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8b8d1e8d302cd4249bfe865a0df1c22c
     m_Address: collectibles_208_championbelt
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a6d4a76b2c66aa34aafd7b77919a59a6
     m_Address: collectibles_209_buttbombs
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ee1d1b8405ca1b4468c9134e65855596
     m_Address: collectibles_210_gnawedleaf
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f65e202f032557f47ad5b1dd90a1349f
     m_Address: collectibles_211_spiderbaby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fa0d8d8273ed8e94388ac6ab89ef5c2c
     m_Address: collectibles_212_guppyscollar
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9d1e803b18dc4a842a339180eb80418b
     m_Address: collectibles_213_lostcontact
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 254d4f2ec699d7944863ae516709b431
     m_Address: collectibles_214_anemic
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6c7b8bc0c9d8c3041a0c14634b72261a
     m_Address: collectibles_215_goathead
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0f2a03808dd060c4cb10216b7d6e5d28
     m_Address: collectibles_216_ceremonialrobes
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 72df14d4193bb734fb31ff6c490e6bde
     m_Address: collectibles_217_momswig
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 11b7b6302390ff242a190190b7801d71
     m_Address: collectibles_218_placenta
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2785e5f36bc21034d9daa98baa1475d6
     m_Address: collectibles_219_oldbandage
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce051adaeda24954a8686a94bf455d24
     m_Address: collectibles_220_sadbombs
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e4c136f7c6c42c34c99caa7105cd5d3c
     m_Address: collectibles_221_rubbercement
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b1fdb54d38786f5479b867e2859ba002
     m_Address: collectibles_222_antigravity
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62a1ef9f07ac848419a8b38dc88a43e4
     m_Address: collectibles_223_pyromaniac
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 16fa06ec219be4e42867c2a400f10ffe
     m_Address: collectibles_224_cricketsbody
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b98834338505cdd4ebbdc79d93651192
     m_Address: collectibles_225_gimpy
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0f731558683ae264baaf935302ba4b80
     m_Address: collectibles_226_blacklotus
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a03cfdf40de9be845a36dc29135a0e32
     m_Address: collectibles_227_piggybank
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a8a1dfc17d45cb04381258064651524e
     m_Address: collectibles_228_momsperfume
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5d3bb0b96bfb7a941920ec00028acb65
     m_Address: collectibles_229_monstroslung
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 96597e17857ad854bb8ffbf01a7ba767
     m_Address: collectibles_230_abaddon
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c4ad48a677c88304ba153fb1f6731f71
     m_Address: collectibles_231_balloftar
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a3a414b66fd7814e8a64b287c044435
     m_Address: collectibles_232_stopwatch
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 331bddadd25875048a1d218bf6c5a9b1
     m_Address: collectibles_233_tinyplanet
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0ada8b8898972db4ca81257c7205dea9
     m_Address: collectibles_234_infestation2
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c8ebaba0f571e03459e8445580d3b4b5
     m_Address: collectibles_236_ecoli
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c66d46be89b65f04e9f2e713b9f4257f
     m_Address: collectibles_237_deathstouch
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f2399e9d2602944ca9cab6eaa3e824e
     m_Address: collectibles_238_keypiece1
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f7cb7f48712f6bb41acc6de34b52a921
     m_Address: collectibles_239_keypiece2
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f616f86bdfd95084a9ea46f2ea312c57
     m_Address: collectibles_240_experimentaltreatment
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 83bf735724a21a4449de825c7426248a
     m_Address: collectibles_241_contractfrombelow
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 63c45e85ee846bb459697d3d2998e8e7
     m_Address: collectibles_242_infamy
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d63b43456e579424fb1268496a78e30c
     m_Address: collectibles_243_trinityshield
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 21f6f92696099344e8debdfd0d2e7568
     m_Address: collectibles_244_techpointfive
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e594266bca7d4f14a9e7ba7b186fee6a
     m_Address: collectibles_245_2020
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 952fd9758fb0feb46a079fd03de83c87
     m_Address: collectibles_246_bluemap
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 06adc1b034492fc419c2bbb5f0e7da18
     m_Address: collectibles_247_bffs
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c5b2ec7f38d27f54183aa60fea9e7063
     m_Address: collectibles_248_hivemind
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 355f4505c804356499a831450f03b99a
     m_Address: collectibles_249_theresoptions
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f268515654b869349a00f5b43516a597
     m_Address: collectibles_250_bogobombs
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a3d550c795a943244ae15557b0d23e83
     m_Address: collectibles_251_starterdeck
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7deda0d20325ac04dad470ea68db17de
     m_Address: collectibles_252_littlebaggy
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ddaf7457f09174a4295585f689dcbeaf
     m_Address: collectibles_253_magicscab
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6f7618e93bb469c478c47a4f90fc0084
     m_Address: collectibles_254_bloodclot
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4b9534640e7b241498f450569800ecc1
     m_Address: collectibles_255_screw
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 991c9d74476f79647b90e3da60be1985
     m_Address: collectibles_256_hotbombs
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b360eaa1d3e21c34286aae41bf8687ad
     m_Address: collectibles_257_firemind
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aa3d80c1f28f4094bacf4e272ed62d81
     m_Address: collectibles_258_missingno
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e58aea98accb2e24a8f86ab22c679f1f
     m_Address: collectibles_259_darkmatter
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 77eab1b3652ca274fa22daf3e770d6d0
     m_Address: collectibles_260_blackcandle
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 60d4d03144a67dd4f9e427bbb078b537
     m_Address: collectibles_261_proptosis
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d7e02dab7effccd4090c6d118cc64642
     m_Address: collectibles_262_missingpage2
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 58b06adff7257ff4d910e62736968713
     m_Address: collectibles_263_blankrune
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 485d55d5e47c19c4f8ccddb4e4e76305
     m_Address: collectibles_264_smartfly
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8fba89ac38d0da74a928d9d3abde0d7e
     m_Address: collectibles_265_drybaby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 14a7fb84ace850c4a83c2dac7ef26de2
     m_Address: collectibles_266_juicysack
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 46831d365abf6014b9c03e12794e6099
     m_Address: collectibles_267_robobaby2
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d02e57942be3d524aa5c4c344a8dfea2
     m_Address: collectibles_268_rottenbaby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4b1c4d2c71340aa459265125aa4d8550
     m_Address: collectibles_269_headlessbaby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fa3c6021c9406f540821e75e33c2c69e
     m_Address: collectibles_270_leech
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f2012c06ffff9d04eaad7a7d55d630ca
     m_Address: collectibles_271_mysterysack
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c60368259d0fed94c9b5cbd3d330bfa1
     m_Address: collectibles_272_bff
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f283bd7bad6db4045903fa49f9575d68
     m_Address: collectibles_273_bobsbrain
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6cb562774a7ae0d4d99e1796cd6f652d
     m_Address: collectibles_274_bestbud
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b40770f06f7d0140932db550a24f54f
     m_Address: collectibles_275_lilbrimstone
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7a9eabfbe12a5a84c976d1333c355c17
     m_Address: collectibles_276_isaacsheart
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dacf5a8ccc9f06849bc22ef7de5ec2cb
     m_Address: collectibles_277_lilhaunt
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bd74421bf44cfc342a80179d25c46369
     m_Address: collectibles_278_darkbum
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c7fb54a562fe2b04ba34537a07981d25
     m_Address: collectibles_279_bigfan
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9538cbf828742cf4b97ec6200a2a4dd3
     m_Address: collectibles_280_sissylonglegs
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d4c9f98d6ede7b34daee02fbbedc9bd6
     m_Address: collectibles_281_punchingbag
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb0721cfcf9c05048afb3f3a7d05cf06
     m_Address: collectibles_282_howtojump
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 700af06e89d2e2a46942b4da2b3949f9
     m_Address: collectibles_283_d100
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 74d8d6b9c280bad4aa420f3946df1163
     m_Address: collectibles_284_d4
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b87240ca079e1df44915f500b32a01c1
     m_Address: collectibles_285_d10
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c6de077480da6d745af887d4733b3ac5
     m_Address: collectibles_286_blankcard
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f5f65071a2cc691459f573d45e6ea31b
     m_Address: collectibles_287_bookofsecrets
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cee6ebd2bfc1e3d4184ef03a5612669e
     m_Address: collectibles_288_boxofspiders
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e7687d0eaca02cb44b7d448d263f5b75
     m_Address: collectibles_289_redcandle
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bd2fa128a08d8624ea2c9cda002d1cc6
     m_Address: collectibles_290_thejar
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4eedafd433f310548a0763731f7c2fd8
     m_Address: collectibles_291_flush
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 32b72c38abbd10249870d3787f1a20e4
     m_Address: collectibles_292_satanicbible
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0ae52f3cb23112b4fa75a3b1c7b830fe
     m_Address: collectibles_293_headofkrampus
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a099bd57d71bd2d459c9b488cc29d5fe
     m_Address: collectibles_294_butterbean
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 46bb5e618b42cc045889d9b2fed2d514
     m_Address: collectibles_295_magicfingers
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 280d5c0b4928ad2459d16b30d8949c8a
     m_Address: collectibles_296_converter
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f15e5324100a9a6468cdbd66d6c591d3
     m_Address: collectibles_297_bluebox
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 85d538cf58feb264280366a798be2bcc
     m_Address: collectibles_298_unicornstump
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1a5152c2dcd106145b1be7c1dcb66bda
     m_Address: collectibles_299_taurus
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4fb6eb1be76b17c42bea2f690b7da644
     m_Address: collectibles_300_aries
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 00bb982304bc33946a0b5c6884a84bb1
     m_Address: collectibles_499_eucharist
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 69e1c885c131713409ab1b8903bfacd1
     m_Address: collectibles_498_duality
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5f5caf127e104f647b4330894172d5bd
     m_Address: collectibles_497_camoundies
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99c77a6792fe1ea48a16ad038b5f87c2
     m_Address: collectibles_496_euthanasia
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f9cb7967101b9a488d4a797bd474bb3
     m_Address: collectibles_495_ghostpepper
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 78aae3ed48c5ed0419c9a280c4edb172
     m_Address: collectibles_494_jacobsladder
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 180a6b87a2004cb4d8ae0cc56cabc12f
     m_Address: collectibles_493_adderline
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6c1fd81f46e3dc443a2809c215f2702a
     m_Address: collectibles_492_yolisten
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9c605373a77572f4aa6ee429cb17a4ab
     m_Address: collectibles_491_acidbaby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a6dd5380f714984489bfba3e0d6be99f
     m_Address: collectibles_490_edenssoul
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a45f384984ec6444494f137d40833998
     m_Address: collectibles_489_dinfinity
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f59e4e684538d048945947789b0e454
     m_Address: collectibles_488_metronome
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8812aa131a8e9914cae741fa5c9a0ef8
     m_Address: collectibles_487_potatopeeler
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bfd001187f245f941b135e4b5c5d02ff
     m_Address: collectibles_486_dullrazor
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 16a3daf4e7f55a645a54a94b1722a102
     m_Address: collectibles_485_crookedpenny
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 879de4565c658ac40bb724c587f1f11c
     m_Address: collectibles_484_waitwhat
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a0a55714ea042824c94051917295d56d
     m_Address: collectibles_483_mamamega
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c57421007cc41794e969b60141f3cc7c
     m_Address: collectibles_482_clicker
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 79249c742c36dff41b7fa7fdae4b1ef1
     m_Address: collectibles_481_dataminer
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 03990063fd49c764f8f6fe71797f4266
     m_Address: collectibles_480_compost
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d32e020bcb97ed244a4f92a0b80c2d07
     m_Address: collectibles_479_smelter
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5a5d5ecb44ebe03478db34abecd4065a
     m_Address: collectibles_478_pause
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a429d79ee73f8124198e6d2cde1e3df4
     m_Address: collectibles_477_void
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2d8d89c9bb87b984398a8d02efc48322
     m_Address: collectibles_476_d1
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0c5381f0659025e4290799614b6f9b4f
     m_Address: collectibles_475_planc
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a23fa1d76889f0a49862c4f28b873ff8
     m_Address: collectibles_474_brokenglasscannon
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 39c40f29ee3dd364a92f3796c3b044fd
     m_Address: collectibles_473_bigchubby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6575039fcfeb5c742842565e1cdd2eaa
     m_Address: collectibles_472_kingbaby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e0abc541b3e3a3d479d70258ab4ced08
     m_Address: collectibles_471_lilmonstro
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0edfd9713cac64344986f0b8fc874134
     m_Address: collectibles_470_hushy
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 36581bf018d9d3b42808a1d4358ed4b4
     m_Address: collectibles_469_depression
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ac8e3b087cd2cb4c909759540cdeb3a
     m_Address: collectibles_468_shade
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9266f0323ceb3574a941bbcd376ad10d
     m_Address: collectibles_467_finger
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0a21eb409c166cb4fa2ede01bfbe0ebd
     m_Address: collectibles_466_contagion
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 80605cbfb68aba744888a91c0c37de78
     m_Address: collectibles_465_analogstick
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 97b42a743702850449655a6b3961277e
     m_Address: collectibles_464_glyphofbalance
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 70656d263d1c87a4291f5951ac25aabe
     m_Address: collectibles_463_sulfuricacid
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0bcac34d8ada0d04597260bb86979515
     m_Address: collectibles_462_eyeofbelial
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db9771de792f5564ca1c2aa5614bd18a
     m_Address: collectibles_461_parasitoid
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aa5e3e4c68aa8ad42848df4095bd9f58
     m_Address: collectibles_460_glaucoma
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e29577e05fc937419039417844a8526
     m_Address: collectibles_459_sinusinfection
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 15478fe9d7f16cf4b8cadf6a3e8d44a5
     m_Address: collectibles_458_bellybutton
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c656c6664f4f6d64eb88279ec7559973
     m_Address: collectibles_457_conehead
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4329bc29d288d0148a7e56c9769b03de
     m_Address: collectibles_456_moldybread
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4391a83e7457a504caab0de2cfdea435
     m_Address: collectibles_455_dadslostcoin
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 872907b81bed4604ba429fb8a2cfe526
     m_Address: collectibles_454_polydactyly
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2ec3e6abb4a803d4383941a76bbc3fa7
     m_Address: collectibles_453_compoundfracture
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a917814effb06f14199d7723e83eb222
     m_Address: collectibles_452_varicoseveins
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7abfe4e9a28518346a02e43d44488316
     m_Address: collectibles_451_tarotcloth
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fc1e84d89a7d58c4aad9664b866969b2
     m_Address: collectibles_450_eyeofgreed
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 13829ffc77cf7894cb831f6c135abebd
     m_Address: collectibles_449_metalplate
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b398e75c7da0f0d4894dbf547b31664f
     m_Address: collectibles_448_shardofglass
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d974e323514d0f941afae6ebe283bfdc
     m_Address: collectibles_447_lingerbean
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e9265cdcda31f114ba2175012851bc82
     m_Address: collectibles_446_deadtooth
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: db2fddd73e4ffde46b354d61a41b03a2
     m_Address: collectibles_445_dogtooth
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2382af97a0cba324d9b08016137fab25
     m_Address: collectibles_444_leadpencil
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bdb34dc4ef2afe44baeee1cb01d6df06
     m_Address: collectibles_443_apple
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 76069b69bb26e03499fa34568ef38236
     m_Address: collectibles_442_darkprincescrown
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d525d6d4418275c44af4aee2a3de6fdc
     m_Address: collectibles_441_megasatansbreath
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 527f3fd51a6764a4abb6dc187d0c29dc
     m_Address: collectibles_440_kidneystone
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25396e203b77b8941aa034aea7e65f9a
     m_Address: collectibles_439_momsbox
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dd68e879ddb6984419491013a978beea
     m_Address: collectibles_438_binky
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fa9ab7efd2849684f8aa92bd033b3d6b
     m_Address: collectibles_437_d7
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c4edf1bb1708bbf409204478604b43ff
     m_Address: collectibles_436_milk
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 22b3a20d974438c44ab7a3c2b8761192
     m_Address: collectibles_435_lilloki
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 87a30e975cd86724fa2588a73c8e4c36
     m_Address: collectibles_434_jarofflies
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2edb5367be3bc124aba08af19f098ee9
     m_Address: collectibles_433_myshadow
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c249233f05a969e44bd4d452c616605c
     m_Address: collectibles_432_glitterbombs
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2ce2753ee0bcc4e438b7f4104c3c83c1
     m_Address: collectibles_431_multidimensionalbaby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fdb3bf3e7cdc8964eb09db83099471a8
     m_Address: collectibles_430_papafly
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6206f4f085d13a2439f8df106610c7e3
     m_Address: collectibles_429_headofthekeeper
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 787c3cd3dc62afd4c9991c476234e149
     m_Address: collectibles_428_pjs
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fd7dfe0d6dbd0b243bcaf90ae26d5271
     m_Address: collectibles_427_minecrafter
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a8f70072b98d57d46874a36bffbb9dd4
     m_Address: collectibles_426_obsessedfan
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 628f992d8258ec24a805b3585d5dfc73
     m_Address: collectibles_425_nightlight
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2f9c17a6e7fdbc24a939b7f959e38e34
     m_Address: collectibles_424_sackhead
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a8b5f2728bca09498c4400d3129934d
     m_Address: collectibles_423_circleofprotection
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 78914a48b43fc83489809294d77963e2
     m_Address: collectibles_422_glowinghourglass
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 53cf0babffd4f964980d6248e350858a
     m_Address: collectibles_421_kidneybean
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 76c5fb2cd19f7b044bf1fce9c7035c50
     m_Address: collectibles_420_blackpowder
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a75f017f7eb75c4fb460f900605a258
     m_Address: collectibles_419_teleport20
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d124e1e9443d38b49b272d52b543911d
     m_Address: collectibles_418_fruitcake
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 73a4ec8d79fe17145aa5d8de8d3cd4ac
     m_Address: collectibles_417_succubus
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3a0df774863f8b42a028c7e53a12fb7
     m_Address: collectibles_416_deeppockets
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1157dea647c0b9d47a542c777db4cb11
     m_Address: collectibles_415_crownoflight
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cb7529979f8ff2641967a53d3a0ed4ae
     m_Address: collectibles_414_moreoptions
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 176a485703d960f438aefe7c7ffb6e98
     m_Address: collectibles_413_immaculateconception
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1e3673f2f3217ab4784ad9fa6a0bb755
     m_Address: collectibles_412_cambionconception
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 43bf2a5885e89784785905b00df5e5d2
     m_Address: collectibles_411_lustyblood
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d55ab021524e4bd49929d8ebc6a21b2b
     m_Address: collectibles_410_evileye
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d8e1b4768da8e743a0aa199ca20a7b9
     m_Address: collectibles_409_emptyvessel
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b4ca52e2e738d8044ba9f69fb8e0770c
     m_Address: collectibles_408_athame
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8550275404d5260459de5be38824157c
     m_Address: collectibles_407_purity
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 83e9bbd7abd06224fa503f393e6128ec
     m_Address: collectibles_406_d8
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9f4ba370762cd6d4c83394f31a48043b
     m_Address: collectibles_405_gbbug
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2dfbffc1f32fe2b409df115c3812b621
     m_Address: collectibles_404_fartbaby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ce8b0763370948a498c969cb1bdcc841
     m_Address: collectibles_403_spidermod
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f85f86fd8eb3d8146b1291655e042e8b
     m_Address: collectibles_402_chaos
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 73d9611d8ff5640418666354c9327229
     m_Address: collectibles_401_explosivo
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cc4eaf2c02dc9a04b900206bab02912b
     m_Address: collectibles_400_spearofdestiny
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8c0942066a0acbe4285ee75ad5f7773f
     m_Address: collectibles_399_mawofthevoid
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bf94ab518d2d64f4c936e3eee2a68003
     m_Address: collectibles_398_godsflesh
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 690f7bc4fe794f349bbf26256b9ba0b8
     m_Address: collectibles_397_tractorbeam
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6d565db4a50010e44a8645d95f0c95dd
     m_Address: collectibles_396_ventriclerazor
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 08f7ccf8af29dd14794e726682117247
     m_Address: collectibles_395_techx
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b61e489c433de774f86a1842454c793a
     m_Address: collectibles_394_marked
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 44429f859214faa4690806497ff5348c
     m_Address: collectibles_393_serpentskiss
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0f16db0baff223042bff02bb5fd54b54
     m_Address: collectibles_392_zodiac
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e0e882d816dfb994fa9ee109e2e836e7
     m_Address: collectibles_391_betrayal
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b43c6ff570ff7f245aae6840fbbc8c0e
     m_Address: collectibles_390_seraphim
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 41b41a72135ed174f92440de30c5cd83
     m_Address: collectibles_389_runebag
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ad3a1cc7f6b3c9244b60474a80a55131
     m_Address: collectibles_388_keybum
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c513a791e1723a14d9dc747b40f8310c
     m_Address: collectibles_387_censer
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d641af009fc939f43bc3823ec5a4295b
     m_Address: collectibles_386_d12
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6ea153e08b62da8479424bba3c411f72
     m_Address: collectibles_385_bumbo
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 12e137d046ccc8c48bed420cb8b1aff1
     m_Address: collectibles_384_lilgurdy
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8f99b8616058665418a86f831973d458
     m_Address: collectibles_383_teardetonator
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2e7792725b3b99e41b98307d46349eb3
     m_Address: collectibles_382_friendlyball
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 33bcc7f2003c04642a0167d9a4caa5ab
     m_Address: collectibles_381_edensblessing
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b4cea1ed7b5f974f868bbb85459da65
     m_Address: collectibles_380_paytoplay
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: de76da10b35efb34cb96a2c906e3aaf9
     m_Address: collectibles_379_pupuladuplex
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ced68e4a959b02b419527199c8567ed5
     m_Address: collectibles_378_numbertwo
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7d7dd9a48c81bb7478352a206acd78a9
     m_Address: collectibles_377_burstingsack
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 29e2e3495307be340861ded04acdb69e
     m_Address: collectibles_376_restock
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 834732c32d0289240ad03fecbda46fea
     m_Address: collectibles_375_hosthat
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e743181a73db02d4493333ea0994adb5
     m_Address: collectibles_374_holylight
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d26733f50390afc42bba79c55d90423f
     m_Address: collectibles_373_deadeye
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25c2c50c4aee4de47be0b436fcae2442
     m_Address: collectibles_372_chargedbaby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6eccbf758a3ddf448b24143e2feb1fd9
     m_Address: collectibles_371_curseofthetower
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 90f8aeb9554806442a35d8f456afa438
     m_Address: collectibles_370_mrdolly
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1add8985805b82c43a50ddfd21bb4002
     m_Address: collectibles_369_continuum
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 41dfcd378f2678541803dd5f70d4ad84
     m_Address: collectibles_368_epiphora
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5abd0d63cd2a3ef42b9aea6e66b4a9e9
     m_Address: collectibles_367_stickybombs
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 641c426addf4b3a469e67011892d2531
     m_Address: collectibles_366_scatterbombs
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fe85dbb997b00b542a084ee116413c33
     m_Address: collectibles_365_lostfly
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7e78ef3b0e4fe384caa53f5bdc6f1bf7
     m_Address: collectibles_364_friendzone
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0af3fb5e00cbc314c8b7fdaa5a16f21f
     m_Address: collectibles_363_swornprotector
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 409f8d5ca31129e44b98093f224c1d2a
     m_Address: collectibles_362_lilchest
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c44454a12d592544685a3e9a5c15431b
     m_Address: collectibles_361_fatesreward
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9286d0a5c87e563428ecd3625d56e374
     m_Address: collectibles_360_incubus
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bccdcdc42ecbdb04a8965367932a31ee
     m_Address: collectibles_359_8inchnails
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9981410dc7411f84088d3f2329167bef
     m_Address: collectibles_358_thewiz
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8a1b6dd7c3e3c8949a4a520ccc9a2904
     m_Address: collectibles_357_pandorasbox
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 523bba42b5f798a4b960880ac3f7946d
     m_Address: collectibles_356_carbattery
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e61e81d5420137844a784471d8c6681e
     m_Address: collectibles_355_momspearls
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 25995de89c418cf4da566251cedee5f0
     m_Address: collectibles_354_crackjacks
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb2afe085e91b614ea1a4b5cc2f3dd9d
     m_Address: collectibles_353_bomberboy
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7f3f9ffb0dcee2d45a7a2f2addb83574
     m_Address: collectibles_352_glasscannon
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ddff9c6f8ad82904baf7f4a1f71aec26
     m_Address: collectibles_351_megabean
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c778422f862f55644821a8a847027ff1
     m_Address: collectibles_350_toxicshock
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 649d5539f05b20c47b8ab36d037b5666
     m_Address: collectibles_349_woodennickel
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 240d25af4b1394c44a73047c32df80a1
     m_Address: collectibles_348_placebo
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 14605f20aee469e4ea88dcafa9c8773e
     m_Address: collectibles_347_diplopia
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f0792c9e465fa3a4b9adb06145061696
     m_Address: collectibles_346_asnack
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 88b2e253b8c0bc34fb30eb1dfaa5d5b1
     m_Address: collectibles_345_synthoil
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 407a48d1d4dde394f81ec61ff90d122c
     m_Address: collectibles_344_matchbook
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a2b0ed2919bba464ba9fc67a98c293ce
     m_Address: collectibles_343_latchkey
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 23d6fe96004733d43a47bbe16853c49d
     m_Address: collectibles_342_bluecap
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fe2fc46f8f235004ab857f70a72a91c6
     m_Address: collectibles_341_tornphoto
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d3c4ee4a7c5abf4e94382af675cec2f
     m_Address: collectibles_340_caffeinepill
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ab8e8d3b9f0dab439b3dcd2cec7a987
     m_Address: collectibles_339_safetypin
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bea042e29ee351f4d934da03a408b8b2
     m_Address: collectibles_338_boomerang
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 46708259c7da46241b9889883d7a4740
     m_Address: collectibles_337_brokenwatch
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c26d3918a01668340aeca7f3bf9f02dd
     m_Address: collectibles_336_deadonion
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 858f33b341f83254aa2926a0c770541e
     m_Address: collectibles_335_soul
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a2d76244fd8698447a86263ef5f721d9
     m_Address: collectibles_334_body
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3929b4ab6b8e3e243b515b4256c114b6
     m_Address: collectibles_333_mind
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b41b1b2063b54814d84d4938d0aa45f1
     m_Address: collectibles_332_lazarusrags
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1ddaad90c8de171418fef23bf79b833b
     m_Address: collectibles_331_godhead
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 54f12fd034762a3479679d5f30ed50cb
     m_Address: collectibles_330_soymilk
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2b180fd082dcb7d43a207a0707a4253a
     m_Address: collectibles_329_theludovicotechnique
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b0cfa89269245174c9974e0292337bc0
     m_Address: collectibles_328_thenegative
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a51d3f7c723bf4f4c92f584bf665eb2c
     m_Address: collectibles_327_thepolaroid
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 76f608bada85a1447a6f8c4b8ee30d82
     m_Address: collectibles_326_breathoflife
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 00fc38d42081c5942a6ad933b6364d85
     m_Address: collectibles_325_scissors
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d999d340c2b813646bbef276715cf05d
     m_Address: collectibles_324_undefined
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: daf9333b5d40a6b499ef35bba4c8ee93
     m_Address: collectibles_323_isaacstears
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eef4aec92a6f5434ba2b23f813699c3f
     m_Address: collectibles_322_mongobaby
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 844e83b4b51fc1b45b4ae185e2e1f9e9
     m_Address: collectibles_321_samsonschains
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e234f65e90658904fbbc8808e9589570
     m_Address: collectibles_320_bluebabysonlyfriend
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f6dd35731511ae84db66942a5c6923d4
     m_Address: collectibles_319_cainseye
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 24a92da16aba1e444a8f39c6afb08147
     m_Address: collectibles_318_gemini
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 20a758b9d6655224c9dd3da8a10bc118
     m_Address: collectibles_317_mysteriousliquid
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f9e27c85ef56d964b872d26a67802375
     m_Address: collectibles_316_cursedeye
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 767aa0c2fc57ac841999b77ece908f76
     m_Address: collectibles_315_strangeattractor
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 333073a60dd6e89489b6bee330a16d76
     m_Address: collectibles_314_thunderthighs
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6979c887022dc9b4b9afcfb074693d56
     m_Address: collectibles_313_holymantle
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3d2e28a7d27dd094b8671bf4f8a49e16
     m_Address: collectibles_312_maggysbow
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab9ac766996e01f428df82f3e39d2f63
     m_Address: collectibles_311_judasshadow
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 974ab78f5f529de4d87e7e74275680db
     m_Address: collectibles_310_evesmascara
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1cf96a03a11b2024289054d39134aa98
     m_Address: collectibles_309_pisces
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 31bc350649af67c4a8dc4b8a42d044e1
     m_Address: collectibles_308_aquarius
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9b996ae76be2c3f43b56366f4c814d35
     m_Address: collectibles_307_capricorn
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6a4992bd27c8adc42b51703b696ea746
     m_Address: collectibles_306_sagittarius
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eaf9368406e65ef41a81d78146b98e32
     m_Address: collectibles_305_scorpio
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e66a659d2a8f8e64ebdaca35536fb108
     m_Address: collectibles_304_libra
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ea5f1cf79efd1c469dd828249d901e8
     m_Address: collectibles_303_virgo
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7dfadb6c4ff5d9d45b91ceae7429a425
     m_Address: collectibles_302_leo
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d16249bd3c26599468d0eba9c03e26e5
     m_Address: collectibles_301_cancer
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ff25adddfafde0544b520e7eb7708001
     m_Address: collectibles_500_sackofsacks
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 22528bda6f2b90847b08b8d1e4d74ea1
     m_Address: collectibles_501_greedsgullet
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 48d009723926eab4c9df7dfe03b5617e
     m_Address: collectibles_502_largezit
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3547a606a93a1cb48a26a355d048fa8c
     m_Address: collectibles_503_littlehorn
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3659a200c4e33fd40a0ac1537fac21f4
     m_Address: collectibles_504_brownnugget
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fe68bf37f1658a34182dfa4cbd7fae7b
     m_Address: collectibles_505_pokego
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0de7b3e19780de34c819043262bf30ba
     m_Address: collectibles_506_backstabber
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3d20d73ffd4b687428fc7625b9ad7fa4
     m_Address: collectibles_507_sharpstraw
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 33a1f5675d9e61d40bf27d142e2e552e
     m_Address: collectibles_508_momsrazor
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d03ef63659551314eadc1dafbb73270f
     m_Address: collectibles_509_bloodshoteye
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 316f326ff9deb444f8b2d7ba2b7a4977
     m_Address: collectibles_510_delirious
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2016473a9a266c249a338308e07a32bb
     m_Address: collectibles_511_angryfly
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d71a2542fa643a34da233ce56c1d4d91
     m_Address: collectibles_512_blackhole
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62bbfd2ac74cca64dbf3368314085c23
     m_Address: collectibles_513_bozo
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8eb5707c19869254aafb1cbf2254e83e
     m_Address: collectibles_514_brokenmodem
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6541402064c57c841a871573ed89d34c
     m_Address: collectibles_515_mysterygift
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f798653896518b54fa31908eae3863b4
     m_Address: collectibles_516_sprinkler
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 49e8d84d68c738447ab49ff995df427d
     m_Address: collectibles_517_fastbombs
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 27d37ac7eca61ce488beac8ab8d4a322
     m_Address: collectibles_518_buddybox
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7b7a54fcec3e6bf4bad9ededdd0f60ee
     m_Address: collectibles_519_lildelirium
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ba17abbed94b4474d9582d3406331af1
     m_Address: collectibles_520_jumpercable
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0c7f36ad7219b8146a5c2df3cafae41d
     m_Address: collectibles_521_cerealcutout
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e2bf79fd1c0211745aba445509ef4601
     m_Address: collectibles_522_telekinesis
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6b5eaefd2c60c6d49b611359537035a1
     m_Address: collectibles_523_movingbox
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 42bf5ad6125ad5c46aaab302a8a9657d
     m_Address: collectibles_524_technologyzero
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c22ff34a6460f0a4796af7b054d1a5d5
     m_Address: collectibles_525_leprosy
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7b199e3727b48ef409f16b808243fb02
     m_Address: collectibles_526_7seals
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e0b48d5c6df0c0f418f506a896abc15e
     m_Address: collectibles_527_mr_me
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3ca44f3eaa735aa409be0aa854065be0
     m_Address: collectibles_528_angelic prism
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e8e060155e13984f9aaffbf2dbf0a92
     m_Address: collectibles_529_pop
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2d46b9d8fd71c4e409982720dd4d33d9
     m_Address: collectibles_530_deathslist
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aa1094e66272a0e4a9840359c02c27f2
     m_Address: collectibles_531_haemolacria
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: df9a968ca130b60428e0fe0906aa660c
     m_Address: collectibles_532_lachryphagy
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a08a18e43f85f16468bd8294aa545bd7
     m_Address: collectibles_533_trisagion
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 74515adf5c03de84d882e56082b4b255
     m_Address: collectibles_534_schoolbag
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d1d087ddd92079b45a952b8e9007af40
     m_Address: collectibles_535_blanket
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d888b715a54703144b9a1cf1ffa95be8
     m_Address: collectibles_536_sacrificialaltar
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: df05aee634dd41345b3e6e81fc0d5328
     m_Address: collectibles_537_lilspewer
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a4c8832b82fbeb64a86f1c129b434352
     m_Address: collectibles_538_marbles
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5de0214bda4fc4f4ca116fc2d859fa0d
     m_Address: collectibles_539_mysteryegg
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: eb42687a8a591644d922267c65d94a50
     m_Address: collectibles_540_flatstone
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0f73e55a5c3173e4b8c41bc4b1a292c0
     m_Address: collectibles_541_marrow
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a6fc6344b6b6bfa4f8fef433363f1c7e
     m_Address: collectibles_542_slippedrib
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1b03575256d56494981411d47f2a7dae
     m_Address: collectibles_543_hallowedground
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 47a9814e3bb47d04f8d16d757d0f8ac4
     m_Address: collectibles_544_pointyrib
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2aa1e1ad8402d894ca3e82d6c5c4df06
     m_Address: collectibles_545_bookofthedead
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e13836da8973afc438b95f017f227efc
     m_Address: collectibles_546_dadsring
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 84902334125624f4d958b2c299e57675
     m_Address: collectibles_547_divorcepapers
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b1649f982306eef4eaf9061aa8ac3b4f
     m_Address: collectibles_548_jawbone
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ed5496cbb0c6d61479507abead60517a
     m_Address: collectibles_549_brittlebones
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0a115cbe24eed3a418d088be32b29fe1
     m_Address: collectibles_550_shovelpiece1
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7a412ec6e0ec034da85c68b60a1d1a4
     m_Address: collectibles_551_shovelpiece2
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3729f52f93451624b873775a889d02de
     m_Address: collectibles_552_momsshovel
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
     - Sprite
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
