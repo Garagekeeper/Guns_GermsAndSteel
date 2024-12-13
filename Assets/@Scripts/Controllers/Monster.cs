@@ -32,6 +32,9 @@ public class Monster : Creature
                     case EMonsterState.Skill:
                         UpdateAITick = 0.0f;
                         break;
+                    case EMonsterState.Move:
+                        UpdateAITick = 0.0f;
+                        break;
                 }
             }
         }
@@ -65,16 +68,16 @@ public class Monster : Creature
        };
 
 
-        if (!_isFloating)
-        {
-            lr = GetComponent<LineRenderer>();
+        //if (!_isFloating)
+        //{
+        //    lr = GetComponent<LineRenderer>();
 
-            lr.startWidth = lr.endWidth = 0.05f;
-            lr.material.color = Random.ColorHSV();
-            lr.enabled = false;
+        //    lr.startWidth = lr.endWidth = 0.05f;
+        //    lr.material.color = Random.ColorHSV();
+        //    lr.enabled = false;
 
-            //StartCoroutine(CoUpdateTarget());
-        }
+        //    //StartCoroutine(CoUpdateTarget());
+        //}
     }
 
     void Update()
@@ -110,13 +113,13 @@ public class Monster : Creature
 
     protected override void UpdateMove()
     {
-        Target = FindClosetTarget(this, Managers.Object.MainCharacters.ToList<Creature>());
-        if (_isFloating)
+        if (_isFloating || CreatureMoveState == ECreatureMoveState.Designated )
         {
             UpdateMovementByDV();
         }
         else
         {
+            Target = FindClosetTarget(this, Managers.Object.MainCharacters.ToList<Creature>());
             UpdateMovementByAstar();
         }
     }
@@ -152,7 +155,7 @@ public class Monster : Creature
         if (Target)
             Rigidbody.velocity = (Target.transform.position - transform.position).normalized * Speed;
         else
-            Rigidbody.velocity = TargetPos - transform.position.normalized * Speed;
+            Rigidbody.velocity = TargetPos.normalized * Speed;
     }
 
     protected override IEnumerator CoUpdateAI()

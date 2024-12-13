@@ -103,6 +103,7 @@ public static class Define
     {
         None,
         Fly,
+        Maggot,
     }
 
     public enum EMonsterState

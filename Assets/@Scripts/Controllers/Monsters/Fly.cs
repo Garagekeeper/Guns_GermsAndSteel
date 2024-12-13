@@ -43,7 +43,6 @@ public class Fly : Monster
 
     protected override void UpdateIdle()
     {
-        base.UpdateIdle();
         // 0.중립일 경우 patrol
         if (FlyType == EFlyType.Neutral)
         {

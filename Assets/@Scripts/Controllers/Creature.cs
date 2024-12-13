@@ -162,6 +162,7 @@ public class Creature : BaseObject
         else
         {
             AnimatorBottom = transform.GetComponentInChildren<Animator>();
+            Bottom = transform.GetComponent<SpriteRenderer>();
         }
        
 
