@@ -41,16 +41,18 @@ public class MainCharacter : Creature
             _isInvincible = value;
             if (_isInvincible != value)
             {
+                //왜인진 mask 부분이 동작하지 않는데
+                //의도한 대로 움직이니까 일단? 놔둠
                 _isInvincible = value;
                 int mask = 0;
                 mask |= 1 << (int)ELayer.Projectile;
                 mask |= 1 << (int)ELayer.Boss;
                 mask |= 1 << (int)ELayer.Obstacle;
+                mask |= 1 << (int)ELayer.Monster;
                 if (value)
                     Collider.excludeLayers = mask;
                 else
                     Collider.includeLayers = mask;
-
 
             }
         }
@@ -234,6 +236,7 @@ public class MainCharacter : Creature
     }
     private void UpdateMovement(Vector2 vel)
     {
+        if (Rigidbody.velocity == vel) return; 
         Rigidbody.velocity = vel;
 
         if (vel != Vector2.zero)
@@ -469,6 +472,7 @@ public class MainCharacter : Creature
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (collision.transform.tag == "Door" && Managers.Map.CurrentRoom.IsClear)
         {
             CanMove = false;
