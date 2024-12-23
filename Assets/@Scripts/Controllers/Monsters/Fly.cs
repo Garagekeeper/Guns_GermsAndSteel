@@ -57,13 +57,11 @@ public class Fly : Monster
         // 1.적대일 경우 플레이어 쫒아감
         else
         {
-            Target = Target = FindClosetTarget(this, Managers.Object.MainCharacters.ToList<Creature>());
+            Target = FindClosetTarget(this, Managers.Object.MainCharacters.ToList<Creature>());
             MonsterState = EMonsterState.Move;
             AnimatorBottom.Play("HostileMove");
         }
-        
 
     }
-
 
 }

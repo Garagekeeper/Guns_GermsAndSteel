@@ -453,4 +453,37 @@ public class Creature : BaseObject
     {
 
     }
+
+    protected virtual void UpdateDead() { }
+
+    protected virtual void UpdateExplosion() { }
+
+    public void ReflectTargetVecor(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Projectile")
+        {
+            return;
+        }
+
+        //Debug.Log("dirVec: " + dirVec);
+        //Vector3 incomingVec = hitPos - dirVec;
+        TargetPos = Vector3.Reflect(TargetPos, collision.GetContact(0).normal);
+
+    }
+
+    public void ReflectTargetVecor(Collider2D collider2D)
+    {
+        if (collider2D.gameObject.tag == "Player")
+        {
+            return;
+        }
+
+        //Debug.Log("dirVec: " + dirVec);
+        //Vector3 incomingVec = hitPos - dirVec
+        // 충돌한 지점의 좌표.
+        // (나의 거리와 충돌한 물체의 콜라이더 좌표중에 제일 가까운 좌표)
+        Vector2 contactPoint = collider2D.ClosestPoint(transform.position);
+        TargetPos = Vector3.Reflect(TargetPos, contactPoint.normalized);
+
+    }
 }

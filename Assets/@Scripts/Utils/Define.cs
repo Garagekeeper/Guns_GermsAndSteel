@@ -102,6 +102,7 @@ public static class Define
     public enum EMonsterType
     {
         None,
+        BoomFly,
         Fly,
         Maggot,
     }

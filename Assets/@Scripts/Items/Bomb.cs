@@ -53,7 +53,7 @@ public class Bomb : MonoBehaviour
         }
     }
 
-    public void DestroyBomb()
+    public void Destroyprefab()
     {
         Destroy(gameObject);
     }

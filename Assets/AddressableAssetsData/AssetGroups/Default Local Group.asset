@@ -16,22 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 661158fbcd809d048818ff93521f4887
-  m_SerializeEntries:
-  - m_GUID: 2312d70f3c2ffcb4ead2624c8c3cd16f
-    m_Address: monster_105_maggot
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - InGame
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0be19fcdb1b6a6c43a386d7c8650e5ad
-    m_Address: monster_113_charger
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

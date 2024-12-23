@@ -60,19 +60,19 @@ public class Maggot : Monster
         _isFloating = false;
         base.Init();
 
-        //if (Random.Range(1, 101) <= 50)
-        //{
-        //    MaggotType = EMaggotType.Maggot;
-        //    Speed = 0.5f;
-        //    AnimatorBottom.Play("MaggotlIdle");
-        //}
-        //else
-        //{
-        //    MaggotType = EMaggotType.Charger;
-        //    AnimatorBottom.Play("ChargerIdle");
-        //}
+        if (Random.Range(1, 101) <= 50)
+        {
+            MaggotType = EMaggotType.Maggot;
+            Bottom.sprite = Managers.Resource.Load<Sprite>("monster_105_maggot_0");
+            AnimatorBottom.Play("MaggotIdle");
+        }
+        else
+        {
+            MaggotType = EMaggotType.Charger;
+            Bottom.sprite = Managers.Resource.Load<Sprite>("monster_113_charger_0");
+            AnimatorBottom.Play("ChargerIdle");
+        }
 
-        MaggotType = EMaggotType.Charger;
         Speed = 1f;
     }
 

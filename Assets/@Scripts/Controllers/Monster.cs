@@ -35,6 +35,9 @@ public class Monster : Creature
                     case EMonsterState.Move:
                         UpdateAITick = 0.0f;
                         break;
+                    case EMonsterState.Dead:
+                        UpdateAITick = 0.0f;
+                        break;
                 }
             }
         }
@@ -53,6 +56,7 @@ public class Monster : Creature
         CreatureType = ECreatureType.Monster;
         Speed = 1.0f;
         Hp = 10.0f;
+        Range = 3f;
 
         ////Monster끼리는 충돌 X
         //LayerMask mask = 0;
@@ -124,7 +128,6 @@ public class Monster : Creature
         }
     }
 
-
     // Based on A* path finding
     public void UpdateMovementByAstar()
     {
@@ -158,6 +161,19 @@ public class Monster : Creature
             Rigidbody.velocity = TargetPos.normalized * Speed;
     }
 
+    protected override void UpdateExplosion()
+    {
+        Rigidbody.velocity = Vector3.zero;
+        Collider2D[] hit = Physics2D.OverlapBoxAll(transform.position, new Vector2(Range, Range), 0);
+        foreach (Collider2D collider in hit)
+        {
+            var temp = collider.gameObject;
+            temp.GetComponent<Creature>()?.OnDamaged(this, ESkillType.Bomb);
+        }
+        MonsterState = EMonsterState.Dead;
+        AnimatorBottom.Play("Explosion");
+    }
+
     protected override IEnumerator CoUpdateAI()
     {
         while (true)
@@ -174,8 +190,10 @@ public class Monster : Creature
                     UpdateMove();
                     break;
                 case EMonsterState.Dead:
+                    UpdateDead();
                     break;
                 case EMonsterState.Explosion:
+                    UpdateExplosion();
                     break;
             }
 

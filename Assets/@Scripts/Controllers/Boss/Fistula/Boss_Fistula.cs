@@ -121,7 +121,7 @@ public class Boss_Fistula : Boss
                     MaxHp += 15f;
                     i++;
                 }
-                
+
             }
         }
         else
@@ -167,8 +167,9 @@ public class Boss_Fistula : Boss
     {
         go.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
         go.SetActive(false);
-        //TODO
-        //Managers.Object.Spawn<Monster>(new Vector3());
+        
+        Managers.Object.Spawn<Monster>(go.transform.position, 0, "Maggot");
+
         OnDead();
     }
 

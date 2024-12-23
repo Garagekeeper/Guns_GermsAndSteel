@@ -107,6 +107,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c39884eba4078f42ad219f72384e141
+    m_Address: Maggot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:
