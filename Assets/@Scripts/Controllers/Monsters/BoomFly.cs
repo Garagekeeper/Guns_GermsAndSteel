@@ -38,15 +38,6 @@ public class BoomFly : Monster
     //Animation Event
     public void Destroyprefab()
     {
-        Collider2D[] hit = Physics2D.OverlapBoxAll(transform.position, new Vector2(Range, Range), 0);
-        foreach (Collider2D collider in hit)
-        {
-            var temp = collider.gameObject;
-            //TODO 폭탄의 경우 여러 물체와 상호작용한다
-            //모든 Object의 조상을 만들어서 Object 타입을 통해 적절한 상호작용으로 교체하자.
-            temp.GetComponent<Creature>()?.OnDamaged(this, ESkillType.Bomb);
-        }
-        MonsterState = EMonsterState.Dead;
         Destroy(gameObject);
     }
 }
