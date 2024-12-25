@@ -409,7 +409,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_55
+      name: bulletatlas_20
       rect:
         serializedVersion: 2
         x: 233
@@ -430,11 +430,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_63
+      name: bulletatlas_13
       rect:
         serializedVersion: 2
         x: 13
-        y: 429
+        y: 430
         width: 6
         height: 6
       alignment: 0
@@ -451,7 +451,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_64
+      name: bulletatlas_14
       rect:
         serializedVersion: 2
         x: 44
@@ -472,7 +472,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_65
+      name: bulletatlas_15
       rect:
         serializedVersion: 2
         x: 76
@@ -493,7 +493,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_66
+      name: bulletatlas_16
       rect:
         serializedVersion: 2
         x: 107
@@ -514,7 +514,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_67
+      name: bulletatlas_17
       rect:
         serializedVersion: 2
         x: 139
@@ -535,7 +535,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_68
+      name: bulletatlas_18
       rect:
         serializedVersion: 2
         x: 170
@@ -556,7 +556,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_69
+      name: bulletatlas_19
       rect:
         serializedVersion: 2
         x: 202
@@ -598,7 +598,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_88
+      name: bulletatlas_22
       rect:
         serializedVersion: 2
         x: 39
@@ -619,7 +619,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_89
+      name: bulletatlas_23
       rect:
         serializedVersion: 2
         x: 70
@@ -640,7 +640,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_90
+      name: bulletatlas_24
       rect:
         serializedVersion: 2
         x: 100
@@ -661,7 +661,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_91
+      name: bulletatlas_25
       rect:
         serializedVersion: 2
         x: 131
@@ -682,7 +682,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_98
+      name: bulletatlas_21
       rect:
         serializedVersion: 2
         x: 8
@@ -703,7 +703,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_106
+      name: bulletatlas_27
       rect:
         serializedVersion: 2
         x: 43
@@ -724,7 +724,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_107
+      name: bulletatlas_28
       rect:
         serializedVersion: 2
         x: 75
@@ -745,11 +745,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_108
+      name: bulletatlas_29
       rect:
         serializedVersion: 2
         x: 106
-        y: 362
+        y: 363
         width: 12
         height: 12
       alignment: 0
@@ -766,7 +766,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_109
+      name: bulletatlas_30
       rect:
         serializedVersion: 2
         x: 138
@@ -787,7 +787,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_110
+      name: bulletatlas_31
       rect:
         serializedVersion: 2
         x: 169
@@ -808,7 +808,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_111
+      name: bulletatlas_32
       rect:
         serializedVersion: 2
         x: 201
@@ -829,7 +829,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_112
+      name: bulletatlas_33
       rect:
         serializedVersion: 2
         x: 232
@@ -850,7 +850,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_116
+      name: bulletatlas_26
       rect:
         serializedVersion: 2
         x: 12
@@ -871,7 +871,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_121
+      name: bulletatlas_34
       rect:
         serializedVersion: 2
         x: 7
@@ -892,7 +892,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_122
+      name: bulletatlas_35
       rect:
         serializedVersion: 2
         x: 38
@@ -913,7 +913,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_123
+      name: bulletatlas_36
       rect:
         serializedVersion: 2
         x: 69
@@ -934,7 +934,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_124
+      name: bulletatlas_37
       rect:
         serializedVersion: 2
         x: 99
@@ -955,11 +955,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_125
+      name: bulletatlas_38
       rect:
         serializedVersion: 2
         x: 130
-        y: 323
+        y: 324
         width: 28
         height: 27
       alignment: 0
@@ -976,7 +976,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_136
+      name: bulletatlas_39
       rect:
         serializedVersion: 2
         x: 12
@@ -997,7 +997,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_137
+      name: bulletatlas_40
       rect:
         serializedVersion: 2
         x: 43
@@ -1018,7 +1018,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_138
+      name: bulletatlas_41
       rect:
         serializedVersion: 2
         x: 75
@@ -1039,7 +1039,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_139
+      name: bulletatlas_42
       rect:
         serializedVersion: 2
         x: 106
@@ -1060,11 +1060,11 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_140
+      name: bulletatlas_43
       rect:
         serializedVersion: 2
         x: 138
-        y: 298
+        y: 299
         width: 13
         height: 13
       alignment: 0
@@ -1081,7 +1081,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_141
+      name: bulletatlas_44
       rect:
         serializedVersion: 2
         x: 169
@@ -1102,7 +1102,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_142
+      name: bulletatlas_45
       rect:
         serializedVersion: 2
         x: 201
@@ -1123,7 +1123,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_143
+      name: bulletatlas_46
       rect:
         serializedVersion: 2
         x: 232
@@ -1165,28 +1165,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_145
-      rect:
-        serializedVersion: 2
-        x: 487
-        y: 304
-        width: 10
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 674a6deb402b6d04b9fba3cefa7586a3
-      internalID: 1848509498
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_150
+      name: bulletatlas_47
       rect:
         serializedVersion: 2
         x: 7
@@ -1207,7 +1186,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_151
+      name: bulletatlas_48
       rect:
         serializedVersion: 2
         x: 38
@@ -1228,7 +1207,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_152
+      name: bulletatlas_49
       rect:
         serializedVersion: 2
         x: 69
@@ -1249,7 +1228,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_153
+      name: bulletatlas_50
       rect:
         serializedVersion: 2
         x: 99
@@ -1270,7 +1249,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_154
+      name: bulletatlas_51
       rect:
         serializedVersion: 2
         x: 130
@@ -1286,342 +1265,6 @@ TextureImporter:
       bones: []
       spriteID: 22e5384783137e248b12b65018c6c838
       internalID: 533493051
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_162
-      rect:
-        serializedVersion: 2
-        x: 408
-        y: 218
-        width: 17
-        height: 19
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 178b1c50afabee044bfd91a02589ee30
-      internalID: -1381619023
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_163
-      rect:
-        serializedVersion: 2
-        x: 424
-        y: 233
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8bb892b8ef024ae4f83ceb72ee2a2572
-      internalID: 1610874883
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_164
-      rect:
-        serializedVersion: 2
-        x: 470
-        y: 214
-        width: 25
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c27f44db09db184f8421ce4218b3480
-      internalID: 290883975
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_165
-      rect:
-        serializedVersion: 2
-        x: 488
-        y: 235
-        width: 5
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5f9119b9d1cdfb3448fd0c9bcbd17f3e
-      internalID: -565799516
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_166
-      rect:
-        serializedVersion: 2
-        x: 663
-        y: 218
-        width: 17
-        height: 19
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 73628a6c9ede296438eb35a06cb49bee
-      internalID: 1207700003
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_167
-      rect:
-        serializedVersion: 2
-        x: 679
-        y: 233
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e82b031770fa5e4f9edf955b008ba89
-      internalID: 1225835695
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_168
-      rect:
-        serializedVersion: 2
-        x: 725
-        y: 214
-        width: 25
-        height: 26
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e511800659fcd26499555180e792adde
-      internalID: 1551758888
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_170
-      rect:
-        serializedVersion: 2
-        x: 24
-        y: 153
-        width: 20
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2e1666d0462b5f543b68839d7afb1a6e
-      internalID: -816145258
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_171
-      rect:
-        serializedVersion: 2
-        x: 29
-        y: 222
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e9ae721a5f7afc41959393a2fcb4945
-      internalID: -1950403979
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_172
-      rect:
-        serializedVersion: 2
-        x: 83
-        y: 32
-        width: 34
-        height: 148
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3f9ada1834620c5479aa1bd8175dfec7
-      internalID: 1870272006
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_173
-      rect:
-        serializedVersion: 2
-        x: 93
-        y: 222
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a1ad2253179ba494e8fd074e5de40bdb
-      internalID: 116367200
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_174
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 143
-        width: 40
-        height: 39
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8140e805f6d80f24dbdb75eddd721c28
-      internalID: -485967997
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_175
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 221
-        width: 9
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29437a0b11b4932489c7760c77ea9a9b
-      internalID: -1210944244
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_176
-      rect:
-        serializedVersion: 2
-        x: 167
-        y: 96
-        width: 85
-        height: 90
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb2a01c54bf638848aa2c167a71bb6f6
-      internalID: 1644060362
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_177
-      rect:
-        serializedVersion: 2
-        x: 218
-        y: 219
-        width: 15
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 92a21c8a8909215478d041991de28006
-      internalID: 516888327
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_178
-      rect:
-        serializedVersion: 2
-        x: 273
-        y: 144
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 476d156509b79a44f8162f524f0f4407
-      internalID: -2134574821
       vertices: []
       indices: 
       edges: []
@@ -1648,174 +1291,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_180
-      rect:
-        serializedVersion: 2
-        x: 274
-        y: 127
-        width: 29
-        height: 55
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c184efd748f379248b249785960476b2
-      internalID: -624649511
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_181
-      rect:
-        serializedVersion: 2
-        x: 281
-        y: 218
-        width: 15
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1927c102c2ff33041bfaa62f2cae1319
-      internalID: 1641516382
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_182
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 177
-        width: 8
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 03236938d22d595468fa8a772ecc165f
-      internalID: -1976915503
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_183
-      rect:
-        serializedVersion: 2
-        x: 301
-        y: 152
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2d4e880fa1d1c1b4c9e50143d19a5cf0
-      internalID: -1613066143
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_184
-      rect:
-        serializedVersion: 2
-        x: 332
-        y: 137
-        width: 6
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e423d98459cb2d94ca407bc6b8e3091b
-      internalID: -1559298268
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_185
-      rect:
-        serializedVersion: 2
-        x: 334
-        y: 153
-        width: 27
-        height: 37
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1eb3ee97604d62d4aadc6c9aacec157a
-      internalID: -264575669
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_186
-      rect:
-        serializedVersion: 2
-        x: 345
-        y: 218
-        width: 15
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3e28500c882e7040b7b5ed715937184
-      internalID: -1522460438
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_187
-      rect:
-        serializedVersion: 2
-        x: 366
-        y: 139
-        width: 15
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d1a9eec6b0336a6499584ac6409381ee
-      internalID: -838512333
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: bulletatlas_188
       rect:
         serializedVersion: 2
@@ -1832,48 +1307,6 @@ TextureImporter:
       bones: []
       spriteID: a040b8c80aad32e44aee42449b68808c
       internalID: 2481983
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_189
-      rect:
-        serializedVersion: 2
-        x: 394
-        y: 156
-        width: 30
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6bd7d54e535d3024b9897119506c08a7
-      internalID: -1616812415
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_190
-      rect:
-        serializedVersion: 2
-        x: 395
-        y: 183
-        width: 46
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ba498a72158f35840a565220d08d20b9
-      internalID: 2128742403
       vertices: []
       indices: 
       edges: []
@@ -1900,111 +1333,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_192
-      rect:
-        serializedVersion: 2
-        x: 421
-        y: 213
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 26fb78c45a8a5474987d9e08313ef4f4
-      internalID: -1405090047
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_193
-      rect:
-        serializedVersion: 2
-        x: 433
-        y: 131
-        width: 26
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c98064676ac6c824e8da920caf077622
-      internalID: -1782752474
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_194
-      rect:
-        serializedVersion: 2
-        x: 475
-        y: 187
-        width: 32
-        height: 28
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 26112218c7c4d0d448f19fefdddb7f7e
-      internalID: -450955489
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_195
-      rect:
-        serializedVersion: 2
-        x: 476
-        y: 155
-        width: 13
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1cf429ad23052d478d9a6d9fe30145a
-      internalID: -4159994
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_196
-      rect:
-        serializedVersion: 2
-        x: 486
-        y: 90
-        width: 53
-        height: 62
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 779905a4a752d3b4195287ff7348faad
-      internalID: -233281525
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: bulletatlas_197
       rect:
         serializedVersion: 2
@@ -2021,174 +1349,6 @@ TextureImporter:
       bones: []
       spriteID: c64daefa38ba7494da1cfee2e8948f57
       internalID: -1652091960
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_198
-      rect:
-        serializedVersion: 2
-        x: 529
-        y: 144
-        width: 29
-        height: 38
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 53ceeebf25bf5ea4eb6a6bc63b769a00
-      internalID: -1116261418
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_199
-      rect:
-        serializedVersion: 2
-        x: 536
-        y: 218
-        width: 15
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f1a81b04785e0ba4198a0e807a661985
-      internalID: 681631286
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_200
-      rect:
-        serializedVersion: 2
-        x: 555
-        y: 177
-        width: 8
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b80b86bd66fdca444a60e685ddf6da7a
-      internalID: -100393120
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_201
-      rect:
-        serializedVersion: 2
-        x: 556
-        y: 152
-        width: 9
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b39d8ae38cccce045aa314f69ee1ca6f
-      internalID: -476205697
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_202
-      rect:
-        serializedVersion: 2
-        x: 587
-        y: 137
-        width: 6
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c19e89508be2ce34ab8c9ceadf40df5f
-      internalID: -676026981
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_203
-      rect:
-        serializedVersion: 2
-        x: 589
-        y: 153
-        width: 27
-        height: 37
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ee9b1f56a9a05084989171eb5b2efc7b
-      internalID: -74632796
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_204
-      rect:
-        serializedVersion: 2
-        x: 600
-        y: 218
-        width: 15
-        height: 15
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 082a0a0e83acfe74d9fb68f4dd09c028
-      internalID: -326434468
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_205
-      rect:
-        serializedVersion: 2
-        x: 621
-        y: 139
-        width: 15
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6a950402390357b4db786e1f566c3e72
-      internalID: -960075535
       vertices: []
       indices: 
       edges: []
@@ -2215,48 +1375,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_207
-      rect:
-        serializedVersion: 2
-        x: 649
-        y: 156
-        width: 30
-        height: 14
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2e2ba6023ff29f140995207a70759fbe
-      internalID: 644937254
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_208
-      rect:
-        serializedVersion: 2
-        x: 650
-        y: 183
-        width: 46
-        height: 9
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1402f09c11be86a478ca87c21fc2bdfd
-      internalID: 1885102558
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: bulletatlas_209
       rect:
         serializedVersion: 2
@@ -2273,237 +1391,6 @@ TextureImporter:
       bones: []
       spriteID: 7cf892d093f0dd34ba0fdf29b2c7436b
       internalID: 2030574582
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_210
-      rect:
-        serializedVersion: 2
-        x: 676
-        y: 213
-        width: 5
-        height: 5
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cfc6e571d4e3f424c95e79b0f7de7be7
-      internalID: -115789662
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_211
-      rect:
-        serializedVersion: 2
-        x: 688
-        y: 131
-        width: 26
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a74f77cab03396a46821cd9838da3e47
-      internalID: 694672772
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_212
-      rect:
-        serializedVersion: 2
-        x: 730
-        y: 187
-        width: 32
-        height: 28
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3831025d56dd55498005eca4044e947
-      internalID: 710108179
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_213
-      rect:
-        serializedVersion: 2
-        x: 731
-        y: 140
-        width: 36
-        height: 30
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 519b53805f751604f8e6500da6c54fa3
-      internalID: -514112715
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_218
-      rect:
-        serializedVersion: 2
-        x: 394
-        y: 134
-        width: 5
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b869b4ab16f42a245bfe4670fa7479a6
-      internalID: -1214750872
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_219
-      rect:
-        serializedVersion: 2
-        x: 649
-        y: 134
-        width: 5
-        height: 7
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7617641cf96a8f54caa2d3542d5b5001
-      internalID: 1963594954
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_220
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 32
-        width: 33
-        height: 73
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1ae188c0e15daba4eaa4e5451d16a271
-      internalID: 501338292
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_221
-      rect:
-        serializedVersion: 2
-        x: 263
-        y: 30
-        width: 161
-        height: 77
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: acd147cad2284444087b48c94979b514
-      internalID: -337036205
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_222
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 97
-        width: 9
-        height: 11
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 20595ac6d4f40964a89b91ab7b932637
-      internalID: 200948698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_223
-      rect:
-        serializedVersion: 2
-        x: 420
-        y: 96
-        width: 6
-        height: 12
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2549b656bb901d44db70c0ce9eceb156
-      internalID: 1482610953
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_224
-      rect:
-        serializedVersion: 2
-        x: 518
-        y: 65
-        width: 57
-        height: 42
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b55309274fcf3a243b66405272d81d18
-      internalID: -939984885
       vertices: []
       indices: 
       edges: []
@@ -2551,48 +1438,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: bulletatlas_227
-      rect:
-        serializedVersion: 2
-        x: 607
-        y: 95
-        width: 10
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc582fb8dc57c8c439a2c27c71906125
-      internalID: -2125733108
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: bulletatlas_228
-      rect:
-        serializedVersion: 2
-        x: 667
-        y: 34
-        width: 14
-        height: 74
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b870133f24f6b7a48b49780a32ef4bff
-      internalID: -1214674498
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: bulletatlas_229
       rect:
         serializedVersion: 2
@@ -2633,66 +1478,40 @@ TextureImporter:
       bulletatlas_103: -847596114
       bulletatlas_104: -1826592755
       bulletatlas_105: -1079605315
-      bulletatlas_106: 954954366
-      bulletatlas_107: -295107256
-      bulletatlas_108: 905990498
-      bulletatlas_109: -757142045
       bulletatlas_11: -1141208955
-      bulletatlas_110: -1829311873
-      bulletatlas_111: 2098673806
-      bulletatlas_112: -704634290
       bulletatlas_113: 296375170
       bulletatlas_114: -1681587114
       bulletatlas_115: -914565082
-      bulletatlas_116: -776093912
       bulletatlas_117: 256581562
       bulletatlas_118: -2147388604
       bulletatlas_119: 2067117199
       bulletatlas_12: 1048371710
       bulletatlas_120: -2028377436
-      bulletatlas_121: -783573705
-      bulletatlas_122: 741291977
-      bulletatlas_123: 834883490
-      bulletatlas_124: 1575267229
-      bulletatlas_125: 391921473
       bulletatlas_126: -1183434427
       bulletatlas_127: 132055301
       bulletatlas_128: -917082324
       bulletatlas_129: -194623320
-      bulletatlas_13: -1168138075
+      bulletatlas_13: 795458002
       bulletatlas_130: 123890402
       bulletatlas_131: -1572530361
       bulletatlas_132: -2128757551
       bulletatlas_133: 1961926693
       bulletatlas_134: -544562125
       bulletatlas_135: 1003479406
-      bulletatlas_136: 1654600106
-      bulletatlas_137: 1475240492
-      bulletatlas_138: 2111663471
-      bulletatlas_139: -1205028496
-      bulletatlas_14: -869720426
-      bulletatlas_140: -853063644
-      bulletatlas_141: 431161129
-      bulletatlas_142: -12450045
-      bulletatlas_143: -244479524
+      bulletatlas_14: 896419281
       bulletatlas_144: -565707443
       bulletatlas_145: 1848509498
       bulletatlas_146: -1976561313
       bulletatlas_147: 352008307
       bulletatlas_148: -1856230527
       bulletatlas_149: 1860030754
-      bulletatlas_15: 1774654758
-      bulletatlas_150: -1330147038
-      bulletatlas_151: -85528681
-      bulletatlas_152: -509450740
-      bulletatlas_153: -1957089901
-      bulletatlas_154: 533493051
+      bulletatlas_15: 1991336028
       bulletatlas_155: 634289954
       bulletatlas_156: 1451524970
       bulletatlas_157: -1770980674
       bulletatlas_158: 505813794
       bulletatlas_159: -154134504
-      bulletatlas_16: -1838506477
+      bulletatlas_16: 772270084
       bulletatlas_160: -1304792453
       bulletatlas_161: -228150716
       bulletatlas_162: -1381619023
@@ -2703,7 +1522,7 @@ TextureImporter:
       bulletatlas_167: 1225835695
       bulletatlas_168: 1551758888
       bulletatlas_169: -545552776
-      bulletatlas_17: -429254410
+      bulletatlas_17: -1163589117
       bulletatlas_170: -816145258
       bulletatlas_171: -1950403979
       bulletatlas_172: 1870272006
@@ -2714,7 +1533,7 @@ TextureImporter:
       bulletatlas_177: 516888327
       bulletatlas_178: -2134574821
       bulletatlas_179: -944807690
-      bulletatlas_18: -2039455708
+      bulletatlas_18: 1544880703
       bulletatlas_180: -624649511
       bulletatlas_181: 1641516382
       bulletatlas_182: -1976915503
@@ -2725,7 +1544,7 @@ TextureImporter:
       bulletatlas_187: -838512333
       bulletatlas_188: 2481983
       bulletatlas_189: -1616812415
-      bulletatlas_19: -787365131
+      bulletatlas_19: 573431270
       bulletatlas_190: 2128742403
       bulletatlas_191: 681143193
       bulletatlas_192: -1405090047
@@ -2737,7 +1556,7 @@ TextureImporter:
       bulletatlas_198: -1116261418
       bulletatlas_199: 681631286
       bulletatlas_2: 1104700034
-      bulletatlas_20: 1973577958
+      bulletatlas_20: -1799167292
       bulletatlas_200: -100393120
       bulletatlas_201: -476205697
       bulletatlas_202: -676026981
@@ -2748,7 +1567,7 @@ TextureImporter:
       bulletatlas_207: 644937254
       bulletatlas_208: 1885102558
       bulletatlas_209: 2030574582
-      bulletatlas_21: 1740335363
+      bulletatlas_21: 781163418
       bulletatlas_210: -115789662
       bulletatlas_211: 694672772
       bulletatlas_212: 710108179
@@ -2759,7 +1578,7 @@ TextureImporter:
       bulletatlas_217: -584902203
       bulletatlas_218: -1214750872
       bulletatlas_219: 1963594954
-      bulletatlas_22: -405051760
+      bulletatlas_22: -1414151502
       bulletatlas_220: 501338292
       bulletatlas_221: -337036205
       bulletatlas_222: 200948698
@@ -2770,38 +1589,42 @@ TextureImporter:
       bulletatlas_227: -2125733108
       bulletatlas_228: -1214674498
       bulletatlas_229: -653976972
-      bulletatlas_23: -1108080828
+      bulletatlas_23: -1408143233
       bulletatlas_230: 785415911
-      bulletatlas_24: -377584404
-      bulletatlas_25: 1200992303
-      bulletatlas_26: -545207865
-      bulletatlas_27: -1998960180
-      bulletatlas_28: -1454631567
-      bulletatlas_29: -1691151155
+      bulletatlas_24: 182872850
+      bulletatlas_25: -962077784
+      bulletatlas_26: -776093912
+      bulletatlas_27: 954954366
+      bulletatlas_28: -295107256
+      bulletatlas_29: 905990498
       bulletatlas_3: -1161254187
-      bulletatlas_30: -732419310
-      bulletatlas_31: 1517826496
-      bulletatlas_32: 174023644
-      bulletatlas_33: -2050028679
-      bulletatlas_34: 96532680
-      bulletatlas_35: 1115557470
+      bulletatlas_30: -757142045
+      bulletatlas_31: -1829311873
+      bulletatlas_32: 2098673806
+      bulletatlas_33: -704634290
+      bulletatlas_34: -783573705
+      bulletatlas_35: 741291977
+      bulletatlas_36: 834883490
+      bulletatlas_37: 1575267229
+      bulletatlas_38: 391921473
+      bulletatlas_39: 1654600106
       bulletatlas_4: 1277928688
-      bulletatlas_41: 1677397917
-      bulletatlas_42: -1486065004
-      bulletatlas_43: -583538097
-      bulletatlas_44: 1078832282
-      bulletatlas_45: 543983757
-      bulletatlas_46: 1331961853
-      bulletatlas_47: -1544225649
-      bulletatlas_48: 1597406705
-      bulletatlas_49: -220073849
+      bulletatlas_40: 1475240492
+      bulletatlas_41: 2111663471
+      bulletatlas_42: -1205028496
+      bulletatlas_43: -853063644
+      bulletatlas_44: 431161129
+      bulletatlas_45: -12450045
+      bulletatlas_46: -244479524
+      bulletatlas_47: -1330147038
+      bulletatlas_48: -85528681
+      bulletatlas_49: -509450740
       bulletatlas_5: 1295574887
-      bulletatlas_50: -1816742935
-      bulletatlas_51: -159252093
+      bulletatlas_50: -1957089901
+      bulletatlas_51: 533493051
       bulletatlas_52: 1064964800
       bulletatlas_53: -1167298703
       bulletatlas_54: -1660646377
-      bulletatlas_55: -1799167292
       bulletatlas_56: -934982823
       bulletatlas_57: 1388566545
       bulletatlas_58: -362236034
@@ -2810,13 +1633,6 @@ TextureImporter:
       bulletatlas_60: -1986467352
       bulletatlas_61: 1629161311
       bulletatlas_62: -812660600
-      bulletatlas_63: 795458002
-      bulletatlas_64: 896419281
-      bulletatlas_65: 1991336028
-      bulletatlas_66: 772270084
-      bulletatlas_67: -1163589117
-      bulletatlas_68: 1544880703
-      bulletatlas_69: 573431270
       bulletatlas_7: 1546965461
       bulletatlas_70: -608107526
       bulletatlas_71: -1530982477
@@ -2837,18 +1653,13 @@ TextureImporter:
       bulletatlas_85: -781081327
       bulletatlas_86: -1332833556
       bulletatlas_87: 1583728900
-      bulletatlas_88: -1414151502
-      bulletatlas_89: -1408143233
       bulletatlas_9: 274559312
-      bulletatlas_90: 182872850
-      bulletatlas_91: -962077784
       bulletatlas_92: 1192638015
       bulletatlas_93: -369520899
       bulletatlas_94: 260398187
       bulletatlas_95: 324907295
       bulletatlas_96: -1958510900
       bulletatlas_97: 519947436
-      bulletatlas_98: 781163418
       bulletatlas_99: -1870417521
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

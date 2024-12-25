@@ -32,10 +32,11 @@ public class Projectile : MonoBehaviour
 
     }
 
-    public void SetInfo(Vector2 origin, Vector2 targetDir, Creature owner, bool _isRandom = false, string spriteName = "bulletatlas_7")
+    public void SetInfo(Vector2 origin, Vector2 targetDir, Creature owner, bool _isRandom = false, bool _isBlood = false)
     {
         //공격력에 따라서 눈물의 크기가 바뀌도록
-        _spriteRenderer.sprite = Managers.Resource.Load<Sprite>("bulletatlas_" + Mathf.Clamp(((Mathf.RoundToInt(owner.AttackDamage) - 1 / 3) + 1), 0, 12));
+        int index = _isBlood ? 13 : 0;
+        _spriteRenderer.sprite = Managers.Resource.Load<Sprite>("bulletatlas_" + (Mathf.Clamp(((Mathf.RoundToInt(owner.AttackDamage) - 1 / 3) + 1), 0, 12) + index));
         Collider.radius = _spriteRenderer.bounds.size.x / 2;
 
         Owner = owner;

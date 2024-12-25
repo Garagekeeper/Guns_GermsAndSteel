@@ -40,7 +40,7 @@ public class Maggot : Monster
             if (_accumulatedTime > 0.3)
             {
                 AnimatorBottom.enabled = false;
-                MonsterState = EMonsterState.Skill;
+                CreatureState = ECreatureState.Skill;
                 _accumulatedTime = 0;
             }
 
@@ -54,7 +54,7 @@ public class Maggot : Monster
     public override void Init()
     {
         MonsterType = EMonsterType.Maggot;
-        MonsterState = EMonsterState.Idle;
+        CreatureState = ECreatureState.Idle;
         CreatureMoveState = ECreatureMoveState.Designated;
         Hp = 5.0f;
         _isFloating = false;
@@ -135,7 +135,7 @@ public class Maggot : Monster
         }
 
         TargetPos = dV[index];
-        MonsterState = EMonsterState.Move;
+        CreatureState = ECreatureState.Move;
     }
 
     public void UpdateChargerIdle()
@@ -173,7 +173,7 @@ public class Maggot : Monster
         }
 
         TargetPos = dV[index];
-        MonsterState = EMonsterState.Move;
+        CreatureState = ECreatureState.Move;
     }
 
     protected override void UpdateMove()
@@ -182,7 +182,7 @@ public class Maggot : Monster
         if (_accumulatedTime > 1)
         {
             Rigidbody.velocity = Vector3.zero;
-            MonsterState = EMonsterState.Idle;
+            CreatureState = ECreatureState.Idle;
             _accumulatedTime = 0f;
             return;
         }
@@ -205,7 +205,7 @@ public class Maggot : Monster
         {
             Rigidbody.velocity = Vector3.zero;
             AnimatorBottom.enabled = true;
-            MonsterState = EMonsterState.Idle;
+            CreatureState = ECreatureState.Idle;
             _accumulatedTime = 0f;
             return;
         }

@@ -115,7 +115,6 @@ public class Boss : Creature
 
         float delay = 0;
 
-        Debug.Log(_coWait);
         AnimatorBottom.Play(_skillName[(int)_currentSkill], 0, 0);
         //Debug.Log(_skillName[(int)_currentSkill]);
         if (_skillName[(int)_currentSkill] != AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.name)

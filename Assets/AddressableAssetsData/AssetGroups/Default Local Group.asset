@@ -16,7 +16,13 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 661158fbcd809d048818ff93521f4887
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: e0344d54a366bef4a91795bed7d890fa
+    m_Address: monster_122_host
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

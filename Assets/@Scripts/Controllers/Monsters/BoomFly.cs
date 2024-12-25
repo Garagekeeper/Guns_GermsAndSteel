@@ -23,7 +23,7 @@ public class BoomFly : Monster
         Speed = 3.0f;
 
         TargetPos = dV[Random.Range(0, 4)];
-        MonsterState = EMonsterState.Move;
+        CreatureState = ECreatureState.Move;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -32,7 +32,7 @@ public class BoomFly : Monster
 
     public override void OnDead()
     {
-        MonsterState = EMonsterState.Explosion;
+        CreatureState = ECreatureState.Explosion;
     }
 
     //Animation Event

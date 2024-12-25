@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -44,5 +45,20 @@ public static class Utility
         }
 
         return null; // 이름에 해당하는 오브젝트를 찾지 못한 경우
+    }
+
+    public static Vector2 VectorRotation2D(Vector2 vec, float angle)
+    {
+        float radians = angle * Mathf.Deg2Rad;
+
+        // 회전 행렬 계산
+        float cos = Mathf.Cos(radians);
+        float sin = Mathf.Sin(radians);
+
+        // 새 좌표 계산
+        float x = vec.x * cos - vec.y * sin;
+        float y = vec.x * sin + vec.y * cos;
+
+        return new Vector2(x, y);
     }
 }

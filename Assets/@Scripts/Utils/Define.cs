@@ -42,6 +42,16 @@ public static class Define
         Skill,
     }
 
+    public enum ECreatureState
+    {
+        None,
+        Dead,
+        Explosion,
+        Idle,
+        Move,
+        Skill,
+    }
+
     public enum ECreatureBottomState
     {
         None,
@@ -105,16 +115,7 @@ public static class Define
         BoomFly,
         Fly,
         Maggot,
-    }
-
-    public enum EMonsterState
-    {
-        None,
-        Dead,
-        Explosion,
-        Idle,
-        Move,
-        Skill,
+        Host,
     }
 
     public enum ESpecialEffectOfActive

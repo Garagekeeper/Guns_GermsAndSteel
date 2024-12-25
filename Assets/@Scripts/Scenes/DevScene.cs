@@ -6,7 +6,7 @@ public class DevScene : MonoBehaviour
     {
         Managers.Resource.LoadAllAsync<Object>("Preload", (key, count, totalCount) =>
         {
-            Debug.Log($"{key} {count}/{totalCount}");
+            //Debug.Log($"{key} {count}/{totalCount}");
             if (count == totalCount)
             {
                 Managers.Data.Init();
@@ -21,7 +21,7 @@ public class DevScene : MonoBehaviour
     {
         Managers.Resource.LoadAllAsync<Object>("InGame", (key, count, totalCount) =>
         {
-            Debug.Log($"{key} {count}/{totalCount}");
+            //Debug.Log($"{key} {count}/{totalCount}");
             if (count == totalCount)
             {
                 LoadUI(); SpawnCharacter(); SpawnBossMonster();

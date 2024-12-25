@@ -64,11 +64,40 @@ public class Creature : BaseObject
     public Creature Target
     {
         get => _target;
-        set { _target = value; }
+        set { if (_target != value) _target = value; }
 
     }
 
     public ECreatureType CreatureType { get; protected set; } = ECreatureType.None;
+    protected ECreatureState _creatureState;
+    public virtual ECreatureState CreatureState
+    {
+        get { return _creatureState; }
+        set
+        {
+            if (_creatureState != value)
+            {
+                _creatureState = value;
+                switch (value)
+                {
+                    case ECreatureState.None:
+                        break;
+                    case ECreatureState.Idle:
+                        UpdateAITick = 0.5f;
+                        break;
+                    case ECreatureState.Skill:
+                        UpdateAITick = 0.0f;
+                        break;
+                    case ECreatureState.Move:
+                        UpdateAITick = 0.0f;
+                        break;
+                    case ECreatureState.Dead:
+                        UpdateAITick = 0.0f;
+                        break;
+                }
+            }
+        }
+    }
 
     protected Animator AnimatorHead { get; set; }
     /// <summary>
@@ -164,7 +193,7 @@ public class Creature : BaseObject
             AnimatorBottom = transform.GetComponentInChildren<Animator>();
             Bottom = transform.GetComponent<SpriteRenderer>();
         }
-       
+
 
         Rigidbody = GetComponent<Rigidbody2D>();
         Collider = GetComponent<CircleCollider2D>();
@@ -310,19 +339,20 @@ public class Creature : BaseObject
         }
     }
 
-    public void GenerateProjectile(Vector3 tarGetDir, bool _isRandom = false)
+    public void GenerateProjectile(Vector3 tarGetDir, bool _isRandom = false, bool _isBlood = false)
     {
-        SpawnProjectile(tarGetDir, _isRandom);
+        SpawnProjectile(tarGetDir, _isRandom, _isBlood);
     }
 
-    public void SpawnProjectile(Vector3 tarGetDir, bool _isRandom = false)
+    public void SpawnProjectile(Vector3 tarGetDir, bool _isRandom = false, bool _isBlood = false)
     {
         GameObject go = Managers.Resource.Instantiate("Projectile");
         go.name = "Projectile";
         Vector2 pos = tarGetDir;
 
         Projectile projectile = go.GetComponent<Projectile>();
-        projectile.SetInfo(transform.GetChild(0).transform.position + tarGetDir * 0.5f, pos, this, _isRandom);
+        Vector3 origin = transform.childCount == 0 ? transform.position : transform.GetChild(0).position;
+        projectile.SetInfo(origin + tarGetDir * 0.5f, pos, this, _isRandom, _isBlood);
     }
 
     public Creature FindClosetTarget(Creature src, List<Creature> targets)
@@ -398,6 +428,7 @@ public class Creature : BaseObject
             default:
                 break;
         }
+        CreatureState = ECreatureState.Dead;
         Managers.Game.RoomConditionCheck();
     }
 
@@ -439,20 +470,14 @@ public class Creature : BaseObject
     //tic을 조절해서 주기를 정할 수 있다
     protected virtual IEnumerator CoUpdateAI()
     {
-       yield break;
+        yield break;
     }
 
-    protected virtual void UpdateSkill()
-    {
-
-    }
+    protected virtual void UpdateSkill() { }
 
     protected virtual void UpdateIdle() { }
 
-    protected virtual void UpdateMove()
-    {
-
-    }
+    protected virtual void UpdateMove() { }
 
     protected virtual void UpdateDead() { }
 

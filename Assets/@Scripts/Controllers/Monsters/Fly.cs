@@ -24,7 +24,7 @@ public class Fly : Monster
     public override void Init()
     {
         MonsterType = EMonsterType.Fly;
-        MonsterState = EMonsterState.Idle;
+        CreatureState = ECreatureState.Idle;
         _isFloating = true;
         base.Init();
 
@@ -58,7 +58,7 @@ public class Fly : Monster
         else
         {
             Target = FindClosetTarget(this, Managers.Object.MainCharacters.ToList<Creature>());
-            MonsterState = EMonsterState.Move;
+            CreatureState = ECreatureState.Move;
             AnimatorBottom.Play("HostileMove");
         }
 

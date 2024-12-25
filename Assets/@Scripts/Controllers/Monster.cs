@@ -13,36 +13,6 @@ public class Monster : Creature
 
     //나중에 creature 타음으로 통일하자.... 넘 반복됨...
     public EMonsterType MonsterType { get; protected set; }
-    protected EMonsterState _monsterState;
-    public virtual EMonsterState MonsterState
-    {
-        get { return _monsterState; }
-        set
-        {
-            if (_monsterState != value)
-            {
-                _monsterState = value;
-                switch (value)
-                {
-                    case EMonsterState.None:
-                        break;
-                    case EMonsterState.Idle:
-                        UpdateAITick = 0.5f;
-                        break;
-                    case EMonsterState.Skill:
-                        UpdateAITick = 0.0f;
-                        break;
-                    case EMonsterState.Move:
-                        UpdateAITick = 0.0f;
-                        break;
-                    case EMonsterState.Dead:
-                        UpdateAITick = 0.0f;
-                        break;
-                }
-            }
-        }
-    }
-
     private void Awake()
     {
         Init();
@@ -170,7 +140,7 @@ public class Monster : Creature
             var temp = collider.gameObject;
             temp.GetComponent<Creature>()?.OnDamaged(this, ESkillType.Bomb);
         }
-        MonsterState = EMonsterState.Dead;
+        CreatureState = ECreatureState.Dead;
         AnimatorBottom.Play("Explosion");
     }
 
@@ -178,21 +148,26 @@ public class Monster : Creature
     {
         while (true)
         {
-            switch (MonsterState)
+            switch (CreatureState)
             {
-                case EMonsterState.Idle:
+                case ECreatureState.Idle:
+                    UpdateAITick = 0.0f;
                     UpdateIdle();
                     break;
-                case EMonsterState.Skill:
+                case ECreatureState.Skill:
+                    UpdateAITick = 0.0f;
                     UpdateSkill();
                     break;
-                case EMonsterState.Move:
+                case ECreatureState.Move:
+                    UpdateAITick = 0.0f;
                     UpdateMove();
                     break;
-                case EMonsterState.Dead:
+                case ECreatureState.Dead:
+                    UpdateAITick = 0.0f;
                     UpdateDead();
                     break;
-                case EMonsterState.Explosion:
+                case ECreatureState.Explosion:
+                    UpdateAITick = 0.0f;
                     UpdateExplosion();
                     break;
             }
