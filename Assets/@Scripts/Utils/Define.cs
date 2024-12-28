@@ -30,6 +30,7 @@ public static class Define
         Monstro,
         Fistula,
         DukeOfFlies,
+        GurdyJr,
     }
 
     public enum EBossState

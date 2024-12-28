@@ -69,6 +69,7 @@ public class Boss : Creature
         Rigidbody =  transform.GetComponent<Rigidbody2D>();
         AnimatorBottom = transform.GetComponent<Animator>();
         GPCollider2D = transform.GetComponent<CircleCollider2D>();
+        Bottom = FindChildByName(transform, transform.gameObject.name.Replace("(Clone)", "").Trim() + "_Sprite").GetComponent<SpriteRenderer>();
         Range = 10;
         Tears = 5.0f;
         Speed = 3f;
@@ -165,6 +166,9 @@ public class Boss : Creature
         if (GPCollider2D != null)
             GPCollider2D.enabled = false;
 
+        Rigidbody.velocity = Vector2.zero;
+
+        AnimatorBottom.enabled = true;
         GameObject go = Managers.Resource.Instantiate("BossDeathEffect");
         go.transform.SetParent(transform, false);
         go.transform.localPosition = Vector3.zero;

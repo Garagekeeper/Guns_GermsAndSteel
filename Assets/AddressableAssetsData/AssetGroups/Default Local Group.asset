@@ -23,6 +23,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 07ada6c95989a86469410ec2a2c93fb1
+    m_Address: boss_021_gurdyjr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:
