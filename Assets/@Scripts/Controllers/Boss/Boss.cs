@@ -69,7 +69,7 @@ public class Boss : Creature
         Rigidbody =  transform.GetComponent<Rigidbody2D>();
         AnimatorBottom = transform.GetComponent<Animator>();
         GPCollider2D = transform.GetComponent<CircleCollider2D>();
-        Bottom = FindChildByName(transform, transform.gameObject.name.Replace("(Clone)", "").Trim() + "_Sprite").GetComponent<SpriteRenderer>();
+        Bottom = FindChildByName(transform, transform.gameObject.name.Replace("(Clone)", "").Trim() + "_Sprite")?.GetComponent<SpriteRenderer>();
         Range = 10;
         Tears = 5.0f;
         Speed = 3f;
@@ -178,8 +178,8 @@ public class Boss : Creature
         //Debug.Log(_skillName[(int)_currentSkill]);
         float delay = AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.length;
         yield return new WaitForSeconds(delay * 0.75f);
-        FindChildByName(transform, transform.gameObject.name + "_Sprite").gameObject.SetActive(false);
-        FindChildByName(transform, transform.gameObject.name + "_Shadow").gameObject.SetActive(false);
+        FindChildByName(transform, transform.gameObject.name + "_Sprite")?.gameObject.SetActive(false);
+        FindChildByName(transform, transform.gameObject.name + "_Shadow")?.gameObject.SetActive(false);
         yield return new WaitForSeconds(delay * 0.25f);
         base.OnDead();
     }

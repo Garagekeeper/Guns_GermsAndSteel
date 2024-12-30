@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,12 +43,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 26
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -71,7 +71,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -134,7 +134,952 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: boss_030_gurdy_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 308
+        width: 136
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f87bd99b41bb7924093b35cc11621f50
+      internalID: 2035824174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 308
+        width: 160
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f724fdc26bd70be4c9626ee120c066c1
+      internalID: 1329904507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_2
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 55
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 178ecc4281a128e42829727560d68c7f
+      internalID: -1294230271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 276
+        width: 114
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92c459ac5fc98c4448d633d9edeb1566
+      internalID: 64261066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 244
+        width: 114
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9474bf0ed8bf724791cd4d7418ce30f
+      internalID: 46003048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 212
+        width: 114
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3059664b9791d5b4a87f390e8b200fd7
+      internalID: 1962795492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 180
+        width: 114
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7655170bb2991a04c912a2dc2b6cceec
+      internalID: 669846510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 152
+        width: 114
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d68533b3dbbd3fb4788523d7d8ae1331
+      internalID: -1478020278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_8
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 194
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6ccbbfd68f87b44894249042883617d
+      internalID: 342718624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_9
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 195
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e3c90c035e99ec45a53b931bca3b0d4
+      internalID: -1410886492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_10
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 194
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb97f7e1bc6761749b9baf458dc1e2a2
+      internalID: 1822775522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_11
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 194
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cfad69c2854f5a45af7aedf45b6b9b8
+      internalID: 1615066151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_12
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 194
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54f29fe126dcdfa4e99bff0a8e7a4b9b
+      internalID: -589272019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_13
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 218
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 227f65a3b0e9843438216fa4cff83bff
+      internalID: -1378525926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_15
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 218
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 841b789c04f610e44b449c94a5d5d3cb
+      internalID: 1903845142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_14
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 265
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cc9e76a10f9b434fbc70489634889b9
+      internalID: -1059101121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_16
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 10
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d8c72effbeb72469b0686880a42e9b
+      internalID: -255545362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_17
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 104
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8d6b6379fab34f4dbfe8ae41f84596c
+      internalID: -1757844130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_18
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 103
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8997a59cdba6f8146a1fa1fd7d0d04d8
+      internalID: -1274399687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_19
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 104
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85cb5ca511e1e6a4caa2bbf319c14dbe
+      internalID: -815137218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_20
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 104
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07b21a21f2103854e8fc4412f297dc82
+      internalID: 2141769936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_21
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 104
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a390cf0489765dc41b2ac57f4264b6b9
+      internalID: 1996905129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_22
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 104
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1fe7b48d1898cb439c55627211dfe51
+      internalID: 1140904596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_23
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 55
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 483fc68fcd8eb8245b3f3221fd39f61c
+      internalID: -1876753516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_24
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 55
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db1212c2dacc03e4c92bc15c49fcbfb8
+      internalID: 1463201172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_25
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 55
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7421f8f0e36969d488f0c673e170241f
+      internalID: -262819459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_26
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 55
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aa4f878bf57f0244b5bef53169d9635
+      internalID: -1317454699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_27
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 56
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1938c41a5ede0dc4c8752729e28515a6
+      internalID: -1378523642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_28
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 10
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d5f370038020424f805d128c1f9b014
+      internalID: -36358751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_29
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 10
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37a8f54c3e3e2ee4ca535d5d794c231c
+      internalID: 604835009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_30
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 10
+        width: 36
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 638aad5f19927664b84ed043859d4647
+      internalID: -803710311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_31
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 151
+        width: 45
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaf0b7572e25d92429fc8d76acc0bc68
+      internalID: -1120414053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_32
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 151
+        width: 45
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 604c049b727406a42862c25d942601c0
+      internalID: -818252313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_33
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 151
+        width: 45
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 492f9f16dbc127045b2e9e6ed3db2cb2
+      internalID: 407055451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_34
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 195
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a5af06c4e6f3f04c895ebc97bcadead
+      internalID: -2091516699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_35
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 194
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d50dfb05ef631f4f8e9e083c90e83e9
+      internalID: -1595570899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_36
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 194
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f414373a64240364cb6345c99dbc1638
+      internalID: -2100213268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_37
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 195
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f9ac432e64eaa343b3210f136242c09
+      internalID: -1896387784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_38
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 194
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9e13ba8761fe9d43a2d4b3093e8dbb8
+      internalID: -329309196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_39
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 151
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edb8d31e86bae6f43beeedb5b0f542b9
+      internalID: -568137454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_40
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 151
+        width: 28
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b67d7a84475342b4f8650da40c43f1cb
+      internalID: -513030146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_41
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 151
+        width: 31
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7207de4c8a5720a43a5f17382bf8892c
+      internalID: 1692335987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_42
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 151
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c14d6a7ee2388948810dc4d59bbbf02
+      internalID: 1972129685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_43
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 151
+        width: 31
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98343ff34c7986f49bd24ad12c8752f7
+      internalID: -441506004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss_030_gurdy_44
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 151
+        width: 31
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d93aa99bade723419d2d52d542eba29
+      internalID: 857133731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -145,7 +1090,60 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      boss_030_gurdy_: 2101835967
+      boss_030_gurdy_0: 2035824174
+      boss_030_gurdy_1: 1329904507
+      boss_030_gurdy_10: 1822775522
+      boss_030_gurdy_11: 1615066151
+      boss_030_gurdy_12: -589272019
+      boss_030_gurdy_13: -1378525926
+      boss_030_gurdy_14: -1059101121
+      boss_030_gurdy_15: 1903845142
+      boss_030_gurdy_16: -255545362
+      boss_030_gurdy_17: -1757844130
+      boss_030_gurdy_18: -1274399687
+      boss_030_gurdy_19: -815137218
+      boss_030_gurdy_2: -1294230271
+      boss_030_gurdy_20: 2141769936
+      boss_030_gurdy_21: 1996905129
+      boss_030_gurdy_22: 1140904596
+      boss_030_gurdy_23: -1876753516
+      boss_030_gurdy_24: 1463201172
+      boss_030_gurdy_25: -262819459
+      boss_030_gurdy_26: -1317454699
+      boss_030_gurdy_27: -1378523642
+      boss_030_gurdy_28: -36358751
+      boss_030_gurdy_29: 604835009
+      boss_030_gurdy_3: 64261066
+      boss_030_gurdy_30: -803710311
+      boss_030_gurdy_31: -1120414053
+      boss_030_gurdy_32: -818252313
+      boss_030_gurdy_33: 407055451
+      boss_030_gurdy_34: -2091516699
+      boss_030_gurdy_35: -1595570899
+      boss_030_gurdy_36: -2100213268
+      boss_030_gurdy_37: -1896387784
+      boss_030_gurdy_38: -329309196
+      boss_030_gurdy_39: -568137454
+      boss_030_gurdy_4: 46003048
+      boss_030_gurdy_40: -513030146
+      boss_030_gurdy_41: 1692335987
+      boss_030_gurdy_42: 1972129685
+      boss_030_gurdy_43: -441506004
+      boss_030_gurdy_44: 857133731
+      boss_030_gurdy_46: 2045908073
+      boss_030_gurdy_47: 560800226
+      boss_030_gurdy_48: 781091872
+      boss_030_gurdy_49: -1870379278
+      boss_030_gurdy_5: 1962795492
+      boss_030_gurdy_50: 368215867
+      boss_030_gurdy_51: -640718343
+      boss_030_gurdy_52: -1561993798
+      boss_030_gurdy_6: 669846510
+      boss_030_gurdy_7: -1478020278
+      boss_030_gurdy_8: 342718624
+      boss_030_gurdy_9: -1410886492
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

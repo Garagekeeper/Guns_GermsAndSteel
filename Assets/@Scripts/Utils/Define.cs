@@ -30,6 +30,7 @@ public static class Define
         Monstro,
         Fistula,
         DukeOfFlies,
+        Gurdy,
         GurdyJr,
     }
 
@@ -117,6 +118,8 @@ public static class Define
         Fly,
         Maggot,
         Host,
+        Boil,
+        Pooter,
     }
 
     public enum ESpecialEffectOfActive
