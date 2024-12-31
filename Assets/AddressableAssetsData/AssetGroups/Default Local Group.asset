@@ -46,6 +46,21 @@ MonoBehaviour:
     - InGame
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 533734b9ecc2d49439063e9f305df812
+    m_Address: monster_087_boil
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Sprite
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 146ab19310295d140834db80f1ab8251
+    m_Address: Assets/@Resources/Prefabs/Monster/Boil.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

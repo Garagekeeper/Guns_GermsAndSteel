@@ -129,11 +129,8 @@ public class Boss_Gurdy : Boss
             if (m.MonsterType == EMonsterType.Boil) return;
         }
 
-        //TODO Make Boils
-        //Managers.Object.Spawn<Monster>(transform.position + new Vector3(0.5f, -1f), 0, "Boils");
-        //Managers.Object.Spawn<Monster>(transform.position + new Vector3(-0.5f, -1f), 0, "Boils");
-        Managers.Object.Spawn<Monster>(new Vector3(transform.position.x + 1f, -1.65f), 0, "Fly");
-        Managers.Object.Spawn<Monster>(new Vector3(transform.position.x - 1f, -1.65f), 0, "Fly");
+        Managers.Object.Spawn<Monster>(transform.position + new Vector3(0.5f, -1f), 0, "Boils");
+        Managers.Object.Spawn<Monster>(transform.position + new Vector3(-0.5f, -1f), 0, "Boils");
     }
 
     //Spawn 2 fly or 1 pooter
