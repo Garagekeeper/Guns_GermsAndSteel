@@ -82,7 +82,7 @@ public class Monster : Creature
 
     protected override void UpdateIdle()
     {
-
+        if (Managers.Object.MainCharacters.Count == 0) return;
     }
 
     protected override void UpdateMove()
@@ -96,6 +96,32 @@ public class Monster : Creature
             Target = FindClosetTarget(this, Managers.Object.MainCharacters.ToList<Creature>());
             UpdateMovementByAstar();
         }
+    }
+
+
+    public enum EMonsterSkill
+    {
+        Normal,
+        SkillA,
+        SkillB,
+        SkillC,
+    }
+    protected string[] _skillName = { "Normal", "SkillA", "SkillB", "SkillC" };
+    protected EMonsterSkill _currentSkill = EMonsterSkill.Normal;
+
+    protected override void UpdateSkill()
+    {
+        if (_coWait != null) return;
+
+        float delay = 0;
+
+        AnimatorBottom.Play(_skillName[(int)_currentSkill], 0, 0);
+        //Debug.Log(_skillName[(int)_currentSkill]);
+        if (_skillName[(int)_currentSkill] != AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.name)
+            return;
+        delay = AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+
+        StartWait(delay);
     }
 
     // Based on A* path finding

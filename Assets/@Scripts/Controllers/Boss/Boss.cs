@@ -74,6 +74,10 @@ public class Boss : Creature
         Tears = 5.0f;
         Speed = 3f;
 
+        LayerMask mask = 0;
+        mask |= (1 << 15);
+        Collider.excludeLayers = mask;
+
 #if UNITY_EDITOR
         Managers.UI.PlayingUI.BossHpActive(true);
 #endif 

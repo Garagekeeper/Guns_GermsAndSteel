@@ -116,8 +116,6 @@ public class Boss_GurdyJr : Boss
     //Spawn Pooter
     public void SkillA()
     {
-        //TODO
-        //fly -> pooter
         sequence.Append(DOTween.To(() => 0f, x => Bottom.sprite = Managers.Resource.Load<Sprite>("boss_021_gurdyjr_6"), 0f, 0f));
         sequence.Append(transform.DOShakeScale(1, 0.1f, 10, 90, false));
         sequence.Insert(0.5f, DOTween.To(() => 0f, x => Bottom.sprite = Managers.Resource.Load<Sprite>("boss_021_gurdyjr_2"), 0f, 0f));
@@ -153,7 +151,7 @@ public class Boss_GurdyJr : Boss
 
     public void SpawnPooter()
     {
-        Managers.Object.Spawn<Monster>(transform.position - new Vector3(0, 0.5f, 0), 0, "Fly");
+        Managers.Object.Spawn<Monster>(transform.position - new Vector3(0, 0.5f, 0), 0, "Pooter");
     }
 
     public void Generate8Projectil()

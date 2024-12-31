@@ -11,6 +11,7 @@ TagManager:
   - Boss
   - ClearBox
   - Projectile
+  - ProjectileCollider
   layers:
   - Default
   - TransparentFX
@@ -26,8 +27,8 @@ TagManager:
   - HitBox
   - ItemHolder
   - Obstacle
-  - 
-  - 
+  - MapCollider
+  - ProjectileCollider
   - 
   - 
   - 

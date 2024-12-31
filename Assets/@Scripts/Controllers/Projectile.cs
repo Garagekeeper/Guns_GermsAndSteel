@@ -36,8 +36,12 @@ public class Projectile : MonoBehaviour
     {
         //공격력에 따라서 눈물의 크기가 바뀌도록
         int index = _isBlood ? 13 : 0;
-        _spriteRenderer.sprite = Managers.Resource.Load<Sprite>("bulletatlas_" + (Mathf.Clamp(((Mathf.RoundToInt(owner.AttackDamage) - 1 / 3) + 1), 0, 12) + index));
+        int size = Mathf.Clamp(((Mathf.RoundToInt(owner.AttackDamage) - 1 / 3) + 1), 0, 12);
+        _spriteRenderer.sprite = Managers.Resource.Load<Sprite>("bulletatlas_" + (size + index));
         Collider.radius = _spriteRenderer.bounds.size.x / 2;
+        transform.GetChild(1).position = new Vector3(0, -(Collider.radius * 4 - (Collider.radius * 4 - Collider.radius / 2) * (size / 12f)), 0);
+
+
 
         Owner = owner;
         transform.position = origin;
@@ -58,8 +62,7 @@ public class Projectile : MonoBehaviour
         if (owner.CreatureType == ECreatureType.Monster) mask |= (1 << 7);
         if (owner.CreatureType == ECreatureType.Boss) mask |= (1 << 10);
         mask |= (1 << 8);
-
-
+        mask |= (1 << 14);
 
         Collider.excludeLayers = mask;
 
@@ -72,11 +75,10 @@ public class Projectile : MonoBehaviour
         _isColliding = true;
         if (other == null) return;
         if (other.gameObject.tag == "TrapDoor") return;
-        if ("RightDownLeftUpColliderItemHolder".Contains(other.gameObject.name))
+        if (other.gameObject.tag == "ProjectileCollider")
         {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
-
         }
         else
         {

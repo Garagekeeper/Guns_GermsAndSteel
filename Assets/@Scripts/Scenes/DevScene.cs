@@ -47,6 +47,6 @@ public class DevScene : MonoBehaviour
         //Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-4.0f, -0.5f, 0), 0, "Boss_Fistula");
         //Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-4.0f, -0.5f, 0), 0, "Boss_DukeOfFlies");
         //Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-4.0f, -0.5f, 0), 0, "Boss_GurdyJr");
-        Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-0.85f, 2.15f, 0), 0, "Boss_Gurdy");
+        //Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-0.85f, 2.15f, 0), 0, "Boss_Gurdy");
     }
 }

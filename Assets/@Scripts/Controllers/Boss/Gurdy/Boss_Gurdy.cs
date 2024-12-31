@@ -27,7 +27,7 @@ public class Boss_Gurdy : Boss
 
     protected override void UpdateIdle()
     {
-        if (Managers.Object.MainCharacters.Count == 0) return;
+        base.UpdateIdle();
 
         //0.가장 가까운 목표 탐색
         Target = FindClosetTarget(this, Managers.Object.MainCharacters.ToList<Creature>());
@@ -112,11 +112,11 @@ public class Boss_Gurdy : Boss
         GenerateProjectile(dV, false, true);
         for (int i = 1; i <= 2; i++)
         {
-            GenerateProjectile(VectorRotation2D(dV, 10f * i),false,true);
+            GenerateProjectile(VectorRotation2D(dV, 10f * i), false, true);
         }
         for (int i = 1; i <= 2; i++)
         {
-            GenerateProjectile(VectorRotation2D(dV, -10f * i),false,true);
+            GenerateProjectile(VectorRotation2D(dV, -10f * i), false, true);
         }
 
     }
@@ -145,11 +145,10 @@ public class Boss_Gurdy : Boss
         {
             Managers.Object.Spawn<Monster>(new Vector3(transform.position.x + 1f, -1.65f), 0, "Fly");
             Managers.Object.Spawn<Monster>(new Vector3(transform.position.x - 1f, -1.65f), 0, "Fly");
-        }else
+        }
+        else
         {
-            //TODO Make Pooter
-            //Managers.Object.Spawn<Monster>(new Vector3(transform.position.x - 1f, -1.65f), 0, "Pooter");
-            Managers.Object.Spawn<Monster>(new Vector3(transform.position.x , -1.65f), 0, "Fly");
+            Managers.Object.Spawn<Monster>(new Vector3(transform.position.x - 1f, -1.65f), 0, "Pooter");
         }
     }
 

@@ -197,6 +197,10 @@ public class Creature : BaseObject
 
         Rigidbody = GetComponent<Rigidbody2D>();
         Collider = GetComponent<CircleCollider2D>();
+        LayerMask mask = 0;
+        mask |= (1 << 15);
+        Collider.excludeLayers = mask;
+
     }
 
 
@@ -475,7 +479,7 @@ public class Creature : BaseObject
 
     protected virtual void UpdateSkill() { }
 
-    protected virtual void UpdateIdle() { }
+    protected virtual void UpdateIdle() { if (Managers.Object.MainCharacters.Count == 0) return; }
 
     protected virtual void UpdateMove() { }
 

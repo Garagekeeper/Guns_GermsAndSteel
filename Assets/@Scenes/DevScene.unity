@@ -352,6 +352,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4699480235227649020, guid: ef5c68baaa20643439dd4430628e4458, type: 3}
+      propertyPath: m_TagString
+      value: ProjectileCollider
+      objectReference: {fileID: 0}
     - target: {fileID: 5920734814256256209, guid: ef5c68baaa20643439dd4430628e4458, type: 3}
       propertyPath: m_Name
       value: Room_Normal_1
