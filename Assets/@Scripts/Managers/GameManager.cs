@@ -353,7 +353,7 @@ public class GameManager
     public void ClearGame()
     {
         Managers.Map.DestroyMap();
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("MainScene");
     }
 
     public void RestartGame()

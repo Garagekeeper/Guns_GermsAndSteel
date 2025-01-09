@@ -75,7 +75,8 @@ public class Projectile : MonoBehaviour
         _isColliding = true;
         if (other == null) return;
         if (other.gameObject.tag == "TrapDoor") return;
-        if (other.gameObject.tag == "ProjectileCollider")
+        if (other.gameObject.tag == "ItemHolder") return;
+        if (other.gameObject.tag == "ProjectileCollider" || other.gameObject.tag == "Door")
         {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);

@@ -14,6 +14,7 @@ using static RoomClass;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 using Object = UnityEngine.Object;
 using Transform = UnityEngine.Transform;
+using static Utility;
 
 public class RoomClass
 {
@@ -329,6 +330,7 @@ public class MapManager
             if (_currentRoom != value)
             {
                 ChangeMinimapadjacencentCellSprite(value, _currentRoom);
+                ChangeRoomActive(value, _currentRoom);
                 _currentRoom = value;
             }
         }
@@ -828,7 +830,7 @@ public class MapManager
                 }
             }
 
-            Debug.Log($"{key} {count}/{totalCount}");
+            //Debug.Log($"{key} {count}/{totalCount}");
 
             if (count == totalCount)
             {
@@ -969,7 +971,7 @@ public class MapManager
         r.TilemapPrefab = room.transform.GetChild(0).gameObject;
         r.Obstacle = room.transform.GetChild(1).gameObject;
         r.CollidePrefab = room.transform.GetChild(2).gameObject;
-        r.Doors = room.transform.GetChild(3).gameObject;
+        r.Doors = room.transform.GetChild(4).gameObject;
         r.TilemapCollisionPrefab = roomTileMap;
 
         r.Tilemap = r.TilemapPrefab.GetComponent<Tilemap>();
@@ -978,6 +980,15 @@ public class MapManager
         SetObstacle(r);
         GenerateDoor(r);
         r.TilemapCollisionPrefab.SetActive(false);
+
+        if (r.RoomType == ERoomType.Start)
+        {
+            r.RoomObject.SetActive(true);
+        }
+        else
+        {
+            r.RoomObject.SetActive(false);
+        }
 
     }
 
@@ -1018,6 +1029,7 @@ public class MapManager
         }
 
         doorParent.transform.Find("TrapDoor")?.gameObject.SetActive(true);
+        doorParent.transform.Find("ClearBox")?.gameObject.SetActive(true);
     }
 
     public void ChangeMinimapCellSprite(GameObject cell, string spriteName)
@@ -1070,6 +1082,46 @@ public class MapManager
 
                 ChangeMinimapCellSprite(child.gameObject, spriteName);
                 //Debug.Log(adjacencentRoom.RoomObject.name + child.gameObject.activeSelf);
+            }
+
+        }
+
+    }
+
+    public void ChangeRoomActive(RoomClass next, RoomClass before)
+    {
+        if (next == null) return;
+
+       
+        //이전 방 (원래 있던 방)
+        if (before != null)
+        {
+            FindChildByName(Map.transform, before.RoomObject.name).gameObject.SetActive(false);
+        }
+        
+        if (before != null)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                RoomClass adjacencentRoom = before._adjacencentRooms[i];
+                if (adjacencentRoom != null)
+                {
+                    FindChildByName(Map.transform, adjacencentRoom.RoomObject.name).gameObject.SetActive(false);
+                }
+
+            }
+        }
+
+        //다음 방
+        FindChildByName(Map.transform, next.RoomObject.name).gameObject.SetActive(true);
+
+        //바뀐 뒤 인접한 방
+        for (int i = 0; i < 4; i++)
+        {
+            RoomClass adjacencentRoom = next._adjacencentRooms[i];
+            if (adjacencentRoom != null)
+            {
+                FindChildByName(Map.transform, adjacencentRoom.RoomObject.name).gameObject.SetActive(true);
             }
 
         }

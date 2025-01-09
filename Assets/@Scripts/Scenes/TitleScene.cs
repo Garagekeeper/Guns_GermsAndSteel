@@ -1,12 +1,16 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class TitleScene : MonoBehaviour
+public class TitleScene : UI_Base
 {
-    private void Start()
+
+    protected override void Init()
     {
+        base.Init();
+
         //EventSystem이 없으면  UI가 동작하지 않기 때문에
         //체크하고 없으면 붙여준다
         Object obj = GameObject.FindObjectOfType(typeof(EventSystem));
@@ -17,26 +21,24 @@ public class TitleScene : MonoBehaviour
             go.AddComponent<StandaloneInputModule>();
         }
 
-        TextMeshProUGUI startText = GameObject.Find("StartingUI").transform.Find("StartingText").GetComponent<TextMeshProUGUI>();
+
         Managers.Resource.LoadAllAsync<Object>("Preload", (key, count, totalCount) =>
         {
-            Debug.Log($"{key} {count}/{totalCount}");
+            //Debug.Log($"{key} {count}/{totalCount}");
             if (count == totalCount)
             {
                 Managers.Data.Init();
                 Managers.Game.Init();
-                startText.text = "Press space Key To Start";
+                StartCoroutine(Pause());
             }
         });
     }
 
-    private void Update()
+    IEnumerator Pause()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-
-            Debug.Log("ChangeScene");
-            SceneManager.LoadScene("GameScene");
-        }
+        yield return new WaitForSeconds(2f);
+        Debug.Log("ChangeScene");
+        SceneManager.LoadScene("MainScene");
     }
+
 }

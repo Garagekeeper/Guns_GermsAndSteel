@@ -40,7 +40,7 @@ MonoBehaviour:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0cf71ad4d39a56f4a9cc4d16617fefbc
-    m_Address: Assets/@Resources/Prefabs/Monster/Pooter.prefab
+    m_Address: Pooter
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame
@@ -55,7 +55,7 @@ MonoBehaviour:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 146ab19310295d140834db80f1ab8251
-    m_Address: Assets/@Resources/Prefabs/Monster/Boil.prefab
+    m_Address: Boil
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame

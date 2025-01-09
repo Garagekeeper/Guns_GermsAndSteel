@@ -76,7 +76,7 @@ public class Boss : Creature
 
         LayerMask mask = 0;
         mask |= (1 << 15);
-        Collider.excludeLayers = mask;
+        GPCollider2D.excludeLayers = mask;
 
 #if UNITY_EDITOR
         Managers.UI.PlayingUI.BossHpActive(true);
@@ -179,7 +179,6 @@ public class Boss : Creature
         go.transform.GetComponent<Animator>().Play("BossDeathEffect");
 
         AnimatorBottom.Play("Dead");
-        //Debug.Log(_skillName[(int)_currentSkill]);
         float delay = AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.length;
         yield return new WaitForSeconds(delay * 0.75f);
         FindChildByName(transform, transform.gameObject.name + "_Sprite")?.gameObject.SetActive(false);

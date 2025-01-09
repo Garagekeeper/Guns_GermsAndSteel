@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 4365583638792357993}
   - component: {fileID: 3624791299378097459}
   - component: {fileID: 5261964835565462250}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pooter
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 12
   m_Sprite: {fileID: -1161250940, guid: 1a204bf90d787964db36996f1f5b8d23, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

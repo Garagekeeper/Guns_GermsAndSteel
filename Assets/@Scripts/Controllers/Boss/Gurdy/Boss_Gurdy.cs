@@ -79,7 +79,6 @@ public class Boss_Gurdy : Boss
             }
 
             AnimatorBottom.Play(skillName, 0, 0);
-            //Debug.Log(_skillName[(int)_currentSkill]);
             if (skillName != AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.name)
                 return;
             float delay = AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.length;
@@ -129,8 +128,8 @@ public class Boss_Gurdy : Boss
             if (m.MonsterType == EMonsterType.Boil) return;
         }
 
-        Managers.Object.Spawn<Monster>(transform.position + new Vector3(0.5f, -1f), 0, "Boils");
-        Managers.Object.Spawn<Monster>(transform.position + new Vector3(-0.5f, -1f), 0, "Boils");
+        Managers.Object.Spawn<Monster>(transform.position + new Vector3(0.5f, -3f), 0, "Boil");
+        Managers.Object.Spawn<Monster>(transform.position + new Vector3(-0.5f, -3f), 0, "Boil");
     }
 
     //Spawn 2 fly or 1 pooter
