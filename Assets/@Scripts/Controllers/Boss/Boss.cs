@@ -117,14 +117,10 @@ public class Boss : Creature
     protected override void UpdateSkill()
     {
         if (_coWait != null) return;
-
-        float delay = 0;
-
         AnimatorBottom.Play(_skillName[(int)_currentSkill], 0, 0);
-        //Debug.Log(_skillName[(int)_currentSkill]);
         if (_skillName[(int)_currentSkill] != AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.name)
             return;
-        delay = AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        float delay = AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.length;
 
         StartWait(delay);
     }

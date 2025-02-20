@@ -71,7 +71,7 @@ public class MainCharacter : Creature
             if (_canMove != value)
             {
                 if (value == true)
-                    StartCoroutine("DelayBoolChange");
+                    StartCoroutine(DelayBoolChange());
                 else
                 {
                     _canMove = value;
@@ -105,7 +105,7 @@ public class MainCharacter : Creature
         }
     }
 
-    System.Random random = new System.Random();
+    System.Random random = new();
     private void Awake()
     {
         Init();
@@ -473,23 +473,23 @@ public class MainCharacter : Creature
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.transform.tag == "Door" && Managers.Map.CurrentRoom.IsClear)
+        if (collision.transform.CompareTag("Door") && Managers.Map.CurrentRoom.IsClear)
         {
             CanMove = false;
             Managers.Game.GoToNextRoom(collision.transform.name);
         }
 
-        if (collision.transform.tag == "TrapDoor" && Managers.Map.CurrentRoom.IsClear)
+        if (collision.transform.CompareTag("TrapDoor") && Managers.Map.CurrentRoom.IsClear)
         {
             Managers.Game.GoToNextStage();
         }
 
-        if (collision.transform.tag == "Monster" || collision.transform.tag == "Boss")
+        if (collision.transform.CompareTag("Monster") || collision.transform.CompareTag("Boss"))
         {
             OnDamaged(collision.gameObject.GetComponent<Creature>(), ESkillType.BodySlam);
         }
 
-        if (collision.transform.tag == "ItemHolder")
+        if (collision.transform.CompareTag("ItemHolder"))
         {
             ItemHolder itemHolder = collision.transform.GetComponent<ItemHolder>();
             if (itemHolder.ItemOfItemHolder != null)
@@ -498,7 +498,7 @@ public class MainCharacter : Creature
             }
         }
 
-        if (collision.transform.tag == "ClearBox")
+        if (collision.transform.CompareTag("ClearBox"))
         {
             Managers.Game.ClearGame();
         }

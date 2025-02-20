@@ -308,6 +308,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1750933757}
     m_Modifications:
+    - target: {fileID: 31874244958278536, guid: ef5c68baaa20643439dd4430628e4458, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1539841147475235264, guid: ef5c68baaa20643439dd4430628e4458, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -352,6 +356,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3378180483568743563, guid: ef5c68baaa20643439dd4430628e4458, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4428929758416732626, guid: ef5c68baaa20643439dd4430628e4458, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4699480235227649020, guid: ef5c68baaa20643439dd4430628e4458, type: 3}
       propertyPath: m_TagString
       value: ProjectileCollider
@@ -359,6 +371,14 @@ PrefabInstance:
     - target: {fileID: 5920734814256256209, guid: ef5c68baaa20643439dd4430628e4458, type: 3}
       propertyPath: m_Name
       value: Room_Normal_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6586543633577151619, guid: ef5c68baaa20643439dd4430628e4458, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8502927511442467699, guid: ef5c68baaa20643439dd4430628e4458, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

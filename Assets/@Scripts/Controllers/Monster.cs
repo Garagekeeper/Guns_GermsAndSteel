@@ -9,7 +9,7 @@ public class Monster : Creature
     //public HashSet<>
     protected bool _isFloating = false;
 
-    private LineRenderer lr;
+    private LineRenderer lr = null;
 
     //나중에 creature 타음으로 통일하자.... 넘 반복됨...
     public EMonsterType MonsterType { get; protected set; }
@@ -112,15 +112,11 @@ public class Monster : Creature
     protected override void UpdateSkill()
     {
         if (_coWait != null) return;
-
-        float delay = 0;
-
         AnimatorBottom.Play(_skillName[(int)_currentSkill], 0, 0);
         //Debug.Log(_skillName[(int)_currentSkill]);
         if (_skillName[(int)_currentSkill] != AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.name)
             return;
-        delay = AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.length;
-
+        float delay = AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.length;
         StartWait(delay);
     }
 

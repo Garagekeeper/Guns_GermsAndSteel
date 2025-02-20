@@ -63,6 +63,8 @@ public class Projectile : MonoBehaviour
         if (owner.CreatureType == ECreatureType.Boss) mask |= (1 << 10);
         mask |= (1 << 8);
         mask |= (1 << 14);
+        //TimerTriger
+        mask |= (1 << 16);
 
         Collider.excludeLayers = mask;
 

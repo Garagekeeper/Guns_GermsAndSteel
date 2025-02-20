@@ -28,6 +28,7 @@ public static class Define
     {
         None,
         Monstro,
+        Mom,
         Fistula,
         DukeOfFlies,
         Gurdy,

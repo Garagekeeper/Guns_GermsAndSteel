@@ -49,7 +49,7 @@ public class Creature : BaseObject
     public float Luck { get; set; }
     public float BombDamage { get; set; }
 
-    public List<GameObject> Familiar = new List<GameObject>();
+    public List<GameObject> Familiar = new();
 
     public int Life { get; set; } = 0;
 
@@ -489,7 +489,7 @@ public class Creature : BaseObject
 
     public void ReflectTargetVecor(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Projectile")
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Projectile"))
         {
             return;
         }
@@ -502,7 +502,7 @@ public class Creature : BaseObject
 
     public void ReflectTargetVecor(Collider2D collider2D)
     {
-        if (collider2D.gameObject.tag == "Player")
+        if (collider2D.gameObject.CompareTag("Player"))
         {
             return;
         }

@@ -21,7 +21,7 @@ public class DevScene : MonoBehaviour
     {
         Managers.Resource.LoadAllAsync<Object>("InGame", (key, count, totalCount) =>
         {
-            Debug.Log($"{key} {count}/{totalCount}");
+            //Debug.Log($"{key} {count}/{totalCount}");
             if (count == totalCount)
             {
                 LoadUI(); SpawnCharacter(); SpawnBossMonster();
@@ -38,7 +38,7 @@ public class DevScene : MonoBehaviour
 
     public void SpawnCharacter()
     {
-        MainCharacter mc = Managers.Object.Spawn<MainCharacter>(new Vector3(5f, -0.5f, 0));
+        Managers.Object.Spawn<MainCharacter>(new Vector3(5f, -0.5f, 0));
     }
 
     public void SpawnBossMonster()
@@ -46,7 +46,8 @@ public class DevScene : MonoBehaviour
         //Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-4.0f, -0.5f, 0), 0, "Boss_Monstro");
         //Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-4.0f, -0.5f, 0), 0, "Boss_Fistula");
         //Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-4.0f, -0.5f, 0), 0, "Boss_DukeOfFlies");
-        Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-4.0f, -0.5f, 0), 0, "Boss_GurdyJr");
+        //Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-4.0f, -0.5f, 0), 0, "Boss_GurdyJr");
         //Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-0.85f, 2.15f, 0), 0, "Boss_Gurdy");
+        Managers.Object.Spawn<Boss>(new Vector3(0f,0f, 0), 0, "Boss_Mom");
     }
 }

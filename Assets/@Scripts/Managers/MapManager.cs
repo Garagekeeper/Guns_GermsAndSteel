@@ -151,7 +151,7 @@ public class MapManager
     }
 
 
-    List<Vector3Int> _possibleVector = new List<Vector3Int>()
+    List<Vector3Int> _possibleVector = new()
     {
         new Vector3Int(0, 1, 0), //Top
         new Vector3Int(1, 1, 0), //Top Right
@@ -182,12 +182,12 @@ public class MapManager
     public List<Vector3Int> FindPath(Creature crreature, Vector3Int startPos, Vector3Int destPos, int maxDepth = 10)
     {
         //Save Best Candidate
-        Dictionary<Vector3Int, int> best = new Dictionary<Vector3Int, int>();
+        Dictionary<Vector3Int, int> best = new();
 
         //Path tracking
-        Dictionary<Vector3Int, Vector3Int> parent = new Dictionary<Vector3Int, Vector3Int>();
+        Dictionary<Vector3Int, Vector3Int> parent = new();
 
-        PriorityQueue<PQNode> pq = new PriorityQueue<PQNode>();
+        PriorityQueue<PQNode> pq = new();
 
 
         Vector3Int pos = startPos;
@@ -249,7 +249,7 @@ public class MapManager
 
     List<Vector3Int> CalcCellPathFromParent(Dictionary<Vector3Int, Vector3Int> parent, Vector3Int dest)
     {
-        List<Vector3Int> cells = new List<Vector3Int>();
+        List<Vector3Int> cells = new();
 
         if (parent.ContainsKey(dest) == false)
             return cells;
@@ -351,7 +351,7 @@ public class MapManager
 
     public RoomClass TryPlacingSecretRoom()
     {
-        Dictionary<Vector3, int> values = new Dictionary<Vector3, int>();
+        Dictionary<Vector3, int> values = new();
 
         for (int i = 0; i < 9; i++)
         {
@@ -397,7 +397,7 @@ public class MapManager
             }
         }
 
-        Vector3 pos = new Vector3(0, 0);
+        Vector3 pos = new(0, 0);
         int maxWeight = 0;
         foreach (var pl in values)
         {
@@ -408,7 +408,7 @@ public class MapManager
         }
 
         s_roomGraph[(int)pos.x, (int)pos.y] = 1;
-        RoomClass SecretRoom = new RoomClass((int)pos.x, (int)pos.y);
+        RoomClass SecretRoom = new((int)pos.x, (int)pos.y);
         return (SecretRoom);
     }
 
@@ -443,7 +443,7 @@ public class MapManager
 
     public int GenerateStage()
     {
-        Queue<RoomClass> roomClassQueue = new Queue<RoomClass>();
+        Queue<RoomClass> roomClassQueue = new();
         RoomClass rc;
         Rooms = new List<RoomClass>();
         int roomCnt = 0;
@@ -665,7 +665,7 @@ public class MapManager
 
         //3. special (인접한 방이 1개인 방들을 나열) 생성
         //dead ends
-        PriorityQueue<PQRNode> dead_ends = new PriorityQueue<PQRNode>();
+        PriorityQueue<PQRNode> dead_ends = new();
         foreach (var room in Rooms)
         {
             //인접한 방이 1개이면 special추가
@@ -751,7 +751,7 @@ public class MapManager
         {
             int[] dx = { 0, 0, 1, -1 };
             int[] dy = { 1, -1, 0, 0, };
-            List<RoomClass> reward = new List<RoomClass>();
+            List<RoomClass> reward = new();
             for (int i = 0; i < 4; i++)
             {
                 int nx = BossRoom.XPos + dx[i];
@@ -762,7 +762,7 @@ public class MapManager
                 if (s_roomGraph[nx, ny] == 1) continue;
                 if (nx > XMax || nx < XMin) continue;
                 if (ny > YMax || ny < YMin) continue;
-                RoomClass temp = new RoomClass(nx, ny);
+                RoomClass temp = new(nx, ny);
 
                 reward.Add(temp);
             }
@@ -889,7 +889,7 @@ public class MapManager
                     temp = (int)room.RoomType;
 
                 GameObject door = room.Doors.transform.GetChild(i).gameObject;
-                door.gameObject.SetActive(true);
+                door.SetActive(true);
                 //bg
                 door.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorBackGround[temp]);
                 //left
@@ -1021,7 +1021,7 @@ public class MapManager
         for (int i = 0; i < 4; i++)
         {
             GameObject door = doorParent.transform.GetChild(i).gameObject;
-            if (door.gameObject.activeSelf)
+            if (door.activeSelf)
             {
                 door.transform.GetChild(1).gameObject.SetActive(false);
                 door.transform.GetChild(2).gameObject.SetActive(false);
@@ -1148,7 +1148,7 @@ public class MapManager
             {
                 int nx = 0 + dx[i];
                 int ny = 0 + dy[i];
-                Vector3Int newPos = new Vector3Int(nx, ny);
+                Vector3Int newPos = new(nx, ny);
                 Tilemap tm = room.CollidePrefab.GetComponent<Tilemap>();
                 if (i == 3)
                     tm.SetTransformMatrix(newPos, Matrix4x4.Translate(new Vector3(qx3[i], qy3[i], 0)));

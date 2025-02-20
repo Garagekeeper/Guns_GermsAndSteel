@@ -12,6 +12,7 @@ TagManager:
   - ClearBox
   - Projectile
   - ProjectileCollider
+  - TimerTrigger
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Obstacle
   - MapCollider
   - ProjectileCollider
-  - 
+  - TimerTrigger
   - 
   - 
   - 

@@ -47,8 +47,8 @@ public class GameManager
 
     public int StageNumber { get; set; } = 1;
 
-    int _baseRoomCountMax = 20;
-    int _baseRoomCountMin = 10;
+    private int _baseRoomCountMax = 20;
+    private int _baseRoomCountMin = 10;
 
 
     public void Init()
@@ -94,8 +94,8 @@ public class GameManager
             if (Seed[i] >= 'A')
                 temp += 10 + (Seed[i] - 'A');
 
-            res = res + temp * power;
-            power = power * 36;
+            res += temp * power;
+            power *= 36;
             temp = 0;
         }
         Sn = res % M;
@@ -138,7 +138,7 @@ public class GameManager
     public void GoToNextRoom(string dir)
     {
         RoomClass currentRoom = Managers.Map.CurrentRoom;
-        Vector3 newPos = new Vector3();
+        Vector3 newPos = new();
         int index = 0;
         if (currentRoom == null)
         {
@@ -225,7 +225,7 @@ public class GameManager
 
     public void MovePlayerToNextRoom(int index)
     {
-        Vector3 newPos = new Vector3();
+        Vector3 newPos = new();
         switch (index)
         {
             case 0:
@@ -257,7 +257,7 @@ public class GameManager
 
     public void TPToNormalRandom()
     {
-        List<RoomClass> list = new List<RoomClass>();
+        List<RoomClass> list = new();
         foreach (RoomClass r in Managers.Map.Rooms)
         {
             if (r.RoomType == RoomClass.ERoomType.Normal && r != Managers.Map.CurrentRoom)
