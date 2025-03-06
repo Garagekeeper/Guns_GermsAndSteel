@@ -41,17 +41,18 @@ public class Monster : Creature
             Managers.Resource.Load<Sprite>("isaac_right"),
        };
 
+#if UNITY_EDITOR
+        if (!_isFloating)
+        {
+            lr = GetComponent<LineRenderer>();
 
-        //if (!_isFloating)
-        //{
-        //    lr = GetComponent<LineRenderer>();
+            lr.startWidth = lr.endWidth = 0.05f;
+            lr.material.color = Random.ColorHSV();
+            lr.enabled = false;
 
-        //    lr.startWidth = lr.endWidth = 0.05f;
-        //    lr.material.color = Random.ColorHSV();
-        //    lr.enabled = false;
-
-        //    //StartCoroutine(CoUpdateTarget());
-        //}
+            //StartCoroutine(CoUpdateTarget());
+        }
+#endif
     }
 
     void Update()

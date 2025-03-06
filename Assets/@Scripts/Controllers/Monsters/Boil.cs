@@ -10,10 +10,10 @@ public class Boil : Monster
 {
     private int _growSize;
     Sequence sequence;
+
     private void Awake()
     {
         Init();
-        StartCoroutine(CoUpdateAI());
     }
 
     public override void Init()

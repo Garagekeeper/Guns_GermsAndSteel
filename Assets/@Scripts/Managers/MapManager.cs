@@ -15,6 +15,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 using Object = UnityEngine.Object;
 using Transform = UnityEngine.Transform;
 using static Utility;
+using UnityEngine.SceneManagement;
 
 public class RoomClass
 {
@@ -154,13 +155,13 @@ public class MapManager
     List<Vector3Int> _possibleVector = new()
     {
         new Vector3Int(0, 1, 0), //Top
-        new Vector3Int(1, 1, 0), //Top Right
         new Vector3Int(1, 0, 0), //Right
-        new Vector3Int(1, -1, 0), //Bottom Right
         new Vector3Int(0, -1, 0), //Bottom
-        new Vector3Int(-1, -1, 0), //Bottom Left
         new Vector3Int(-1, 0, 0), //Left
-        new Vector3Int(-1, 1, 0), //Top Left
+        //new Vector3Int(-1, -1, 0), //Bottom Left
+        //new Vector3Int(1, -1, 0), //Bottom Right
+        //new Vector3Int(1, 1, 0), //Top Right
+        //new Vector3Int(-1, 1, 0), //Top Left
     };
 
     public bool CanGo(Vector3Int next)
@@ -168,9 +169,11 @@ public class MapManager
         int x = next.x;
         int y = next.y;
 
-        if (x < _minimumX || x > _maximumX) return false;
-        if (y < _minimumY || y > _maximumY) return false;
-        if (_cellCollisionType[x + _maximumX, y + _maximumY] == ECellCollisionType.Wall) return false;
+        if (x < XMin || x > XMax) return false;
+        if (y < YMin || y > YMax) return false;
+        //Debug.Log("x: " + (x + XMax));
+        //Debug.Log("y: " + (y + YMax));
+        if (collisionData[y + YMax, x + XMax] == (int)ECellCollisionType.Wall) return false;
         return true;
     }
 
@@ -819,6 +822,37 @@ public class MapManager
     {
         for (int i = 0; i < Enum.GetValues(typeof(ERoomType)).Length; i++)
             RoomCollisionCnt.Add(0);
+
+        if (SceneManager.GetActiveScene().name == "DevScene")
+        {
+            Map = GameObject.Find("Stage");
+            CellGrid = Map.GetComponent<Grid>();
+            XMax = 11;
+            XMin = -11;
+            YMax = 6;
+            YMin = -6;
+            Rooms = new List<RoomClass>();
+            RoomClass devRoom = new RoomClass(0, 0);
+            devRoom.RoomObject = FindChildByName(Map.transform, "Room_Normal_1").gameObject;
+            devRoom.Transform = devRoom.RoomObject.transform;
+            devRoom.RoomObject = devRoom.RoomObject;
+            devRoom.TilemapPrefab = devRoom.RoomObject.transform.GetChild(0).gameObject;
+            devRoom.Obstacle = devRoom.RoomObject.transform.GetChild(1).gameObject;
+            devRoom.CollidePrefab = devRoom.RoomObject.transform.GetChild(2).gameObject;
+            devRoom.Doors = devRoom.RoomObject.transform.GetChild(4).gameObject;
+            devRoom.TilemapCollisionPrefab = devRoom.RoomObject.transform.GetChild(5).gameObject;
+            devRoom.Tilemap = devRoom.TilemapPrefab.GetComponent<Tilemap>();
+
+            Tilemap tmp = devRoom.Tilemap;
+            XMax = tmp.cellBounds.xMax;
+            XMin = tmp.cellBounds.xMin;
+            YMax = tmp.cellBounds.yMax;
+            YMin = tmp.cellBounds.yMin;
+            Rooms.Add(devRoom);
+
+            ParseRoomCollisionData();
+            return;
+        }
 
         Managers.Resource.LoadAllAsync<Object>("InGame", (key, count, totalCount) =>
         {

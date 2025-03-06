@@ -47,6 +47,26 @@ public static class Utility
         return null; // 이름에 해당하는 오브젝트를 찾지 못한 경우
     }
 
+    public static Transform FindChildByNameContain(Transform parent, string name)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.name.Contains(name))
+            {
+                return child;
+            }
+
+            // 자식의 자식 오브젝트에서 재귀적으로 찾기
+            Transform found = FindChildByNameContain(child, name);
+            if (found != null)
+            {
+                return found;
+            }
+        }
+
+        return null; // 이름에 해당하는 오브젝트를 찾지 못한 경우
+    }
+
     public static Vector2 VectorRotation2D(Vector2 vec, float angle)
     {
         float radians = angle * Mathf.Deg2Rad;

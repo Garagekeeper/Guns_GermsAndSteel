@@ -45,6 +45,13 @@ MonoBehaviour:
     - InGame
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a189823d85ebf0741870f04bf79e5733
+    m_Address: Gaper
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

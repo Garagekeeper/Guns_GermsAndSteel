@@ -248,7 +248,6 @@ public class Boss_Mom : Boss
                    handTransform.gameObject.SetActive(false);
                    _bR = _bD = _bL = _bU = false;
                }, 0f, 0f))
-               //다른 애니메이션 사이의 딜레이
                .OnComplete(() => { _currentSkill = EBossSkill.Normal; BossState = EBossState.Idle; });
 
         StartWait(5f);

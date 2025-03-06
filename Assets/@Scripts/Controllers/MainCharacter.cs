@@ -321,8 +321,8 @@ public class MainCharacter : Creature
         else if (item.ItemType == EItemType.Passive)
         {
             itemHolder.ChangeItemOnItemHolder(null);
-            AcquiredPassiveItemList.Add(item);
             ApplyPassiveItemEffect(item);
+            AcquiredPassiveItemList.Add(item);
         }
         else if (item.ItemType == EItemType.ActiveItem)
         {

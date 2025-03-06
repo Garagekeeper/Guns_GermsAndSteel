@@ -12,6 +12,7 @@ public class DevScene : MonoBehaviour
                 Managers.Data.Init();
                 Managers.Game.Init();
                 LoadInGame();
+                Managers.Map.Init(null);
             }
         });
 
@@ -24,7 +25,7 @@ public class DevScene : MonoBehaviour
             //Debug.Log($"{key} {count}/{totalCount}");
             if (count == totalCount)
             {
-                LoadUI(); SpawnCharacter(); SpawnBossMonster();
+                LoadUI(); SpawnCharacter(); SpawnBossAndMonster();
             }
         });
     }
@@ -41,13 +42,15 @@ public class DevScene : MonoBehaviour
         Managers.Object.Spawn<MainCharacter>(new Vector3(5f, -0.5f, 0));
     }
 
-    public void SpawnBossMonster()
+    public void SpawnBossAndMonster()
     {
         //Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-4.0f, -0.5f, 0), 0, "Boss_Monstro");
         //Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-4.0f, -0.5f, 0), 0, "Boss_Fistula");
         //Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-4.0f, -0.5f, 0), 0, "Boss_DukeOfFlies");
         //Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-4.0f, -0.5f, 0), 0, "Boss_GurdyJr");
         //Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-0.85f, 2.15f, 0), 0, "Boss_Gurdy");
-        Managers.Object.Spawn<Boss>(new Vector3(0f,0f, 0), 0, "Boss_Mom");
+        //Managers.Object.Spawn<Boss>(new Vector3(0f,0f, 0), 0, "Boss_Mom");
+
+        Managers.Object.Spawn<Monster>(new Vector3(-4.0f, -4.0f, 0), 0, "Gaper");
     }
 }

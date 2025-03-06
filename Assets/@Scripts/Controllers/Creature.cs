@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Define;
+using static Utility;
 
 public class Creature : BaseObject
 {
@@ -180,14 +181,16 @@ public class Creature : BaseObject
         Luck = 0f;
         BombDamage = 100f;
 
+        //상하체 분리형
         if (transform.childCount != 0)
         {
             AnimatorHead = transform.GetChild(0).GetComponentInChildren<Animator>();
             //AnimatorHead.enabled = false;
             AnimatorBottom = transform.GetChild(1).GetComponentInChildren<Animator>();
-            Head = transform.Find("Head").GetComponent<SpriteRenderer>();
-            Bottom = transform.Find("Bottom").GetComponent<SpriteRenderer>();
+            Head = FindChildByNameContain(transform,"Head").GetComponent<SpriteRenderer>();
+            Bottom = FindChildByNameContain(transform, "Bottom").GetComponent<SpriteRenderer>();
         }
+        //나머지
         else
         {
             AnimatorBottom = transform.GetComponentInChildren<Animator>();
