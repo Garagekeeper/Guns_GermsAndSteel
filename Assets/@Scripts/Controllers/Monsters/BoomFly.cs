@@ -21,6 +21,7 @@ public class BoomFly : Monster
         CreatureMoveState = ECreatureMoveState.Designated;
         _isFloating = true;
         Speed = 3.0f;
+        Range = 5.0f;
 
         TargetPos = dV[Random.Range(0, 4)];
         CreatureState = ECreatureState.Move;

@@ -14,6 +14,7 @@ public class Boss : Creature
     /// when Boss need 2 Collider Use this for collision
     /// </summary>
     protected CircleCollider2D GPCollider2D;
+    protected List<SpriteRenderer> _flickerTarget;
 
     /// <summary>
     /// Collider for general physics
@@ -187,6 +188,7 @@ public class Boss : Creature
     {
         base.OnDamaged(owner, skillType);
         Managers.UI.PlayingUI.ChangeBossHpSliderRatio(Hp / MaxHp);
+        StartCoroutine(CoFlicker());
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -201,5 +203,26 @@ public class Boss : Creature
         _startPos = transform.position;
     }
 
-   
+    public IEnumerator CoFlicker()
+    {
+        //Change Sprite
+        for (int i = 1; i <= 2; i++)
+        {
+            if (i % 2 == 0)
+            {
+               foreach (SpriteRenderer spriterenderer in _flickerTarget)
+                    spriterenderer.color = new Color32(255, 255, 255, 255);
+            }
+            else
+            {
+                foreach (SpriteRenderer spriterenderer in _flickerTarget)
+                    spriterenderer.color = new Color32(255, 127, 127, 255);
+            }
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        //Change Sprite
+        yield return null;
+    }
+
 }

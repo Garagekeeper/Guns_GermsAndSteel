@@ -115,7 +115,7 @@ public class MainCharacter : Creature
     {
         base.Init();
 #if UNITY_EDITOR
-        AttackDamage = 50f;
+        AttackDamage = 3f;
 #endif
         HeadSprite = new Sprite[]
        {

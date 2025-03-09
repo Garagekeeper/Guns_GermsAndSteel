@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3757898306922909203}
   - component: {fileID: 2870690023645114852}
   - component: {fileID: 7988359871191850788}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BoomFly
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

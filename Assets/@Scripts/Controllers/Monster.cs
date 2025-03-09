@@ -42,7 +42,7 @@ public class Monster : Creature
        };
 
 #if UNITY_EDITOR
-        if (!_isFloating)
+        if (!_isFloating && lr != null)
         {
             lr = GetComponent<LineRenderer>();
 
@@ -133,9 +133,9 @@ public class Monster : Creature
 
         if (path.Count < 2)
             return;
-
+#if UNITY_EDITOR
         drawPath(path);
-
+#endif
         Vector3 dir = path[1] - path[0];
         Vector3 normalizedDir = dir.normalized;
 
@@ -203,5 +203,34 @@ public class Monster : Creature
 
     }
 
+    public override void OnDamaged(Creature owner, ESkillType skillType, string name = "")
+    {
+        base.OnDamaged(owner, skillType, name);
+        StartCoroutine(CoFlicker());
+    }
 
+    //Total 1sec
+    public IEnumerator CoFlicker()
+    {
+        //Change Sprite
+        for (int i = 1; i <= 2; i++)
+        {
+            if (i % 2 == 0)
+            {
+                if (Head != null)
+                    Head.color = new Color32(255, 255, 255, 255);
+                Bottom.color = new Color32(255, 255, 255, 255);
+            }
+            else
+            {
+                if (Head != null)
+                    Head.color = new Color32(255, 127, 127, 255);
+                Bottom.color = new Color32(255, 127, 127, 255);
+            }
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        //Change Sprite
+        yield return null;
+    }
 }

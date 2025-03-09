@@ -37,6 +37,7 @@ public class Boss_Monstro : Boss
         CreatureMoveState = ECreatureMoveState.TargetCreature;
         AttackDamage = 5f;
 
+        _flickerTarget.Add(FindChildByName(transform, "Boss_Monstro_Sprite").GetComponent<SpriteRenderer>());
         //Debug
         //foreach (var clip in AnimatorBottom.runtimeAnimatorController.animationClips)
         //{

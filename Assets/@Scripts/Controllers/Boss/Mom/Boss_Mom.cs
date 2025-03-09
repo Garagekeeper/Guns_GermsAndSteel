@@ -53,6 +53,22 @@ public class Boss_Mom : Boss
         _doorTransform[2] = FindChildByName(transform, "Boss_Mom_Door_Left");
         _doorTransform[3] = FindChildByName(transform, "Boss_Mom_Door_Up");
 
+
+        _flickerTarget.Add(FindChildByName(transform, "Boss_Mom_Leg_Thigh").GetComponent<SpriteRenderer>());
+        _flickerTarget.Add(FindChildByName(transform, "Boss_Mom_Leg_Calf").GetComponent<SpriteRenderer>());
+        _flickerTarget.Add(FindChildByName(transform, "Boss_Mom_Leg_Shadow").GetComponent<SpriteRenderer>());
+
+        _flickerTarget.Add(FindChildByName(transform, "Boss_Mom_Door_Right_Spawn_Object").GetComponent<SpriteRenderer>());
+        _flickerTarget.Add(FindChildByName(transform, "Boss_Mom_Door_Right_Hand").GetComponent<SpriteRenderer>());
+
+        _flickerTarget.Add(FindChildByName(transform, "Boss_Mom_Door_Down_Spawn_Object").GetComponent<SpriteRenderer>());
+        _flickerTarget.Add(FindChildByName(transform, "Boss_Mom_Door_Down_Hand").GetComponent<SpriteRenderer>());
+
+        _flickerTarget.Add(FindChildByName(transform, "Boss_Mom_Door_Left_Spawn_Object").GetComponent<SpriteRenderer>());
+        _flickerTarget.Add(FindChildByName(transform, "Boss_Mom_Door_Left_Hand").GetComponent<SpriteRenderer>());
+
+        _flickerTarget.Add(FindChildByName(transform, "Boss_Mom_Door_Up_Spawn_Object").GetComponent<SpriteRenderer>());
+        _flickerTarget.Add(FindChildByName(transform, "Boss_Mom_Door_Up_Hand").GetComponent<SpriteRenderer>());
         LayerMask mask = 0;
         //player
         mask |= (1 << 6);

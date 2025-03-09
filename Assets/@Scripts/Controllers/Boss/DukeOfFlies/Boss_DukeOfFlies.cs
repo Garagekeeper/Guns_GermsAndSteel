@@ -26,6 +26,8 @@ public class Boss_DukeOfFlies : Boss
         BossState = EBossState.Idle;
         CreatureMoveState = ECreatureMoveState.Designated;
 
+        _flickerTarget.Add(FindChildByName(transform, "Boss_DukeOfFlies_Sprite").GetComponent<SpriteRenderer>());
+
         Vector3[] dV = { new Vector3(1, 1), new Vector3(1, -1), new Vector3(-1, 1), new Vector3(-1, -1) };
         TargetPos = dV[UnityEngine.Random.Range(0, 3)];
 

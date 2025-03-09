@@ -22,6 +22,12 @@ public class Boss_Gurdy : Boss
         BossState = EBossState.Idle;
         CreatureMoveState = ECreatureMoveState.None;
         AttackDamage = 3f;
+
+        _flickerTarget.Add(GetComponent<SpriteRenderer>());
+        foreach (var spriteRenderer in GetComponentsInChildren<SpriteRenderer>())
+        {
+            _flickerTarget.Add(spriteRenderer);
+        }
     }
 
 

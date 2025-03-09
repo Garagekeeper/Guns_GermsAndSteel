@@ -38,12 +38,33 @@ public class Boss_Fistula_pieces : MonoBehaviour
     {
         if (collision.gameObject.tag == "Projectile" || collision.gameObject.tag == "Player")
         {
-
+            StartCoroutine(CoFlicker());
         }
         else
         {
             Vector3 reflectVec = Vector3.Reflect(DirVec, collision.GetContact(0).normal);
             DirVec = reflectVec;
         }
+    }
+
+    public IEnumerator CoFlicker()
+    {
+        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
+        //Change Sprite
+        for (int i = 1; i <= 2; i++)
+        {
+            if (i % 2 == 0)
+            {
+                spriteRenderer.color = new Color32(255, 255, 255, 255);
+            }
+            else
+            {
+                spriteRenderer.color = new Color32(255, 127, 127, 255);
+            }
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        //Change Sprite
+        yield return null;
     }
 }

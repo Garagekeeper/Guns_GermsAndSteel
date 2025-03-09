@@ -41,6 +41,9 @@ public class Boss_GurdyJr : Boss
         AttackDamage = 5f;
         Speed = 10f;
         Bottom = FindChildByName(transform, transform.gameObject.name.Replace("(Clone)", "").Trim() + "_Face").GetComponent<SpriteRenderer>();
+
+        _flickerTarget.Add(FindChildByName(transform, "Boss_GurdyJr_Sprite").GetComponent<SpriteRenderer>());
+        _flickerTarget.Add(FindChildByName(transform, "Boss_GurdyJr_Face").GetComponent<SpriteRenderer>());
     }
 
     protected override void UpdateIdle()

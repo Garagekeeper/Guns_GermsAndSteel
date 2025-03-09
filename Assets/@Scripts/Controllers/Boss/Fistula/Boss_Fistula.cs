@@ -34,6 +34,8 @@ public class Boss_Fistula : Boss
         TargetPos = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0);
         MaxHp = 60f;
         Hp = 60f;
+
+        _flickerTarget.Add(GetComponent<SpriteRenderer>());
     }
 
     public override void OnDamaged(Creature owner, ESkillType skillType, string name = "")
