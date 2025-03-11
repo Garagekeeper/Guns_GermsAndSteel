@@ -64,6 +64,7 @@ public class RoomClass
     private GameObject _obstacle;
     private GameObject _doors;
     private Tilemap _tilemap;
+    private long _awardSeed;
 
 
     public GameObject TilemapPrefab { get { return _tilemapPrefab; } set { _tilemapPrefab = value; } }
@@ -73,7 +74,8 @@ public class RoomClass
 
     public GameObject Doors { get { return _doors; } set { _doors = value; } }
     public Tilemap Tilemap { get { return _tilemap; } set { _tilemap = value; } }
-
+    
+    public long AwardSeed { get { return _awardSeed; } set { _awardSeed = value; } }
 
     public int DiffiCulty { get; set; }
 
@@ -86,6 +88,7 @@ public class RoomClass
         XPos = xPos;
         YPos = yPos;
         _adjacencentRooms = new RoomClass[4];
+        AwardSeed = Managers.Game.RNG.Sn;
     }
 }
 public class MapManager
@@ -169,11 +172,12 @@ public class MapManager
         int x = next.x;
         int y = next.y;
 
-        if (x < XMin || x > XMax) return false;
-        if (y < YMin || y > YMax) return false;
+        if (x < StageColXMin || x > StageColXMax) return false;
+        if (y < StageColYMin || y > StageColYMax) return false;
         //Debug.Log("x: " + (x + XMax));
         //Debug.Log("y: " + (y + YMax));
-        if (collisionData[y + YMax, x + XMax] == (int)ECellCollisionType.Wall) return false;
+        if (collisionData[y + math.abs(StageColYMin), x + math.abs(StageColXMin)]
+            == (int)ECellCollisionType.Wall) return false;
         return true;
     }
 
@@ -289,8 +293,10 @@ public class MapManager
         }
     }
 
-    public static int s_mapMaxX = 9;
-    public static int s_mapMaxY = 9;
+    //방을 만들때 사용하는 배열의 최대X
+    public static int s_mapMaxXofRoomArray = 9;
+    //방을 만들때 사용하는 배열의 최대Y
+    public static int s_mapMaxYofRoomArray = 9;
     public static int[,] s_roomGraph;
     public int[,] collisionData;
 
@@ -311,11 +317,18 @@ public class MapManager
                 9,
             };
 
+    //만들어진 방의 최대/최소 XY
+    //스테이지 관점에서 방의 배열 (크기가 작다, 충돌맵에 사용하는 그 크기가 아니다)
     public int XMin { get; set; } = 100;
     public int YMin { get; set; } = 100;
     public int XMax { get; set; } = 0;
     public int YMax { get; set; } = 0;
 
+
+    public int StageColXMin { get; set; } = 1000;
+    public int StageColYMin { get; set; } = 1000;
+    public int StageColXMax { get; set; } = -1000;
+    public int StageColYMax { get; set; } = -1000;
     public Vector2Int StartingPos { get; set; } = new Vector2Int(4, 4);
 
     //int _baseRoomCountMax = 20;
@@ -341,14 +354,14 @@ public class MapManager
 
     public bool CanCreateRoom(int x, int y)
     {
-        if (x < 0 || x >= s_mapMaxX) return false;
-        if (y < 0 || y >= s_mapMaxY) return false;
+        if (x < 0 || x >= s_mapMaxXofRoomArray) return false;
+        if (y < 0 || y >= s_mapMaxYofRoomArray) return false;
         // 이미 방이 있다면 넘어간다.
         if (s_roomGraph[x, y] == 1) return false;
         // 인접한 방이 2개 이상이면 방을 생성하지 않는다.
         if (CheckAdjacencyRoomCnt(x, y) >= 2) return false;
         // 위조건을 만족해도 50보다 작아야 방을 생성
-        if (!Managers.Game.Chance(50)) return false;
+        if (!Managers.Game.RNG.Chance(50)) return false;
         return true;
     }
 
@@ -371,8 +384,8 @@ public class MapManager
                 {
                     int nx = i + dx[k];
                     int ny = j + dy[k];
-                    if (nx < 0 || nx >= s_mapMaxX) break;
-                    if (ny < 0 || ny >= s_mapMaxY) break;
+                    if (nx < 0 || nx >= s_mapMaxXofRoomArray) break;
+                    if (ny < 0 || ny >= s_mapMaxYofRoomArray) break;
                     if (nx == BossRoom.XPos && ny == BossRoom.YPos) break;
                     if (s_roomGraph[nx, ny] == 1)
                     {
@@ -425,8 +438,8 @@ public class MapManager
         {
             int nx = x + dx[i];
             int ny = y + dy[i];
-            if (nx < 0 || nx >= s_mapMaxX) continue;
-            if (ny < 0 || ny >= s_mapMaxY) continue;
+            if (nx < 0 || nx >= s_mapMaxXofRoomArray) continue;
+            if (ny < 0 || ny >= s_mapMaxYofRoomArray) continue;
             if (s_roomGraph[nx, ny] == 1) cnt++;
         }
 
@@ -465,7 +478,7 @@ public class MapManager
         //1.BFS를 통한 방 생성
         while (roomCnt < Managers.Game.N)
         {
-            roomClassQueue.Enqueue(Managers.Game.Choice(Rooms));
+            roomClassQueue.Enqueue(Managers.Game.RNG.Choice(Rooms));
 
             while (roomClassQueue.Count != 0)
             {
@@ -605,8 +618,8 @@ public class MapManager
         //        int nx = BossRoom.XPos + dx[i];
         //        int ny = BossRoom.YPos + dy[i];
 
-        //        if (nx < 0 || nx >= s_mapMaxX) continue;
-        //        if (ny < 0 || ny >= s_mapMaxY) continue;
+        //        if (nx < 0 || nx >= s_mapMaxXofRoomArray) continue;
+        //        if (ny < 0 || ny >= s_mapMaxYofRoomArray) continue;
         //        if (s_roomGraph[nx, ny] == 1) continue;
         //        if (nx > XMax || nx < XMin) continue;
         //        if (ny > YMax || ny < YMin) continue;
@@ -674,7 +687,7 @@ public class MapManager
             //인접한 방이 1개이면 special추가
             if (room._adjacencentRooms.Count(s => s != null) == 1) dead_ends.Push(new PQRNode() { RoomClass = room, ManhattanDistance = Math.Abs(4 - room.XPos) + (Math.Abs(4 - room.YPos)) });
             //아닌경우 방의 난이도 설정
-            else room.DiffiCulty = Managers.Game.Choice(_difficulty);
+            else room.DiffiCulty = Managers.Game.RNG.Choice(_difficulty);
         }
 
         //4. 보스방 설정
@@ -696,7 +709,7 @@ public class MapManager
             {
                 dead_ends.Pop().RoomClass.RoomType = ERoomType.Shop;
             }
-            else if (Managers.Game.Chance(66))
+            else if (Managers.Game.RNG.Chance(66))
             {
                 dead_ends.Pop().RoomClass.RoomType = ERoomType.Shop;
             }
@@ -724,7 +737,7 @@ public class MapManager
         //7.희생방
         if (dead_ends.Count > 0)
         {
-            if (Managers.Game.Chance(14))
+            if (Managers.Game.RNG.Chance(14))
             {
                 dead_ends.Pop().RoomClass.RoomType = ERoomType.Curse;
             }
@@ -734,7 +747,7 @@ public class MapManager
         if (dead_ends.Count > 0)
         {
             int chance = 50; //TODO Devil 방문여부에 따른 +
-            if (Managers.Game.Chance(chance))
+            if (Managers.Game.RNG.Chance(chance))
                 dead_ends.Pop().RoomClass.RoomType = ERoomType.Curse;
         }
 
@@ -750,7 +763,7 @@ public class MapManager
         }
 
         //8.천사방, 악마방 설정
-        if (Managers.Game.Chance(20))
+        if (Managers.Game.RNG.Chance(20))
         {
             int[] dx = { 0, 0, 1, -1 };
             int[] dy = { 1, -1, 0, 0, };
@@ -760,8 +773,8 @@ public class MapManager
                 int nx = BossRoom.XPos + dx[i];
                 int ny = BossRoom.YPos + dy[i];
 
-                if (nx < 0 || nx >= s_mapMaxX) continue;
-                if (ny < 0 || ny >= s_mapMaxY) continue;
+                if (nx < 0 || nx >= s_mapMaxXofRoomArray) continue;
+                if (ny < 0 || ny >= s_mapMaxYofRoomArray) continue;
                 if (s_roomGraph[nx, ny] == 1) continue;
                 if (nx > XMax || nx < XMin) continue;
                 if (ny > YMax || ny < YMin) continue;
@@ -770,16 +783,19 @@ public class MapManager
                 reward.Add(temp);
             }
 
-            rc = Managers.Game.Choice(reward);
-            Rooms.Add(rc);
-            s_roomGraph[rc.XPos, rc.YPos] = 1;
-            rc.RoomType = Managers.Game.Chance(50) ? RoomClass.ERoomType.Devil : RoomClass.ERoomType.Angel;
+            if (reward.Count > 0)
+            {
+                rc = Managers.Game.RNG.Choice(reward);
+                Rooms.Add(rc);
+                s_roomGraph[rc.XPos, rc.YPos] = 1;
+                rc.RoomType = Managers.Game.RNG.Chance(50) ? RoomClass.ERoomType.Devil : RoomClass.ERoomType.Angel;
+            }
         }
 
         //11. special 배열이 빌 때까지 일반 방 설정
         while (dead_ends.Count > 0)
         {
-            var temp = dead_ends.Pop().RoomClass.DiffiCulty = Managers.Game.Choice(_difficulty);
+            var temp = dead_ends.Pop().RoomClass.DiffiCulty = Managers.Game.RNG.Choice(_difficulty);
         }
 
 
@@ -788,9 +804,9 @@ public class MapManager
         //temp
         using (var parser = File.CreateText($"Assets/@Resources/Data/MapData/Stage.txt"))
         {
-            for (int i = 0; i < s_mapMaxX; i++)
+            for (int i = 0; i < s_mapMaxXofRoomArray; i++)
             {
-                for (int j = 0; j < s_mapMaxY; j++)
+                for (int j = 0; j < s_mapMaxYofRoomArray; j++)
                 {
                     if (s_roomGraph[i, j] == 1)
                     {
@@ -844,10 +860,6 @@ public class MapManager
             devRoom.Tilemap = devRoom.TilemapPrefab.GetComponent<Tilemap>();
 
             Tilemap tmp = devRoom.Tilemap;
-            XMax = tmp.cellBounds.xMax;
-            XMin = tmp.cellBounds.xMin;
-            YMax = tmp.cellBounds.yMax;
-            YMin = tmp.cellBounds.yMin;
             Rooms.Add(devRoom);
 
             ParseRoomCollisionData();
@@ -990,7 +1002,7 @@ public class MapManager
         //Debug.Log(r.RoomType.ToString());
         string roomName;
 
-        roomName = "Tile_Map_Collision_" + r.RoomType.ToString() + "_" + Managers.Game.RandInt(0, RoomCollisionCnt[(int)r.RoomType] - 1);
+        roomName = "Tile_Map_Collision_" + r.RoomType.ToString() + "_" + Managers.Game.RNG.RandInt(0, RoomCollisionCnt[(int)r.RoomType] - 1);
         GameObject roomTileMap = Managers.Resource.Instantiate(roomName);
         roomTileMap.transform.SetParent(room.transform);
 
@@ -1212,25 +1224,22 @@ public class MapManager
     //에디팅 툴에서 장애물을 만들면 적용해서 충돌배열에 저장
     void ParseRoomCollisionData()
     {
-        int xMin = int.MaxValue;
-        int xMax = 0;
-        int yMin = int.MaxValue;
-        int yMax = 0;
+
         if (CellGrid == null)
             return;
 
         foreach (var room in Rooms)
         {
-            xMin = Math.Min(xMin, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.xMin + (int)room.Transform.position.x);
-            xMax = Math.Max(xMax, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.xMax - 1 + (int)room.Transform.position.x);
-            yMin = Math.Min(yMin, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.yMin + (int)room.Transform.position.y);
-            yMax = Math.Max(yMax, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.yMax - 1 + (int)room.Transform.position.y);
+            StageColXMin = Math.Min(StageColXMin, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.xMin + (int)room.Transform.position.x);
+            StageColXMax = Math.Max(StageColXMax, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.xMax - 1 + (int)room.Transform.position.x);
+            StageColYMin = Math.Min(StageColYMin, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.yMin + (int)room.Transform.position.y);
+            StageColYMax = Math.Max(StageColYMax, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.yMax - 1 + (int)room.Transform.position.y);
         }
 
         //Debug.Log(xMin + ", " + yMin + ", " + xMax + ", " + yMax);
         //Debug.Log(xMax - xMin + 1 + ", " + (yMax - yMin + 1));
 
-        collisionData = new int[yMax - yMin + 1, xMax - xMin + 1];
+        collisionData = new int[StageColYMax - StageColYMin + 1, StageColXMax - StageColXMin + 1];
 
         foreach (var room in Rooms)
         {
@@ -1263,15 +1272,15 @@ public class MapManager
                             collsionInt = (int)ECellCollisionType.SemiWall;
                             break;
                     }
-                    collisionData[y + math.abs(yMin) + (int)room.WorldCenterPos.y, x + math.abs(xMin) + (int)room.WorldCenterPos.x] = collsionInt;
+                    collisionData[y + math.abs(StageColYMin) + (int)room.WorldCenterPos.y, x + math.abs(StageColXMin) + (int)room.WorldCenterPos.x] = collsionInt;
                 }
             }
         }
         var parser = File.CreateText($"Assets/@Resources/Data/MapData/StageCollision.txt");
-        for (int i = yMax - yMin; i >= 0; i--)
+        for (int i = StageColYMax - StageColYMin; i >= 0; i--)
         {
             parser.Write("{0,-4}", i);
-            for (int j = 0; j <= xMax - xMin; j++)
+            for (int j = 0; j <= StageColXMax - StageColXMin; j++)
             {
                 parser.Write(collisionData[i, j]);
             }

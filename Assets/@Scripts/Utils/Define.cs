@@ -157,4 +157,22 @@ public static class Define
         ItemHolder,
         Obstacle,
     }
+
+    public enum EPICKUP_TYPE
+    { 
+        PICKUP_NULL,
+        PICKUP_HEART,
+        PICKUP_COIN,
+        PICKUP_BOMB,
+        PICKUP_KEY,
+        PICKUP_LIL_BATTERY,
+        PICKUP_BATTERY,
+        PICKUP_PILL,
+        PICKUP_TAROT_CARD,
+        PICKUP_RUNE,
+        PICKUP_CHEST,
+        PICKUP_GRAB_BAG,
+        PICKUP_TRINKET,
+    }
+
 }

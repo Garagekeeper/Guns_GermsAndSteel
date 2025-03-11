@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using static Define;
+
 public class ObjectManager
 {
     public HashSet<MainCharacter> MainCharacters { get; } = new HashSet<MainCharacter>();
     public HashSet<Monster> Monsters { get; } = new HashSet<Monster>();
     public HashSet<Boss> Bosses { get; } = new HashSet<Boss>();
+    public HashSet<Pickup> Pickups { get; } = new HashSet<Pickup>();
 
     public T Spawn<T>(Vector3 pos, int templateID = 0, string prfabName = "") where T : Creature
     {
@@ -38,6 +41,27 @@ public class ObjectManager
             Bosses.Add(bs);
             return bs as T;
         }
+        return null;
+    }
+
+    public T Spawn<T>(Vector3 pos, EPICKUP_TYPE epickup_type) where T : Pickup
+    {
+        if (epickup_type == EPICKUP_TYPE.PICKUP_NULL) return null;
+
+        string prefabName = "Pickup";
+
+        GameObject go = Managers.Resource.Instantiate(prefabName);
+        go.name = prefabName;
+        go.transform.position = pos;
+        Pickup pickup = go.GetComponent<Pickup>();
+        
+        if (pickup != null)
+        {
+            pickup.Init(epickup_type);
+            Pickups.Add(pickup);
+            return pickup as T;
+        }
+
         return null;
     }
 

@@ -27,7 +27,7 @@ public static class Utility
         return current.GetComponent<T>();
     }
 
-    public static Transform FindChildByName(Transform parent, string name)
+    public static Transform FindChildByName(Transform parent, string name, bool recur = true)
     {
         foreach (Transform child in parent)
         {
@@ -36,18 +36,22 @@ public static class Utility
                 return child;
             }
 
-            // 자식의 자식 오브젝트에서 재귀적으로 찾기
-            Transform found = FindChildByName(child, name);
-            if (found != null)
+            if (recur)
             {
-                return found;
+                // 자식의 자식 오브젝트에서 재귀적으로 찾기
+                Transform found = FindChildByName(child, name);
+                if (found != null)
+                {
+                    return found;
+                }
             }
+            
         }
 
         return null; // 이름에 해당하는 오브젝트를 찾지 못한 경우
     }
 
-    public static Transform FindChildByNameContain(Transform parent, string name)
+    public static Transform FindChildByNameContain(Transform parent, string name , bool recur = true)
     {
         foreach (Transform child in parent)
         {
@@ -56,11 +60,14 @@ public static class Utility
                 return child;
             }
 
-            // 자식의 자식 오브젝트에서 재귀적으로 찾기
-            Transform found = FindChildByNameContain(child, name);
-            if (found != null)
+            if (recur)
             {
-                return found;
+                // 자식의 자식 오브젝트에서 재귀적으로 찾기
+                Transform found = FindChildByNameContain(child, name);
+                if (found != null)
+                {
+                    return found;
+                }
             }
         }
 
@@ -89,5 +96,48 @@ public static class Utility
             int randomIndex = Random.Range(0, i + 1);
             (list[i], list[randomIndex]) = (list[randomIndex], list[i]); // Swap
         }
+    }
+
+    public static List<Vector3Int> SpriralPos(Vector3 start ,int count)
+    {
+        List<Vector3Int> pos = new();
+        int x = (int)start.x;
+        int y = (int)start.y;
+
+        pos.Add(new Vector3Int(x, y, 0));
+
+        int dirX = 1;
+        int dirY = 0;
+        
+        // 한 변의 길이
+        int lineLength = 1;
+
+        while(pos.Count < 2 * count)
+        {
+            for (int i=0; i < lineLength; i++)
+            {
+                x += dirX;
+                y += dirY;
+                pos.Add(new Vector3Int(x, y, 0));
+            }
+
+            // 시계방향 회전
+            int temp = dirX;
+            dirX = dirY;
+            dirY = -temp;
+
+            //새로운 방향 벡터가 맨 처음의 방향 벡터와 평행할 때 거리가 늘어남
+            if (dirY == 0) lineLength++;
+        }
+
+        return pos;
+    }
+
+    public static T GetOrAddComponent<T>(GameObject go) where T : Component
+    {
+        if (go.GetComponent<T>() == null)
+            go.AddComponent<T>();
+
+        return go.GetComponent<T>();
     }
 }

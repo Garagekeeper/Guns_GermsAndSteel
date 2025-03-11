@@ -6,8 +6,11 @@ using Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static Define;
+using static Utility;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
+
+
 
 public class GameManager
 {
@@ -33,15 +36,10 @@ public class GameManager
 
     #region MAP_GENERATING
 
+    public RNGManager RNG;
+
     private string SeedString = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public string Seed { get; private set; }
-    public long Sn { get; set; }
-    //백준 30043의 수치를 참고하였음
-    public int A { get; private set; } = 1103515245;
-    public int C { get; private set; } = 12345;
-    public long M { get; private set; } = (long)1 << 31;
-
-    public int Rand_Cnt { get; private set; } = 0;
 
     public int N { get; set; }
 
@@ -54,15 +52,14 @@ public class GameManager
     public void Init()
     {
         Seed = GenerateSeed();
-        SeedToInt();
+        RNG = new RNGManager(Seed);
         Debug.Log(Seed);
-        Rand_Cnt = 0;
         StageNumber = 1;
         //0. N(스테이지에 만들 방의 개수) 설정
         //N = (int)(Sn % ((_baseRoomCountMax - _baseRoomCountMin) + 1 + StageNumber * 2) + _baseRoomCountMin);
         //https://gist.github.com/bladecoding/d75aef7e830c738ad5e3d66d146a095c
         //위 링크와는 다르게 특수방의 개수가 늘어났기 때문에 적절한 수치 변경
-        N = Math.Min(_baseRoomCountMax, RandInt(0, 1) + 7 + ((StageNumber * _baseRoomCountMin) / 3));
+        N = Math.Min(_baseRoomCountMax, RNG.RandInt(0, 1) + 7 + ((StageNumber * _baseRoomCountMin) / 3));
         //Debug.Log(N);
     }
 
@@ -80,57 +77,6 @@ public class GameManager
 
         return temp;
     }
-
-    private void SeedToInt()
-    {
-        int temp = 0;
-        long res = 0;
-        long power = 1;
-        for (int i = 8; i >= 0; i--)
-        {
-            if (Seed[i] == '-') continue;
-            if (Seed[i] < 'A')
-                temp += Seed[i] - '0';
-            if (Seed[i] >= 'A')
-                temp += 10 + (Seed[i] - 'A');
-
-            res += temp * power;
-            power *= 36;
-            temp = 0;
-        }
-        Sn = res % M;
-    }
-
-    #region RAND_FUNCTIONS
-    public void Rand()
-    {
-        // Sn+1 = (A x Sn + C ) Mod M
-        Sn = (A * Sn + C) % M;
-        Rand_Cnt++;
-    }
-
-    public int RandInt(int left, int right)
-    {
-        Rand();
-        return (int)((Sn % (right - left + 1)) + left);
-    }
-
-    // P보다 작을 경우 true;
-    public bool Chance(int p)
-    {
-
-        return (RandInt(1, 100) <= p);
-    }
-
-    public T Choice<T>(List<T> rooms)
-    {
-        int cnt = rooms.Count();
-        int temp = RandInt(0, cnt - 1);
-        return rooms[temp];
-    }
-
-
-    #endregion
 
     #endregion
 
@@ -266,7 +212,7 @@ public class GameManager
             }
         }
 
-        RoomClass chosen = Choice(list);
+        RoomClass chosen = RNG.Choice(list);
         Vector3 newPos = chosen.Transform.position + new Vector3(-0.5f, -0.5f, 0);
         foreach (var mc in Managers.Object.MainCharacters)
         {
@@ -300,7 +246,7 @@ public class GameManager
         int TemplateId;
         while (true)
         {
-            TemplateId = RandInt(45001, 45044);
+            TemplateId = RNG.RandInt(45001, 45044);
             if (Managers.Data.ItemDic.ContainsKey(TemplateId) && Managers.Data.ItemDic[TemplateId].Weight != 0)
                 break;
         }
@@ -341,10 +287,16 @@ public class GameManager
         {
             //Managers.Map.CurrentRoom.ItemHolder.SetActive(true);
         }
+
+        //TODO
+        SpawnClearAward(curRoom.AwardSeed);
     }
 
     public void RoomConditionCheck()
     {
+        // already clear
+        if (Managers.Map.CurrentRoom.IsClear == true) return;
+
         if (Managers.Object.Monsters.Count == 0 && Managers.Object.Bosses.Count == 0)
             RoomClear();
         return;
@@ -380,5 +332,144 @@ public class GameManager
             mainCharacter.Init();
         }
 
+    }
+
+    public void SpawnClearAward(long seed)
+    {
+        EPICKUP_TYPE pickupAward = EPICKUP_TYPE.PICKUP_NULL;
+        //EPICKUP_TYPE pickupAward = EPICKUP_TYPE.PICKUP_COIN;
+        int pickupCount = 1;
+
+        SelectAwardTypeAndCount(ref pickupCount, ref pickupAward, seed);
+
+        if (pickupCount > 0 && pickupAward != EPICKUP_TYPE.PICKUP_NULL)
+        {
+
+            List<Vector3Int> spawnPoses = SpriralPos(Managers.Map.CurrentRoom.WorldCenterPos,pickupCount);
+            int done = 0;
+            foreach (var spawnPos in spawnPoses)
+            {
+                if (done >= pickupCount) break;
+                if (Managers.Map.CanGo(spawnPos))
+                {
+                    //spawn
+                    Managers.Object.Spawn<Pickup>(spawnPos, pickupAward);
+                    done++;
+                }
+
+            }
+        }
+    }
+
+    public void SelectAwardTypeAndCount(ref int pickupCount, ref EPICKUP_TYPE pickupAward, long seed)
+    {
+        RNGManager rng = new(seed);
+        float pickupPercent = rng.RandFloat();
+
+        //TODO 나중에 luck추가
+        //현재는 luck이 5라고 가정
+        //원작에서는 XorShift라는 RNG 사용
+        pickupPercent = rng.RandFloat() * 5f * 0.1f + pickupPercent;
+
+
+        if (pickupPercent < 0.22f)
+        {
+            if (pickupPercent < 0.3f)
+            {
+                if (rng.RandInt(3) == 0)
+                    pickupAward = EPICKUP_TYPE.PICKUP_TAROT_CARD;
+                else if (rng.RandInt(2) == 0)
+                    pickupAward = EPICKUP_TYPE.PICKUP_TRINKET;
+                else
+                    pickupAward = EPICKUP_TYPE.PICKUP_PILL;
+            }
+        }
+        else if (pickupPercent < 0.45f)
+        {
+            pickupAward = EPICKUP_TYPE.PICKUP_COIN;
+        }
+        //TODO TRINKET_RIB_OF_GREED
+        else if (pickupPercent < 0.5f && false)
+        {
+            pickupAward = EPICKUP_TYPE.PICKUP_COIN;
+        }
+        //TODO TRINKET_DAEMONS_TAIL
+        else if (pickupPercent < 0.6f && !(true && rng.RandInt(5) == 0))
+        {
+            pickupAward = EPICKUP_TYPE.PICKUP_HEART;
+        }
+        else if (pickupPercent < 0.8f)
+        {
+            pickupAward = EPICKUP_TYPE.PICKUP_KEY;
+        }
+        else if (pickupPercent < 0.95f)
+        {
+            pickupAward = EPICKUP_TYPE.PICKUP_BOMB;
+        }
+        else
+        {
+            pickupAward = EPICKUP_TYPE.PICKUP_CHEST;
+        }
+
+        //TODO TRINKET_WATCH_BATTERY
+        if (rng.RandInt(20) == 0 || (rng.RandInt(15) == 0 && false))
+        {
+            pickupAward = EPICKUP_TYPE.PICKUP_LIL_BATTERY;
+        }
+
+        if (rng.RandInt(50) == 0)
+            pickupAward = EPICKUP_TYPE.PICKUP_GRAB_BAG;
+
+        /*
+        if (player:HasTrinket(TRINKET_ACE_SPADES) and rng:RandomInt(10) == 0) 
+		    pickupAward = PICKUP_TAROTCARD
+	    else if (player:HasTrinket(TRINKET_SAFETY_CAP) and rng:RandomInt(10) == 0) 
+		    pickupAward = PICKUP_PILL
+	    else if (player:HasTrinket(TRINKET_MATCH_STICK) and rng:RandomInt(10) == 0) 
+		    pickupAward = PICKUP_BOMB
+	    else if (player:HasTrinket(TRINKET_CHILDS_HEART) and rng:RandomInt(10) == 0 and (not player:HasTrinket(TRINKET_DAEMONS_TAIL) or rng:RandomInt(5) == 0)) 
+		    pickupAward = PICKUP_HEART
+	    else if (player:HasTrinket(TRINKET_RUSTED_KEY) and rng:RandomInt(10) == 0) 
+		    pickupAward = PICKUP_KEY
+
+
+        if (player:HasCollectible(COLLECTIBLE_SMELTER) and rng:RandomInt(50) == 0) then
+		    pickupAward = PICKUP_TRINKET
+
+        if (player:HasCollectible(COLLECTIBLE_GUPPYS_TAIL)) then
+	        if (rng:RandomInt(3) != 0) then
+		        if (rng:RandomInt(3) == 0) then
+			        pickupAward = PICKUP_NULL
+            else
+                if (rng:RandomInt(2) != 0) then
+			        pickupAward = PICKUP_LOCKEDCHEST
+		        else
+			        pickupAward = PICKUP_CHEST
+
+        if (player:HasCollectible(COLLECTIBLE_CONTRACT_FROM_BELOW) and pickupAward != PICKUP_TRINKET)
+	        pickupCount = player:GetCollectibleNum(COLLECTIBLE_CONTRACT_FROM_BELOW) + 1
+	        
+            --The chance of getting nothing goes down with each contract exponentially
+	        local nothingChance = math.pow(0.666, pickupCount - 1)
+	        if (nothingChance * 0.5 > rng:NextFloat()) then
+		        pickupCount = 0
+
+
+         */
+        // 난이도 hard
+        if (false && pickupAward == EPICKUP_TYPE.PICKUP_HEART)
+            if (rng.RandInt(100) >= 35)
+                pickupAward = EPICKUP_TYPE.PICKUP_NULL;
+
+        /*
+         if (player:HasCollectible(COLLECTIBLE_BROKEN_MODEM) and rng:RandomInt(4) == 0 and pickupCount >= 1 and
+		(pickupAward == PICKUP_COIN or pickupAward == PICKUP_HEART or pickupAward == PICKUP_KEY or pickupAward == PICKUP_GRAB_BAG or pickupAward == PICKUP_BOMB)
+	        pickupCount = pickupCount + 1
+
+         */
+
+
+        Debug.Log(pickupCount);
+        Debug.Log(pickupAward);
     }
 }

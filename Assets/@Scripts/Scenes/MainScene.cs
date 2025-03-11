@@ -10,16 +10,15 @@ public class MainScene : UI_Base
     private Stack<GameObject> _uiStack = new Stack<GameObject>();
     public enum UIGameObjects
     {
-        None = 0,
-        TitleImageUI = 1,
+        TitleImageUI = 0,
         FileSelectUI,
-        GameMenuUI = 3,
+        GameMenuUI = 2,
         NEWRUN,
         CONTINUE,
         CHALLENGES,
         STATS,
         OPTIONS,
-        OptionMenuUI = 9,
+        OptionMenuUI = 8,
         SFX,
         MUSIC,
         CONTROLS,
@@ -87,10 +86,10 @@ public class MainScene : UI_Base
             int maxValue;
             int range;
 
-            if (CursoredUI >= 4 && CursoredUI <= 8)
+            if (CursoredUI >= 3 && CursoredUI <= 7)
             {
-                minValue = 4;
-                maxValue = 8;
+                minValue = 3;
+                maxValue = 7;
 
                 // 모듈 연산으로 순환
                 range = maxValue - minValue + 1;
@@ -98,10 +97,10 @@ public class MainScene : UI_Base
                 return;
             }
 
-            if (CursoredUI >= 10 && CursoredUI <= 20)
+            if (CursoredUI >= 9 && CursoredUI <= 19)
             {
-                minValue = 4;
-                maxValue = 8;
+                minValue = 9;
+                maxValue = 19;
 
                 // 모듈 연산으로 순환
                 range = maxValue - minValue + 1;
@@ -118,10 +117,10 @@ public class MainScene : UI_Base
             int maxValue;
             int range;
 
-            if (CursoredUI >= 4 && CursoredUI <= 8)
+            if (CursoredUI >= 3 && CursoredUI <= 7)
             {
-                minValue = 4;
-                maxValue = 8;
+                minValue = 3;
+                maxValue = 7;
 
                 // 모듈 연산으로 순환
                 range = maxValue - minValue + 1;
@@ -129,10 +128,10 @@ public class MainScene : UI_Base
                 return;
             }
 
-            if (CursoredUI >= 10 && CursoredUI <= 20)
+            if (CursoredUI >= 9 && CursoredUI <= 19)
             {
-                minValue = 4;
-                maxValue = 8;
+                minValue = 9;
+                maxValue = 19;
 
                 // 모듈 연산으로 순환
                 range = maxValue - minValue + 1;
@@ -232,8 +231,8 @@ public class MainScene : UI_Base
         }
         else
         {
-            FindChildByName(GetObject(origin).transform, "Arrow")?.gameObject.SetActive(false);
+            FindChildByName(GetObject(origin).transform, "Arrow",false)?.gameObject.SetActive(false);
+            FindChildByName(GetObject(next).transform, "Arrow",false)?.gameObject.SetActive(true);
         }
-        FindChildByName(GetObject(next).transform, "Arrow")?.gameObject.SetActive(true);
     }
 }

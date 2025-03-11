@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: PickupsSprite
+  m_EditorClassIdentifier: 
+  m_GroupName: PickupsSprite
+  m_Data:
+    m_SerializedData: []
+  m_GUID: be41e664921593f4188595e0b9ac4eda
+  m_SerializeEntries:
+  - m_GUID: edbdf741a51f6f143b39cb82d1f84810
+    m_Address: pickup_005_chests
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 594e2fe2a4164ab45b55cdaa11aa4b56
+    m_Address: pickup_001_heart
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 663de6fc8e74bd241951fc87380260a9
+    m_Address: pickup_002_coin
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5eba7202cfe7eba4a835fed9d5639588
+    m_Address: pickup_003_key
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6458f656445caf2428147d1ddbe204b6
+    m_Address: pickup_007_pill
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a03f114fa315f5a468efb5de55ccad28
+    m_Address: pickup_016_bomb
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 858bc2d2295038a4f84be2ac9bdecd91
+    m_Address: pickup_017_card
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c42838564d2e0e40a1d8f5d98f2ef06
+    m_Address: pickup_018_littlebattery
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 218953d075f0b3e4d9ec39c0d3f7f956
+    m_Address: trophy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 00888c351a0702d42b4de6cb1eb33980
+    m_Address: grabbag
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d80e1bece739d0847ac977e7297eea23, type: 2}
+    - {fileID: 11400000, guid: bd8b3b7eec4ead44795954a1ae5661c7, type: 2}

@@ -39,21 +39,11 @@ public class Gaper : Monster
             if (vel.y != 0 && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))
             {
                 BottomState = vel.y > 0 ? ECreatureBottomState.MoveUp : ECreatureBottomState.MoveDown;
-                //if (HeadState == ECreatureHeadState.Idle)
-                    //HeadDirState = vel.y > 0 ? ECreatureHeadDirState.Up : ECreatureHeadDirState.Down;
             }
             else if (vel.x != 0)
             {
                 BottomState = vel.x > 0 ? ECreatureBottomState.MoveRight : ECreatureBottomState.MoveLeft;
-                //if (HeadState == ECreatureHeadState.Idle)
-                    //HeadDirState = vel.x > 0 ? ECreatureHeadDirState.Right : ECreatureHeadDirState.Left;
             }
-        }
-        else
-        {
-            //BottomState = ECreatureBottomState.Idle;
-            //if (HeadState == ECreatureHeadState.Idle)
-            //    HeadDirState = ECreatureHeadDirState.Down;
         }
     }
 
