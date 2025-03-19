@@ -28,7 +28,7 @@ public class Pickup : BaseObject
         PickupSpriteRenderer = GetOrAddComponent<SpriteRenderer>(gameObject);
 
         //TODO SET sprite;
-        SetPickupSprite();
+        InitPickupSprite();
         //TODO refresh Amount(just coin, doubled coin) 
 
         //TODO refresh collider
@@ -42,7 +42,7 @@ public class Pickup : BaseObject
         Init();
     }
 
-    public void SetPickupSprite()
+    public void InitPickupSprite()
     {
         string spriteName;
         switch (PickupType)
@@ -101,5 +101,10 @@ public class Pickup : BaseObject
     public void RefreshCollider()
     {
 
+    }
+
+    public void SetPickupSprite(string spriteName)
+    {
+        PickupSpriteRenderer.sprite = Managers.Resource.Load<Sprite>(spriteName);
     }
 }

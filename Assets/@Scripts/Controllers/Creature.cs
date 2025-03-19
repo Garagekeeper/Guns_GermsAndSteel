@@ -33,6 +33,8 @@ public class Creature : BaseObject
         {
             if (_hp != value)
             {
+                if (_hp > 0)
+                    _hp = Mathf.Max(_hp, MaxHp);
                 _hp = value;
                 if (value <= 0)
                 {
@@ -173,6 +175,7 @@ public class Creature : BaseObject
     {
         //base stat
         Hp = 3.5f;
+        MaxHp = 3.5f;
         Tears = 10.0f;
         Speed = 5.0f;
         AttackDamage = 3.5f;

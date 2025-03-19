@@ -13,6 +13,7 @@ TagManager:
   - Projectile
   - ProjectileCollider
   - TimerTrigger
+  - Pickup
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - MapCollider
   - ProjectileCollider
   - TimerTrigger
-  - 
+  - Pickup
   - 
   - 
   - 

@@ -65,6 +65,8 @@ public class Projectile : MonoBehaviour
         mask |= (1 << 14);
         //TimerTriger
         mask |= (1 << 16);
+        //Pickup
+        mask |= (1 << 17);
 
         Collider.excludeLayers = mask;
 

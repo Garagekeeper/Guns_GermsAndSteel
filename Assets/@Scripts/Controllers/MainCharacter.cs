@@ -14,6 +14,8 @@ public class MainCharacter : Creature
     public int Coin { get; private set; } = 0;
     public int BombCount { get; private set; } = 1;
     public int KeyCount { get; private set; } = 0;
+
+    //public float EmptyHearts { get; private set; } = 0;
     //TODO
     //var SubItem;
     //var ActiveItem;
@@ -125,6 +127,8 @@ public class MainCharacter : Creature
        };
 
         PressingTime = 0;
+
+        MaxHp = 16f;
 
         SpaceItem = new Item();
         QItem = new Item();
@@ -449,11 +453,15 @@ public class MainCharacter : Creature
         Managers.Game.UseActiveItem(item.CurrentGage, item.CoolTime);
     }
 
+    //TODO
+    //Pickup으로 바꾸기
     public void ChangeQItem(int id)
     {
         ChangeQItem(new Item(id));
     }
 
+    //TODO
+    //Pickup으로 바꾸기
     public void ChangeQItem(Item item)
     {
         string spriteName = null;
@@ -468,6 +476,57 @@ public class MainCharacter : Creature
         }
         QItem = item;
         Managers.UI.PlayingUI.ChangeQItem(spriteName);
+    }
+
+    public void GetPickup(Pickup pickup)
+    {
+        EPICKUP_TYPE pickupType = pickup.PickupType;
+        switch (pickupType)
+        {
+            case EPICKUP_TYPE.PICKUP_HEART:
+                Hp += 2;
+                break;
+            case EPICKUP_TYPE.PICKUP_COIN:
+                Coin += 1;
+                break;
+            case EPICKUP_TYPE.PICKUP_BOMB:
+                BombCount += 1;
+                break;
+            case EPICKUP_TYPE.PICKUP_KEY:
+                KeyCount += 1;
+                break;
+            case EPICKUP_TYPE.PICKUP_LIL_BATTERY:
+                break;
+            case EPICKUP_TYPE.PICKUP_BATTERY:
+                break;
+            case EPICKUP_TYPE.PICKUP_PILL:
+                //TODO
+                //ChangeQItem();
+                break;
+            case EPICKUP_TYPE.PICKUP_TAROT_CARD:
+                //TODO
+                //ChangeQItem();
+                break;
+            case EPICKUP_TYPE.PICKUP_RUNE:
+                //TODO
+                //ChangeQItem();
+                break;
+            case EPICKUP_TYPE.PICKUP_CHEST:
+                Managers.Game.SpawnChestAndGrabBagAward(pickup);
+                pickup.SetPickupSprite("pickup_005_chests_6");
+                Destroy(pickup);
+                return;
+            case EPICKUP_TYPE.PICKUP_GRAB_BAG:
+                Managers.Game.SpawnChestAndGrabBagAward(pickup);
+                break;
+            case EPICKUP_TYPE.PICKUP_TRINKET:
+                //Managers.Game.Trinket();
+                break;
+            default:
+                break;
+        }
+        Managers.UI.PlayingUI.RefreshUI(this);
+        Managers.Object.Despawn(pickup);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -498,6 +557,14 @@ public class MainCharacter : Creature
             }
         }
 
+        if (collision.transform.CompareTag("Pickup"))
+        {
+            Pickup pickup = collision.transform.GetComponent<Pickup>();
+
+            if (pickup == null) return;
+
+            GetPickup(pickup);
+        }
         if (collision.transform.CompareTag("ClearBox"))
         {
             Managers.Game.ClearGame();

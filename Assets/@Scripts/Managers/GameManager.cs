@@ -5,6 +5,7 @@ using System.Linq;
 using Data;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR;
 using static Define;
 using static Utility;
 using Object = UnityEngine.Object;
@@ -150,6 +151,8 @@ public class GameManager
         }
 
         StageNumber++;
+
+        //Clear and load new map
         Managers.Map.DestroyMap();
         while (true)
         {
@@ -158,6 +161,12 @@ public class GameManager
         }
         Managers.Map.LoadMap();
 
+        //Clear Base Objects All
+        {
+            Managers.Object.ClearObjectManager();
+        }
+
+        //Move Camera to new starting room
         Cam.MoveCameraWithoutLerp(new Vector3(-0.5f, -0.5f, -10f));
         foreach (var temp in Managers.Object.MainCharacters)
         {
@@ -289,7 +298,8 @@ public class GameManager
         }
 
         //TODO
-        SpawnClearAward(curRoom.AwardSeed);
+        if (curRoom.RoomType == RoomClass.ERoomType.Normal)
+            SpawnClearAward(curRoom.AwardSeed);
     }
 
     public void RoomConditionCheck()
@@ -337,15 +347,17 @@ public class GameManager
     public void SpawnClearAward(long seed)
     {
         EPICKUP_TYPE pickupAward = EPICKUP_TYPE.PICKUP_NULL;
-        //EPICKUP_TYPE pickupAward = EPICKUP_TYPE.PICKUP_COIN;
+        //EPICKUP_TYPE pickupAward = EPICKUP_TYPE.PICKUP_CHEST;
         int pickupCount = 1;
 
-        SelectAwardTypeAndCount(ref pickupCount, ref pickupAward, seed);
+        SelectClearAwardTypeAndCount(ref pickupCount, ref pickupAward, seed);
 
         if (pickupCount > 0 && pickupAward != EPICKUP_TYPE.PICKUP_NULL)
         {
+            Vector2 roomCenterPos = Managers.Map.CurrentRoom.WorldCenterPos;
+            Transform pickupsTransform = FindChildByName(Managers.Map.CurrentRoom.Transform, "Pickups");
 
-            List<Vector3Int> spawnPoses = SpriralPos(Managers.Map.CurrentRoom.WorldCenterPos,pickupCount);
+            List<Vector3Int> spawnPoses = SpriralPos(roomCenterPos, pickupCount);
             int done = 0;
             foreach (var spawnPos in spawnPoses)
             {
@@ -353,7 +365,8 @@ public class GameManager
                 if (Managers.Map.CanGo(spawnPos))
                 {
                     //spawn
-                    Managers.Object.Spawn<Pickup>(spawnPos, pickupAward);
+                    Vector3 newSpawnPos = (spawnPos - (Vector3)roomCenterPos);
+                    Managers.Object.Spawn<Pickup>(newSpawnPos, pickupAward, pickupsTransform);
                     done++;
                 }
 
@@ -361,7 +374,7 @@ public class GameManager
         }
     }
 
-    public void SelectAwardTypeAndCount(ref int pickupCount, ref EPICKUP_TYPE pickupAward, long seed)
+    public void SelectClearAwardTypeAndCount(ref int pickupCount, ref EPICKUP_TYPE pickupAward, long seed)
     {
         RNGManager rng = new(seed);
         float pickupPercent = rng.RandFloat();
@@ -376,12 +389,12 @@ public class GameManager
         {
             if (pickupPercent < 0.3f)
             {
-                if (rng.RandInt(3) == 0)
-                    pickupAward = EPICKUP_TYPE.PICKUP_TAROT_CARD;
-                else if (rng.RandInt(2) == 0)
-                    pickupAward = EPICKUP_TYPE.PICKUP_TRINKET;
-                else
-                    pickupAward = EPICKUP_TYPE.PICKUP_PILL;
+                //if (rng.RandInt(3) == 0)
+                //   pickupAward = EPICKUP_TYPE.PICKUP_TAROT_CARD;
+                //else if (rng.RandInt(2) == 0)
+                //    pickupAward = EPICKUP_TYPE.PICKUP_TRINKET;
+                //else
+                //    pickupAward = EPICKUP_TYPE.PICKUP_PILL;
             }
         }
         else if (pickupPercent < 0.45f)
@@ -414,7 +427,7 @@ public class GameManager
         //TODO TRINKET_WATCH_BATTERY
         if (rng.RandInt(20) == 0 || (rng.RandInt(15) == 0 && false))
         {
-            pickupAward = EPICKUP_TYPE.PICKUP_LIL_BATTERY;
+            //pickupAward = EPICKUP_TYPE.PICKUP_LIL_BATTERY;
         }
 
         if (rng.RandInt(50) == 0)
@@ -468,8 +481,130 @@ public class GameManager
 
          */
 
-
-        Debug.Log(pickupCount);
-        Debug.Log(pickupAward);
     }
+
+
+    public void SpawnChestAndGrabBagAward(Pickup pickup)
+    {
+        List<EPICKUP_TYPE> pickupAward = new();
+        List<int> pickupCount = new();
+
+        SelectChestAndGrabBagAwardTypeAndCount(pickupCount, pickupAward, pickup.PickupType);
+
+        if (pickupAward.Count == 0 && pickupCount.Count == 0) return;
+
+        if (pickupAward.Count != pickupCount.Count)
+        {
+            Debug.Log("SpawnChestAndGrabBagAward Err, Counts are diffrent");
+            return;
+        }
+
+        float[] dx = { 0.5f, 0, -0.5f, 0 };
+        float[] dy = { 0, -0.5f, 0, 0.5f };
+
+        Transform pickupsTransform = FindChildByName(Managers.Map.CurrentRoom.Transform, "Pickups");
+        Transform callingTF = pickup.transform;
+
+        for (int i = 0; i < pickupCount.Count; i++)
+        {
+            for (int j = 0; j < pickupCount[i]; j++)
+            {
+                float nx = callingTF.localPosition.x + dx[Random.Range(0, 4)];
+                float ny = callingTF.localPosition.y + dy[Random.Range(0, 4)];
+
+                Debug.Log(pickupAward[i]);
+                Managers.Object.Spawn<Pickup>(new Vector3(nx, ny, 0), pickupAward[i], pickupsTransform);
+            }
+        }
+
+    }
+
+
+    public void SelectChestAndGrabBagAwardTypeAndCount(List<int> pickupCount, List<EPICKUP_TYPE> pickupAward, EPICKUP_TYPE epickupType)
+    {
+        RNGManager rng = new(Managers.Map.CurrentRoom.AwardSeed);
+
+        //Chest
+
+        if (epickupType == EPICKUP_TYPE.PICKUP_CHEST)
+        {
+            float pickupPercent = rng.RandFloat();
+            // 2 - 3 times
+            if (pickupPercent < 0.78)
+            {
+                for (int i = 0; i < 2 + rng.RandInt(1); i++)
+                {
+                    float percentageForBasePickup = rng.RandFloat();
+                    if (percentageForBasePickup < 0.35f)
+                    {
+                        pickupAward.Add(EPICKUP_TYPE.PICKUP_COIN);
+                        pickupCount.Add(rng.RandInt(3) + 1);
+                        continue;
+                    }
+                    else if (percentageForBasePickup < 0.55f)
+                    {
+                        pickupAward.Add(EPICKUP_TYPE.PICKUP_HEART);
+                    }
+                    else if (percentageForBasePickup < 0.7f)
+                    {
+                        pickupAward.Add(EPICKUP_TYPE.PICKUP_KEY);
+                    }
+                    else
+                    {
+                        pickupAward.Add(EPICKUP_TYPE.PICKUP_BOMB);
+                    }
+                    
+                    pickupCount.Add(1);
+                }
+            }
+            else if (pickupPercent < 0.88)
+            {
+                pickupAward.Add(EPICKUP_TYPE.PICKUP_TRINKET);
+                pickupCount.Add(1);
+            }
+            else if (pickupPercent < 0.89)
+            {
+                pickupAward.Add(EPICKUP_TYPE.PICKUP_CHEST);
+                pickupCount.Add(1);
+            }
+            //TODO Locked Chest
+            else if (pickupPercent < 0.90)
+            {
+                pickupAward.Add(EPICKUP_TYPE.PICKUP_CHEST);
+                pickupCount.Add(1);
+            }
+            else
+            {
+                pickupAward.Add(EPICKUP_TYPE.PICKUP_PILL);
+                pickupCount.Add(1);
+            }
+        }
+
+        //Grab Bag
+        else if (epickupType == EPICKUP_TYPE.PICKUP_GRAB_BAG)
+        {
+            // 1 - 4 times
+            for (int i = 0; i < 1 + rng.RandInt(3); i++)
+            {
+                int percentage = rng.RandInt(1, 100);
+
+                if (percentage <= 33)
+                {
+                    pickupAward.Add(EPICKUP_TYPE.PICKUP_COIN);
+                }
+                else if (percentage <= 66)
+                {
+                    pickupAward.Add(EPICKUP_TYPE.PICKUP_KEY);
+                }
+                else
+                {
+                    pickupAward.Add(EPICKUP_TYPE.PICKUP_BOMB);
+                }
+
+                pickupCount.Add(1);
+
+            }
+        }
+    }
+
 }

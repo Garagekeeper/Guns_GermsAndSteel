@@ -44,15 +44,18 @@ public class ObjectManager
         return null;
     }
 
-    public T Spawn<T>(Vector3 pos, EPICKUP_TYPE epickup_type) where T : Pickup
+    public T Spawn<T>(Vector3 pos, EPICKUP_TYPE epickup_type, Transform parent = null) where T : Pickup
     {
         if (epickup_type == EPICKUP_TYPE.PICKUP_NULL) return null;
 
         string prefabName = "Pickup";
 
         GameObject go = Managers.Resource.Instantiate(prefabName);
+        if (parent != null) 
+            go.transform.parent = parent;
+
         go.name = prefabName;
-        go.transform.position = pos;
+        go.transform.localPosition = pos;
         Pickup pickup = go.GetComponent<Pickup>();
         
         if (pickup != null)
@@ -65,25 +68,37 @@ public class ObjectManager
         return null;
     }
 
-    public void Despawn<T>(T obj) where T : Creature
+    public void Despawn<T>(T obj) where T : BaseObject
     {
-        if (obj.CreatureType == Define.ECreatureType.MainCharacter)
+        if (obj is Creature creature)
         {
-            MainCharacters.Remove(obj as MainCharacter);
-            Object.Destroy(obj.gameObject);
+            if (creature.CreatureType == ECreatureType.MainCharacter)
+            {
+                MainCharacters.Remove(obj as MainCharacter);
+            }
+            else if (creature.CreatureType == ECreatureType.Monster)
+            {
+                Monsters.Remove(obj as Monster);
+            }
+            else if (creature.CreatureType == ECreatureType.Boss)
+            {
+                Bosses.Remove(obj as Boss);
+            }
         }
-        else if (obj.CreatureType == Define.ECreatureType.Monster)
+        else if (obj is Pickup pickup)
         {
-            Monsters.Remove(obj as Monster);
-            Object.Destroy(obj.gameObject);
+            Pickups.Remove(pickup);
         }
-        else if (obj.CreatureType == Define.ECreatureType.Boss)
-        {
-            Bosses.Remove(obj as Boss);
-            Object.Destroy(obj.gameObject);
-        }
-
-        //Managers.Map.RemoveObject(obj);
+       Object.Destroy(obj.gameObject);
     }
+
+    public void ClearObjectManager()
+    {
+        MainCharacters.Clear();
+        Monsters.Clear();
+        Bosses.Clear();
+        Pickups.Clear();
+    }
+
 }
 
