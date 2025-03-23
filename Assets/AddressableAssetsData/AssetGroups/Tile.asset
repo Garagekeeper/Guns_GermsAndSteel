@@ -18,13 +18,13 @@ MonoBehaviour:
   m_GUID: fe006ce42bc8d4546aa4b8f4942547b1
   m_SerializeEntries:
   - m_GUID: 68c1faf0394732e478ce870281af17d4
-    m_Address: Spike
+    m_Address: Tile_Spike
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 88ed6a2964b34424792e6f9f0788a228
-    m_Address: Fire
+    m_Address: Tile_Fire
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload

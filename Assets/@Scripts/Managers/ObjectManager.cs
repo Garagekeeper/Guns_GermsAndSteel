@@ -11,6 +11,7 @@ public class ObjectManager
     public HashSet<Boss> Bosses { get; } = new HashSet<Boss>();
     public HashSet<Pickup> Pickups { get; } = new HashSet<Pickup>();
 
+    // spawn creature
     public T Spawn<T>(Vector3 pos, int templateID = 0, string prfabName = "") where T : Creature
     {
         System.Type type = typeof(T);
@@ -44,6 +45,7 @@ public class ObjectManager
         return null;
     }
 
+    //spawn pickup
     public T Spawn<T>(Vector3 pos, EPICKUP_TYPE epickup_type, Transform parent = null) where T : Pickup
     {
         if (epickup_type == EPICKUP_TYPE.PICKUP_NULL) return null;
@@ -68,6 +70,28 @@ public class ObjectManager
         return null;
     }
 
+    // spawn obstacle
+    public Obstacle SpawnObstacle(Vector3 localPos, string prefabName, Transform parent)
+    {
+        GameObject go = Managers.Resource.Instantiate(prefabName);
+
+        if (parent != null)
+            go.transform.parent = parent;
+
+        go.name = prefabName;
+        go.transform.localPosition = localPos + new Vector3(0.5f, 0.5f,0);
+        Obstacle obstacle = go.GetComponent<Obstacle>();
+
+        if (obstacle != null)
+        {
+            obstacle.Init(prefabName);
+            return obstacle;
+        }
+
+        return null;
+    }
+
+    
     public void Despawn<T>(T obj) where T : BaseObject
     {
         if (obj is Creature creature)

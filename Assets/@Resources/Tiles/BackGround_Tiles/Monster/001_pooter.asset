@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Spike
+  m_Name: 001_pooter
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: c44054779e4acdd42a87908e52d56f83, type: 3}
+  m_Sprite: {fileID: -1161250940, guid: 1a204bf90d787964db36996f1f5b8d23, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

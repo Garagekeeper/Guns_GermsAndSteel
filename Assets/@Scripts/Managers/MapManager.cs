@@ -1012,12 +1012,12 @@ public class MapManager
         room.transform.parent = Map.transform;
 
         //클래스 멤버 변수 초기화
-        r.Transform = room.transform;
         r.RoomObject = room;
-        r.TilemapPrefab = room.transform.GetChild(0).gameObject;
-        r.Obstacle = room.transform.GetChild(1).gameObject;
-        r.CollidePrefab = room.transform.GetChild(2).gameObject;
-        r.Doors = room.transform.GetChild(4).gameObject;
+        r.Transform = room.transform;
+        r.TilemapPrefab = FindChildByName(r.Transform, "Tilemap").gameObject;
+        r.Obstacle = FindChildByName(r.Transform, "Obstacle").gameObject;
+        r.CollidePrefab = FindChildByName(r.Transform, "Collider").gameObject;
+        r.Doors = FindChildByName(r.Transform, "Doors").gameObject;
         r.TilemapCollisionPrefab = roomTileMap;
 
         r.Tilemap = r.TilemapPrefab.GetComponent<Tilemap>();
@@ -1176,6 +1176,7 @@ public class MapManager
 
 
     //실행 도중 collider가 변경될 필요가 있을 때 사용
+    //더이상 사용되지 않음
     public void ChangeCollider(RoomClass room)
     {
         for (int i = 0; i < 4; i++)
@@ -1291,6 +1292,8 @@ public class MapManager
 
     }
 
+    // Obstacle gameobject에 prefab을 소환하는 방식
+    // 단 spike, hole, fire의 장작 부분은 타일맵에 타일을 올리는 방식으로
     public void SetObstacle(RoomClass room)
     {
         Tilemap tmp = room.TilemapCollisionPrefab.GetComponent<Tilemap>();
@@ -1303,7 +1306,8 @@ public class MapManager
         {
             for (int x = minX; x < maxX - 1; x++)
             {
-                TileBase tile = tmp.GetTile(new Vector3Int(x, y));
+                Vector3Int tilePos = new Vector3Int(x, y, 0);
+                TileBase tile = tmp.GetTile(tilePos);
 
                 switch (tile.name)
                 {
@@ -1314,8 +1318,10 @@ public class MapManager
                     case "Door":
                         break;
                     case "Spike":
+                        Managers.Object.SpawnObstacle(tilePos, "Spike", room.Obstacle.transform);
                         break;
                     case "Fire":
+                        Managers.Object.SpawnObstacle(tilePos, "Fire", room.Obstacle.transform);
                         break;
                     case "ItemHolder":
                         room.ItemHolder = Managers.Resource.Instantiate("ItemHolder");

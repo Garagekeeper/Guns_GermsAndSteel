@@ -65,12 +65,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: eb2a4d235fe73c54fafae407d16de0f6
-    m_Address: Boss_Monstro
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d8b7c5a748df2cc458fd00db294a451e
     m_Address: BossDeathEffect
     m_ReadOnly: 0
@@ -83,50 +77,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 748ddf0718696cb4b92696ec4522a7b0
-    m_Address: Boss_Fistula
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7cd3bdf6255583b4581f678b2ab99863
     m_Address: ClearBox
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 51f916128433c564c9cbf539ed2f6173
-    m_Address: Boss_DukeOfFlies
+  - m_GUID: 7788e058db7f2714b8814266bd4b301a
+    m_Address: Pickup
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 35d0155d49b261d4b8170cf1fd6ab2ba
-    m_Address: Fly
-    m_ReadOnly: 0
-    m_SerializedLabels:
     - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0c39884eba4078f42ad219f72384e141
-    m_Address: Maggot
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 41510a698bb0670489c659b48294c825
-    m_Address: Host
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 69875ef6b473b534cb3a569fb1d8735b
-    m_Address: Boss_GurdyJr
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}

@@ -23,6 +23,12 @@ public class Creature : BaseObject
         }
     }
 
+    protected bool _isFloating = false;
+    public bool IsFloating
+    {
+        get { return _isFloating; }
+        private set { _isFloating = value; }
+    }
     private float _hp;
     public float MaxHp { get; set; }
     //public float MaxDamage { get; set; } = 26f;

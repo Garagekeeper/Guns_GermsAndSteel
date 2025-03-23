@@ -80,14 +80,21 @@ public class Projectile : MonoBehaviour
         if (other == null) return;
         if (other.gameObject.tag == "TrapDoor") return;
         if (other.gameObject.tag == "ItemHolder") return;
-        if (other.gameObject.tag == "ProjectileCollider" || other.gameObject.tag == "Door")
+        if (other.gameObject.tag == "ProjectileCollider" || other.gameObject.tag == "Door" )
         {
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
+        }
+        else if (other.gameObject.CompareTag("Fire"))
+        {
+            other.GetComponent<Obstacle>().SubsFireHp(Owner);
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
         }
         else
         {
             var go = Utility.GetTFromParentComponent<Creature>(other.gameObject);
+            if (go == null) return;
             if (Owner.CreatureType == go.CreatureType) return;
             go.OnDamaged(Owner, _skillType, other.gameObject.name);
         }

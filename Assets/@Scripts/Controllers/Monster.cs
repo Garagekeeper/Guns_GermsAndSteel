@@ -7,7 +7,6 @@ using static Define;
 public class Monster : Creature
 {
     //public HashSet<>
-    protected bool _isFloating = false;
 
     private LineRenderer lr = null;
 

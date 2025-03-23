@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Boss
+  m_EditorClassIdentifier: 
+  m_GroupName: Boss
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 2de91e6432694b4448bd375de41b3ac8
+  m_SerializeEntries:
+  - m_GUID: c01e2c6b691703945a8b804395673f76
+    m_Address: Boss_Gurdy
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 560472b4d366e1d4f9ef79fb329036b0
+    m_Address: Boss_Mom
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 748ddf0718696cb4b92696ec4522a7b0
+    m_Address: Boss_Fistula
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51f916128433c564c9cbf539ed2f6173
+    m_Address: Boss_DukeOfFlies
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69875ef6b473b534cb3a569fb1d8735b
+    m_Address: Boss_GurdyJr
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb2a4d235fe73c54fafae407d16de0f6
+    m_Address: Boss_Monstro
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 38814448306d3a8479ce953843f78fb1, type: 2}
+    - {fileID: 11400000, guid: 731c933f610fdc34f832fd7ff51eff39, type: 2}

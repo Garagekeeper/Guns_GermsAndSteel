@@ -483,7 +483,6 @@ public class GameManager
 
     }
 
-
     public void SpawnChestAndGrabBagAward(Pickup pickup)
     {
         List<EPICKUP_TYPE> pickupAward = new();
@@ -518,7 +517,6 @@ public class GameManager
         }
 
     }
-
 
     public void SelectChestAndGrabBagAwardTypeAndCount(List<int> pickupCount, List<EPICKUP_TYPE> pickupAward, EPICKUP_TYPE epickupType)
     {
@@ -606,5 +604,4 @@ public class GameManager
             }
         }
     }
-
 }

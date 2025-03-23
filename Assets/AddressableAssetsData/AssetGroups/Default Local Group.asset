@@ -16,56 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 661158fbcd809d048818ff93521f4887
-  m_SerializeEntries:
-  - m_GUID: c01e2c6b691703945a8b804395673f76
-    m_Address: Boss_Gurdy
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0cf71ad4d39a56f4a9cc4d16617fefbc
-    m_Address: Pooter
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 146ab19310295d140834db80f1ab8251
-    m_Address: Boil
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 560472b4d366e1d4f9ef79fb329036b0
-    m_Address: Boss_Mom
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a189823d85ebf0741870f04bf79e5733
-    m_Address: Gaper
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7f155d3d932c0d042848471c64369f85
-    m_Address: BoomFly
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7788e058db7f2714b8814266bd4b301a
-    m_Address: Pickup
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

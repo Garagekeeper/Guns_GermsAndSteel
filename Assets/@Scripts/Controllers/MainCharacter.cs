@@ -565,10 +565,13 @@ public class MainCharacter : Creature
 
             GetPickup(pickup);
         }
+        
         if (collision.transform.CompareTag("ClearBox"))
         {
             Managers.Game.ClearGame();
         }
+
+
 
     }
 }

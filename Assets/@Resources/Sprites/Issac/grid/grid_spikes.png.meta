@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 28
+  spritePixelsToUnits: 26
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -136,379 +136,412 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: grid_spikes_normal_0
+      name: grid_spikes_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 129
-        width: 28
-        height: 28
+        x: 0
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
-      tessellationDetail: 0
+      physicsShape:
+      - - {x: 14, y: -11}
+        - {x: 14, y: -8}
+        - {x: 10, y: -4}
+        - {x: 11, y: -3}
+        - {x: 11, y: 1}
+        - {x: 10, y: 2}
+        - {x: 14, y: 5}
+        - {x: 14, y: 9}
+        - {x: 10, y: 14}
+        - {x: 6, y: 12}
+        - {x: 4, y: 14}
+        - {x: 3, y: 14}
+        - {x: 1, y: 12}
+        - {x: -2, y: 15}
+        - {x: -3, y: 15}
+        - {x: -6, y: 12}
+        - {x: -8, y: 14}
+        - {x: -9, y: 14}
+        - {x: -13, y: 9}
+        - {x: -13, y: 5}
+        - {x: -9, y: 2}
+        - {x: -10, y: 1}
+        - {x: -10, y: -3}
+        - {x: -13, y: -7}
+        - {x: -13, y: -11}
+        - {x: -10, y: -14}
+        - {x: -1, y: -14}
+        - {x: 0, y: -13}
+        - {x: 2, y: -15}
+        - {x: 5, y: -15}
+        - {x: 7, y: -13}
+        - {x: 8, y: -14}
+        - {x: 11, y: -14}
+      tessellationDetail: 1
       bones: []
-      spriteID: fe49b8b1e1e641842878e59e2a2b462e
-      internalID: -268226307
+      spriteID: 0c83d2e66de22b64f95df6a0bb34849d
+      internalID: 258874294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grid_spikes_blood_0
+      name: grid_spikes_1
       rect:
         serializedVersion: 2
-        x: 34
-        y: 129
-        width: 28
-        height: 28
+        x: 32
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8c4e38ecf080a941a00cebe8f0eb856
-      internalID: 1703435775
+      spriteID: 71b3ce0575349a44c905fd869b0728d7
+      internalID: -65555543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grid_spikes_moving_normal_0
+      name: grid_spikes_2
       rect:
         serializedVersion: 2
-        x: 66
-        y: 129
-        width: 28
-        height: 28
+        x: 64
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5503d4412546f4b4fbb6ebcfbfccd130
-      internalID: 524396611
+      spriteID: dd2916f20ed88b54093318ccbd0302b5
+      internalID: -906979382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grid_spikes_moving_blood_0
+      name: grid_spikes_3
       rect:
         serializedVersion: 2
-        x: 98
-        y: 129
-        width: 26
-        height: 26
+        x: 96
+        y: 128
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e9a91101eddb7a4cba7de3ddf020816
-      internalID: 776036139
+      spriteID: 700e7bc28a3544348bf7ff1e65a1485f
+      internalID: -270884619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grid_spikes_normal_1
+      name: grid_spikes_4
       rect:
         serializedVersion: 2
-        x: 3
-        y: 97
-        width: 28
-        height: 28
+        x: 0
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7704eb893bc28e04fb33ef18326d2fe1
-      internalID: -124067176
+      spriteID: 8cfb5f7882d12bf468c2c5fc9e797457
+      internalID: 1723228199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grid_spikes_blood_1
+      name: grid_spikes_5
       rect:
         serializedVersion: 2
-        x: 34
-        y: 97
-        width: 28
-        height: 28
+        x: 32
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d439b4dcfbfa5b4faa0bfd1ea494a2b
-      internalID: -1637423316
+      spriteID: 60b1afd4cd1d4bf4aace45d54e923951
+      internalID: -2139000540
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grid_spikes_moving_normal_1
+      name: grid_spikes_6
       rect:
         serializedVersion: 2
-        x: 66
-        y: 97
-        width: 28
-        height: 28
+        x: 64
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4933f5a26f18f51428d325351c25f79a
-      internalID: -1322008215
+      spriteID: 0b44054d83bddb440806fa4a921c517b
+      internalID: 134191265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grid_spikes_moving_blood_1
+      name: grid_spikes_7
       rect:
         serializedVersion: 2
-        x: 98
-        y: 97
-        width: 26
-        height: 26
+        x: 96
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ce4ef7fa2bd2274d80928db6048e6c5
-      internalID: 398009528
+      spriteID: d9af231b8e1eab24990a3e9234593ef3
+      internalID: -2124392393
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grid_spikes_normal_2
+      name: grid_spikes_8
       rect:
         serializedVersion: 2
-        x: 3
-        y: 65
-        width: 28
-        height: 28
+        x: 0
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 268412561d7dfa948b805b3cae1455fc
-      internalID: 1833663553
+      spriteID: f98b4f8e1ce05284189996df90ef0316
+      internalID: -1716123354
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grid_spikes_blood_2
+      name: grid_spikes_9
       rect:
         serializedVersion: 2
-        x: 34
-        y: 65
-        width: 28
-        height: 28
+        x: 32
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e9b277de7bc9e93438f5415be2b971d1
-      internalID: -412704312
+      spriteID: d286955ea03e537419e50f9d56883141
+      internalID: -251017445
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grid_spikes_moving_normal_2
+      name: grid_spikes_10
       rect:
         serializedVersion: 2
-        x: 66
-        y: 65
-        width: 28
-        height: 28
+        x: 64
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: affc74f472a8a67438adcd251591a91e
-      internalID: -272695749
+      spriteID: ee1965edd8081a649af2c514a32f34ad
+      internalID: 116146244
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grid_spikes_moving_blood_2
+      name: grid_spikes_11
       rect:
         serializedVersion: 2
-        x: 98
-        y: 65
-        width: 26
-        height: 26
+        x: 96
+        y: 64
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5593da2674e70b241a1d8b92170dd65c
-      internalID: 1023450306
+      spriteID: e90a10f9ad87b7d47ada4ec24ad00714
+      internalID: -238771413
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grid_spikes_normal_3
+      name: grid_spikes_12
       rect:
         serializedVersion: 2
-        x: 3
-        y: 33
-        width: 28
-        height: 28
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5e7615309be0c034b954da6bd05fc864
-      internalID: 1187834186
+      spriteID: be23356f625408343b0b3b5ba73980f8
+      internalID: -138758988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grid_spikes_blood_3
+      name: grid_spikes_13
       rect:
         serializedVersion: 2
-        x: 34
-        y: 33
-        width: 28
-        height: 28
+        x: 32
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a256cb8a448e9f248b3053cb76f267db
-      internalID: 1847132409
+      spriteID: 9932cbad0f4f4ef49816d68fe1968558
+      internalID: -417377594
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grid_spikes_moving_normal_3
+      name: grid_spikes_14
       rect:
         serializedVersion: 2
-        x: 66
-        y: 33
-        width: 28
-        height: 28
+        x: 64
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77ecb1e7742cb354f95cc1bcb8909d3c
-      internalID: -1861906708
+      spriteID: 3219ac68253107f46951e3796b67cf9f
+      internalID: -1992602259
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grid_spikes_moving_blood_3
+      name: grid_spikes_15
       rect:
         serializedVersion: 2
-        x: 98
-        y: 33
-        width: 26
-        height: 26
+        x: 96
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49d63a31b8a915043927d38db5efca2b
-      internalID: 673335755
+      spriteID: da66c12a8dd3ba34f85649b2bc8f3156
+      internalID: -1768407583
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grid_spikes_moving_normal_4
+      name: grid_spikes_16
       rect:
         serializedVersion: 2
-        x: 66
-        y: 1
-        width: 28
-        height: 28
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b338b3d6793b06d45a27b4e0a41e88de
-      internalID: -1082251709
+      spriteID: 2b8fb6f91c55bfb40b6a57c804dc356b
+      internalID: -982637389
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: grid_spikes_moving_blood_4
+      name: grid_spikes_17
       rect:
         serializedVersion: 2
-        x: 98
-        y: 1
-        width: 26
-        height: 26
+        x: 96
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e5b13ccc5df891244bb51f72e2d15ecd
-      internalID: -1255088055
+      spriteID: 981d235c0905257459b5248d3f662c9b
+      internalID: -1550581545
       vertices: []
       indices: 
       edges: []
@@ -524,24 +557,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      grid_spikes_blood_0: 1703435775
-      grid_spikes_blood_1: -1637423316
-      grid_spikes_blood_2: -412704312
-      grid_spikes_blood_3: 1847132409
-      grid_spikes_moving_blood_0: 776036139
-      grid_spikes_moving_blood_1: 398009528
-      grid_spikes_moving_blood_2: 1023450306
-      grid_spikes_moving_blood_3: 673335755
-      grid_spikes_moving_blood_4: -1255088055
-      grid_spikes_moving_normal_0: 524396611
-      grid_spikes_moving_normal_1: -1322008215
-      grid_spikes_moving_normal_2: -272695749
-      grid_spikes_moving_normal_3: -1861906708
-      grid_spikes_moving_normal_4: -1082251709
-      grid_spikes_normal_0: -268226307
-      grid_spikes_normal_1: -124067176
-      grid_spikes_normal_2: 1833663553
-      grid_spikes_normal_3: 1187834186
+      grid_spikes_0: 258874294
+      grid_spikes_1: -65555543
+      grid_spikes_10: 116146244
+      grid_spikes_11: -238771413
+      grid_spikes_12: -138758988
+      grid_spikes_13: -417377594
+      grid_spikes_14: -1992602259
+      grid_spikes_15: -1768407583
+      grid_spikes_16: -982637389
+      grid_spikes_17: -1550581545
+      grid_spikes_2: -906979382
+      grid_spikes_3: -270884619
+      grid_spikes_4: 1723228199
+      grid_spikes_5: -2139000540
+      grid_spikes_6: 134191265
+      grid_spikes_7: -2124392393
+      grid_spikes_8: -1716123354
+      grid_spikes_9: -251017445
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

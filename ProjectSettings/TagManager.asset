@@ -14,6 +14,8 @@ TagManager:
   - ProjectileCollider
   - TimerTrigger
   - Pickup
+  - Spike
+  - Fire
   layers:
   - Default
   - TransparentFX
