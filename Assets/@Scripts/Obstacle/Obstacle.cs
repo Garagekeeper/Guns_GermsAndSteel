@@ -5,7 +5,7 @@ using static Define;
 
 public class Obstacle : BaseObject
 {
-    enum ObstacleTypes
+    public enum ObstacleTypes
     {
         None,
         Spike,
@@ -13,8 +13,13 @@ public class Obstacle : BaseObject
     }
 
     private float _hp;
-    private ObstacleTypes _obstacleTypes;
     private CircleCollider2D _circleCollider;
+    private ObstacleTypes _obstacleType;
+    public ObstacleTypes ObstacleType
+    {
+        get { return _obstacleType; }
+        set { _obstacleType = value; }
+    }
 
     private void Awake()
     {
@@ -24,11 +29,11 @@ public class Obstacle : BaseObject
     public void Init(string type)
     {
         _circleCollider = GetComponent<CircleCollider2D>();
-        _obstacleTypes = ObstacleTypes.None;
-        if (type == "Spike") _obstacleTypes = ObstacleTypes.Spike;
+        ObstacleType = ObstacleTypes.None;
+        if (type == "Spike") ObstacleType = ObstacleTypes.Spike;
         if (type == "Fire")
         {
-            _obstacleTypes = ObstacleTypes.Fire;
+            ObstacleType = ObstacleTypes.Fire;
             _hp = 10.0f;
         }
     }

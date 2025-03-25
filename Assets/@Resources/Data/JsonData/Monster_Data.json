@@ -1,0 +1,46 @@
+{
+  "monsters": [
+    {
+      "PrefabName": "Pooter",
+      "DataId": 10001,
+      "Description": null,
+      "SpriteName": null
+    },
+    {
+      "PrefabName": "Fly",
+      "DataId": 10010,
+      "Description": null,
+      "SpriteName": null
+    },
+    {
+      "PrefabName": "Gaper",
+      "DataId": 10017,
+      "Description": null,
+      "SpriteName": null
+    },
+    {
+      "PrefabName": "Boil",
+      "DataId": 10087,
+      "Description": null,
+      "SpriteName": null
+    },
+    {
+      "PrefabName": "BoomFly",
+      "DataId": 10096,
+      "Description": null,
+      "SpriteName": null
+    },
+    {
+      "PrefabName": "Maggot",
+      "DataId": 10105,
+      "Description": null,
+      "SpriteName": null
+    },
+    {
+      "PrefabName": "Host",
+      "DataId": 10122,
+      "Description": null,
+      "SpriteName": null
+    }
+  ]
+}

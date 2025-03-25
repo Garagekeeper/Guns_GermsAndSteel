@@ -11,9 +11,12 @@ public interface ILoader<Key, Value>
 public class DataManager
 {
     public Dictionary<int, Data.ItemData> ItemDic { get; private set; } = new Dictionary<int, Data.ItemData>();
+    public Dictionary<int, Data.MonsterData> MonsterDic { get; private set; } = new Dictionary<int, Data.MonsterData>();
+
     public void Init()
     {
         ItemDic = LoadJson<Data.ItemDataLoader, int, Data.ItemData>("Item_Data").MakeDict();
+        MonsterDic = LoadJson<Data.MonsterDataLoader, int, Data.MonsterData>("Monster_Data").MakeDict();
     }
     private Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
     {

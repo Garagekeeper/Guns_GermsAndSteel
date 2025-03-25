@@ -39,7 +39,8 @@ public class Projectile : MonoBehaviour
         int size = Mathf.Clamp(((Mathf.RoundToInt(owner.AttackDamage) - 1 / 3) + 1), 0, 12);
         _spriteRenderer.sprite = Managers.Resource.Load<Sprite>("bulletatlas_" + (size + index));
         Collider.radius = _spriteRenderer.bounds.size.x / 2;
-        transform.GetChild(1).position = new Vector3(0, -(Collider.radius * 4 - (Collider.radius * 4 - Collider.radius / 2) * (size / 12f)), 0);
+        //transform.GetChild(1).position = new Vector3(0, -(Collider.radius * 4 - (Collider.radius * 4 - Collider.radius / 2) * (size / 12f)), 0);
+        transform.GetChild(1).position = new Vector3(0,0,0);
 
 
 

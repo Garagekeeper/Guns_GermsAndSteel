@@ -31,6 +31,13 @@ MonoBehaviour:
     - Preload
     - Data
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ac665b5121a27d42b786c3a66c2ae44
+    m_Address: Monster_Data
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

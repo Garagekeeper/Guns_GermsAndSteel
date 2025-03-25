@@ -115,7 +115,7 @@ public class Creature : BaseObject
     protected Animator AnimatorBottom { get; set; }
     public Rigidbody2D Rigidbody { get; set; }
 
-    protected CircleCollider2D Collider { get; set; }
+    public Collider2D Collider { get; set; }
 
     protected Sprite[] HeadSprite { get; set; }
 
@@ -208,7 +208,7 @@ public class Creature : BaseObject
 
 
         Rigidbody = GetComponent<Rigidbody2D>();
-        Collider = GetComponent<CircleCollider2D>();
+        Collider = GetComponent<CircleCollider2D>() == null ? GetComponent<CapsuleCollider2D>() : GetComponent<CircleCollider2D>();
         LayerMask mask = 0;
         mask |= (1 << 15);
         Collider.excludeLayers = mask;

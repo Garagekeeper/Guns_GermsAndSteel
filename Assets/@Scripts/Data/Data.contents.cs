@@ -35,6 +35,12 @@ namespace Data
     }
 
     [Serializable]
+    public class MonsterData : BaseData
+    {
+        public string PrefabName;
+    }
+
+    [Serializable]
     public class ItemDataLoader : ILoader<int, ItemData>
     {
         public List<ItemData> items = new List<ItemData>();
@@ -44,6 +50,20 @@ namespace Data
             Dictionary<int, ItemData> dict = new Dictionary<int, ItemData>();
             foreach (ItemData item in items)
                 dict.Add(item.DataId, item);
+
+            return dict;
+        }
+    }
+
+    [Serializable]
+    public class MonsterDataLoader : ILoader<int, MonsterData>
+    {
+        public List<MonsterData> monsters = new List<MonsterData>();
+        public Dictionary<int, MonsterData> MakeDict()
+        {
+            Dictionary<int, MonsterData> dict = new Dictionary<int, MonsterData>();
+            foreach (MonsterData monster in monsters)
+                dict.Add(monster.DataId,monster);
 
             return dict;
         }

@@ -117,6 +117,8 @@ public class GameManager
         //CameraMove
         MoveCameraToNextRoom(currentRoom._adjacencentRooms[index]);
 
+        Managers.Object.DespawnMonsters(Managers.Map.CurrentRoom);
+
         Managers.Map.CurrentRoom = currentRoom._adjacencentRooms[index];
         //Managers.UI.PlayingUI.BossHpActive(true);
 
@@ -134,9 +136,9 @@ public class GameManager
             temp.CanMove = true;
         }
 
-        if (currentRoom.IsClear == false)
+        if (Managers.Map.CurrentRoom.IsClear == false)
         {
-            Managers.Map.SpawnMonsterAndBossInRoom(currentRoom);
+            Managers.Map.SpawnMonsterAndBossInRoom(Managers.Map.CurrentRoom);
         }
 
         RoomConditionCheck();
@@ -225,6 +227,7 @@ public class GameManager
         Vector3 newPos = chosen.Transform.position + new Vector3(-0.5f, -0.5f, 0);
         foreach (var mc in Managers.Object.MainCharacters)
         {
+            mc.Collider.enabled = false;
             mc.CanMove = false;
         }
 
@@ -233,11 +236,14 @@ public class GameManager
             mc.transform.position = newPos;
         }
 
+        Managers.Object.DespawnMonsters(Managers.Map.CurrentRoom);
+
         Managers.Map.CurrentRoom = chosen;
 
         foreach (var mc in Managers.Object.MainCharacters)
         {
             mc.CanMove = true;
+            mc.Collider.enabled = true;
         }
 
         if (Managers.Map.CurrentRoom.IsClear == false)

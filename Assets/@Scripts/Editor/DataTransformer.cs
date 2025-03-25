@@ -40,6 +40,7 @@ public class DataTransformer : EditorWindow
     public static void ParseExcelDataToJson()
     {
         ParseExcelDataToJson<ItemDataLoader, ItemData>("Item_Data");
+        ParseExcelDataToJson<MonsterDataLoader, MonsterData>("Monster_Data");
 
 
         Debug.Log("Complete DataTransformer");

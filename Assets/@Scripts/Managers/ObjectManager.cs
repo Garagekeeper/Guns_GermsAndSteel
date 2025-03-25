@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 using static Define;
+using static Utility;
 
 public class ObjectManager
 {
@@ -12,7 +15,7 @@ public class ObjectManager
     public HashSet<Pickup> Pickups { get; } = new HashSet<Pickup>();
 
     // spawn creature
-    public T Spawn<T>(Vector3 pos, int templateID = 0, string prfabName = "") where T : Creature
+    public T Spawn<T>(Vector3 pos, int templateID = 0, string prfabName = "", Transform parent = null) where T : Creature
     {
         System.Type type = typeof(T);
         if (type == typeof(MainCharacter))
@@ -29,7 +32,8 @@ public class ObjectManager
             GameObject go = Managers.Resource.Instantiate(prfabName);
             go.name = prfabName;
             Monster mt = go.GetComponent<Monster>();
-            mt.transform.position = pos;
+            mt.transform.SetParent(parent);
+            mt.transform.localPosition = pos;
             Monsters.Add(mt);
             return mt as T;
         }
@@ -38,7 +42,8 @@ public class ObjectManager
             GameObject go = Managers.Resource.Instantiate(prfabName);
             go.name = prfabName;
             Boss bs = go.GetComponent<Boss>();
-            bs.transform.position = pos;
+            bs.transform.SetParent(parent);
+            bs.transform.localPosition = pos;
             Bosses.Add(bs);
             return bs as T;
         }
@@ -116,9 +121,18 @@ public class ObjectManager
        Object.Destroy(obj.gameObject);
     }
 
+    public void DespawnMonsters(RoomClass room)
+    {
+        GameObject mgo = FindChildByName(room.Transform, "Monster").gameObject;
+        foreach(GameObject monsters in mgo.transform)
+        {
+            Despawn(monsters.GetComponent<Creature>());
+        }
+    }
+
     public void ClearObjectManager()
     {
-        MainCharacters.Clear();
+        //MainCharacters.Clear();
         Monsters.Clear();
         Bosses.Clear();
         Pickups.Clear();

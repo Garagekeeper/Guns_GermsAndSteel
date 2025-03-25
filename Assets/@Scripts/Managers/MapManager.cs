@@ -16,6 +16,7 @@ using Object = UnityEngine.Object;
 using Transform = UnityEngine.Transform;
 using static Utility;
 using UnityEngine.SceneManagement;
+using System.Text.RegularExpressions;
 
 public class RoomClass
 {
@@ -1349,26 +1350,37 @@ public class MapManager
         int minX = tmp.cellBounds.xMin;
         int maxY = tmp.cellBounds.yMax;
         int minY = tmp.cellBounds.yMin;
+        
+        tmp = room.TilemapCollisionPrefab.transform.GetChild(0).GetComponent<Tilemap>();
 
         for (int y = maxY - 1; y > minY; y--)
         {
             for (int x = minX; x < maxX - 1; x++)
             {
                 TileBase tile = tmp.GetTile(new Vector3Int(x, y));
+                if (tile == null) continue;
 
-                switch (tile.name)
+                string name = tile.name;
+                string result = Regex.Replace(name, @"[^0-9]", "");
+
+                //TODO
+                //id 값 조절
+                if (result != "")
                 {
-                    case "Monster":
-                        Managers.Object.Spawn<Monster>(new Vector3Int(x, y));
-                        break;
-                    case "Boss":
-                        Managers.Object.Spawn<Boss>(new Vector3Int(x, y));
+                    Transform monsterSpawnTransform = FindChildByName(CurrentRoom.Transform, "Monster");
+                    Int32.TryParse(result, out int id);
+                    id += 10000;
+                    if (id < 20000)
+                    {
+                        Debug.Log("x: " + x + "y: " + y + "id: " + id);
+                        Managers.Object.Spawn<Monster>(new Vector3Int(x, y), id, Managers.Data.MonsterDic[id].PrefabName, monsterSpawnTransform);
+                    }
+                    else
+                    {
+                        Managers.Object.Spawn<Boss>(new Vector3Int(x, y), id, Managers.Data.MonsterDic[id].PrefabName, monsterSpawnTransform);
                         Managers.UI.PlayingUI.BossHpActive(true);
-                        break;
-                    default:
-                        break;
+                    }
                 }
-
             }
         }
     }
