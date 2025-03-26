@@ -41,12 +41,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 035b5d1bbf1f6f74ba239a207a9d473f
-    m_Address: PlayingUI
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e7e997309a9371749a42e510d2cc27f0
     m_Address: Stage
     m_ReadOnly: 0
@@ -89,6 +83,27 @@ MonoBehaviour:
     m_SerializedLabels:
     - Preload
     - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb9c5181fef03fc44a2078a1dac1867c
+    m_Address: GameOverUI
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 035b5d1bbf1f6f74ba239a207a9d473f
+    m_Address: PlayingUI
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8907a11cd5f48143af290702a10bfd8
+    m_Address: PauseUI
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}

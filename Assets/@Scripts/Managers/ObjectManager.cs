@@ -21,7 +21,7 @@ public class ObjectManager
         if (type == typeof(MainCharacter))
         {
             GameObject go = Managers.Resource.Instantiate("Player");
-            go.name = "Player";
+            go.name = "Player" + Managers.Game.Seed;
             MainCharacter mc = go.GetComponent<MainCharacter>();
             mc.transform.position = pos;
             MainCharacters.Add(mc);
@@ -130,9 +130,10 @@ public class ObjectManager
         }
     }
 
-    public void ClearObjectManager()
+    public void ClearObjectManager(bool includePlayer = false)
     {
-        //MainCharacters.Clear();
+        if (includePlayer)
+            MainCharacters.Clear();
         Monsters.Clear();
         Bosses.Clear();
         Pickups.Clear();

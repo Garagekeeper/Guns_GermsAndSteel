@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour
     private Vector2 _target;
     private Coroutine _coroutine;
 
-    private bool _isColliding = false;
+    //private bool _isColliding = false;
 
     private ESkillType _skillType = ESkillType.Projectile;
 
@@ -76,8 +76,8 @@ public class Projectile : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (_isColliding) return;
-        _isColliding = true;
+        //if (_isColliding) return;
+        //_isColliding = true;
         if (other == null) return;
         if (other.gameObject.tag == "TrapDoor") return;
         if (other.gameObject.tag == "ItemHolder") return;

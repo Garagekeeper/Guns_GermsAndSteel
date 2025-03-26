@@ -35,6 +35,28 @@ public class MainCharacter : Creature
     public bool OneTimeActive { get; set; } = false;
 
     private bool _isInvincible = false;
+
+    private bool _isPause = false;
+
+    public bool IsPause
+    {
+        get { return _isPause; }
+        set
+        {   
+                if (value == true)
+                {
+                    Time.timeScale = 0;
+                    Managers.UI.PauseUI.gameObject.SetActive(true);
+                }
+                else
+                {
+                    Managers.UI.PauseUI.gameObject.SetActive(false);
+                    Time.timeScale = 1;
+                } 
+                _isPause = value;
+        }
+    }
+
     public bool IsInvincible
     {
         get { return _isInvincible; }
@@ -115,6 +137,8 @@ public class MainCharacter : Creature
 
     public override void Init()
     {
+        StopAllCoroutines();
+
         base.Init();
 #if UNITY_EDITOR
         AttackDamage = 3f;
@@ -148,12 +172,22 @@ public class MainCharacter : Creature
 
         ChangeSpaceItem(SpaceItemId);
         ChangeQItem(QItemId);
+
+
+        IsPause = false;
         Managers.UI.PlayingUI.RefreshUI(this);
 
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            IsPause = !IsPause;
+        }
+
+        if (IsPause) return;
+
         #region Attack
         Vector2 attackVel = Vector2.zero;
         attackVel.x = Input.GetAxis("AttackHorizontal");
@@ -213,6 +247,8 @@ public class MainCharacter : Creature
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             //Managers.UI.ShowUpStatUI();
+
+            OnDead();
         }
 
         //Restart with fade out
@@ -238,9 +274,10 @@ public class MainCharacter : Creature
 
         #endregion
     }
+
     private void UpdateMovement(Vector2 vel)
     {
-        if (Rigidbody.velocity == vel) return; 
+        if (Rigidbody.velocity == vel) return;
         Rigidbody.velocity = vel;
 
         if (vel != Vector2.zero)
@@ -565,13 +602,20 @@ public class MainCharacter : Creature
 
             GetPickup(pickup);
         }
-        
+
         if (collision.transform.CompareTag("ClearBox"))
         {
             Managers.Game.ClearGame();
         }
-
-
-
     }
+    
+    public override void OnDead()
+    {
+        if (Managers.Object.MainCharacters.Count > 1)
+            base.OnDead();
+
+        else
+            Managers.Game.GameOver();
+    }
+
 }

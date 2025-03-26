@@ -46,7 +46,7 @@ public class GameManager
 
     public int StageNumber { get; set; } = 1;
 
-    private int _baseRoomCountMax = 20;
+    private int _baseRoomCountMax = 15;
     private int _baseRoomCountMin = 10;
 
 
@@ -60,7 +60,7 @@ public class GameManager
         //N = (int)(Sn % ((_baseRoomCountMax - _baseRoomCountMin) + 1 + StageNumber * 2) + _baseRoomCountMin);
         //https://gist.github.com/bladecoding/d75aef7e830c738ad5e3d66d146a095c
         //위 링크와는 다르게 특수방의 개수가 늘어났기 때문에 적절한 수치 변경
-        N = Math.Min(_baseRoomCountMax, RNG.RandInt(0, 1) + 7 + ((StageNumber * _baseRoomCountMin) / 3));
+        N = Math.Min(_baseRoomCountMax, RNG.RandInt(0, 1) + 5 + ((StageNumber * _baseRoomCountMin) / 5));
         //Debug.Log(N);
     }
 
@@ -165,7 +165,7 @@ public class GameManager
 
         //Clear Base Objects All
         {
-            Managers.Object.ClearObjectManager();
+            Managers.Object.ClearObjectManager(true);
         }
 
         //Move Camera to new starting room
@@ -324,9 +324,21 @@ public class GameManager
         SceneManager.LoadScene("MainScene");
     }
 
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+        //TODO OpenUI
+        Managers.UI.GameOverUI.gameObject.SetActive(true);
+    }
+
     public void RestartGame()
     {
         Init();
+
+        {
+            Managers.Object.ClearObjectManager();
+        }
+
         Managers.Map.DestroyMap();
         while (true)
         {
@@ -336,17 +348,30 @@ public class GameManager
         Managers.Map.LoadMap();
 
         Cam.MoveCameraWithoutLerp(new Vector3(-0.5f, -0.5f, -10f));
-        foreach (var temp in Managers.Object.MainCharacters)
+
+        //for (int i=0; i< Managers.Object.MainCharacters.Count; i++)
+        //{
+        //    Managers.Object.Despawn(Managers.Object.MainCharacters.);
+        //}
+        MainCharacter[] players = Managers.Object.MainCharacters.ToArray();
+        Managers.Object.MainCharacters.Clear();
+
+        for (int i=0; i<players.Length; i++)
         {
-            temp.gameObject.SetActive(true);
-            temp.transform.position = new Vector3(-0.5f, -0.5f, 0);
-            temp.CanMove = true;
+            Managers.Object.Despawn(players[i]);
         }
+        //foreach (var temp in Managers.Object.MainCharacters)
+        //{
+        //    //temp.gameObject.SetActive(true);
+        //    //temp.transform.position = new Vector3(-0.5f, -0.5f, 0);
+        //    //temp.CanMove = true;
+        //    Managers.Object.Despawn(temp);
+        //}
+
+        Managers.Object.Spawn<MainCharacter>(new Vector3(-0.5f, -0.5f, 0),0,"Player");
         RoomConditionCheck();
-        foreach (var mainCharacter in Managers.Object.MainCharacters)
-        {
-            mainCharacter.Init();
-        }
+        
+        Managers.UI.GameOverUI.gameObject.SetActive(false);
 
     }
 

@@ -837,6 +837,7 @@ public class MapManager
 
     public void Init(Action callback)
     {
+        RoomCollisionCnt.Clear();
         for (int i = 0; i < Enum.GetValues(typeof(ERoomType)).Length; i++)
             RoomCollisionCnt.Add(0);
 
@@ -1210,6 +1211,8 @@ public class MapManager
 
     public void DestroyMap()
     {
+        Rooms.Clear();
+
         if (Map != null)
             UnityEngine.Object.Destroy(Map);
 
@@ -1372,7 +1375,6 @@ public class MapManager
                     id += 10000;
                     if (id < 20000)
                     {
-                        Debug.Log("x: " + x + "y: " + y + "id: " + id);
                         Managers.Object.Spawn<Monster>(new Vector3Int(x, y), id, Managers.Data.MonsterDic[id].PrefabName, monsterSpawnTransform);
                     }
                     else

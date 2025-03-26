@@ -3195,7 +3195,7 @@ GameObject:
   - component: {fileID: 2919089980418483734}
   - component: {fileID: 74972562929119687}
   m_Layer: 0
-  m_Name: Tile_Map_Monster_Normal_1
+  m_Name: Tile_Map_Monster_Normal_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

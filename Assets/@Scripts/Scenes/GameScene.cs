@@ -14,6 +14,15 @@ public class GameScene : MonoBehaviour
         GameObject go = Managers.Resource.Instantiate("PlayingUI");
         go.name = "PlayingUI";
         Managers.UI.PlayingUI = go.GetComponent<PlayingUI>();
+
+        go = Managers.Resource.Instantiate("GameOverUI");
+        go.name = "GameOverUI";
+        Managers.UI.GameOverUI = go.GetComponent<GameOverUI>();
+        
+        go = Managers.Resource.Instantiate("PauseUI");
+        go.name = "PauseUI";
+        Managers.UI.PauseUI = go.GetComponent<PauseUI>();
+
     }
 
     public void SpawnCharacter()

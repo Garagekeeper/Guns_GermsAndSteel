@@ -32,6 +32,8 @@ public class Pooter : Monster
 
         // 0. 가장 가까운 타겟 탐색
         Target = FindClosetTarget(this, Managers.Object.MainCharacters.ToList<Creature>());
+        if (Target == null) return; 
+
         Vector2 dir = Target.transform.position - transform.position;
         Vector2 normalizedDir = dir.normalized;
         float distanceSqaure = dir.sqrMagnitude;
