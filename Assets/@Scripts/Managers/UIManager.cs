@@ -26,4 +26,26 @@ public class UIManager
         set => _pauseUI = value;
         get => _pauseUI;
     }
+
+    public void RefreshPlayingUI(MainCharacter player)
+    {
+        PlayingUI.RefreshUI(player);
+    }
+
+    public void RefreshGameOverUI(MainCharacter player)
+    {
+        GameOverUI.RefreshUI(player);
+    }
+
+    public void RefreshPauseUI(MainCharacter player)
+    {
+        PauseUI.RefreshUI(player);
+    }
+
+    public void ResfreshUIAll(MainCharacter player)
+    {
+        RefreshPlayingUI(player);
+        RefreshGameOverUI(player);
+        RefreshPauseUI(player);
+    }
 }

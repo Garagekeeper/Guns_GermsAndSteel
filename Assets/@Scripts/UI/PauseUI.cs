@@ -17,7 +17,8 @@ public class PauseUI : UI_Base
         ShotSpeedGage,
         LuckGage,
 
-        MyStuffImage_1=11,
+        MyStuffImage_0=11,
+        MyStuffImage_1,
         MyStuffImage_2,
         MyStuffImage_3,
         MyStuffImage_4,
@@ -31,10 +32,11 @@ public class PauseUI : UI_Base
         MyStuffImage_12,
         MyStuffImage_13,
         MyStuffImage_14,
-        MyStuffImage_15,
 
 
     }
+
+    private int _itemCount = 0;
 
     enum Texts
     {
@@ -53,10 +55,11 @@ public class PauseUI : UI_Base
         base.Init();
 
         BindImage(typeof(Images));
-        BindTextLegacy(typeof(Texts));
+        BindText(typeof(Texts));
         BindObject(typeof(GameObjects));
 
         _currentObject = (int)GameObjects.OptionArrow;
+        gameObject.SetActive(false);
     }
 
     private void Update()
@@ -103,4 +106,40 @@ public class PauseUI : UI_Base
             }
         }
     }
+    public void RefreshUI(MainCharacter player)
+    {
+        RefreshPauseStat(player);
+        RefreshItemList(player);
+        RefreshSeedText();
+    }
+
+    public void RefreshPauseStat(MainCharacter player)
+    {
+        GetImage((int)Images.TearsGage).sprite = Managers.Resource.Load<Sprite>("PauseMain_right_" + Math.Min((int)player.Tears,7));
+        GetImage((int)Images.RangeGage).sprite = Managers.Resource.Load<Sprite>("PauseMain_right_" + Math.Min((int)player.Range,7));
+        GetImage((int)Images.SpeedGage).sprite = Managers.Resource.Load<Sprite>("PauseMain_right_" + Math.Min((int)player.Speed,7));
+        GetImage((int)Images.LuckGage).sprite = Managers.Resource.Load<Sprite>("PauseMain_left_" + Math.Min((int)player.Luck, 7));
+        GetImage((int)Images.AttackDamageGage).sprite = Managers.Resource.Load<Sprite>("PauseMain_left_" + Math.Min((int)player.AttackDamage, 7));
+        GetImage((int)Images.ShotSpeedGage).sprite = Managers.Resource.Load<Sprite>("PauseMain_left_" + Math.Min((int)player.ShotSpeed, 7));
+    }
+
+    public void RefreshItemList(MainCharacter player)
+    {
+        if (player == null) return;
+        if (_itemCount > 14) return;
+
+        foreach (var item in player.AcquiredPassiveItemList)
+        {
+            if (_itemCount > 14) break;
+            //TODO
+            //GetImage((int)(Images.DeathItem_0 + _itemCount)).sprite = ;
+            _itemCount++;
+        }
+    }
+
+    public void RefreshSeedText()
+    {
+        GetText((int)Texts.SeedText).text = Managers.Game.Seed.Insert(4, "\n");
+    }
 }
+

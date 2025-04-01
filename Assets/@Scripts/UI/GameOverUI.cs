@@ -12,6 +12,7 @@ public class GameOverUI : UI_Base
         StageName,
         BodyImage,
         DeadBy,
+        DeathItem_0,
         DeathItem_1,
         DeathItem_2,
         DeathItem_3,
@@ -21,8 +22,9 @@ public class GameOverUI : UI_Base
         DeathItem_7,
         DeathItem_8,
         DeathItem_9,
-        DeathItem_10,
     }
+
+    private int _itemCount = 0;
 
     enum Texts
     {
@@ -41,6 +43,8 @@ public class GameOverUI : UI_Base
         BindImage(typeof(Images));
         BindText(typeof(Texts));
         //BindObject(typeof(GameObjects));
+
+        gameObject.SetActive(false);
     }
 
     private void Update()
@@ -59,4 +63,48 @@ public class GameOverUI : UI_Base
         if (Input.GetKeyDown(KeyCode.Space))
             Managers.Game.RestartGame();
     }
+
+    public void RefreshUI(MainCharacter player)
+    {
+        RefreshItemList(player);
+        RefreshStageName();
+        RefreshSeedText();
+    }
+
+    public void RefreshItemList(MainCharacter player)
+    {
+        if (player == null) return;
+        if (_itemCount > 9) return;
+
+        foreach (var item in player.AcquiredPassiveItemList)
+        {
+            if (_itemCount > 9) break;
+            //TODO
+            //GetImage((int)(Images.DeathItem_0 + _itemCount)).sprite = ;
+            _itemCount++;
+        }
+
+    }
+
+    public void RefreshStageName()
+    {
+        string imageNmae;
+        if (Managers.Game.StageNumber > 7)
+        {
+            imageNmae = "Stage_Name_6";
+        }
+        else
+            imageNmae = "Stage_Name_" + (Managers.Game.StageNumber - 1);
+
+        GetImage((int)Images.StageName).sprite = Managers.Resource.Load<Sprite>(imageNmae);
+    }
+
+    public void RefreshSeedText()
+    {
+        GetText((int)Texts.SeedText).text = Managers.Game.Seed.Insert(4,"\n");
+    }
+
+    
+
+
 }

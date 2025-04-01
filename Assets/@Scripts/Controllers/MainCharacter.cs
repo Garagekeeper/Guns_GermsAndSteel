@@ -19,7 +19,7 @@ public class MainCharacter : Creature
     //TODO
     //var SubItem;
     //var ActiveItem;
-    List<Item> AcquiredPassiveItemList;
+    public List<Item> AcquiredPassiveItemList { get; private set; }
     List<Familiar> AcquiredFamiliarItemList;
 
 
@@ -175,7 +175,7 @@ public class MainCharacter : Creature
 
 
         IsPause = false;
-        Managers.UI.PlayingUI.RefreshUI(this);
+        Managers.UI.ResfreshUIAll(this);
 
     }
 
@@ -224,7 +224,7 @@ public class MainCharacter : Creature
         if (Input.GetKeyDown(KeyCode.E))
         {
             SpawnBomb();
-            Managers.UI.PlayingUI.RefreshUI(this);
+            Managers.UI.ResfreshUIAll(this);
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -346,7 +346,7 @@ public class MainCharacter : Creature
             ChangeQItem(null);
             QItem = null;
         }
-        Managers.UI.PlayingUI.RefreshUI(this);
+        Managers.UI.ResfreshUIAll(this);
     }
 
     public void GetItem(ItemHolder itemHolder)
@@ -377,7 +377,7 @@ public class MainCharacter : Creature
             else
                 ChangeSpaceItem(item);
         }
-        Managers.UI.PlayingUI.RefreshUI(this);
+        Managers.UI.ResfreshUIAll(this);
         if (itemHolder.transform.GetChild(1) != null) itemHolder.transform.GetChild(1).gameObject.SetActive(active);
     }
 
@@ -436,7 +436,7 @@ public class MainCharacter : Creature
         Hp -= DamageByOtherConstant;
         IsInvincible = true;
         StartCoroutine(CoInvincible());
-        Managers.UI.PlayingUI.RefreshUI(this);
+        Managers.UI.ResfreshUIAll(this);
         //Debug.Log(Hp);
     }
 
@@ -562,7 +562,7 @@ public class MainCharacter : Creature
             default:
                 break;
         }
-        Managers.UI.PlayingUI.RefreshUI(this);
+        Managers.UI.ResfreshUIAll(this);
         Managers.Object.Despawn(pickup);
     }
 
