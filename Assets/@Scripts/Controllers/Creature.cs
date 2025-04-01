@@ -445,6 +445,7 @@ public class Creature : BaseObject
                 break;
         }
         CreatureState = ECreatureState.Dead;
+        StopAllCoroutines();
         Managers.Game.RoomConditionCheck();
     }
 

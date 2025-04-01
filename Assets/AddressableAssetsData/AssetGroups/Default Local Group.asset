@@ -16,7 +16,30 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 661158fbcd809d048818ff93521f4887
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 1372975d47ec0144ca62ddd639dea56d
+    m_Address: death portraits
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - InGame
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a65d028e582fcef43a892bf5ce25b1c6
+    m_Address: pausescreen
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - InGame
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e3fd8169aaf7e04db5cd1c60f168246
+    m_Address: Monster_Dead_Effect
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

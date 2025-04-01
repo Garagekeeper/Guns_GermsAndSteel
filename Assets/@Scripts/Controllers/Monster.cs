@@ -232,4 +232,32 @@ public class Monster : Creature
         //Change Sprite
         yield return null;
     }
+
+    public override void OnDead()
+    {
+
+        if (CreatureState == ECreatureState.Dead) return;
+        Rigidbody.velocity = Vector3.zero;
+        CreatureState = ECreatureState.Dead;
+
+        StartCoroutine(MonsterDeadAaim());
+
+    }
+
+    IEnumerator MonsterDeadAaim()
+    {
+        if (Collider != null) 
+            Collider.enabled = false;
+
+        GameObject go = Managers.Resource.Instantiate("Monster_Dead_Effect");
+        go.transform.SetParent(transform, false);
+        go.transform.localPosition = Vector3.zero;
+        go.transform.GetComponent<Animator>().Play("Monster_Dead_Effect");
+
+        transform.GetComponent<SpriteRenderer>().enabled = false;
+
+        float delay = transform.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        yield return new WaitForSeconds(delay);
+        base.OnDead();
+    }
 }
