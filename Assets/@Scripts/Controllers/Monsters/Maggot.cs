@@ -25,9 +25,13 @@ public class Maggot : Monster
     private void Awake()
     {
         Init();
-        StartCoroutine(CoUpdateAI());
         //Player
         layerMask = 1 << 6;
+    }
+
+    private void Start()
+    {
+        StartCoroutine(CoUpdateAI());
     }
 
     private void Update()

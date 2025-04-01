@@ -16,6 +16,11 @@ public class Boil : Monster
         Init();
     }
 
+    private void Start()
+    {
+        StartCoroutine(CoUpdateAI());
+    }
+
     public override void Init()
     {
         base.Init();

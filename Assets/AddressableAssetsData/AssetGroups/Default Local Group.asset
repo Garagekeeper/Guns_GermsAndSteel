@@ -40,6 +40,13 @@ MonoBehaviour:
     - Preload
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc07ac1bac35ab24da9057fabc4bab72
+    m_Address: Monster_Spawn_Effect
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

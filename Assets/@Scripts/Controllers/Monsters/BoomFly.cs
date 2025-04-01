@@ -7,9 +7,13 @@ using Unity.Burst.CompilerServices;
 
 public class BoomFly : Monster
 {
-    void Start()
+    void Awake()
     {
         Init();
+    }
+
+    private void Start()
+    {
         StartCoroutine(CoUpdateAI());
     }
 

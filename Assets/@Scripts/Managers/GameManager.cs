@@ -1,8 +1,10 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Data;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
@@ -129,16 +131,37 @@ public class GameManager
             Managers.Data.ItemDic[TemplateId].Weight = 0;
         }
 
+
+        if (Managers.Map.CurrentRoom.IsClear == false)
+        {
+            Managers.Map.SpawnMonsterAndBossInRoom(Managers.Map.CurrentRoom, () =>
+            {
+                CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
+            });
+        }
+        else
+        {
+            CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
+        }
+    }
+
+    public IEnumerator WaitSpawn()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+
+
+        foreach (var temp in Managers.Object.Monsters)
+        {
+            temp.GetComponent<Monster>().enabled = true;
+            Object.Destroy(FindChildByName(temp.transform, "Monster_Spawn_Effect").gameObject);
+        }
+
         foreach (var temp in Managers.Object.MainCharacters)
         {
             if (temp.OneTimeActive)
                 WithdrawOneTimeItemEffect(temp);
             temp.CanMove = true;
-        }
-
-        if (Managers.Map.CurrentRoom.IsClear == false)
-        {
-            Managers.Map.SpawnMonsterAndBossInRoom(Managers.Map.CurrentRoom);
+            temp.Collider.enabled = true;
         }
 
         RoomConditionCheck();
@@ -236,24 +259,32 @@ public class GameManager
             mc.transform.position = newPos;
         }
 
+        newPos.z = -10f;
+        Cam.MoveCameraWithoutLerp(newPos);
+        
         Managers.Object.DespawnMonsters(Managers.Map.CurrentRoom);
+
+        if (Managers.Map.CurrentRoom.ItemHolder != null)
+        {
+            int TemplateId = Managers.Map.CurrentRoom.ItemHolder.GetComponent<ItemHolder>().ItemOfItemHolder.TemplateId;
+            Managers.Data.ItemDic[TemplateId].Weight = 0;
+        }
 
         Managers.Map.CurrentRoom = chosen;
 
-        foreach (var mc in Managers.Object.MainCharacters)
-        {
-            mc.CanMove = true;
-            mc.Collider.enabled = true;
-        }
+
 
         if (Managers.Map.CurrentRoom.IsClear == false)
         {
-            Managers.Map.SpawnMonsterAndBossInRoom(Managers.Map.CurrentRoom);
+            Managers.Map.SpawnMonsterAndBossInRoom(Managers.Map.CurrentRoom, ()=>
+            {
+                CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
+            });
         }
-
-        newPos.z = -10f;
-        Cam.MoveCameraWithoutLerp(newPos);
-        RoomConditionCheck();
+        else
+        {
+            CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
+        }
     }
 
     public int SlectItem()
@@ -356,7 +387,7 @@ public class GameManager
         MainCharacter[] players = Managers.Object.MainCharacters.ToArray();
         Managers.Object.MainCharacters.Clear();
 
-        for (int i=0; i<players.Length; i++)
+        for (int i = 0; i < players.Length; i++)
         {
             Managers.Object.Despawn(players[i]);
         }
@@ -368,9 +399,9 @@ public class GameManager
         //    Managers.Object.Despawn(temp);
         //}
 
-        Managers.Object.Spawn<MainCharacter>(new Vector3(-0.5f, -0.5f, 0),0,"Player");
+        Managers.Object.Spawn<MainCharacter>(new Vector3(-0.5f, -0.5f, 0), 0, "Player");
         RoomConditionCheck();
-        
+
         Managers.UI.GameOverUI.gameObject.SetActive(false);
 
     }
@@ -582,7 +613,7 @@ public class GameManager
                     {
                         pickupAward.Add(EPICKUP_TYPE.PICKUP_BOMB);
                     }
-                    
+
                     pickupCount.Add(1);
                 }
             }

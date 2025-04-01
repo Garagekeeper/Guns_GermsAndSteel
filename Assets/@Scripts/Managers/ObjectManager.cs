@@ -29,11 +29,17 @@ public class ObjectManager
         }
         if (type == typeof(Monster))
         {
-            GameObject go = Managers.Resource.Instantiate(prfabName);
-            go.name = prfabName;
-            Monster mt = go.GetComponent<Monster>();
+            GameObject monster = Managers.Resource.Instantiate(prfabName);
+            monster.name = prfabName;
+            Monster mt = monster.GetComponent<Monster>();
             mt.transform.SetParent(parent);
             mt.transform.localPosition = pos;
+
+            GameObject spawn_effect = Managers.Resource.Instantiate("Monster_Spawn_Effect");
+            spawn_effect.transform.SetParent(monster.transform);
+            spawn_effect.gameObject.SetActive(true);
+            spawn_effect.transform.localPosition = Vector3.zero;
+
             Monsters.Add(mt);
             return mt as T;
         }
@@ -123,10 +129,10 @@ public class ObjectManager
 
     public void DespawnMonsters(RoomClass room)
     {
-        GameObject mgo = FindChildByName(room.Transform, "Monster").gameObject;
-        foreach(GameObject monsters in mgo.transform)
+        Transform mgo = FindChildByName(room.Transform, "Monster");
+        foreach(Transform monsters in mgo)
         {
-            Despawn(monsters.GetComponent<Creature>());
+            Despawn(monsters.gameObject.GetComponent<Creature>());
         }
     }
 

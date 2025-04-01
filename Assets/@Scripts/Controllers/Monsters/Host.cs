@@ -25,6 +25,10 @@ public class Host : Monster
     private void Awake()
     {
         Init();
+    }
+
+    private void Start()
+    {
         StartCoroutine(CoUpdateAI());
     }
 

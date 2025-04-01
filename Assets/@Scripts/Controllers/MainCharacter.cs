@@ -42,18 +42,18 @@ public class MainCharacter : Creature
     {
         get { return _isPause; }
         set
-        {   
-                if (value == true)
-                {
-                    Time.timeScale = 0;
-                    Managers.UI.PauseUI.gameObject.SetActive(true);
-                }
-                else
-                {
-                    Managers.UI.PauseUI.gameObject.SetActive(false);
-                    Time.timeScale = 1;
-                } 
-                _isPause = value;
+        {
+            if (value == true)
+            {
+                Time.timeScale = 0;
+                Managers.UI.PauseUI.gameObject.SetActive(true);
+            }
+            else
+            {
+                Managers.UI.PauseUI.gameObject.SetActive(false);
+                Time.timeScale = 1;
+            }
+            _isPause = value;
         }
     }
 
@@ -92,18 +92,20 @@ public class MainCharacter : Creature
         get { return _canMove; }
         set
         {
-            if (_canMove != value)
-            {
-                if (value == true)
-                    StartCoroutine(DelayBoolChange());
-                else
-                {
-                    _canMove = value;
-                    BottomState = ECreatureBottomState.Idle;
-                    HeadState = ECreatureHeadState.Idle;
-                }
 
+            if (value == true)
+            {
+                //StartCoroutine(DelayBoolChange());
+                _canMove = true;
             }
+            else
+            {
+                _canMove = value;
+                BottomState = ECreatureBottomState.Idle;
+                HeadState = ECreatureHeadState.Idle;
+            }
+           
+
         }
     }
     //protected List<Item> _passiveItem;
@@ -130,492 +132,492 @@ public class MainCharacter : Creature
     }
 
     System.Random random = new();
-    private void Awake()
-    {
-        Init();
-    }
+private void Awake()
+{
+    Init();
+}
 
-    public override void Init()
-    {
-        StopAllCoroutines();
+public override void Init()
+{
+    StopAllCoroutines();
 
-        base.Init();
+    base.Init();
 #if UNITY_EDITOR
-        AttackDamage = 3f;
+    AttackDamage = 3f;
 #endif
-        HeadSprite = new Sprite[]
-       {
+    HeadSprite = new Sprite[]
+   {
             Managers.Resource.Load<Sprite>("isaac_up"),
             Managers.Resource.Load<Sprite>("isaac_down"),
             Managers.Resource.Load<Sprite>("isaac_right"),
-       };
+   };
 
-        PressingTime = 0;
+    PressingTime = 0;
 
-        MaxHp = 16f;
+    MaxHp = 16f;
 
-        SpaceItem = new Item();
-        QItem = new Item();
+    SpaceItem = new Item();
+    QItem = new Item();
 
-        UseActiveItem -= HandleUsingActiveItem;
-        UseActiveItem += HandleUsingActiveItem;
-        CreatureType = ECreatureType.MainCharacter;
-        CanMove = true;
+    UseActiveItem -= HandleUsingActiveItem;
+    UseActiveItem += HandleUsingActiveItem;
+    CreatureType = ECreatureType.MainCharacter;
+    CanMove = true;
 
-        //충돌 레이어 설정
-        LayerMask mask = 0;
-        if (CreatureType == ECreatureType.MainCharacter) mask |= (1 << (int)ELayer.Player);
-        Collider.excludeLayers = mask;
+    //충돌 레이어 설정
+    LayerMask mask = 0;
+    if (CreatureType == ECreatureType.MainCharacter) mask |= (1 << (int)ELayer.Player);
+    Collider.excludeLayers = mask;
 
-        AcquiredPassiveItemList = new List<Item>();
-        AcquiredFamiliarItemList = new List<Familiar>();
+    AcquiredPassiveItemList = new List<Item>();
+    AcquiredFamiliarItemList = new List<Familiar>();
 
-        ChangeSpaceItem(SpaceItemId);
-        ChangeQItem(QItemId);
+    ChangeSpaceItem(SpaceItemId);
+    ChangeQItem(QItemId);
 
 
-        IsPause = false;
+    IsPause = false;
+    Managers.UI.ResfreshUIAll(this);
+
+}
+
+void Update()
+{
+    if (Input.GetKeyDown(KeyCode.Escape))
+    {
+        IsPause = !IsPause;
+    }
+
+    if (IsPause) return;
+
+    #region Attack
+    Vector2 attackVel = Vector2.zero;
+    attackVel.x = Input.GetAxis("AttackHorizontal");
+    attackVel.y = Input.GetAxis("AttackVertical");
+
+    if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
+        attackVel.x *= -1;
+    if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.DownArrow))
+        attackVel.y *= -1;
+
+    UpdateAttack(attackVel);
+    #endregion
+
+    #region Movement
+    Vector2 vel = Rigidbody.velocity;
+    if (CanMove)
+    {
+        vel.x = Input.GetAxis("Horizontal") * Speed;
+        vel.y = Input.GetAxis("Vertical") * Speed;
+
+        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+            vel.x = 0;
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S))
+            vel.y = 0;
+
+    }
+    else
+    {
+        vel = Vector2.zero;
+    }
+
+    UpdateMovement(vel);
+
+    if (Input.GetKeyDown(KeyCode.E))
+    {
+        SpawnBomb();
         Managers.UI.ResfreshUIAll(this);
+    }
+
+    if (Input.GetKeyDown(KeyCode.Q))
+        UseItem(QItem);
+
+    if (Input.GetKeyDown(KeyCode.Space))
+        UseItem(SpaceItem);
+
+    if (Input.GetKeyDown(KeyCode.Z))
+    {
+        SpaceItem.CurrentGage = Math.Min(SpaceItem.CurrentGage + 1, SpaceItem.CoolTime);
+        Managers.Game.UseActiveItem(SpaceItem.CurrentGage, SpaceItem.CoolTime);
+    }
+
+    if (Input.GetKeyDown(KeyCode.X))
+    {
+        Managers.Game.RoomClear();
+    }
+
+    if (Input.GetKeyDown(KeyCode.Tab))
+    {
+        //Managers.UI.ShowUpStatUI();
+
+        OnDead();
+    }
+
+    //Restart with fade out
+    if (Input.GetKey(KeyCode.R))
+    {
+        PressingTime += Time.deltaTime;
+        if (PressingTime > 1)
+        {
+            PressingTime = 0;
+            //Managers.Map.DestroyMap();
+            //Managers.Map.LoadMap();
+            Managers.Game.RestartGame();
+        }
+    }
+    else
+    {
+        if (PressingTime > 0)
+        {
+            PressingTime = Mathf.Max(PressingTime - Time.deltaTime, 0);
+        }
 
     }
 
-    void Update()
+    #endregion
+}
+
+private void UpdateMovement(Vector2 vel)
+{
+    if (Rigidbody.velocity == vel) return;
+    Rigidbody.velocity = vel;
+
+    if (vel != Vector2.zero)
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (vel.y != 0 && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))
         {
-            IsPause = !IsPause;
-        }
-
-        if (IsPause) return;
-
-        #region Attack
-        Vector2 attackVel = Vector2.zero;
-        attackVel.x = Input.GetAxis("AttackHorizontal");
-        attackVel.y = Input.GetAxis("AttackVertical");
-
-        if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
-            attackVel.x *= -1;
-        if (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.DownArrow))
-            attackVel.y *= -1;
-
-        UpdateAttack(attackVel);
-        #endregion
-
-        #region Movement
-        Vector2 vel = Rigidbody.velocity;
-        if (CanMove)
-        {
-            vel.x = Input.GetAxis("Horizontal") * Speed;
-            vel.y = Input.GetAxis("Vertical") * Speed;
-
-            if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
-                vel.x = 0;
-            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.S))
-                vel.y = 0;
-
-        }
-        else
-        {
-            vel = Vector2.zero;
-        }
-
-        UpdateMovement(vel);
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            SpawnBomb();
-            Managers.UI.ResfreshUIAll(this);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q))
-            UseItem(QItem);
-
-        if (Input.GetKeyDown(KeyCode.Space))
-            UseItem(SpaceItem);
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            SpaceItem.CurrentGage = Math.Min(SpaceItem.CurrentGage + 1, SpaceItem.CoolTime);
-            Managers.Game.UseActiveItem(SpaceItem.CurrentGage, SpaceItem.CoolTime);
-        }
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            Managers.Game.RoomClear();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            //Managers.UI.ShowUpStatUI();
-
-            OnDead();
-        }
-
-        //Restart with fade out
-        if (Input.GetKey(KeyCode.R))
-        {
-            PressingTime += Time.deltaTime;
-            if (PressingTime > 1)
-            {
-                PressingTime = 0;
-                //Managers.Map.DestroyMap();
-                //Managers.Map.LoadMap();
-                Managers.Game.RestartGame();
-            }
-        }
-        else
-        {
-            if (PressingTime > 0)
-            {
-                PressingTime = Mathf.Max(PressingTime - Time.deltaTime, 0);
-            }
-
-        }
-
-        #endregion
-    }
-
-    private void UpdateMovement(Vector2 vel)
-    {
-        if (Rigidbody.velocity == vel) return;
-        Rigidbody.velocity = vel;
-
-        if (vel != Vector2.zero)
-        {
-            if (vel.y != 0 && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))
-            {
-                BottomState = vel.y > 0 ? ECreatureBottomState.MoveUp : ECreatureBottomState.MoveDown;
-                if (HeadState == ECreatureHeadState.Idle)
-                    HeadDirState = vel.y > 0 ? ECreatureHeadDirState.Up : ECreatureHeadDirState.Down;
-            }
-            else if (vel.x != 0)
-            {
-                BottomState = vel.x > 0 ? ECreatureBottomState.MoveRight : ECreatureBottomState.MoveLeft;
-                if (HeadState == ECreatureHeadState.Idle)
-                    HeadDirState = vel.x > 0 ? ECreatureHeadDirState.Right : ECreatureHeadDirState.Left;
-            }
-        }
-        else
-        {
-            BottomState = ECreatureBottomState.Idle;
+            BottomState = vel.y > 0 ? ECreatureBottomState.MoveUp : ECreatureBottomState.MoveDown;
             if (HeadState == ECreatureHeadState.Idle)
-                HeadDirState = ECreatureHeadDirState.Down;
+                HeadDirState = vel.y > 0 ? ECreatureHeadDirState.Up : ECreatureHeadDirState.Down;
+        }
+        else if (vel.x != 0)
+        {
+            BottomState = vel.x > 0 ? ECreatureBottomState.MoveRight : ECreatureBottomState.MoveLeft;
+            if (HeadState == ECreatureHeadState.Idle)
+                HeadDirState = vel.x > 0 ? ECreatureHeadDirState.Right : ECreatureHeadDirState.Left;
         }
     }
-
-    public void UpdateAttack(Vector2 attackVel)
+    else
     {
-        if (attackVel != Vector2.zero)
+        BottomState = ECreatureBottomState.Idle;
+        if (HeadState == ECreatureHeadState.Idle)
+            HeadDirState = ECreatureHeadDirState.Down;
+    }
+}
+
+public void UpdateAttack(Vector2 attackVel)
+{
+    if (attackVel != Vector2.zero)
+    {
+        HeadState = ECreatureHeadState.Attack;
+        if (attackVel.y != 0 && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)))
         {
-            HeadState = ECreatureHeadState.Attack;
-            if (attackVel.y != 0 && (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)))
-            {
-                HeadDirState = attackVel.y > 0 ? ECreatureHeadDirState.Up : ECreatureHeadDirState.Down;
-            }
-            else if (attackVel.x != 0)
-            {
-                HeadDirState = attackVel.x > 0 ? ECreatureHeadDirState.Right : ECreatureHeadDirState.Left;
-            }
+            HeadDirState = attackVel.y > 0 ? ECreatureHeadDirState.Up : ECreatureHeadDirState.Down;
         }
-        else
+        else if (attackVel.x != 0)
         {
-            HeadState = ECreatureHeadState.Idle;
-            if (BottomState == ECreatureBottomState.Idle)
-                HeadDirState = ECreatureHeadDirState.Down;
+            HeadDirState = attackVel.x > 0 ? ECreatureHeadDirState.Right : ECreatureHeadDirState.Left;
         }
     }
-
-    public void UseItem(Item item)
+    else
     {
-        if (item == null)
-            return;
+        HeadState = ECreatureHeadState.Idle;
+        if (BottomState == ECreatureBottomState.Idle)
+            HeadDirState = ECreatureHeadDirState.Down;
+    }
+}
 
-        if (item.ItemType == EItemType.ActiveItem)
+public void UseItem(Item item)
+{
+    if (item == null)
+        return;
+
+    if (item.ItemType == EItemType.ActiveItem)
+    {
+        if (item.CurrentGage == item.CoolTime)
         {
-            if (item.CurrentGage == item.CoolTime)
-            {
-                item.CurrentGage = 0;
-                UseActiveItem?.Invoke(item);
-                Managers.Game.UseActiveItem(item.CurrentGage, item.CoolTime);
-                //ApplyItemEffect(item);
-            }
-        }
-        else if (item.ItemType == EItemType.Cards || item.ItemType == EItemType.Pills)
-        {
+            item.CurrentGage = 0;
             UseActiveItem?.Invoke(item);
-            ChangeQItem(null);
-            QItem = null;
+            Managers.Game.UseActiveItem(item.CurrentGage, item.CoolTime);
+            //ApplyItemEffect(item);
         }
-        Managers.UI.ResfreshUIAll(this);
+    }
+    else if (item.ItemType == EItemType.Cards || item.ItemType == EItemType.Pills)
+    {
+        UseActiveItem?.Invoke(item);
+        ChangeQItem(null);
+        QItem = null;
+    }
+    Managers.UI.ResfreshUIAll(this);
+}
+
+public void GetItem(ItemHolder itemHolder)
+{
+    bool active = false;
+    Item item = itemHolder.ItemOfItemHolder;
+    if (item.ItemType == EItemType.Familliar)
+    {
+        itemHolder.ChangeItemOnItemHolder(null);
+        //GameObject go = Managers.Resource.Instantiate("Player");
+        //AcquiredFamiliarItemList.Add(item);
+    }
+    else if (item.ItemType == EItemType.Passive)
+    {
+        itemHolder.ChangeItemOnItemHolder(null);
+        ApplyPassiveItemEffect(item);
+        AcquiredPassiveItemList.Add(item);
+    }
+    else if (item.ItemType == EItemType.ActiveItem)
+    {
+        active = true;
+        itemHolder.ChangeItemOnItemHolder(SpaceItem);
+        if (SpaceItem == null)
+        {
+            SpaceItem = item;
+            SpaceItemId = item.TemplateId;
+        }
+        else
+            ChangeSpaceItem(item);
+    }
+    Managers.UI.ResfreshUIAll(this);
+    if (itemHolder.transform.GetChild(1) != null) itemHolder.transform.GetChild(1).gameObject.SetActive(active);
+}
+
+public void DeleteItem(Item item)
+{
+
+}
+
+public void ApplyPassiveItemEffect(Item item, bool isOneTime = false)
+{
+    if (isOneTime)
+    {
+        OneTimeActive = true;
     }
 
-    public void GetItem(ItemHolder itemHolder)
+    Hp += item.Hp;
+    AttackDamage += item.AttackDamage;
+    Tears += item.Tears;
+    Range += item.Range;
+    ShotSpeed += item.ShotSpeed;
+    Speed += item.Speed;
+    Luck += item.Luck;
+    Life += item.Life;
+    //item.SetItem;
+    //item.ShotType;
+}
+
+
+
+//issac에는 그 방에서만 능력치를 올려주는 액티브 아이템이 있다.
+//일회성 버프 아이템은 패시브 아이템처럼 적용하되, 방이 클리어되면회수 되도록한다.
+//다른 액티브 아이템은 enum을통해서 별도로 효과를 적용시켜준다. 
+private void HandleUsingActiveItem(Item item)
+{
+    if (item.EffectOfActive == ESpecialEffectOfActive.Null)
+        ApplyPassiveItemEffect(item, true);
+    else
     {
-        bool active = false;
-        Item item = itemHolder.ItemOfItemHolder;
-        if (item.ItemType == EItemType.Familliar)
+        switch (item.EffectOfActive)
         {
-            itemHolder.ChangeItemOnItemHolder(null);
-            //GameObject go = Managers.Resource.Instantiate("Player");
-            //AcquiredFamiliarItemList.Add(item);
+            case ESpecialEffectOfActive.RandomTeleport:
+                Managers.Game.TPToNormalRandom();
+                break;
+            case ESpecialEffectOfActive.UncheckedRoomTeleport:
+                break;
+            case ESpecialEffectOfActive.Roll:
+                break;
         }
-        else if (item.ItemType == EItemType.Passive)
-        {
-            itemHolder.ChangeItemOnItemHolder(null);
-            ApplyPassiveItemEffect(item);
-            AcquiredPassiveItemList.Add(item);
-        }
-        else if (item.ItemType == EItemType.ActiveItem)
-        {
-            active = true;
-            itemHolder.ChangeItemOnItemHolder(SpaceItem);
-            if (SpaceItem == null)
-            {
-                SpaceItem = item;
-                SpaceItemId = item.TemplateId;
-            }
-            else
-                ChangeSpaceItem(item);
-        }
-        Managers.UI.ResfreshUIAll(this);
-        if (itemHolder.transform.GetChild(1) != null) itemHolder.transform.GetChild(1).gameObject.SetActive(active);
     }
+}
 
-    public void DeleteItem(Item item)
+public override void OnDamaged(Creature owner, ESkillType skillType, string name = "")
+{
+    if (IsInvincible) return;
+
+    Hp -= DamageByOtherConstant;
+    IsInvincible = true;
+    StartCoroutine(CoInvincible());
+    Managers.UI.ResfreshUIAll(this);
+    //Debug.Log(Hp);
+}
+
+//Total 1sec
+public IEnumerator CoInvincible()
+{
+    //Change Sprite
+    for (int i = 1; i <= 10; i++)
     {
-
-    }
-
-    public void ApplyPassiveItemEffect(Item item, bool isOneTime = false)
-    {
-        if (isOneTime)
+        if (i % 2 == 0)
         {
-            OneTimeActive = true;
+            Head.color = new Color32(255, 255, 255, 90);
+            Bottom.color = new Color32(255, 255, 255, 90);
         }
-
-        Hp += item.Hp;
-        AttackDamage += item.AttackDamage;
-        Tears += item.Tears;
-        Range += item.Range;
-        ShotSpeed += item.ShotSpeed;
-        Speed += item.Speed;
-        Luck += item.Luck;
-        Life += item.Life;
-        //item.SetItem;
-        //item.ShotType;
-    }
-
-
-
-    //issac에는 그 방에서만 능력치를 올려주는 액티브 아이템이 있다.
-    //일회성 버프 아이템은 패시브 아이템처럼 적용하되, 방이 클리어되면회수 되도록한다.
-    //다른 액티브 아이템은 enum을통해서 별도로 효과를 적용시켜준다. 
-    private void HandleUsingActiveItem(Item item)
-    {
-        if (item.EffectOfActive == ESpecialEffectOfActive.Null)
-            ApplyPassiveItemEffect(item, true);
         else
         {
-            switch (item.EffectOfActive)
-            {
-                case ESpecialEffectOfActive.RandomTeleport:
-                    Managers.Game.TPToNormalRandom();
-                    break;
-                case ESpecialEffectOfActive.UncheckedRoomTeleport:
-                    break;
-                case ESpecialEffectOfActive.Roll:
-                    break;
-            }
+            Head.color = new Color32(255, 255, 255, 180);
+            Bottom.color = new Color32(255, 255, 255, 180);
         }
+        yield return new WaitForSeconds(0.1f);
     }
 
-    public override void OnDamaged(Creature owner, ESkillType skillType, string name = "")
-    {
-        if (IsInvincible) return;
+    //Change Sprite
+    yield return null;
+    Head.color = new Color32(255, 255, 255, 255);
+    Bottom.color = new Color32(255, 255, 255, 255);
+    IsInvincible = false;
+}
 
-        Hp -= DamageByOtherConstant;
-        IsInvincible = true;
-        StartCoroutine(CoInvincible());
-        Managers.UI.ResfreshUIAll(this);
-        //Debug.Log(Hp);
-    }
+public void SpawnBomb()
+{
+    if (BombCount <= 0) return;
+    GameObject go = Managers.Resource.Instantiate("Bomb");
 
-    //Total 1sec
-    public IEnumerator CoInvincible()
+    Bomb bomb = go.GetComponent<Bomb>();
+    bomb.SetInfo(this);
+    BombCount--;
+}
+
+public void ChangeSpaceItem(int id)
+{
+    ChangeSpaceItem(new Item(id));
+}
+
+public void ChangeSpaceItem(Item item)
+{
+    SpaceItem = item;
+    SpaceItemId = item.TemplateId;
+    Managers.UI.PlayingUI.ChangeSpaceItem(SpaceItem.SpriteName);
+    Managers.UI.PlayingUI.ChangeChargeBarSize("ui_chargebar_", SpaceItem.CoolTime);
+    Managers.Game.UseActiveItem(item.CurrentGage, item.CoolTime);
+}
+
+//TODO
+//Pickup으로 바꾸기
+public void ChangeQItem(int id)
+{
+    ChangeQItem(new Item(id));
+}
+
+//TODO
+//Pickup으로 바꾸기
+public void ChangeQItem(Item item)
+{
+    string spriteName = null;
+    if (item != null)
     {
-        //Change Sprite
-        for (int i = 1; i <= 10; i++)
+        spriteName = item.SpriteName;
+        if (item.ItemType == EItemType.Pills)
         {
-            if (i % 2 == 0)
-            {
-                Head.color = new Color32(255, 255, 255, 90);
-                Bottom.color = new Color32(255, 255, 255, 90);
-            }
-            else
-            {
-                Head.color = new Color32(255, 255, 255, 180);
-                Bottom.color = new Color32(255, 255, 255, 180);
-            }
-            yield return new WaitForSeconds(0.1f);
+            Managers.UI.PlayingUI.ChangeQItem(item.SpriteName + (random.Next() % 13));
+            return;
         }
-
-        //Change Sprite
-        yield return null;
-        Head.color = new Color32(255, 255, 255, 255);
-        Bottom.color = new Color32(255, 255, 255, 255);
-        IsInvincible = false;
     }
+    QItem = item;
+    Managers.UI.PlayingUI.ChangeQItem(spriteName);
+}
 
-    public void SpawnBomb()
+public void GetPickup(Pickup pickup)
+{
+    EPICKUP_TYPE pickupType = pickup.PickupType;
+    switch (pickupType)
     {
-        if (BombCount <= 0) return;
-        GameObject go = Managers.Resource.Instantiate("Bomb");
-
-        Bomb bomb = go.GetComponent<Bomb>();
-        bomb.SetInfo(this);
-        BombCount--;
+        case EPICKUP_TYPE.PICKUP_HEART:
+            Hp += 2;
+            break;
+        case EPICKUP_TYPE.PICKUP_COIN:
+            Coin += 1;
+            break;
+        case EPICKUP_TYPE.PICKUP_BOMB:
+            BombCount += 1;
+            break;
+        case EPICKUP_TYPE.PICKUP_KEY:
+            KeyCount += 1;
+            break;
+        case EPICKUP_TYPE.PICKUP_LIL_BATTERY:
+            break;
+        case EPICKUP_TYPE.PICKUP_BATTERY:
+            break;
+        case EPICKUP_TYPE.PICKUP_PILL:
+            //TODO
+            //ChangeQItem();
+            break;
+        case EPICKUP_TYPE.PICKUP_TAROT_CARD:
+            //TODO
+            //ChangeQItem();
+            break;
+        case EPICKUP_TYPE.PICKUP_RUNE:
+            //TODO
+            //ChangeQItem();
+            break;
+        case EPICKUP_TYPE.PICKUP_CHEST:
+            Managers.Game.SpawnChestAndGrabBagAward(pickup);
+            pickup.SetPickupSprite("pickup_005_chests_6");
+            Destroy(pickup);
+            return;
+        case EPICKUP_TYPE.PICKUP_GRAB_BAG:
+            Managers.Game.SpawnChestAndGrabBagAward(pickup);
+            break;
+        case EPICKUP_TYPE.PICKUP_TRINKET:
+            //Managers.Game.Trinket();
+            break;
+        default:
+            break;
     }
+    Managers.UI.ResfreshUIAll(this);
+    Managers.Object.Despawn(pickup);
+}
 
-    public void ChangeSpaceItem(int id)
+private void OnCollisionEnter2D(Collision2D collision)
+{
+
+    if (collision.transform.CompareTag("Door") && Managers.Map.CurrentRoom.IsClear)
     {
-        ChangeSpaceItem(new Item(id));
+        CanMove = false;
+        Managers.Game.GoToNextRoom(collision.transform.name);
     }
 
-    public void ChangeSpaceItem(Item item)
+    if (collision.transform.CompareTag("TrapDoor") && Managers.Map.CurrentRoom.IsClear)
     {
-        SpaceItem = item;
-        SpaceItemId = item.TemplateId;
-        Managers.UI.PlayingUI.ChangeSpaceItem(SpaceItem.SpriteName);
-        Managers.UI.PlayingUI.ChangeChargeBarSize("ui_chargebar_", SpaceItem.CoolTime);
-        Managers.Game.UseActiveItem(item.CurrentGage, item.CoolTime);
+        Managers.Game.GoToNextStage();
     }
 
-    //TODO
-    //Pickup으로 바꾸기
-    public void ChangeQItem(int id)
+    if (collision.transform.CompareTag("Monster") || collision.transform.CompareTag("Boss"))
     {
-        ChangeQItem(new Item(id));
+        OnDamaged(collision.gameObject.GetComponent<Creature>(), ESkillType.BodySlam);
     }
 
-    //TODO
-    //Pickup으로 바꾸기
-    public void ChangeQItem(Item item)
+    if (collision.transform.CompareTag("ItemHolder"))
     {
-        string spriteName = null;
-        if (item != null)
+        ItemHolder itemHolder = collision.transform.GetComponent<ItemHolder>();
+        if (itemHolder.ItemOfItemHolder != null)
         {
-            spriteName = item.SpriteName;
-            if (item.ItemType == EItemType.Pills)
-            {
-                Managers.UI.PlayingUI.ChangeQItem(item.SpriteName + (random.Next() % 13));
-                return;
-            }
+            GetItem(itemHolder);
         }
-        QItem = item;
-        Managers.UI.PlayingUI.ChangeQItem(spriteName);
     }
 
-    public void GetPickup(Pickup pickup)
+    if (collision.transform.CompareTag("Pickup"))
     {
-        EPICKUP_TYPE pickupType = pickup.PickupType;
-        switch (pickupType)
-        {
-            case EPICKUP_TYPE.PICKUP_HEART:
-                Hp += 2;
-                break;
-            case EPICKUP_TYPE.PICKUP_COIN:
-                Coin += 1;
-                break;
-            case EPICKUP_TYPE.PICKUP_BOMB:
-                BombCount += 1;
-                break;
-            case EPICKUP_TYPE.PICKUP_KEY:
-                KeyCount += 1;
-                break;
-            case EPICKUP_TYPE.PICKUP_LIL_BATTERY:
-                break;
-            case EPICKUP_TYPE.PICKUP_BATTERY:
-                break;
-            case EPICKUP_TYPE.PICKUP_PILL:
-                //TODO
-                //ChangeQItem();
-                break;
-            case EPICKUP_TYPE.PICKUP_TAROT_CARD:
-                //TODO
-                //ChangeQItem();
-                break;
-            case EPICKUP_TYPE.PICKUP_RUNE:
-                //TODO
-                //ChangeQItem();
-                break;
-            case EPICKUP_TYPE.PICKUP_CHEST:
-                Managers.Game.SpawnChestAndGrabBagAward(pickup);
-                pickup.SetPickupSprite("pickup_005_chests_6");
-                Destroy(pickup);
-                return;
-            case EPICKUP_TYPE.PICKUP_GRAB_BAG:
-                Managers.Game.SpawnChestAndGrabBagAward(pickup);
-                break;
-            case EPICKUP_TYPE.PICKUP_TRINKET:
-                //Managers.Game.Trinket();
-                break;
-            default:
-                break;
-        }
-        Managers.UI.ResfreshUIAll(this);
-        Managers.Object.Despawn(pickup);
+        Pickup pickup = collision.transform.GetComponent<Pickup>();
+
+        if (pickup == null) return;
+
+        GetPickup(pickup);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    if (collision.transform.CompareTag("ClearBox"))
     {
-
-        if (collision.transform.CompareTag("Door") && Managers.Map.CurrentRoom.IsClear)
-        {
-            CanMove = false;
-            Managers.Game.GoToNextRoom(collision.transform.name);
-        }
-
-        if (collision.transform.CompareTag("TrapDoor") && Managers.Map.CurrentRoom.IsClear)
-        {
-            Managers.Game.GoToNextStage();
-        }
-
-        if (collision.transform.CompareTag("Monster") || collision.transform.CompareTag("Boss"))
-        {
-            OnDamaged(collision.gameObject.GetComponent<Creature>(), ESkillType.BodySlam);
-        }
-
-        if (collision.transform.CompareTag("ItemHolder"))
-        {
-            ItemHolder itemHolder = collision.transform.GetComponent<ItemHolder>();
-            if (itemHolder.ItemOfItemHolder != null)
-            {
-                GetItem(itemHolder);
-            }
-        }
-
-        if (collision.transform.CompareTag("Pickup"))
-        {
-            Pickup pickup = collision.transform.GetComponent<Pickup>();
-
-            if (pickup == null) return;
-
-            GetPickup(pickup);
-        }
-
-        if (collision.transform.CompareTag("ClearBox"))
-        {
-            Managers.Game.ClearGame();
-        }
+        Managers.Game.ClearGame();
     }
-    
-    public override void OnDead()
-    {
-        if (Managers.Object.MainCharacters.Count > 1)
-            base.OnDead();
+}
 
-        else
-            Managers.Game.GameOver();
-    }
+public override void OnDead()
+{
+    if (Managers.Object.MainCharacters.Count > 1)
+        base.OnDead();
+
+    else
+        Managers.Game.GameOver();
+}
 
 }

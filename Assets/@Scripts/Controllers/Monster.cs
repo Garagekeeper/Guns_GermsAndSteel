@@ -239,6 +239,7 @@ public class Monster : Creature
         if (CreatureState == ECreatureState.Dead) return;
         Rigidbody.velocity = Vector3.zero;
         CreatureState = ECreatureState.Dead;
+        StopAllCoroutines();
 
         StartCoroutine(MonsterDeadAaim());
 

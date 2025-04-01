@@ -8,9 +8,12 @@ public class Gaper : Monster
     private void Awake()
     {
         Init();
-        StartCoroutine(CoUpdateAI());
     }
 
+    private void Start()
+    {
+        StartCoroutine(CoUpdateAI());
+    }
     public override void Init()
     {
         base.Init();

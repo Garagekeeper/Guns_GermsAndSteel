@@ -18,6 +18,11 @@ public class Fly : Monster
     private void Awake()
     {
         Init();
+        
+    }
+
+    private void Start()
+    {
         StartCoroutine(CoUpdateAI());
     }
 

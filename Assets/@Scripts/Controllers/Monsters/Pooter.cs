@@ -10,6 +10,10 @@ public class Pooter : Monster
     private void Awake()
     {
         Init();
+    }
+
+    private void Start()
+    {
         StartCoroutine(CoUpdateAI());
     }
 

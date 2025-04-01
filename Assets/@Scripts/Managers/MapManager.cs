@@ -917,6 +917,7 @@ public class MapManager
         GenerateMinimap();
         CurrentRoom = StartingRoom;
 
+
         //parse map collision data
         ParseRoomCollisionData();
     }
@@ -1346,7 +1347,7 @@ public class MapManager
             }
         }
     }
-    public void SpawnMonsterAndBossInRoom(RoomClass room)
+    public void SpawnMonsterAndBossInRoom(RoomClass room, Action callback = null)
     {
         Tilemap tmp = room.TilemapCollisionPrefab.GetComponent<Tilemap>();
         int maxX = tmp.cellBounds.xMax;
@@ -1385,6 +1386,8 @@ public class MapManager
                 }
             }
         }
+
+        callback.Invoke();
     }
 
 }
