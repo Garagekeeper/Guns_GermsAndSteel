@@ -57,9 +57,10 @@ public class Maggot : Monster
 
     public override void Init()
     {
-        MonsterType = EMonsterType.Maggot;
+        CreatureSize = ECreatureSize.Small;
         CreatureState = ECreatureState.Idle;
         CreatureMoveState = ECreatureMoveState.Designated;
+        MonsterType = EMonsterType.Maggot;
         Hp = 5.0f;
         _isFloating = false;
         base.Init();

@@ -125,7 +125,7 @@ public class GameManager
         //Managers.UI.PlayingUI.BossHpActive(true);
 
         //ItemHolder에 있는 아이템의 비중을 줄인다.
-        if (Managers.Map.CurrentRoom.ItemHolder != null)
+        if (Managers.Map.CurrentRoom.ItemHolder != null && Managers.Map.CurrentRoom.ItemHolder.GetComponent<ItemHolder>().ItemOfItemHolder != null)
         {
             int TemplateId = Managers.Map.CurrentRoom.ItemHolder.GetComponent<ItemHolder>().ItemOfItemHolder.TemplateId;
             Managers.Data.ItemDic[TemplateId].Weight = 0;
@@ -161,6 +161,7 @@ public class GameManager
             if (temp.OneTimeActive)
                 WithdrawOneTimeItemEffect(temp);
             temp.CanMove = true;
+            temp.CanAttack = true;
             temp.Collider.enabled = true;
         }
 
@@ -172,6 +173,7 @@ public class GameManager
         foreach (var temp in Managers.Object.MainCharacters)
         {
             temp.CanMove = false;
+            temp.CanAttack = false;
             temp.gameObject.SetActive(false);
         }
 
@@ -198,6 +200,7 @@ public class GameManager
             temp.gameObject.SetActive(true);
             temp.transform.position = new Vector3(-0.5f, -0.5f, 0);
             temp.CanMove = true;
+            temp.CanAttack = true;
         }
 
         RoomConditionCheck();
@@ -252,6 +255,7 @@ public class GameManager
         {
             mc.Collider.enabled = false;
             mc.CanMove = false;
+            mc.CanAttack = false;
         }
 
         foreach (var mc in Managers.Object.MainCharacters)

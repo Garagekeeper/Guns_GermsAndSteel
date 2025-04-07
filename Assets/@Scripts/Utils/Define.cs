@@ -84,6 +84,7 @@ public static class Define
         Attack,
         Skill,
         Explosion,
+        GetItem,
     }
 
     public enum ECreatureMoveState
@@ -91,6 +92,13 @@ public static class Define
         None,
         TargetCreature,
         Designated,
+    }
+
+    public enum ECreatureSize
+    {
+        Middle,
+        Small,
+        Large,
     }
 
     public enum ESkillType

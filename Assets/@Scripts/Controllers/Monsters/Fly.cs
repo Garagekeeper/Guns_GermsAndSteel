@@ -28,8 +28,9 @@ public class Fly : Monster
 
     public override void Init()
     {
-        MonsterType = EMonsterType.Fly;
+        CreatureSize = ECreatureSize.Small;
         CreatureState = ECreatureState.Idle;
+        MonsterType = EMonsterType.Fly;
         _isFloating = true;
         base.Init();
 

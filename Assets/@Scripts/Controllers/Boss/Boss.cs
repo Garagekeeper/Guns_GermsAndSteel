@@ -64,6 +64,7 @@ public class Boss : Creature
 
     public override void Init()
     {
+        CreatureSize = ECreatureSize.Large;
         CreatureType = ECreatureType.Boss;
         BossType = EBossType.None;
         BossState = EBossState.None;

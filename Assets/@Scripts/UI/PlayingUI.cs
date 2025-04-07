@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -38,11 +39,18 @@ public class PlayingUI : UI_Base
         KeyText,
     }
 
+    enum TTexts
+    {
+        Name,
+        Description
+    }
+
     enum GameObjects
     {
         BossHp,
         Minimap_Pannel,
         Charge,
+        ItemDescription,
     }
 
     protected override void Init()
@@ -52,6 +60,7 @@ public class PlayingUI : UI_Base
         BindImage(typeof(Images));
         BindTextLegacy(typeof(Texts));
         BindObject(typeof(GameObjects));
+        BindText(typeof(TTexts));
         Managers.Game.ChargeBarEnevnt -= ChangeChargeGage;
         Managers.Game.ChargeBarEnevnt += ChangeChargeGage;
     }
@@ -142,6 +151,23 @@ public class PlayingUI : UI_Base
     public void SetFadeImageAlpha(float alpha)
     {
         GetImage((int)Images.FadeImage).color = new Color(0, 0, 0, alpha);
+    }
+
+    public void SpaceItemAndChargeBarActive(bool value)
+    {
+        GetObject((int)GameObjects.Charge).SetActive(value);
+        GetImage((int)Images.SpaceItem).enabled = value;
+    }
+
+    public void ItemDescriptionActive(bool value)
+    {
+        GetObject((int)GameObjects.ItemDescription).SetActive(value);
+    }
+
+    public void ChangeItemDescription(Item item)
+    {
+        GetText((int)TTexts.Name).text = item.Name;
+        GetText((int)TTexts.Description).text = item.Description;
     }
 
 }

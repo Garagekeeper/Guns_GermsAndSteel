@@ -22,10 +22,12 @@ public class Monster : Creature
         base.Init();
 
         //TODO 하드코딩 수정하기
+        CreatureSize = ECreatureSize.Middle;
         CreatureType = ECreatureType.Monster;
         Speed = 1.0f;
         Hp = 10.0f;
         Range = 3f;
+
 
         ////Monster끼리는 충돌 X
         //LayerMask mask = 0;

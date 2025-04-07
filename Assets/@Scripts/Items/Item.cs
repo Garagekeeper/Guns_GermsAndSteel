@@ -1,6 +1,7 @@
 using Data;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static Define;
@@ -8,7 +9,7 @@ using static Define;
 public class Item
 {
     public int TemplateId { get; set; }
-
+    public string Description {  get; set; }
     public string SpriteName { get; set; }
     public string Name { get; set; }
     public int CoolTime { get; private set; }
@@ -47,6 +48,7 @@ public class Item
 
         TemplateId = itemId;
         SpriteName = TemplateData.SpriteName;
+        Description = TemplateData.Description;
         Name = TemplateData.Name;
         CoolTime = TemplateData.CoolTime;
         ItemType = TemplateData.Type;

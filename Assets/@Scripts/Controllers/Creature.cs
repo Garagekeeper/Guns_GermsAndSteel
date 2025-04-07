@@ -108,6 +108,8 @@ public class Creature : BaseObject
         }
     }
 
+    public ECreatureSize CreatureSize { get; protected set; } = ECreatureSize.Middle;
+
     protected Animator AnimatorHead { get; set; }
     /// <summary>
     /// Use as Default Animator
@@ -255,6 +257,11 @@ public class Creature : BaseObject
                     break;
             }
         }
+        else if (HeadState == ECreatureHeadState.GetItem)
+        {
+            Head.flipX = false;
+            AnimatorHead.Play("Get_Item");
+        }
         else
         {
             switch (HeadDirState)
@@ -306,27 +313,32 @@ public class Creature : BaseObject
 
     public void UpdateBottomAnimation()
     {
+        // 아이템을 획득한 경우 다른 애니메이션을 재생
+        string temp="";
+        if (HeadState == ECreatureHeadState.GetItem)
+            temp = "_Item";
+
         switch (BottomState)
         {
             case ECreatureBottomState.Idle:
                 Bottom.flipX = false;
-                AnimatorBottom.Play("Idle");
+                AnimatorBottom.Play("Idle" + temp);
                 break;
             case ECreatureBottomState.MoveDown:
                 Bottom.flipX = false;
-                AnimatorBottom.Play("Walk_Down");
+                AnimatorBottom.Play("Walk_Down" + temp);
                 break;
             case ECreatureBottomState.MoveUp:
                 Bottom.flipX = true;
-                AnimatorBottom.Play("Walk_Down");
+                AnimatorBottom.Play("Walk_Down" + temp);
                 break;
             case ECreatureBottomState.MoveLeft:
                 Bottom.flipX = true;
-                AnimatorBottom.Play("Walk_Horiz");
+                AnimatorBottom.Play("Walk_Horiz" + temp);
                 break;
             case ECreatureBottomState.MoveRight:
                 Bottom.flipX = false;
-                AnimatorBottom.Play("Walk_Horiz");
+                AnimatorBottom.Play("Walk_Horiz" + temp);
                 break;
             case ECreatureBottomState.OnDamaged:
                 break;

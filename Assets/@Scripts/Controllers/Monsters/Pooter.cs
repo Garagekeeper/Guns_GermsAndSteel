@@ -21,6 +21,7 @@ public class Pooter : Monster
     {
         base.Init();
         MonsterType = EMonsterType.Pooter;
+        CreatureSize = ECreatureSize.Small;
         CreatureState = ECreatureState.Idle;
         Hp = 8.0f;
         MaxHp = 8.0f;

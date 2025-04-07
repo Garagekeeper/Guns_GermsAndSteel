@@ -57,7 +57,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45001,
-      "Description": null,
+      "Description": "45001",
       "SpriteName": "collectibles_001_thesadonion"
     },
     {
@@ -77,7 +77,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45002,
-      "Description": null,
+      "Description": "45002",
       "SpriteName": "collectibles_002_theinnereye"
     },
     {
@@ -97,7 +97,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45003,
-      "Description": null,
+      "Description": "45003",
       "SpriteName": "collectibles_003_spoonbender"
     },
     {
@@ -117,7 +117,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45004,
-      "Description": null,
+      "Description": "45004",
       "SpriteName": "collectibles_004_cricketshead"
     },
     {
@@ -137,7 +137,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45005,
-      "Description": null,
+      "Description": "45005",
       "SpriteName": "collectibles_005_myreflection"
     },
     {
@@ -157,7 +157,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45006,
-      "Description": null,
+      "Description": "45006",
       "SpriteName": "collectibles_006_numberone"
     },
     {
@@ -177,7 +177,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45007,
-      "Description": null,
+      "Description": "45007",
       "SpriteName": "collectibles_007_bloodofthemartyr"
     },
     {
@@ -197,7 +197,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45008,
-      "Description": null,
+      "Description": "45008",
       "SpriteName": "collectibles_008_brotherbobby"
     },
     {
@@ -217,7 +217,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45009,
-      "Description": null,
+      "Description": "45009",
       "SpriteName": "collectibles_009_skatole"
     },
     {
@@ -237,7 +237,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45010,
-      "Description": null,
+      "Description": "45010",
       "SpriteName": "collectibles_010_haloofflies"
     },
     {
@@ -257,7 +257,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45011,
-      "Description": null,
+      "Description": "45011",
       "SpriteName": "collectibles_011_1up"
     },
     {
@@ -277,7 +277,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45012,
-      "Description": null,
+      "Description": "45012",
       "SpriteName": "collectibles_012_magicmushroom"
     },
     {
@@ -297,7 +297,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45013,
-      "Description": null,
+      "Description": "45013",
       "SpriteName": "collectibles_013_thevirus"
     },
     {
@@ -317,7 +317,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45014,
-      "Description": null,
+      "Description": "45014",
       "SpriteName": "collectibles_014_roidrage"
     },
     {
@@ -337,7 +337,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45015,
-      "Description": null,
+      "Description": "45015",
       "SpriteName": "collectibles_015_heart"
     },
     {
@@ -357,7 +357,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45016,
-      "Description": null,
+      "Description": "45016",
       "SpriteName": "collectibles_016_rawliver"
     },
     {
@@ -377,7 +377,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45017,
-      "Description": null,
+      "Description": "45017",
       "SpriteName": "collectibles_017_skeletonkey"
     },
     {
@@ -397,7 +397,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45018,
-      "Description": null,
+      "Description": "45018",
       "SpriteName": "collectibles_018_adollar"
     },
     {
@@ -417,7 +417,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45019,
-      "Description": null,
+      "Description": "45019",
       "SpriteName": "collectibles_019_boom"
     },
     {
@@ -437,7 +437,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45020,
-      "Description": null,
+      "Description": "45020",
       "SpriteName": "collectibles_020_transcendence"
     },
     {
@@ -457,7 +457,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45021,
-      "Description": null,
+      "Description": "45021",
       "SpriteName": "collectibles_021_thecompass"
     },
     {
@@ -477,7 +477,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45022,
-      "Description": null,
+      "Description": "45022",
       "SpriteName": "collectibles_022_lunch"
     },
     {
@@ -497,7 +497,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45023,
-      "Description": null,
+      "Description": "45023",
       "SpriteName": "collectibles_023_dinner"
     },
     {
@@ -517,7 +517,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45024,
-      "Description": null,
+      "Description": "45024",
       "SpriteName": "collectibles_024_dessert"
     },
     {
@@ -537,7 +537,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45025,
-      "Description": null,
+      "Description": "45025",
       "SpriteName": "collectibles_025_breakfast"
     },
     {
@@ -557,7 +557,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45026,
-      "Description": null,
+      "Description": "45026",
       "SpriteName": "collectibles_026_rottenmeat"
     },
     {
@@ -577,7 +577,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45027,
-      "Description": null,
+      "Description": "45027",
       "SpriteName": "collectibles_027_woodenspoon"
     },
     {
@@ -597,7 +597,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45028,
-      "Description": null,
+      "Description": "45028",
       "SpriteName": "collectibles_028_thebelt"
     },
     {
@@ -617,7 +617,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45029,
-      "Description": null,
+      "Description": "45029",
       "SpriteName": "collectibles_029_momsunderwear"
     },
     {
@@ -637,7 +637,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45030,
-      "Description": null,
+      "Description": "45030",
       "SpriteName": "collectibles_030_momsheels"
     },
     {
@@ -657,7 +657,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45031,
-      "Description": null,
+      "Description": "45031",
       "SpriteName": "collectibles_031_momslipstick"
     },
     {
@@ -677,7 +677,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45032,
-      "Description": null,
+      "Description": "45032",
       "SpriteName": "collectibles_032_wirecoathanger"
     },
     {
@@ -697,7 +697,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45033,
-      "Description": null,
+      "Description": "45033",
       "SpriteName": "collectibles_033_thebible"
     },
     {
@@ -717,7 +717,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45034,
-      "Description": null,
+      "Description": "45034",
       "SpriteName": "collectibles_034_thebookofbelial"
     },
     {
@@ -737,7 +737,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45035,
-      "Description": null,
+      "Description": "45035",
       "SpriteName": "collectibles_035_thenecronomicon"
     },
     {
@@ -757,7 +757,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45036,
-      "Description": null,
+      "Description": "45036",
       "SpriteName": "collectibles_036_thepoop"
     },
     {
@@ -777,7 +777,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45037,
-      "Description": null,
+      "Description": "45037",
       "SpriteName": "collectibles_037_mrboom"
     },
     {
@@ -797,7 +797,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45038,
-      "Description": null,
+      "Description": "45038",
       "SpriteName": "collectibles_038_tammyshead"
     },
     {
@@ -817,7 +817,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45039,
-      "Description": null,
+      "Description": "45039",
       "SpriteName": "collectibles_039_momsbra"
     },
     {
@@ -837,7 +837,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45040,
-      "Description": null,
+      "Description": "45040",
       "SpriteName": "collectibles_040_kamikaze"
     },
     {
@@ -857,7 +857,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45041,
-      "Description": null,
+      "Description": "45041",
       "SpriteName": "collectibles_041_momspad"
     },
     {
@@ -877,7 +877,7 @@
       "EffectOfActive": 0,
       "Weight": 10,
       "DataId": 45042,
-      "Description": null,
+      "Description": "45042",
       "SpriteName": "collectibles_042_bobsrottenhead"
     },
     {

@@ -39,6 +39,10 @@ public class ObjectManager
             spawn_effect.transform.SetParent(monster.transform);
             spawn_effect.gameObject.SetActive(true);
             spawn_effect.transform.localPosition = Vector3.zero;
+            
+            string spawn_effect_string = "Monster_Spawn_Effect";
+            if (mt.CreatureSize == ECreatureSize.Small) spawn_effect_string = "Monster_Spawn_Effect_Small";
+            spawn_effect.GetComponent<Animator>().Play(spawn_effect_string);
 
             Monsters.Add(mt);
             return mt as T;

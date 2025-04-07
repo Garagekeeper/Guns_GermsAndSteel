@@ -24,6 +24,7 @@ public class Boil : Monster
     public override void Init()
     {
         base.Init();
+        CreatureSize = ECreatureSize.Small;
         MonsterType = EMonsterType.Boil;
         CreatureState = ECreatureState.Idle;
         Hp = 20.0f;
