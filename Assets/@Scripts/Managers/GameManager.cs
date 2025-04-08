@@ -190,7 +190,7 @@ public class GameManager
 
         //Clear Base Objects All
         {
-            Managers.Object.ClearObjectManager(true);
+            Managers.Object.ClearObjectManager(false);
         }
 
         //Move Camera to new starting room
@@ -564,8 +564,8 @@ public class GameManager
             return;
         }
 
-        float[] dx = { 0.5f, 0, -0.5f, 0 };
-        float[] dy = { 0, -0.5f, 0, 0.5f };
+        float[] dx = { 1f, 0, -1f, 0 };
+        float[] dy = { 0, 1f, 0, 1f };
 
         Transform pickupsTransform = FindChildByName(Managers.Map.CurrentRoom.Transform, "Pickups");
         Transform callingTF = pickup.transform;
@@ -574,11 +574,10 @@ public class GameManager
         {
             for (int j = 0; j < pickupCount[i]; j++)
             {
-                float nx = callingTF.localPosition.x + dx[Random.Range(0, 4)];
-                float ny = callingTF.localPosition.y + dy[Random.Range(0, 4)];
+                float nx = Random.Range(-1, 1);
+                float ny = Random.Range(-1, 1);
 
-                Debug.Log(pickupAward[i]);
-                Managers.Object.Spawn<Pickup>(new Vector3(nx, ny, 0), pickupAward[i], pickupsTransform);
+                Managers.Object.Spawn<Pickup>(Vector3.zero, pickupAward[i], pickupsTransform, new Vector3(nx, ny, 0).normalized  * 4);
             }
         }
 

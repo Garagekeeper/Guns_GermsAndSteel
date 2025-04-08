@@ -17,28 +17,55 @@ public class Pickup : BaseObject
     public SpriteRenderer PickupSpriteRenderer { get; private set; }
     public PolygonCollider2D PickupCollider { get; private set; }
 
+    public Rigidbody2D Rigidbody { get; private set; }
+
+    private Vector3 _dirVec  = Vector3.zero;
+
     private void Awake()
     {
 
     }
 
+    private void FixedUpdate()
+    {
+        
+    }
 
     public override void Init() 
     {
-        PickupSpriteRenderer = GetOrAddComponent<SpriteRenderer>(gameObject);
-
-        //TODO SET sprite;
-        InitPickupSprite();
-        //TODO refresh Amount(just coin, doubled coin) 
+        PickupSpriteRenderer = GetOrAddComponent<SpriteRenderer>(FindChildByName(transform, "Pickup_Sprite").gameObject);
+        Rigidbody = GetOrAddComponent<Rigidbody2D>(gameObject);
 
         //TODO refresh collider
         //or just add collider (selected)
         PickupCollider = GetOrAddComponent<PolygonCollider2D>(gameObject);
+        InitPickupSprite();
+
+        var pointsList = new List<Vector2>();
+        PickupCollider.pathCount = 0; // 기존 경로 제거
+        PickupSpriteRenderer.sprite.GetPhysicsShape(0, pointsList);
+        PickupCollider.points = pointsList.ToArray();
+
+        PickupCollider.enabled = false;
+        //TODO refresh Amount(just coin, doubled coin) 
+
+        Rigidbody.drag = 2;
+
+        if (PickupType == EPICKUP_TYPE.PICKUP_CHEST)
+            Rigidbody.drag = 100;
+
+
+        Rigidbody.velocity = _dirVec;
+        Debug.Log(_dirVec);
+        GetComponent<Animation>().Play("Pickup_Spawn");
+        
+
     }
 
-    public void Init(EPICKUP_TYPE epickup_type)
+    public void Init(EPICKUP_TYPE epickup_type, Vector3 dir = default)
     {
         PickupType = epickup_type;
+        _dirVec = dir;
         Init();
     }
 
@@ -54,7 +81,7 @@ public class Pickup : BaseObject
                 spriteName = "pickup_002_coin_0";
                 break;
             case EPICKUP_TYPE.PICKUP_BOMB:
-                spriteName = "pickup_016_bomb";
+                spriteName = "pickup_016_bomb_0";
                 break;
             case EPICKUP_TYPE.PICKUP_KEY:
                 spriteName = "pickup_003_key_0";
@@ -106,5 +133,10 @@ public class Pickup : BaseObject
     public void SetPickupSprite(string spriteName)
     {
         PickupSpriteRenderer.sprite = Managers.Resource.Load<Sprite>(spriteName);
+    }
+
+    public void SetCollider(int value)
+    {
+        PickupCollider.enabled = value == 1 ? true : false;
     }
 }

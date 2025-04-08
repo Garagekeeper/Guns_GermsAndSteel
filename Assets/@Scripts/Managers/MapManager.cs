@@ -66,6 +66,7 @@ public class RoomClass
     private GameObject _doors;
     private Tilemap _tilemap;
     private long _awardSeed;
+    private long _objectSeed;
 
 
     public GameObject TilemapPrefab { get { return _tilemapPrefab; } set { _tilemapPrefab = value; } }
@@ -77,6 +78,7 @@ public class RoomClass
     public Tilemap Tilemap { get { return _tilemap; } set { _tilemap = value; } }
     
     public long AwardSeed { get { return _awardSeed; } set { _awardSeed = value; } }
+    public long ObjectSeed { get { return _objectSeed; } set { _objectSeed = value; } }
 
     public int DiffiCulty { get; set; }
 
@@ -90,6 +92,7 @@ public class RoomClass
         YPos = yPos;
         _adjacencentRooms = new RoomClass[4];
         AwardSeed = Managers.Game.RNG.Sn;
+        ObjectSeed = Managers.Game.RNG.Sn;
     }
 }
 public class MapManager
@@ -858,13 +861,13 @@ public class MapManager
             devRoom.Obstacle = devRoom.RoomObject.transform.GetChild(1).gameObject;
             devRoom.CollidePrefab = devRoom.RoomObject.transform.GetChild(2).gameObject;
             devRoom.Doors = devRoom.RoomObject.transform.GetChild(4).gameObject;
-            devRoom.TilemapCollisionPrefab = devRoom.RoomObject.transform.GetChild(5).gameObject;
+            //devRoom.TilemapCollisionPrefab = FindChildByName(devRoom.Transform, "Tilemap").gameObject;
             devRoom.Tilemap = devRoom.TilemapPrefab.GetComponent<Tilemap>();
 
             Tilemap tmp = devRoom.Tilemap;
             Rooms.Add(devRoom);
 
-            ParseRoomCollisionData();
+            //ParseRoomCollisionData();
             return;
         }
 
@@ -1263,18 +1266,17 @@ public class MapManager
                     switch (t)
                     {
                         case "CannotGo":
+                        case "Rock":
+                        case "Urn":
                             collsionInt = (int)ECellCollisionType.Wall;
                             break;
                         case "CanGo":
                             collsionInt = (int)ECellCollisionType.None;
                             break;
                         case "Door":
-                            collsionInt = (int)ECellCollisionType.SemiWall;
-                            break;
                         case "Spike":
-                            collsionInt = (int)ECellCollisionType.SemiWall;
-                            break;
                         case "Fire":
+                        case "Poof":
                             collsionInt = (int)ECellCollisionType.SemiWall;
                             break;
                     }
@@ -1301,6 +1303,7 @@ public class MapManager
     // 단 spike, hole, fire의 장작 부분은 타일맵에 타일을 올리는 방식으로
     public void SetObstacle(RoomClass room)
     {
+        RNGManager obsRng = new RNGManager(room.ObjectSeed);
         Tilemap tmp = room.TilemapCollisionPrefab.GetComponent<Tilemap>();
         int maxX = tmp.cellBounds.xMax;
         int minX = tmp.cellBounds.xMin;
@@ -1313,7 +1316,7 @@ public class MapManager
             {
                 Vector3Int tilePos = new Vector3Int(x, y, 0);
                 TileBase tile = tmp.GetTile(tilePos);
-
+                int index;
                 switch (tile.name)
                 {
                     case "CannotGo":
@@ -1340,12 +1343,25 @@ public class MapManager
                         if (room.RoomType == ERoomType.Boss)
                             room.ItemHolder.SetActive(false);
                         break;
+                    case "Poop":
+                        Managers.Object.SpawnObstacle(tilePos, "Poop", room.Obstacle.transform);
+                        break;
+                    case "Rock":
+                        index = obsRng.RandInt(1, 3);
+                        Managers.Object.SpawnObstacle(tilePos, "Rock", room.Obstacle.transform, index);
+                        break;
+                    case "Urn":
+                        index = obsRng.RandInt(1, 3);
+                        Managers.Object.SpawnObstacle(tilePos, "Urn", room.Obstacle.transform, index);
+                        break;
                     default:
                         break;
                 }
 
             }
         }
+        room.ObjectSeed = obsRng.Sn;
+        
     }
     public void SpawnMonsterAndBossInRoom(RoomClass room, Action callback = null)
     {

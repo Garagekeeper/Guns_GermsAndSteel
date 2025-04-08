@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using static Define;
+using static Utility;
 
 public class Monster : Creature
 {
@@ -43,15 +44,16 @@ public class Monster : Creature
        };
 
 #if UNITY_EDITOR
-        if (!_isFloating && lr != null)
+        if (!_isFloating)
         {
             lr = GetComponent<LineRenderer>();
+            if (lr != null)
+            {
+                lr.startWidth = lr.endWidth = 0.05f;
+                lr.material.color = Random.ColorHSV();
+                lr.enabled = false;
+            }
 
-            lr.startWidth = lr.endWidth = 0.05f;
-            lr.material.color = Random.ColorHSV();
-            lr.enabled = false;
-
-            //StartCoroutine(CoUpdateTarget());
         }
 #endif
     }
@@ -242,6 +244,7 @@ public class Monster : Creature
         Rigidbody.velocity = Vector3.zero;
         CreatureState = ECreatureState.Dead;
         StopAllCoroutines();
+        AnimatorBottom.enabled = false;
 
         StartCoroutine(MonsterDeadAaim());
 
@@ -252,14 +255,26 @@ public class Monster : Creature
         if (Collider != null) 
             Collider.enabled = false;
 
+        float delay;
+
         GameObject go = Managers.Resource.Instantiate("Monster_Dead_Effect");
         go.transform.SetParent(transform, false);
         go.transform.localPosition = Vector3.zero;
-        go.transform.GetComponent<Animator>().Play("Monster_Dead_Effect");
+        go.GetComponent<Animator>().Play("Monster_Dead_Effect");
 
-        transform.GetComponent<SpriteRenderer>().enabled = false;
+        if (transform.GetComponent<SpriteRenderer>() != null)
+        {
+            transform.GetComponent<SpriteRenderer>().enabled = false;
+            delay = 0.1f;
+        }
+        else
+        {
+            FindChildByNameContain(transform, "Head").GetComponent<SpriteRenderer>().enabled = false;
+            FindChildByNameContain(transform, "Bottom").GetComponent<SpriteRenderer>().enabled = false;
 
-        float delay = transform.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
+            delay = 0.2f;
+        }
+
         yield return new WaitForSeconds(delay);
         base.OnDead();
     }

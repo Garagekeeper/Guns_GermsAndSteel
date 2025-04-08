@@ -29,14 +29,12 @@ public class ObjectManager
         }
         if (type == typeof(Monster))
         {
-            GameObject monster = Managers.Resource.Instantiate(prfabName);
+            GameObject monster = Managers.Resource.Instantiate(prfabName, parent);
             monster.name = prfabName;
             Monster mt = monster.GetComponent<Monster>();
-            mt.transform.SetParent(parent);
             mt.transform.localPosition = pos;
 
-            GameObject spawn_effect = Managers.Resource.Instantiate("Monster_Spawn_Effect");
-            spawn_effect.transform.SetParent(monster.transform);
+            GameObject spawn_effect = Managers.Resource.Instantiate("Monster_Spawn_Effect", monster.transform);
             spawn_effect.gameObject.SetActive(true);
             spawn_effect.transform.localPosition = Vector3.zero;
             
@@ -49,10 +47,9 @@ public class ObjectManager
         }
         if (type == typeof(Boss))
         {
-            GameObject go = Managers.Resource.Instantiate(prfabName);
+            GameObject go = Managers.Resource.Instantiate(prfabName, parent);
             go.name = prfabName;
             Boss bs = go.GetComponent<Boss>();
-            bs.transform.SetParent(parent);
             bs.transform.localPosition = pos;
             Bosses.Add(bs);
             return bs as T;
@@ -61,15 +58,13 @@ public class ObjectManager
     }
 
     //spawn pickup
-    public T Spawn<T>(Vector3 pos, EPICKUP_TYPE epickup_type, Transform parent = null) where T : Pickup
+    public T Spawn<T>(Vector3 pos, EPICKUP_TYPE epickup_type, Transform parent = null, Vector3 dir = default) where T : Pickup
     {
         if (epickup_type == EPICKUP_TYPE.PICKUP_NULL) return null;
 
         string prefabName = "Pickup";
 
-        GameObject go = Managers.Resource.Instantiate(prefabName);
-        if (parent != null) 
-            go.transform.parent = parent;
+        GameObject go = Managers.Resource.Instantiate(prefabName, parent);
 
         go.name = prefabName;
         go.transform.localPosition = pos;
@@ -77,7 +72,7 @@ public class ObjectManager
         
         if (pickup != null)
         {
-            pickup.Init(epickup_type);
+            pickup.Init(epickup_type, dir);
             Pickups.Add(pickup);
             return pickup as T;
         }
@@ -86,12 +81,9 @@ public class ObjectManager
     }
 
     // spawn obstacle
-    public Obstacle SpawnObstacle(Vector3 localPos, string prefabName, Transform parent)
+    public Obstacle SpawnObstacle(Vector3 localPos, string prefabName, Transform parent = null, int index = 1)
     {
-        GameObject go = Managers.Resource.Instantiate(prefabName);
-
-        if (parent != null)
-            go.transform.parent = parent;
+        GameObject go = Managers.Resource.Instantiate(prefabName, parent);
 
         go.name = prefabName;
         go.transform.localPosition = localPos + new Vector3(0.5f, 0.5f,0);
@@ -99,7 +91,7 @@ public class ObjectManager
 
         if (obstacle != null)
         {
-            obstacle.Init(prefabName);
+            obstacle.Init(prefabName, index);
             return obstacle;
         }
 

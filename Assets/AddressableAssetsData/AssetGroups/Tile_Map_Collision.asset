@@ -89,6 +89,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3dd59eba649cb3d45a752cbdec837a7a
+    m_Address: Tile_Map_Collision_Normal_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10375ecf3c168644097acb69e6de5ad6
+    m_Address: Tile_Map_Collision_Normal_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

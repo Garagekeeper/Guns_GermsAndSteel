@@ -92,6 +92,17 @@ public class Projectile : MonoBehaviour
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
         }
+        else if(other.gameObject.CompareTag("Poop"))
+        {
+            other.GetComponent<Obstacle>().PoopOnHit();
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
+        }
+        else if (other.gameObject.CompareTag("Rock"))
+        {
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
+        }
         else
         {
             var go = Utility.GetTFromParentComponent<Creature>(other.gameObject);

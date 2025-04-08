@@ -37,7 +37,7 @@ public class Maggot : Monster
     private void Update()
     {
         
-        if (hit = Physics2D.Raycast(transform.position, TargetPos, 21f, layerMask))
+        if ((hit = Physics2D.Raycast(transform.position, TargetPos, 21f, layerMask) )&& MaggotType == EMaggotType.Charger)
         {
             Debug.DrawRay(transform.position, TargetPos * hit.distance, Color.red);
             _accumulatedTimeSkill += Time.deltaTime;
@@ -53,6 +53,8 @@ public class Maggot : Monster
         {
             Debug.DrawRay(transform.position, TargetPos * 21f, Color.red);
         }
+
+        Debug.Log(CreatureState.ToString());
     }
 
     public override void Init()

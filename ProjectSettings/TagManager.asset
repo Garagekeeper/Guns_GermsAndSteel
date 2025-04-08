@@ -16,6 +16,9 @@ TagManager:
   - Pickup
   - Spike
   - Fire
+  - Poop
+  - Urn
+  - Rock
   layers:
   - Default
   - TransparentFX

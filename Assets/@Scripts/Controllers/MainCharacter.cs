@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using static Define;
 using static Utility;
@@ -47,6 +50,8 @@ public class MainCharacter : Creature
         get { return _isPause; }
         set
         {
+            if (SceneManager.GetActiveScene().name == "DevScene") return;
+
             if (value == true)
             {
                 Time.timeScale = 0;
@@ -199,6 +204,9 @@ public class MainCharacter : Creature
 
 
         IsPause = false;
+        if (SceneManager.GetActiveScene().name == "DevScene")
+            return;
+
         Managers.UI.ResfreshUIAll(this);
 
     }

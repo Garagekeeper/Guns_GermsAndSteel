@@ -10,10 +10,13 @@ public class Obstacle : BaseObject
         None,
         Spike,
         Fire,
+        Poop,
+        Rock,
+        Urn,
     }
 
     private float _hp;
-    private CircleCollider2D _circleCollider;
+    private Collider2D Collider;
     private ObstacleTypes _obstacleType;
     public ObstacleTypes ObstacleType
     {
@@ -26,15 +29,34 @@ public class Obstacle : BaseObject
 
     }
 
-    public void Init(string type)
+    public void Init(string type, int index = 1)
     {
-        _circleCollider = GetComponent<CircleCollider2D>();
+        Collider = GetComponent<CircleCollider2D>();
         ObstacleType = ObstacleTypes.None;
         if (type == "Spike") ObstacleType = ObstacleTypes.Spike;
         if (type == "Fire")
         {
             ObstacleType = ObstacleTypes.Fire;
             _hp = 10.0f;
+        }
+
+        if (type == "Poop")
+        {
+            ObstacleType = ObstacleTypes.Poop;
+            _hp = 4.0f;
+        }
+
+        if (type == "Rock")
+        {
+            ObstacleType = ObstacleTypes.Rock;
+            GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>("rocks_basement_normal_" + index);
+            Collider = GetComponent<BoxCollider2D>();
+        }
+
+        if (type == "Urn")
+        {
+            GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>("rocks_basement_urn_" + index);
+            ObstacleType = ObstacleTypes.Urn;
         }
     }
 
@@ -43,12 +65,28 @@ public class Obstacle : BaseObject
         _hp = Mathf.Max(0, _hp - owner.AttackDamage);
         if (_hp <= 0f)
         {
-            Destroy(_circleCollider);
+            Destroy(Collider);
             Destroy(this);
             GetComponent<SpriteRenderer>().enabled = false;
             return;
         }
+    }
 
+    public void PoopOnHit(bool byBomb = false)
+    {
+        if (byBomb)
+            _hp = 0;
+
+        _hp = Mathf.Max(0, _hp - 1);
+        int index = 4 - (int)_hp;
+        GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>("grid_poop_" + index);
+        if (_hp <= 0f)
+        {
+            Destroy(GetComponent<Rigidbody2D>());
+            Destroy(Collider);
+            Destroy(this);
+            
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -56,7 +94,7 @@ public class Obstacle : BaseObject
         Creature creature = collision.gameObject.GetComponent<Creature>();
         if (creature != null)
         {
-            if (creature.IsFloating != true)
+            if (creature.IsFloating == false && ObstacleType == ObstacleTypes.Spike)
                 creature.OnDamaged(null, ESkillType.Spike);
         }
     }
@@ -66,7 +104,7 @@ public class Obstacle : BaseObject
         Creature creature = collision.gameObject.GetComponent<Creature>();
         if (creature != null)
         {
-            if (creature.IsFloating != true)
+            if (ObstacleType == ObstacleTypes.Fire)
                 creature.OnDamaged(null, ESkillType.Fire);
         }
     }
