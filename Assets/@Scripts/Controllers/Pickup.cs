@@ -56,7 +56,6 @@ public class Pickup : BaseObject
 
 
         Rigidbody.velocity = _dirVec;
-        Debug.Log(_dirVec);
         GetComponent<Animation>().Play("Pickup_Spawn");
         
 

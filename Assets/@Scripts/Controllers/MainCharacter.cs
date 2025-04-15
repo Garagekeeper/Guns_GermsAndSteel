@@ -71,21 +71,27 @@ public class MainCharacter : Creature
         get { return _isInvincible; }
         set
         {
-            _isInvincible = value;
+           
             if (_isInvincible != value)
             {
-                //왜인진 mask 부분이 동작하지 않는데
-                //의도한 대로 움직이니까 일단? 놔둠
+                ////왜인진 mask 부분이 동작하지 않는데
+                ////의도한 대로 움직이니까 일단? 놔둠
+                //_isInvincible = value;
+                //int mask = 0;
+                //mask |= 1 << (int)ELayer.Projectile;
+                //mask |= 1 << (int)ELayer.Boss;
+                //mask |= 1 << (int)ELayer.Obstacle;
+                //mask |= 1 << (int)ELayer.Monster;
+                //if (value)
+                //    Collider.excludeLayers = mask;
+                //else
+                //    Collider.includeLayers = mask;
+
+                Physics2D.IgnoreLayerCollision((int)ELayer.Player, (int)ELayer.Projectile, value);
+                Physics2D.IgnoreLayerCollision((int)ELayer.Player, (int)ELayer.Boss, value);
+                Physics2D.IgnoreLayerCollision((int)ELayer.Player, (int)ELayer.Obstacle, value);
+                Physics2D.IgnoreLayerCollision((int)ELayer.Player, (int)ELayer.Monster, value);
                 _isInvincible = value;
-                int mask = 0;
-                mask |= 1 << (int)ELayer.Projectile;
-                mask |= 1 << (int)ELayer.Boss;
-                mask |= 1 << (int)ELayer.Obstacle;
-                mask |= 1 << (int)ELayer.Monster;
-                if (value)
-                    Collider.excludeLayers = mask;
-                else
-                    Collider.includeLayers = mask;
 
             }
         }

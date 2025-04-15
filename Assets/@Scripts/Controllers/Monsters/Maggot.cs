@@ -53,8 +53,6 @@ public class Maggot : Monster
         {
             Debug.DrawRay(transform.position, TargetPos * 21f, Color.red);
         }
-
-        Debug.Log(CreatureState.ToString());
     }
 
     public override void Init()
