@@ -1,6 +1,8 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static Utility;
 
 public class PlayingUI : UI_Base
 {
@@ -51,6 +53,7 @@ public class PlayingUI : UI_Base
         Minimap_Pannel,
         Charge,
         ItemDescription,
+        StageLoadingUI,
     }
 
     protected override void Init()
@@ -168,6 +171,31 @@ public class PlayingUI : UI_Base
     {
         GetText((int)TTexts.Name).text = item.Name;
         GetText((int)TTexts.Description).text = item.Description;
+    }
+
+    public void activeStatgeLoading()
+    {
+        GameObject stageLoadingUi = GetObject((int)GameObjects.StageLoadingUI);
+        stageLoadingUi.SetActive(true);
+
+        float delay = stageLoadingUi.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        StartCoroutine(BubbleActive(delay));
+    }
+
+    IEnumerator BubbleActive(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        GameObject stageLoadingUi = GetObject((int)GameObjects.StageLoadingUI);
+        stageLoadingUi.GetComponent<Animator>().Play("Loop");
+
+        Animator animator = FindChildByName(stageLoadingUi.transform, "Bubble").GetComponent<Animator>();
+        animator.Play("Nightmare_bubble_5");
+        //다음 프레임에 에니메이션이 교체되고 딜레이를 측정하자
+        yield return null;
+        delay = animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+
+        yield return new WaitForSeconds(delay);
+        stageLoadingUi.SetActive(false);
     }
 
 }

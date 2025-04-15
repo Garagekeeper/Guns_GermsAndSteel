@@ -76,6 +76,21 @@ MonoBehaviour:
     - Preload
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 305d7b67fdbae5b41bb83bc16154b2cc
+    m_Address: Tile_Map_Collision_Normal_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21499bc0954a8c14cba5ac9bd5c03feb
+    m_Address: Assets/@Resources/Sprites/Issac/grid/rocks_basement.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Sprite
+    - Preload
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

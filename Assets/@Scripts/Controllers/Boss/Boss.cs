@@ -177,6 +177,7 @@ public class Boss : Creature
         go.transform.GetComponent<Animator>().Play("BossDeathEffect");
 
         AnimatorBottom.Play("Dead");
+        yield return null;
         float delay = AnimatorBottom.GetCurrentAnimatorClipInfo(0)[0].clip.length;
         yield return new WaitForSeconds(delay * 0.75f);
         FindChildByName(transform, transform.gameObject.name + "_Sprite")?.gameObject.SetActive(false);

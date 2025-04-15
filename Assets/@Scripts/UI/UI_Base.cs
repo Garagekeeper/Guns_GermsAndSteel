@@ -15,7 +15,7 @@ public class UI_Base : MonoBehaviour
 
     protected virtual void Init()
     {
-
+        _objects = new Dictionary<Type, UnityEngine.Object[]>();
     }
 
     protected Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>();
@@ -110,7 +110,12 @@ public class UI_Base : MonoBehaviour
     protected Text GetTextLegacy(int idx) { return Get<Text>(idx); }
     protected Button GetButton(int idx) { return Get<Button>(idx); }
 
-
+    public void ClearBindedUi()
+    {
+        _objects.Clear();
+        _objects = null;
+        _objects = new();
+    }
 }
 
 

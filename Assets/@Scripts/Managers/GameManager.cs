@@ -31,7 +31,7 @@ public class GameManager
         }
     }
 
-    public event Action<int, int> ChargeBarEnevnt;
+    public event Action<int, int> ChargeBarEnevnt = null;
     public void UseActiveItem(int currentGage, int coolTime)
     {
         ChargeBarEnevnt?.Invoke(currentGage, coolTime);
@@ -54,6 +54,8 @@ public class GameManager
 
     public void Init()
     {
+        ChargeBarEnevnt = null;
+
         Seed = GenerateSeed();
         RNG = new RNGManager(Seed);
         Debug.Log(Seed);
@@ -153,7 +155,8 @@ public class GameManager
         foreach (var temp in Managers.Object.Monsters)
         {
             temp.GetComponent<Monster>().enabled = true;
-            Object.Destroy(FindChildByName(temp.transform, "Monster_Spawn_Effect").gameObject);
+            if (FindChildByName(temp.transform, "Monster_Spawn_Effect") == null) continue;
+                Object.Destroy(FindChildByName(temp.transform, "Monster_Spawn_Effect").gameObject);
         }
 
         foreach (var temp in Managers.Object.MainCharacters)
@@ -170,6 +173,8 @@ public class GameManager
 
     public void GoToNextStage()
     {
+
+
         foreach (var temp in Managers.Object.MainCharacters)
         {
             temp.CanMove = false;
@@ -356,7 +361,8 @@ public class GameManager
     public void ClearGame()
     {
         Managers.Map.DestroyMap();
-        SceneManager.LoadScene("MainScene");
+        //Object.Destroy(GameObject.Find("@Managers"));
+        SceneManager.LoadScene("Title");
     }
 
     public void GameOver()
@@ -668,5 +674,7 @@ public class GameManager
 
             }
         }
+
+        Managers.Map.CurrentRoom.AwardSeed = rng.Next();
     }
 }

@@ -349,8 +349,11 @@ public class MapManager
         {
             if (_currentRoom != value)
             {
-                ChangeMinimapadjacencentCellSprite(value, _currentRoom);
-                ChangeRoomActive(value, _currentRoom);
+                if (SceneManager.GetActiveScene().name != "DevScene") 
+                {
+                    ChangeMinimapadjacencentCellSprite(value, _currentRoom);
+                    ChangeRoomActive(value, _currentRoom);
+                }
                 _currentRoom = value;
             }
         }
@@ -867,6 +870,8 @@ public class MapManager
             Tilemap tmp = devRoom.Tilemap;
             Rooms.Add(devRoom);
 
+            devRoom.AwardSeed = Managers.Game.RNG.Sn;
+            CurrentRoom = devRoom;
             //ParseRoomCollisionData();
             return;
         }

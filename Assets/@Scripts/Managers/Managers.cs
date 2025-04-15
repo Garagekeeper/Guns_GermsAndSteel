@@ -34,4 +34,12 @@ public class Managers : MonoBehaviour
             m_instance = go.GetComponent<Managers>();
         }
     }
+
+    public void ResetManager()
+    {
+        _map = null;
+        _game = null;
+        _ui = null;
+        _object = null;
+    }
 }

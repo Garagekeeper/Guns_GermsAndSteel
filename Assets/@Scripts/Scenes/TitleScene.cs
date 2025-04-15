@@ -28,7 +28,6 @@ public class TitleScene : UI_Base
             if (count == totalCount)
             {
                 Managers.Data.Init();
-                Managers.Game.Init();
                 StartCoroutine(Pause());
             }
         });

@@ -57,6 +57,21 @@ public class MainScene : UI_Base
     {
         base.Init();
 
+        {
+            Managers.UI.PauseUI = null;
+            Managers.UI.PlayingUI = null;
+            Managers.UI.GameOverUI = null;
+        }
+
+        {
+            Managers.Object.ClearObjectManager(true);
+        }
+
+        {
+
+        }
+
+        Managers.Game.Init();
         TargetPos = new Vector3(0, 0, -10);
         BindObject(typeof(UIGameObjects));
         _uiStack.Push(GetObject((int)UIGameObjects.TitleImageUI));

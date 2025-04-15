@@ -100,7 +100,6 @@ public class PauseUI : UI_Base
                     Managers.UI.PlayingUI.SetFadeImageAlpha(1);
                     Destroy(Managers.Map.Map);
                     Managers.Object.ClearObjectManager(true);
-
                     SceneManager.LoadScene("MainScene");
                     break;
             }

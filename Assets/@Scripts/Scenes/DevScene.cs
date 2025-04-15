@@ -51,6 +51,13 @@ public class DevScene : MonoBehaviour
         //Boss boss = Managers.Object.Spawn<Boss>(new Vector3(-0.85f, 2.15f, 0), 0, "Boss_Gurdy");
         //Managers.Object.Spawn<Boss>(new Vector3(0f,0f, 0), 0, "Boss_Mom");
 
-        Managers.Object.Spawn<Monster>(new Vector3(-4.0f, -4.0f, 0), 0, "Maggot");
+        //Managers.Object.Spawn<Monster>(new Vector3(-4.0f, -4.0f, 0), 0, "Maggot");
+        Managers.Object.Spawn<Pickup>(new Vector3(-1f, -3f, 0), Define.EPICKUP_TYPE.PICKUP_CHEST);
+        Managers.Object.Spawn<Pickup>(new Vector3(-1f, -2f, 0), Define.EPICKUP_TYPE.PICKUP_CHEST);
+        Managers.Object.Spawn<Pickup>(new Vector3(-1f, -1f, 0), Define.EPICKUP_TYPE.PICKUP_CHEST);
+        Managers.Object.Spawn<Pickup>(new Vector3(-1f, 0f, 0), Define.EPICKUP_TYPE.PICKUP_CHEST);
+        Managers.Object.Spawn<Pickup>(new Vector3(-1f, 1f, 0), Define.EPICKUP_TYPE.PICKUP_CHEST);
+        Managers.Object.Spawn<Pickup>(new Vector3(-1f, 2f, 0), Define.EPICKUP_TYPE.PICKUP_CHEST);
+        Managers.Object.Spawn<Pickup>(new Vector3(-1f, 3f, 0), Define.EPICKUP_TYPE.PICKUP_CHEST);
     }
 }

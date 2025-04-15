@@ -213,9 +213,20 @@ public class MainCharacter : Creature
 
     void Update()
     {
+
+        if (CreatureState == ECreatureState.Dead) return;
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             IsPause = !IsPause;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            //Managers.UI.ShowUpStatUI();
+
+            OnDead();
+            return;
         }
 
         if (IsPause) return;
@@ -279,12 +290,7 @@ public class MainCharacter : Creature
             Managers.Game.RoomClear();
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            //Managers.UI.ShowUpStatUI();
-
-            OnDead();
-        }
+        
 
         //Restart with fade out
         if (Input.GetKey(KeyCode.R))
@@ -585,6 +591,7 @@ public class MainCharacter : Creature
         SpaceItemId = item.TemplateId;
         Managers.UI.PlayingUI.ChangeSpaceItem(SpaceItem.SpriteName);
         Managers.UI.PlayingUI.ChangeChargeBarSize("ui_chargebar_", SpaceItem.CoolTime);
+        //?
         Managers.Game.UseActiveItem(item.CurrentGage, item.CoolTime);
     }
 
@@ -675,6 +682,7 @@ public class MainCharacter : Creature
 
         if (collision.transform.CompareTag("TrapDoor") && Managers.Map.CurrentRoom.IsClear)
         {
+            Managers.UI.PlayingUI.activeStatgeLoading();
             Managers.Game.GoToNextStage();
         }
 
@@ -713,7 +721,11 @@ public class MainCharacter : Creature
             base.OnDead();
 
         else
+        {
+            CreatureState = ECreatureState.Dead;
             Managers.Game.GameOver();
+        }
+            
     }
 
 }
