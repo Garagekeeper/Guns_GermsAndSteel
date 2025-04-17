@@ -55,6 +55,19 @@ public class GameScene : MonoBehaviour
 
     }
 
+    public void DeleteUI()
+    {
+        GameObject parent = GameObject.Find("UI");
+        foreach (Transform child in parent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        Managers.UI.PlayingUI = null;
+        Managers.UI.GameOverUI = null;
+        Managers.UI.PauseUI = null;
+    }
+
     public void SpawnCharacter()
     {
         MainCharacter mc = Managers.Object.Spawn<MainCharacter>(new Vector3(-0.5f, -0.5f, 0));

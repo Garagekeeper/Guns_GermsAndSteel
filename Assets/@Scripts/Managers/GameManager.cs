@@ -389,6 +389,8 @@ public class GameManager
         }
         Managers.Map.LoadMap();
 
+        Managers.UI.PlayingUI.gameObject.SetActive(false);
+
         Cam.MoveCameraWithoutLerp(new Vector3(-0.5f, -0.5f, -10f));
 
         //for (int i=0; i< Managers.Object.MainCharacters.Count; i++)
@@ -414,6 +416,7 @@ public class GameManager
         RoomConditionCheck();
 
         Managers.UI.GameOverUI.gameObject.SetActive(false);
+        Managers.UI.PlayingUI.gameObject.SetActive(true);
 
     }
 

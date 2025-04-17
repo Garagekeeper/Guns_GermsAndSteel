@@ -36,6 +36,12 @@ public class PlayingUI : UI_Base
         ShotSpeedText,
         SpeedText,
         LuckText,
+        AttackDamageTextvariation,
+        TearsTextvariation,
+        RangeTextvariation,
+        ShotSpeedTextvariation,
+        SpeedTextvariation,
+        LuckTextvariation,
         CoinText,
         BombText,
         KeyText,
@@ -55,6 +61,8 @@ public class PlayingUI : UI_Base
         ItemDescription,
         StageLoadingUI,
     }
+
+    private Coroutine _coroutine;
 
     protected override void Init()
     {
@@ -106,6 +114,14 @@ public class PlayingUI : UI_Base
 
     public void RefreshText(MainCharacter player)
     {
+
+        if (gameObject.activeSelf == true)
+        {
+            if (_coroutine != null) StopCoroutine(_coroutine);
+            _coroutine = StartCoroutine(CRefreshUI(player));
+
+        }
+
         GetTextLegacy((int)Texts.AttackDamageText).text = player.AttackDamage.ToString();
         GetTextLegacy((int)Texts.TearsText).text = player.Tears.ToString();
         GetTextLegacy((int)Texts.RangeText).text = player.Range.ToString();
@@ -115,6 +131,119 @@ public class PlayingUI : UI_Base
         GetTextLegacy((int)Texts.CoinText).text = player.Coin.ToString();
         GetTextLegacy((int)Texts.BombText).text = player.BombCount.ToString();
         GetTextLegacy((int)Texts.KeyText).text = player.KeyCount.ToString();
+
+
+    }
+
+    IEnumerator CRefreshUI(MainCharacter player)
+    {
+
+        float AttackDamagevariation = player.AttackDamage - float.Parse(GetTextLegacy((int)Texts.AttackDamageText).text);
+        float TearsTextvariation = player.Tears - float.Parse(GetTextLegacy((int)Texts.TearsText).text);
+        float RangeTextvariation = player.Range - float.Parse(GetTextLegacy((int)Texts.RangeText).text);
+        float ShotSpeedTextvariation = player.ShotSpeed - float.Parse(GetTextLegacy((int)Texts.ShotSpeedText).text);
+        float SpeedTextvariation = player.Speed - float.Parse(GetTextLegacy((int)Texts.SpeedText).text);
+        float LuckTextvariation = player.Luck - float.Parse(GetTextLegacy((int)Texts.LuckText).text);
+
+        GetTextLegacy((int)Texts.AttackDamageTextvariation).color = new Color(1, 1, 1, 0);
+        GetTextLegacy((int)Texts.TearsTextvariation).color = new Color(1, 1, 1, 0);
+        GetTextLegacy((int)Texts.RangeTextvariation).color = new Color(1, 1, 1, 0);
+        GetTextLegacy((int)Texts.ShotSpeedTextvariation).color = new Color(1, 1, 1, 0);
+        GetTextLegacy((int)Texts.SpeedTextvariation).color = new Color(1, 1, 1, 0);
+        GetTextLegacy((int)Texts.LuckTextvariation).color = new Color(1, 1, 1, 0);
+
+        GetTextLegacy((int)Texts.AttackDamageTextvariation).text = AttackDamagevariation.ToString("+0;-0;0") == "0" ? "" : AttackDamagevariation.ToString("+0;-0;0");
+        GetTextLegacy((int)Texts.TearsTextvariation).text = TearsTextvariation.ToString("+0;-0;0") == "0" ? "" : AttackDamagevariation.ToString("+0;-0;0");
+        GetTextLegacy((int)Texts.RangeTextvariation).text = RangeTextvariation.ToString("+0;-0;0") == "0" ? "" : AttackDamagevariation.ToString("+0;-0;0");
+        GetTextLegacy((int)Texts.ShotSpeedTextvariation).text = ShotSpeedTextvariation.ToString("+0;-0;0") == "0" ? "" : AttackDamagevariation.ToString("+0;-0;0");
+        GetTextLegacy((int)Texts.SpeedTextvariation).text = SpeedTextvariation.ToString("+0;-0;0") == "0" ? "" : AttackDamagevariation.ToString("+0;-0;0");
+        GetTextLegacy((int)Texts.LuckTextvariation).text = LuckTextvariation.ToString("+0;-0;0") == "0" ? "" : AttackDamagevariation.ToString("+0;-0;0");
+
+        GetTextLegacy((int)Texts.AttackDamageTextvariation).color = AttackDamagevariation > 0 ? new Color(0, 1, 0, 0) : new Color(1, 0, 0, 0);
+        GetTextLegacy((int)Texts.TearsTextvariation).color = TearsTextvariation > 0 ? new Color(0, 1, 0, 0) : new Color(1, 0, 0, 0);
+        GetTextLegacy((int)Texts.RangeTextvariation).color = RangeTextvariation > 0 ? new Color(0, 1, 0, 0) : new Color(1, 0, 0, 0);
+        GetTextLegacy((int)Texts.ShotSpeedTextvariation).color = ShotSpeedTextvariation > 0 ? new Color(0, 1, 0, 0) : new Color(1, 0, 0, 0);
+        GetTextLegacy((int)Texts.SpeedTextvariation).color = SpeedTextvariation > 0 ? new Color(0, 1, 0, 0) : new Color(1, 0, 0, 0);
+        GetTextLegacy((int)Texts.LuckTextvariation).color = LuckTextvariation > 0 ? new Color(0, 1, 0, 0) : new Color(1, 0, 0, 0);
+
+
+        for (int i = 1; i <= 5; i++)
+        {
+            yield return new WaitForSeconds(0.1f);
+            Color c;
+            c = GetTextLegacy((int)Texts.AttackDamageTextvariation).color;
+            c.a = i / 5f;
+            GetTextLegacy((int)Texts.AttackDamageTextvariation).color = c;
+
+            c = GetTextLegacy((int)Texts.TearsTextvariation).color;
+            c.a = i / 5f;
+            GetTextLegacy((int)Texts.TearsTextvariation).color = c;
+
+            c = GetTextLegacy((int)Texts.RangeTextvariation).color;
+            c.a = i / 5f;
+            GetTextLegacy((int)Texts.RangeTextvariation).color = c;
+
+            c = GetTextLegacy((int)Texts.ShotSpeedTextvariation).color;
+            c.a = i / 5f;
+            GetTextLegacy((int)Texts.ShotSpeedTextvariation).color = c;
+
+            c = GetTextLegacy((int)Texts.SpeedTextvariation).color;
+            c.a = i / 5f;
+            GetTextLegacy((int)Texts.SpeedTextvariation).color = c;
+
+            c = GetTextLegacy((int)Texts.LuckTextvariation).color;
+            c.a = i / 5f;
+            GetTextLegacy((int)Texts.LuckTextvariation).color = c;
+
+        }
+
+        yield return new WaitForSeconds(1);
+
+        for (int i = 10; i >= 1; i--)
+        {
+            yield return new WaitForSeconds(0.1f);
+            Color c;
+            c = GetTextLegacy((int)Texts.AttackDamageTextvariation).color;
+            c.a = i / 10f;
+            GetTextLegacy((int)Texts.AttackDamageTextvariation).color = c;
+
+            c = GetTextLegacy((int)Texts.TearsTextvariation).color;
+            c.a = i / 10f;
+            GetTextLegacy((int)Texts.TearsTextvariation).color = c;
+
+            c = GetTextLegacy((int)Texts.RangeTextvariation).color;
+            c.a = i / 10f;
+            GetTextLegacy((int)Texts.RangeTextvariation).color = c;
+
+            c = GetTextLegacy((int)Texts.ShotSpeedTextvariation).color;
+            c.a = i / 10f;
+            GetTextLegacy((int)Texts.ShotSpeedTextvariation).color = c;
+
+            c = GetTextLegacy((int)Texts.SpeedTextvariation).color;
+            c.a = i / 10f;
+            GetTextLegacy((int)Texts.SpeedTextvariation).color = c;
+
+            c = GetTextLegacy((int)Texts.LuckTextvariation).color;
+            c.a = i / 10f;
+            GetTextLegacy((int)Texts.LuckTextvariation).color = c;
+        }
+
+        string temp = "";
+        GetTextLegacy((int)Texts.AttackDamageTextvariation).text = temp;
+        GetTextLegacy((int)Texts.TearsTextvariation).text = temp;
+        GetTextLegacy((int)Texts.RangeTextvariation).text = temp;
+        GetTextLegacy((int)Texts.ShotSpeedTextvariation).text = temp;
+        GetTextLegacy((int)Texts.SpeedTextvariation).text = temp;
+        GetTextLegacy((int)Texts.LuckTextvariation).text = temp;
+
+        GetTextLegacy((int)Texts.AttackDamageTextvariation).color = new Color(1, 1, 1, 0);
+        GetTextLegacy((int)Texts.TearsTextvariation).color = new Color(1, 1, 1, 0);
+        GetTextLegacy((int)Texts.RangeTextvariation).color = new Color(1, 1, 1, 0);
+        GetTextLegacy((int)Texts.ShotSpeedTextvariation).color = new Color(1, 1, 1, 0);
+        GetTextLegacy((int)Texts.SpeedTextvariation).color = new Color(1, 1, 1, 0);
+        GetTextLegacy((int)Texts.LuckTextvariation).color = new Color(1, 1, 1, 0);
+
+
     }
 
     public void RefreshHpImage(MainCharacter player)
@@ -198,4 +327,13 @@ public class PlayingUI : UI_Base
         stageLoadingUi.SetActive(false);
     }
 
+    void OnDisable()
+    {
+        GetTextLegacy((int)Texts.AttackDamageTextvariation).color = new Color(1, 1, 1, 0);
+        GetTextLegacy((int)Texts.TearsTextvariation).color = new Color(1, 1, 1, 0);
+        GetTextLegacy((int)Texts.RangeTextvariation).color = new Color(1, 1, 1, 0);
+        GetTextLegacy((int)Texts.ShotSpeedTextvariation).color = new Color(1, 1, 1, 0);
+        GetTextLegacy((int)Texts.SpeedTextvariation).color = new Color(1, 1, 1, 0);
+        GetTextLegacy((int)Texts.LuckTextvariation).color = new Color(1, 1, 1, 0);
+    }
 }
