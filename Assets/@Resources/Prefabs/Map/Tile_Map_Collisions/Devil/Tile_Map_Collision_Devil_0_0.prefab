@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 267331981016661465}
   - component: {fileID: 2237048045443302038}
   m_Layer: 0
-  m_Name: Tile_Map_Collision_Devil_0
+  m_Name: Tile_Map_Collision_Devil_0_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

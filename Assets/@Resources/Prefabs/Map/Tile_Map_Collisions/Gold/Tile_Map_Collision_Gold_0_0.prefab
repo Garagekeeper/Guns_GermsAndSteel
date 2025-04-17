@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 267331981016661465}
   - component: {fileID: 2237048045443302038}
   m_Layer: 0
-  m_Name: Tile_Map_Collision_Secret_0
+  m_Name: Tile_Map_Collision_Gold_0_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1078088898274708930}
+  - {fileID: 7214055124133935720}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &267331981016661465
@@ -1406,8 +1406,8 @@ Tilemap:
   - first: {x: -1, y: -1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 63
-      m_TileSpriteIndex: 63
+      m_TileIndex: 61
+      m_TileSpriteIndex: 61
       m_TileMatrixIndex: 3
       m_TileColorIndex: 1
       m_TileObjectToInstantiateIndex: 65535
@@ -2897,11 +2897,11 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 3b67edb6ce55d474abe3cd4e5abc86bc, type: 2}
   - m_RefCount: 120
     m_Data: {fileID: 11400000, guid: 441f5cff68ed12040828872bf757660f, type: 2}
-  - m_RefCount: 153
+  - m_RefCount: 152
     m_Data: {fileID: 11400000, guid: ff5f0346bde9fd1448a264aa52029246, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
@@ -3026,11 +3026,11 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1715711276, guid: 45a4d7a1233cb3540a1806f54e0b0bc4, type: 3}
   - m_RefCount: 120
     m_Data: {fileID: 21300000, guid: b06656bf375cef846a5cc98681e1425f, type: 3}
-  - m_RefCount: 153
+  - m_RefCount: 152
     m_Data: {fileID: 21300000, guid: 239fbc2ee8b71b5419dfdff0c2c41d88, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 0
@@ -3176,14 +3176,14 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.019230783, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
---- !u!1 &3467663138531512168
+--- !u!1 &3052568982575396188
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3191,23 +3191,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1078088898274708930}
-  - component: {fileID: 6182780525351627711}
-  - component: {fileID: 8548308895482046573}
+  - component: {fileID: 7214055124133935720}
+  - component: {fileID: 2683563001387961722}
+  - component: {fileID: 7622829868351478155}
   m_Layer: 0
-  m_Name: Tile_Map_Monster_Secret_0
+  m_Name: Tile_Map_Monster_Gold_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1078088898274708930
+--- !u!4 &7214055124133935720
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3467663138531512168}
+  m_GameObject: {fileID: 3052568982575396188}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -3216,13 +3216,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8186247140894817666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1839735485 &6182780525351627711
+--- !u!1839735485 &2683563001387961722
 Tilemap:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3467663138531512168}
+  m_GameObject: {fileID: 3052568982575396188}
   m_Enabled: 1
   m_Tiles: {}
   m_AnimatedTiles: {}
@@ -3543,16 +3543,16 @@ Tilemap:
     m_Data:
       e00: 9.71e-43
       e01: 0
-      e02: 2.0385515e-19
-      e03: 2.0385515e-19
+      e02: 2.0389485e-19
+      e03: 2.0389485e-19
       e10: 0
       e11: 0
       e12: 7.33e-43
       e13: 7.33e-43
       e20: 1.9841975e-12
-      e21: -1.9232066e-14
-      e22: -3.9841754e-19
-      e23: -3.8590853e+19
+      e21: -2.55044e-17
+      e22: -4.193601e-19
+      e23: -3.8033954e+19
       e30: 4.5904e-41
       e31: 7.36e-43
       e32: 7.33e-43
@@ -3586,13 +3586,13 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!483693784 &8548308895482046573
+--- !u!483693784 &7622829868351478155
 TilemapRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3467663138531512168}
+  m_GameObject: {fileID: 3052568982575396188}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0

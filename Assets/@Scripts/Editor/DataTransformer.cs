@@ -41,6 +41,7 @@ public class DataTransformer : EditorWindow
     {
         ParseExcelDataToJson<ItemDataLoader, ItemData>("Item_Data");
         ParseExcelDataToJson<MonsterDataLoader, MonsterData>("Monster_Data");
+        ParseExcelDataToJson<RoomDataLoader, RoomData>("Room_Data");
 
 
         Debug.Log("Complete DataTransformer");

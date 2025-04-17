@@ -11,7 +11,6 @@ using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using static Define;
 using static RoomClass;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 using Object = UnityEngine.Object;
 using Transform = UnityEngine.Transform;
 using static Utility;
@@ -20,21 +19,6 @@ using System.Text.RegularExpressions;
 
 public class RoomClass
 {
-    public enum ERoomType
-    {
-        Start,
-        Normal,
-        Gold,
-        Sacrifice,
-        Curse,
-        Shop,
-        Boss,
-        Angel,
-        Devil,
-        Secret,
-        SSecret,
-    }
-
     public ERoomType RoomType { get; set; }
     public int XPos { get; private set; }
     public int YPos { get; private set; }
@@ -478,7 +462,7 @@ public class MapManager
         s_roomGraph[4, 4] = 1;
         StartingRoom = new RoomClass(4, 4)
         {
-            RoomType = RoomClass.ERoomType.Start
+            RoomType = ERoomType.Start
         };
         Rooms.Add(StartingRoom);
 
@@ -795,7 +779,7 @@ public class MapManager
                 rc = Managers.Game.RNG.Choice(reward);
                 Rooms.Add(rc);
                 s_roomGraph[rc.XPos, rc.YPos] = 1;
-                rc.RoomType = Managers.Game.RNG.Chance(50) ? RoomClass.ERoomType.Devil : RoomClass.ERoomType.Angel;
+                rc.RoomType = Managers.Game.RNG.Chance(50) ? ERoomType.Devil : ERoomType.Angel;
             }
         }
 
@@ -1013,7 +997,9 @@ public class MapManager
         //Debug.Log(r.RoomType.ToString());
         string roomName;
 
-        roomName = "Tile_Map_Collision_" + r.RoomType.ToString() + "_" + Managers.Game.RNG.RandInt(0, RoomCollisionCnt[(int)r.RoomType] - 1);
+        int stageNum = r.RoomType == ERoomType.Normal ? Managers.Game.StageNumber : 0;
+        //roomName = "Tile_Map_Collision_" + r.RoomType.ToString() + "_" stageNum "_" + Managers.Game.RNG.RandInt(0, RoomCollisionCnt[(int)r.RoomType] - 1);
+        roomName = Managers.Data.RoomDic[r.RoomType][stageNum][Managers.Game.RNG.RandInt(0, Managers.Data.RoomDic[r.RoomType][stageNum].Count-1)];
         GameObject roomTileMap = Managers.Resource.Instantiate(roomName);
         roomTileMap.transform.SetParent(room.transform);
 

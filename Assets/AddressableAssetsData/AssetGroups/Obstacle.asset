@@ -31,6 +31,27 @@ MonoBehaviour:
     - Preload
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f350cd7cfd7281f43ad69cd75283684f
+    m_Address: Urn
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6ee671f1054ffc2438e9b26c3e894898
+    m_Address: Rock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71f3856333182e94aa366a5416199599
+    m_Address: Poop
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

@@ -33,20 +33,6 @@ MonoBehaviour:
     - InGame
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9e3fd8169aaf7e04db5cd1c60f168246
-    m_Address: Monster_Dead_Effect
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bc07ac1bac35ab24da9057fabc4bab72
-    m_Address: Monster_Spawn_Effect
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2a1495e6956f69b42b5a8914efa74c70
     m_Address: grid_poop
     m_ReadOnly: 0
@@ -55,36 +41,8 @@ MonoBehaviour:
     - Preload
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 71f3856333182e94aa366a5416199599
-    m_Address: Poop
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6ee671f1054ffc2438e9b26c3e894898
-    m_Address: Rock
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f350cd7cfd7281f43ad69cd75283684f
-    m_Address: Urn
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 305d7b67fdbae5b41bb83bc16154b2cc
-    m_Address: Tile_Map_Collision_Normal_5
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 21499bc0954a8c14cba5ac9bd5c03feb
-    m_Address: Assets/@Resources/Sprites/Issac/grid/rocks_basement.png
+    m_Address: rocks_basement
     m_ReadOnly: 0
     m_SerializedLabels:
     - Sprite

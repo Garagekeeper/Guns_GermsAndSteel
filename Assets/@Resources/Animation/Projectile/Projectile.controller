@@ -85,7 +85,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BulletDestroy_12 0
+  m_Name: RBulletDestroy_12
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -189,7 +189,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BulletDestroy_3 0
+  m_Name: RBulletDestroy_3
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -731,7 +731,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BulletDestroy_7 0
+  m_Name: RBulletDestroy_7
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []

@@ -183,4 +183,19 @@ public static class Define
         PICKUP_TRINKET,
     }
 
+    public enum ERoomType
+    {
+        Start,
+        Normal,
+        Gold,
+        Sacrifice,
+        Curse,
+        Shop,
+        Boss,
+        Angel,
+        Devil,
+        Secret,
+        SSecret,
+    }
+
 }

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using static Define;
+using static UnityEditor.Progress;
 
 
 namespace Data
@@ -41,6 +42,15 @@ namespace Data
     }
 
     [Serializable]
+    public class RoomData
+    {
+        public int DataId;
+        public ERoomType RoomType;
+        public int Stage = 0;
+        public string PrefabName;
+    }
+
+    [Serializable]
     public class ItemDataLoader : ILoader<int, ItemData>
     {
         public List<ItemData> items = new List<ItemData>();
@@ -68,4 +78,21 @@ namespace Data
             return dict;
         }
     }
+
+    [Serializable]
+    public class RoomDataLoader : ILoader<int, RoomData>
+    {
+        public List<RoomData> rooms = new List<RoomData>();
+
+        public Dictionary<int, RoomData> MakeDict()
+        {
+            Dictionary<int, RoomData> dict = new();
+            foreach (RoomData room in rooms)
+                dict.Add(room.DataId, room);
+
+            return dict;
+        }
+    }
+
+
 }

@@ -57,6 +57,7 @@ public class RNGManager
 
     public int RandInt(int left, int right)
     {
+        if (left == 0 && right == 0) return 0;
         Rand();
         return (int)((Sn % (right - left + 1)) + left);
     }

@@ -1,0 +1,136 @@
+{
+  "rooms": [
+    {
+      "DataId": 0,
+      "RoomType": 7,
+      "Stage": 0,
+      "PrefabName": "Tile_Map_Collision_Angel_0"
+    },
+    {
+      "DataId": 1,
+      "RoomType": 6,
+      "Stage": 0,
+      "PrefabName": "Tile_Map_Collision_Boss_0"
+    },
+    {
+      "DataId": 2,
+      "RoomType": 8,
+      "Stage": 0,
+      "PrefabName": "Tile_Map_Collision_Devil_0"
+    },
+    {
+      "DataId": 3,
+      "RoomType": 2,
+      "Stage": 0,
+      "PrefabName": "Tile_Map_Collision_Gold_0"
+    },
+    {
+      "DataId": 4,
+      "RoomType": 3,
+      "Stage": 0,
+      "PrefabName": "Tile_Map_Collision_Sacrifice_0"
+    },
+    {
+      "DataId": 5,
+      "RoomType": 9,
+      "Stage": 0,
+      "PrefabName": "Tile_Map_Collision_Secret_0"
+    },
+    {
+      "DataId": 6,
+      "RoomType": 4,
+      "Stage": 0,
+      "PrefabName": "Tile_Map_Collision_Curse_0"
+    },
+    {
+      "DataId": 7,
+      "RoomType": 5,
+      "Stage": 0,
+      "PrefabName": "Tile_Map_Collision_Shop_0"
+    },
+    {
+      "DataId": 8,
+      "RoomType": 0,
+      "Stage": 0,
+      "PrefabName": "Tile_Map_Collision_Start_0"
+    },
+    {
+      "DataId": 9,
+      "RoomType": 1,
+      "Stage": 1,
+      "PrefabName": "Tile_Map_Collision_Normal_1_0"
+    },
+    {
+      "DataId": 10,
+      "RoomType": 1,
+      "Stage": 1,
+      "PrefabName": "Tile_Map_Collision_Normal_1_1"
+    },
+    {
+      "DataId": 11,
+      "RoomType": 1,
+      "Stage": 1,
+      "PrefabName": "Tile_Map_Collision_Normal_1_2"
+    },
+    {
+      "DataId": 12,
+      "RoomType": 1,
+      "Stage": 1,
+      "PrefabName": "Tile_Map_Collision_Normal_1_3"
+    },
+    {
+      "DataId": 13,
+      "RoomType": 1,
+      "Stage": 1,
+      "PrefabName": "Tile_Map_Collision_Normal_1_4"
+    },
+    {
+      "DataId": 14,
+      "RoomType": 1,
+      "Stage": 1,
+      "PrefabName": "Tile_Map_Collision_Normal_1_5"
+    },
+    {
+      "DataId": 15,
+      "RoomType": 1,
+      "Stage": 2,
+      "PrefabName": "Tile_Map_Collision_Normal_2_0"
+    },
+    {
+      "DataId": 16,
+      "RoomType": 1,
+      "Stage": 3,
+      "PrefabName": "Tile_Map_Collision_Normal_3_0"
+    },
+    {
+      "DataId": 17,
+      "RoomType": 1,
+      "Stage": 4,
+      "PrefabName": "Tile_Map_Collision_Normal_4_0"
+    },
+    {
+      "DataId": 18,
+      "RoomType": 1,
+      "Stage": 5,
+      "PrefabName": "Tile_Map_Collision_Normal_5_0"
+    },
+    {
+      "DataId": 19,
+      "RoomType": 1,
+      "Stage": 6,
+      "PrefabName": "Tile_Map_Collision_Normal_6_0"
+    },
+    {
+      "DataId": 20,
+      "RoomType": 1,
+      "Stage": 7,
+      "PrefabName": "Tile_Map_Collision_Normal_7_0"
+    },
+    {
+      "DataId": 21,
+      "RoomType": 1,
+      "Stage": 8,
+      "PrefabName": "Tile_Map_Collision_Normal_8_0"
+    }
+  ]
+}

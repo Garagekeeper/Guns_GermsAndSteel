@@ -248,7 +248,7 @@ public class GameManager
         List<RoomClass> list = new();
         foreach (RoomClass r in Managers.Map.Rooms)
         {
-            if (r.RoomType == RoomClass.ERoomType.Normal && r != Managers.Map.CurrentRoom)
+            if (r.RoomType == ERoomType.Normal && r != Managers.Map.CurrentRoom)
             {
                 list.Add(r);
             }
@@ -338,13 +338,13 @@ public class GameManager
                 Managers.Game.WithdrawOneTimeItemEffect(player);
         }
 
-        if (curRoom.RoomType == RoomClass.ERoomType.Boss)
+        if (curRoom.RoomType == ERoomType.Boss)
         {
             //Managers.Map.CurrentRoom.ItemHolder.SetActive(true);
         }
 
         //TODO
-        if (curRoom.RoomType == RoomClass.ERoomType.Normal)
+        if (curRoom.RoomType == ERoomType.Normal)
             SpawnClearAward(curRoom.AwardSeed);
     }
 

@@ -38,6 +38,13 @@ MonoBehaviour:
     - Preload
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a82a980277e9fc4ab27256dee978514
+    m_Address: Room_Data
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Data
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:
