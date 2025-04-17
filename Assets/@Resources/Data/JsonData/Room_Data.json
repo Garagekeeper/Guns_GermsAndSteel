@@ -4,55 +4,55 @@
       "DataId": 0,
       "RoomType": 7,
       "Stage": 0,
-      "PrefabName": "Tile_Map_Collision_Angel_0"
+      "PrefabName": "Tile_Map_Collision_Angel_0_0"
     },
     {
       "DataId": 1,
       "RoomType": 6,
       "Stage": 0,
-      "PrefabName": "Tile_Map_Collision_Boss_0"
+      "PrefabName": "Tile_Map_Collision_Boss_0_0"
     },
     {
       "DataId": 2,
       "RoomType": 8,
       "Stage": 0,
-      "PrefabName": "Tile_Map_Collision_Devil_0"
+      "PrefabName": "Tile_Map_Collision_Devil_0_0"
     },
     {
       "DataId": 3,
       "RoomType": 2,
       "Stage": 0,
-      "PrefabName": "Tile_Map_Collision_Gold_0"
+      "PrefabName": "Tile_Map_Collision_Gold_0_0"
     },
     {
       "DataId": 4,
       "RoomType": 3,
       "Stage": 0,
-      "PrefabName": "Tile_Map_Collision_Sacrifice_0"
+      "PrefabName": "Tile_Map_Collision_Sacrifice_0_0"
     },
     {
       "DataId": 5,
       "RoomType": 9,
       "Stage": 0,
-      "PrefabName": "Tile_Map_Collision_Secret_0"
+      "PrefabName": "Tile_Map_Collision_Secret_0_0"
     },
     {
       "DataId": 6,
       "RoomType": 4,
       "Stage": 0,
-      "PrefabName": "Tile_Map_Collision_Curse_0"
+      "PrefabName": "Tile_Map_Collision_Curse_0_0"
     },
     {
       "DataId": 7,
       "RoomType": 5,
       "Stage": 0,
-      "PrefabName": "Tile_Map_Collision_Shop_0"
+      "PrefabName": "Tile_Map_Collision_Shop_0_0"
     },
     {
       "DataId": 8,
       "RoomType": 0,
       "Stage": 0,
-      "PrefabName": "Tile_Map_Collision_Start_0"
+      "PrefabName": "Tile_Map_Collision_Start_0_0"
     },
     {
       "DataId": 9,

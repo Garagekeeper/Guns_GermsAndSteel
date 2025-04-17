@@ -136,6 +136,7 @@ public class Pickup : BaseObject
 
     public void SetCollider(int value)
     {
+        if (PickupType == EPICKUP_TYPE.PICKUP_CHEST && value == 0) return;
         PickupCollider.enabled = value == 1 ? true : false;
     }
 }

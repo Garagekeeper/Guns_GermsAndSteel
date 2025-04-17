@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Data;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -428,7 +429,7 @@ public class GameManager
         {
             Vector2 roomCenterPos = Managers.Map.CurrentRoom.WorldCenterPos;
             Transform pickupsTransform = FindChildByName(Managers.Map.CurrentRoom.Transform, "Pickups");
-
+            //collisionData[y + math.abs(StageColYMin) + (int)room.WorldCenterPos.y, x + math.abs(StageColXMin) + (int)room.WorldCenterPos.x] = collsionInt;
             List<Vector3Int> spawnPoses = SpriralPos(roomCenterPos, pickupCount);
             int done = 0;
             foreach (var spawnPos in spawnPoses)

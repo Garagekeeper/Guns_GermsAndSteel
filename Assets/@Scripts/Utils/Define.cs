@@ -15,6 +15,7 @@ public static class Define
         Wall,
         None,
         SemiWall,
+        test=-1,
     }
     public enum ECreatureType
     {

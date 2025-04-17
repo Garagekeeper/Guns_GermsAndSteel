@@ -1,13 +1,13 @@
 DataId,"RoomType	","Stage	",PrefabName
-0,Angel,0,Tile_Map_Collision_Angel_0
-1,Boss,0,Tile_Map_Collision_Boss_0
-2,Devil,0,Tile_Map_Collision_Devil_0
-3,Gold,0,Tile_Map_Collision_Gold_0
-4,Sacrifice,0,Tile_Map_Collision_Sacrifice_0
-5,Secret,0,Tile_Map_Collision_Secret_0
-6,Curse,0,Tile_Map_Collision_Curse_0
-7,Shop,0,Tile_Map_Collision_Shop_0
-8,Start,0,Tile_Map_Collision_Start_0
+0,Angel,0,Tile_Map_Collision_Angel_0_0
+1,Boss,0,Tile_Map_Collision_Boss_0_0
+2,Devil,0,Tile_Map_Collision_Devil_0_0
+3,Gold,0,Tile_Map_Collision_Gold_0_0
+4,Sacrifice,0,Tile_Map_Collision_Sacrifice_0_0
+5,Secret,0,Tile_Map_Collision_Secret_0_0
+6,Curse,0,Tile_Map_Collision_Curse_0_0
+7,Shop,0,Tile_Map_Collision_Shop_0_0
+8,Start,0,Tile_Map_Collision_Start_0_0
 9,Normal,1,Tile_Map_Collision_Normal_1_0
 10,Normal,1,Tile_Map_Collision_Normal_1_1
 11,Normal,1,Tile_Map_Collision_Normal_1_2

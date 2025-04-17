@@ -164,8 +164,9 @@ public class MapManager
         if (y < StageColYMin || y > StageColYMax) return false;
         //Debug.Log("x: " + (x + XMax));
         //Debug.Log("y: " + (y + YMax));
-        if (collisionData[y + math.abs(StageColYMin), x + math.abs(StageColXMin)]
-            == (int)ECellCollisionType.Wall) return false;
+        if (collisionData[y + math.abs(StageColYMin)-1, x + math.abs(StageColXMin)-1]
+            == (int)ECellCollisionType.Wall || collisionData[y + math.abs(StageColYMin), x + math.abs(StageColXMin)]
+            == (int)ECellCollisionType.SemiWall) return false;
         return true;
     }
 
@@ -1258,12 +1259,12 @@ public class MapManager
                     {
                         case "CannotGo":
                         case "Rock":
-                        case "Urn":
                             collsionInt = (int)ECellCollisionType.Wall;
                             break;
                         case "CanGo":
                             collsionInt = (int)ECellCollisionType.None;
                             break;
+                        case "Urn":
                         case "Door":
                         case "Spike":
                         case "Fire":
