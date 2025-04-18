@@ -19,6 +19,7 @@ TagManager:
   - Poop
   - Urn
   - Rock
+  - SpikeDoor
   layers:
   - Default
   - TransparentFX

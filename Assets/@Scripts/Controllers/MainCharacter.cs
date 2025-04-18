@@ -686,6 +686,13 @@ public class MainCharacter : Creature
             Managers.Game.GoToNextRoom(collision.transform.name);
         }
 
+        if (collision.transform.CompareTag("SpikeDoor") && Managers.Map.CurrentRoom.IsClear)
+        {
+            CanMove = false;
+            OnDamaged(this,ESkillType.Spike);
+            Managers.Game.GoToNextRoom(collision.transform.name);
+        }
+
         if (collision.transform.CompareTag("TrapDoor") && Managers.Map.CurrentRoom.IsClear)
         {
             Managers.UI.PlayingUI.activeStatgeLoading();

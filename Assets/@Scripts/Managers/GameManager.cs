@@ -174,8 +174,6 @@ public class GameManager
 
     public void GoToNextStage()
     {
-
-
         foreach (var temp in Managers.Object.MainCharacters)
         {
             temp.CanMove = false;

@@ -924,13 +924,16 @@ public class MapManager
         {
             if (room._adjacencentRooms[i] != null)
             {
-                int temp;
+                // ??
+                int temp = (int)room.RoomType;
+
+                // Normal Start이외의 방이면 인접한 방의 스프라이트를 쓴다
                 if ((int)room.RoomType < (int)room._adjacencentRooms[i].RoomType)
                     temp = (int)room._adjacencentRooms[i].RoomType;
-                else
-                    temp = (int)room.RoomType;
 
                 GameObject door = room.Doors.transform.GetChild(i).gameObject;
+                if (temp == (int)ERoomType.Curse) door.tag = "SpikeDoor";
+
                 door.SetActive(true);
                 //bg
                 door.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorBackGround[temp]);
