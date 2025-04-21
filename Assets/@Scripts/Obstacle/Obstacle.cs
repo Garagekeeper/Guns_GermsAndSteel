@@ -18,6 +18,9 @@ public class Obstacle : BaseObject
     private float _hp;
     private Collider2D Collider;
     private ObstacleTypes _obstacleType;
+
+    private int _sacrificeCnt;
+
     public ObstacleTypes ObstacleType
     {
         get { return _obstacleType; }
@@ -33,6 +36,8 @@ public class Obstacle : BaseObject
     {
         Collider = GetComponent<CircleCollider2D>();
         ObstacleType = ObstacleTypes.None;
+        _sacrificeCnt = 1;
+
         if (type == "Spike") ObstacleType = ObstacleTypes.Spike;
         if (type == "Fire")
         {
@@ -94,8 +99,15 @@ public class Obstacle : BaseObject
         Creature creature = collision.gameObject.GetComponent<Creature>();
         if (creature != null)
         {
-            if (creature.IsFloating == false && ObstacleType == ObstacleTypes.Spike)
+            if (creature.IsFloating == false && ObstacleType == ObstacleTypes.Spike && Managers.Map.CurrentRoom.RoomType != ERoomType.Sacrifice)
+            {
                 creature.OnDamaged(null, ESkillType.Spike);
+            }
+            else if (ObstacleType == ObstacleTypes.Spike && Managers.Map.CurrentRoom.RoomType == ERoomType.Sacrifice)
+            {
+                creature.OnDamaged(null, ESkillType.Spike);
+                Managers.Game.GetSacrificeReward(_sacrificeCnt++);
+            }
         }
     }
 

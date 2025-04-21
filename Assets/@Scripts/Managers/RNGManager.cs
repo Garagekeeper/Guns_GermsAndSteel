@@ -55,23 +55,28 @@ public class RNGManager
         Rand_Cnt++;
     }
 
+    // 반드시 0이상의 수를 입력
     public int RandInt(int left, int right)
     {
         if (left == 0 && right == 0) return 0;
         Rand();
         return (int)((Sn % (right - left + 1)) + left);
     }
+    
+    // 반드시 0이상의 수를 입력
     public int RandInt(int left, long right)
     {
         Rand();
         return (int)((Sn % (right - left + 1)) + left);
     }
 
+    // 반드시 0이상의 수를 입력
     public int RandInt(int right)
     {
         return RandInt(0, right);
     }
 
+    // 반드시 0이상의 수를 입력
     public float RandFloat()
     {
         Rand();

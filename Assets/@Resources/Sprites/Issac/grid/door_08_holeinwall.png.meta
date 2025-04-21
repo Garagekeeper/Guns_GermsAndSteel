@@ -139,10 +139,10 @@ TextureImporter:
       name: door_08_holeinwall_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 205
-        width: 49
-        height: 41
+        x: 0
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,10 +160,10 @@ TextureImporter:
       name: door_08_holeinwall_1
       rect:
         serializedVersion: 2
-        x: 71
-        y: 205
-        width: 49
-        height: 41
+        x: 64
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +181,10 @@ TextureImporter:
       name: door_08_holeinwall_2
       rect:
         serializedVersion: 2
-        x: 135
-        y: 205
-        width: 49
-        height: 41
+        x: 128
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,10 +202,10 @@ TextureImporter:
       name: door_08_holeinwall_3
       rect:
         serializedVersion: 2
-        x: 199
-        y: 205
-        width: 49
-        height: 41
+        x: 192
+        y: 192
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,10 +223,10 @@ TextureImporter:
       name: door_08_holeinwall_4
       rect:
         serializedVersion: 2
-        x: 7
-        y: 141
-        width: 49
-        height: 41
+        x: 0
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,10 +244,10 @@ TextureImporter:
       name: door_08_holeinwall_5
       rect:
         serializedVersion: 2
-        x: 71
-        y: 141
-        width: 49
-        height: 41
+        x: 64
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,10 +265,10 @@ TextureImporter:
       name: door_08_holeinwall_6
       rect:
         serializedVersion: 2
-        x: 135
-        y: 141
-        width: 49
-        height: 41
+        x: 128
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,10 +286,10 @@ TextureImporter:
       name: door_08_holeinwall_7
       rect:
         serializedVersion: 2
-        x: 199
-        y: 141
-        width: 49
-        height: 41
+        x: 192
+        y: 128
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,10 +307,10 @@ TextureImporter:
       name: door_08_holeinwall_8
       rect:
         serializedVersion: 2
-        x: 7
-        y: 77
-        width: 49
-        height: 41
+        x: 0
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,10 +328,10 @@ TextureImporter:
       name: door_08_holeinwall_9
       rect:
         serializedVersion: 2
-        x: 71
-        y: 77
-        width: 49
-        height: 41
+        x: 64
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,10 +349,10 @@ TextureImporter:
       name: door_08_holeinwall_10
       rect:
         serializedVersion: 2
-        x: 135
-        y: 77
-        width: 49
-        height: 41
+        x: 128
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -370,10 +370,10 @@ TextureImporter:
       name: door_08_holeinwall_11
       rect:
         serializedVersion: 2
-        x: 199
-        y: 77
-        width: 49
-        height: 41
+        x: 192
+        y: 64
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -391,10 +391,10 @@ TextureImporter:
       name: door_08_holeinwall_12
       rect:
         serializedVersion: 2
-        x: 7
-        y: 13
-        width: 49
-        height: 41
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -412,10 +412,10 @@ TextureImporter:
       name: door_08_holeinwall_13
       rect:
         serializedVersion: 2
-        x: 71
-        y: 13
-        width: 49
-        height: 41
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -433,10 +433,10 @@ TextureImporter:
       name: door_08_holeinwall_14
       rect:
         serializedVersion: 2
-        x: 135
-        y: 13
-        width: 49
-        height: 41
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -454,10 +454,10 @@ TextureImporter:
       name: door_08_holeinwall_15
       rect:
         serializedVersion: 2
-        x: 199
-        y: 13
-        width: 49
-        height: 41
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

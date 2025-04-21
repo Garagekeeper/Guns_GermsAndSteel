@@ -8,6 +8,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Windows;
 using UnityEngine.XR;
 using static Define;
 using static Utility;
@@ -328,6 +329,7 @@ public class GameManager
     public void RoomClear()
     {
         var curRoom = Managers.Map.CurrentRoom;
+        var existingValue = curRoom.IsClear;
         curRoom.IsClear = true;
 
         Managers.Map.ChangeDoorSprite(curRoom);
@@ -342,8 +344,8 @@ public class GameManager
             //Managers.Map.CurrentRoom.ItemHolder.SetActive(true);
         }
 
-        //TODO
-        if (curRoom.RoomType == ERoomType.Normal)
+        // 원래 몬스터가 없던 방은 보상을 주지 않는다.
+        if (curRoom.RoomType == ERoomType.Normal && existingValue == false)
             SpawnClearAward(curRoom.AwardSeed);
     }
 
@@ -444,6 +446,28 @@ public class GameManager
                     done++;
                 }
 
+            }
+        }
+    }
+
+    public void SpawnSacrificeAward(int pickupCount, EPICKUP_TYPE sacrificeAward)
+    {
+        if (pickupCount <= 0) return;
+
+        Vector2 roomCenterPos = Managers.Map.CurrentRoom.WorldCenterPos;
+        Transform pickupsTransform = FindChildByName(Managers.Map.CurrentRoom.Transform, "Pickups");
+        List<Vector3Int> spawnPoses = SpriralPos(roomCenterPos, pickupCount);
+
+        int done = 0;
+        foreach (var pos in spawnPoses)
+        {
+            if (done >= pickupCount) break;
+            if (Managers.Map.CanGo(pos))
+            {
+                //spawn
+                Vector3 newSpawnPos = (pos - (Vector3)roomCenterPos);
+                Managers.Object.Spawn<Pickup>(newSpawnPos, sacrificeAward, pickupsTransform);
+                done++;
             }
         }
     }
@@ -576,7 +600,6 @@ public class GameManager
         float[] dy = { 0, 1f, 0, 1f };
 
         Transform pickupsTransform = FindChildByName(Managers.Map.CurrentRoom.Transform, "Pickups");
-        Transform callingTF = pickup.transform;
 
         for (int i = 0; i < pickupCount.Count; i++)
         {
@@ -679,4 +702,125 @@ public class GameManager
 
         Managers.Map.CurrentRoom.AwardSeed = rng.Next();
     }
+
+    public void GetSacrificeReward(int count)
+    {
+        long awardSeed = Managers.Map.CurrentRoom.AwardSeed;
+        RNGManager rng = new RNGManager(awardSeed);
+
+        int pickupCount = 0;
+        EPICKUP_TYPE sacrificeAward = EPICKUP_TYPE.PICKUP_COIN;
+
+        Debug.Log(count);
+
+        if (count <= 2)
+        {
+            // 50 nothing, 50 penny
+            if (rng.Chance(50))
+            {
+                pickupCount = 1;
+                sacrificeAward = EPICKUP_TYPE.PICKUP_COIN;
+            }
+  
+        }
+        else if (count <= 3)
+        {
+            // 67p incerse devil angel
+
+            // 67 3penny
+
+            if (rng.Chance(67))
+            {
+                pickupCount = 3;
+                sacrificeAward = EPICKUP_TYPE.PICKUP_COIN;
+            }
+        }
+        else if (count <= 4)
+        {
+            if (rng.Chance(50))
+            {
+                pickupCount = 1;
+                sacrificeAward = EPICKUP_TYPE.PICKUP_CHEST;
+            }
+        }
+        else if (count <= 5)
+        {
+            // 33 3penny
+            if (rng.Chance(33))
+            {
+                pickupCount = 3;
+                sacrificeAward = EPICKUP_TYPE.PICKUP_COIN;
+            }
+            else
+            {
+                // 67p incerse devil angel
+
+                // 67 1heart
+                pickupCount = 1;
+                sacrificeAward = EPICKUP_TYPE.PICKUP_HEART;
+            }
+
+        }
+
+        /* custom */
+        else if (count <= 6)
+        {
+            //50 10 penny 50 3soulheart
+            if (rng.Chance(50))
+            {
+                pickupCount = 10;
+                sacrificeAward = EPICKUP_TYPE.PICKUP_COIN;
+            }
+            else
+            {
+                // TODO soul hear
+                //50 3"soul"heart
+                pickupCount = 3;
+                sacrificeAward = EPICKUP_TYPE.PICKUP_HEART;
+            }
+        }
+        
+        else
+        {
+            return;
+        }
+
+        /* original 
+         * 
+        else if (count <= 6)
+        {
+            //  33p tp angel devil 67 chest
+        }
+        else if (count <= 7)
+        {
+            // 33p angelroom 67 soulheart
+        }
+        else if (count <= 8)
+        {
+            // nothing (trollibomb)
+        }
+        else if (count <= 9)
+        {
+            // battle
+        }
+        else if (count <= 10)
+        {
+            // 50 30penny 50 7soulheart 
+        }
+        else if (count <= 11)
+        {
+            // battle
+        }
+        else if (count <= 11)
+        {
+            // 50 % Nothing
+            // 50 % Teleport directly to the Dark Room.
+        }
+        */
+
+        SpawnSacrificeAward(pickupCount, sacrificeAward);
+
+        Managers.Map.CurrentRoom.AwardSeed = rng.Sn;
+    }
+
 }

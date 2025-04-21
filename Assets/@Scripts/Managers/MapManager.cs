@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
@@ -165,7 +162,7 @@ public class MapManager
         //Debug.Log("x: " + (x + XMax));
         //Debug.Log("y: " + (y + YMax));
         if (collisionData[y + math.abs(StageColYMin)-1, x + math.abs(StageColXMin)-1]
-            == (int)ECellCollisionType.Wall || collisionData[y + math.abs(StageColYMin), x + math.abs(StageColXMin)]
+            == (int)ECellCollisionType.Wall || collisionData[y + math.abs(StageColYMin)-1, x + math.abs(StageColXMin)-1]
             == (int)ECellCollisionType.SemiWall) return false;
         return true;
     }
@@ -731,7 +728,7 @@ public class MapManager
         {
             if (Managers.Game.RNG.Chance(14))
             {
-                dead_ends.Pop().RoomClass.RoomType = ERoomType.Curse;
+                dead_ends.Pop().RoomClass.RoomType = ERoomType.Sacrifice;
             }
         }
 

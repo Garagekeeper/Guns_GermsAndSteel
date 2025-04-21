@@ -632,7 +632,7 @@ public class MainCharacter : Creature
         switch (pickupType)
         {
             case EPICKUP_TYPE.PICKUP_HEART:
-                Hp += 2;
+                Hp += 1;
                 break;
             case EPICKUP_TYPE.PICKUP_COIN:
                 Coin += 1;
