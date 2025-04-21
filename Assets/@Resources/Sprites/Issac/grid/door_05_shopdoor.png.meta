@@ -136,139 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_05_shopdoor_0
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 189
-        width: 49
-        height: 43
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6aaf8fee9bef7f4b90d297dd145a836
-      internalID: -2019789075
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: door_05_shopdoor_1
       rect:
         serializedVersion: 2
-        x: 84
-        y: 200
-        width: 25
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b86233934a4ebbc4e87f085b2d784449
-      internalID: -1525191425
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_05_shopdoor_2
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 152
-        width: 14
-        height: 24
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 29ab6e699e4f54e449895b7c3e2bd118
-      internalID: -1842618764
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_05_shopdoor_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 152
-        width: 14
-        height: 24
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5ea983d5a50ec25469e66a486b7549e3
-      internalID: 967834403
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_05_shopdoor_4
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 96
-        width: 49
-        height: 40
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f43cdef46d5c66b49b443c572d056b13
-      internalID: 202000538
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_05_shopdoor_5
-      rect:
-        serializedVersion: 2
-        x: 91
-        y: 104
-        width: 18
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ceaeca569508069478f04c062014963e
-      internalID: -1207728596
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_05_shopdoor_6
-      rect:
-        serializedVersion: 2
-        x: 157
-        y: 104
-        width: 16
-        height: 24
+        x: 0
+        y: 192
+        width: 64
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,6 +152,489 @@ TextureImporter:
       bones: []
       spriteID: 351e5cac071f4554eb5307a69f21ea09
       internalID: 600823960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e5d1126e81bb034380632ae86483508
+      internalID: -315873983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c861d254d29961a4ebca9a1f19f7f689
+      internalID: 1417064310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 144
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06644dedbc52df348b479a950a5c97b0
+      internalID: -2040447733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c83988454d43c2469057a8a4f70fa58
+      internalID: 549912730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdbba6efe86cb4141976663d5cf85a8f
+      internalID: 1245335117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_7
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cacec213d84ca674cae0c3db226aaf6c
+      internalID: -1171551553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7a59ff70fe7ca5438a4a033f320bac1
+      internalID: 699320299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b44da01ac6ff65745b6c6f220d55c8d1
+      internalID: 1556641690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 378087825573599439c34e373c98e1fd
+      internalID: -1551069770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 80
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a76308bd54b0c0429fea101ab8ee250
+      internalID: 2128049455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dcc45b48cf21764faff140cbaa638f2
+      internalID: -442713885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a978ee662090b2949825675616b1f0b9
+      internalID: 1616162212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5890fd8fd7abfe6449ce593bf929c7bf
+      internalID: 1792119591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 286350acde8557f4c915c1a43082317c
+      internalID: -229433944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bd0ee1ebdd5f5b479615a350a30445f
+      internalID: -2060348040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_17
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 660f8919bd9ffa943864aa3f7dd0738e
+      internalID: 855981341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_18
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6954d93d657c0224d9a7ff3f128f8f72
+      internalID: -1726124400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_19
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b60c273e2202dce44bc7101533f4705f
+      internalID: 1760666890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b946342f9e638284ea5c6787c51ea504
+      internalID: 956083468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 552bf964010208d49b2fa3fcc256c5f8
+      internalID: 965160264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_22
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 582c2edb4091ad64e872c4437fdea4a2
+      internalID: 443944244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_23
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1459a1ceb1d22f3489c4429a04fbf5b2
+      internalID: -1435135794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_05_shopdoor_24
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6af077af2c1aae440a818a567e74d309
+      internalID: 91293067
       vertices: []
       indices: 
       edges: []
@@ -293,30 +650,50 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      door_00_shopdoor_10: 890669719
-      door_00_shopdoor_11: -1813076484
-      door_00_shopdoor_12: -3492838
-      door_00_shopdoor_13: -606219134
-      door_00_shopdoor_14: -1766977531
-      door_00_shopdoor_15: 1331413705
-      door_00_shopdoor_16: -2010912289
-      door_00_shopdoor_17: 2020764048
-      door_00_shopdoor_18: -1195447592
-      door_00_shopdoor_19: -529397725
-      door_00_shopdoor_20: 480501139
-      door_00_shopdoor_21: -966292251
-      door_00_shopdoor_22: -810673544
-      door_00_shopdoor_23: 2129858849
-      door_00_shopdoor_7: -1319444579
-      door_00_shopdoor_8: 891448106
-      door_00_shopdoor_9: -1646285270
       door_05_shopdoor_0: -2019789075
-      door_05_shopdoor_1: -1525191425
-      door_05_shopdoor_2: -1842618764
-      door_05_shopdoor_3: 967834403
-      door_05_shopdoor_4: 202000538
-      door_05_shopdoor_5: -1207728596
-      door_05_shopdoor_6: 600823960
+      door_05_shopdoor_1: 600823960
+      door_05_shopdoor_10: -1551069770
+      door_05_shopdoor_11: 2128049455
+      door_05_shopdoor_12: -442713885
+      door_05_shopdoor_13: 1616162212
+      door_05_shopdoor_14: 1792119591
+      door_05_shopdoor_15: -229433944
+      door_05_shopdoor_16: -2060348040
+      door_05_shopdoor_17: 855981341
+      door_05_shopdoor_18: -1726124400
+      door_05_shopdoor_19: 1760666890
+      door_05_shopdoor_2: -315873983
+      door_05_shopdoor_20: 956083468
+      door_05_shopdoor_21: 965160264
+      door_05_shopdoor_22: 443944244
+      door_05_shopdoor_23: -1435135794
+      door_05_shopdoor_24: 91293067
+      door_05_shopdoor_3: 1417064310
+      door_05_shopdoor_30: 1143850983
+      door_05_shopdoor_31: -1310441880
+      door_05_shopdoor_32: -669611423
+      door_05_shopdoor_33: -1771039663
+      door_05_shopdoor_34: -1597286975
+      door_05_shopdoor_35: -302214438
+      door_05_shopdoor_36: -1902855722
+      door_05_shopdoor_37: -575144269
+      door_05_shopdoor_38: 1062922868
+      door_05_shopdoor_39: 1546672926
+      door_05_shopdoor_4: -2040447733
+      door_05_shopdoor_40: -184660036
+      door_05_shopdoor_41: -1269580305
+      door_05_shopdoor_42: 868476073
+      door_05_shopdoor_43: 1361321549
+      door_05_shopdoor_44: -752874417
+      door_05_shopdoor_45: -1569231794
+      door_05_shopdoor_46: 9966718
+      door_05_shopdoor_47: -1868702309
+      door_05_shopdoor_48: -1694930644
+      door_05_shopdoor_5: 549912730
+      door_05_shopdoor_6: 1245335117
+      door_05_shopdoor_7: -1171551553
+      door_05_shopdoor_8: 699320299
+      door_05_shopdoor_9: 1556641690
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

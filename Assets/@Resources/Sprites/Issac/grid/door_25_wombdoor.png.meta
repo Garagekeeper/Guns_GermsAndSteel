@@ -136,15 +136,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_25_wombdoor_0
+      name: door_25_wombdoor_23
       rect:
         serializedVersion: 2
-        x: 8
-        y: 190
-        width: 49
-        height: 41
+        x: 157
+        y: 32
+        width: 35
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,78 +157,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_25_wombdoor_1
+      name: door_25_wombdoor_0
       rect:
         serializedVersion: 2
-        x: 84
-        y: 200
-        width: 25
-        height: 24
+        x: 0
+        y: 192
+        width: 64
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8683084838e059e4289c5e9845045e57
-      internalID: 1651790653
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_25_wombdoor_2
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 152
-        width: 14
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e58e95b59df25214a95f5c2174ff46a2
-      internalID: -213742542
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_25_wombdoor_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 152
-        width: 14
-        height: 24
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cfe7daf2793478a4495fa82720987387
-      internalID: 391123341
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_25_wombdoor_4
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 96
-        width: 49
-        height: 40
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -241,15 +178,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_25_wombdoor_5
+      name: door_25_wombdoor_1
       rect:
         serializedVersion: 2
-        x: 91
-        y: 104
-        width: 18
-        height: 24
+        x: 64
+        y: 192
+        width: 64
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -262,15 +199,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_25_wombdoor_6
+      name: door_25_wombdoor_2
       rect:
         serializedVersion: 2
-        x: 157
-        y: 104
-        width: 16
-        height: 24
+        x: 0
+        y: 144
+        width: 64
+        height: 48
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -278,6 +215,426 @@ TextureImporter:
       bones: []
       spriteID: 61169bbc218c0884d9717240b533b592
       internalID: -939474730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 144
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7769b6575ea726745a81a1bd514ea6a0
+      internalID: 391123341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c33d7e9da6a5d5409db4232d84165d2
+      internalID: 595460101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5da62679d84f71a4ea0b9d47d52121d3
+      internalID: 744009927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 96
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 751c500bf20226146ac235f563633261
+      internalID: -815032548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bfb63c3332ab814382f7bebe55c1108
+      internalID: 875443400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b55495817524b64fbde6d9bf6f5555a
+      internalID: -1786740897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 015ccd10565adf4458f78ee62cd3b713
+      internalID: -1585341973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_10
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 80
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9ce08a4c01669249b0a5f53f7a538fb
+      internalID: -1728141104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 053d3d8e989c25d42a4852adc1a6d9ed
+      internalID: 1937130791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_12
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edcbf9e00e5634e44abb86a5d827d895
+      internalID: -9394324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5677c589f92eac044ad8ff431ae8d4c0
+      internalID: 2004278068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_14
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfd9ba879c197ff4a8e23b0aab8fbb1c
+      internalID: 875401025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d24a5e1c505d485478e2482696a6563f
+      internalID: 518326785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 090dba7a5b190d44db55a298b115e469
+      internalID: 772826987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fac71b029bc2ca43a249da482f598d8
+      internalID: -822436886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6849940b5f5f14d4687375941a482490
+      internalID: -1058362581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b1a4af04e0498544bad8ef305e39372
+      internalID: -200366281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_20
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 326c789da7a96944f9041e92686194a2
+      internalID: 282047876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_21
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f611f652f0aa2f4db26a4e04e10f66e
+      internalID: -1222348844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_25_wombdoor_22
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3e5f98623dc8174bb2d11f5004f75dc
+      internalID: 619701350
       vertices: []
       indices: 
       edges: []
@@ -293,30 +650,52 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      door_25_wombdoor_0: -544903210
-      door_25_wombdoor_1: 1651790653
-      door_25_wombdoor_10: -1728141104
-      door_25_wombdoor_11: 1937130791
-      door_25_wombdoor_12: -9394324
-      door_25_wombdoor_13: 2004278068
-      door_25_wombdoor_14: 875401025
-      door_25_wombdoor_15: 518326785
-      door_25_wombdoor_16: 772826987
-      door_25_wombdoor_17: -822436886
-      door_25_wombdoor_18: -1058362581
-      door_25_wombdoor_19: -200366281
-      door_25_wombdoor_2: -213742542
+      door_25_wombdoor_0: 1198719369
+      door_25_wombdoor_1: -371795585
+      door_25_wombdoor_10: 875401025
+      door_25_wombdoor_11: 518326785
+      door_25_wombdoor_12: 772826987
+      door_25_wombdoor_13: -822436886
+      door_25_wombdoor_14: -1058362581
+      door_25_wombdoor_15: -200366281
+      door_25_wombdoor_16: 282047876
+      door_25_wombdoor_17: -1222348844
+      door_25_wombdoor_18: 619701350
+      door_25_wombdoor_19: 664259509
+      door_25_wombdoor_2: -939474730
       door_25_wombdoor_20: 282047876
       door_25_wombdoor_21: -1222348844
       door_25_wombdoor_22: 619701350
-      door_25_wombdoor_23: 664259509
-      door_25_wombdoor_3: 391123341
-      door_25_wombdoor_4: 1198719369
-      door_25_wombdoor_5: -371795585
-      door_25_wombdoor_6: -939474730
-      door_25_wombdoor_7: 875443400
-      door_25_wombdoor_8: -1786740897
-      door_25_wombdoor_9: -1585341973
+      door_25_wombdoor_23: -544903210
+      door_25_wombdoor_27: -532888617
+      door_25_wombdoor_28: 441228127
+      door_25_wombdoor_29: -2138201147
+      door_25_wombdoor_3: 875443400
+      door_25_wombdoor_30: 501486500
+      door_25_wombdoor_31: 1072764194
+      door_25_wombdoor_32: 1290270352
+      door_25_wombdoor_33: 676769423
+      door_25_wombdoor_34: 925943952
+      door_25_wombdoor_35: -573775075
+      door_25_wombdoor_36: -2033785943
+      door_25_wombdoor_37: 2001210390
+      door_25_wombdoor_38: 52273562
+      door_25_wombdoor_39: 430843746
+      door_25_wombdoor_4: -1786740897
+      door_25_wombdoor_40: 76541390
+      door_25_wombdoor_41: -928657086
+      door_25_wombdoor_42: -403690645
+      door_25_wombdoor_43: -1992450070
+      door_25_wombdoor_44: 1219351832
+      door_25_wombdoor_45: -978605367
+      door_25_wombdoor_46: 1438209706
+      door_25_wombdoor_47: 1851178509
+      door_25_wombdoor_48: -544903210
+      door_25_wombdoor_5: -1585341973
+      door_25_wombdoor_6: -1728141104
+      door_25_wombdoor_7: 1937130791
+      door_25_wombdoor_8: -9394324
+      door_25_wombdoor_9: 2004278068
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

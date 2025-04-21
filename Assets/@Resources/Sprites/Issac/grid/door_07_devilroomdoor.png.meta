@@ -139,12 +139,12 @@ TextureImporter:
       name: door_07_devilroomdoor_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 189
-        width: 49
-        height: 51
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 192
+        width: 64
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.44}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,10 +160,10 @@ TextureImporter:
       name: door_07_devilroomdoor_1
       rect:
         serializedVersion: 2
-        x: 84
-        y: 200
-        width: 25
-        height: 24
+        x: 64
+        y: 192
+        width: 64
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +181,10 @@ TextureImporter:
       name: door_07_devilroomdoor_2
       rect:
         serializedVersion: 2
-        x: 19
-        y: 152
-        width: 14
-        height: 24
+        x: 1
+        y: 144
+        width: 63
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,10 +202,10 @@ TextureImporter:
       name: door_07_devilroomdoor_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 152
-        width: 14
-        height: 24
+        x: 64
+        y: 144
+        width: 64
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,10 +223,10 @@ TextureImporter:
       name: door_07_devilroomdoor_4
       rect:
         serializedVersion: 2
-        x: 8
+        x: 0
         y: 96
-        width: 49
-        height: 40
+        width: 64
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,10 +244,10 @@ TextureImporter:
       name: door_07_devilroomdoor_5
       rect:
         serializedVersion: 2
-        x: 91
-        y: 104
-        width: 18
-        height: 24
+        x: 64
+        y: 96
+        width: 64
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,10 +265,10 @@ TextureImporter:
       name: door_07_devilroomdoor_6
       rect:
         serializedVersion: 2
-        x: 157
-        y: 104
-        width: 16
-        height: 24
+        x: 128
+        y: 96
+        width: 64
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -278,6 +278,363 @@ TextureImporter:
       bones: []
       spriteID: 88e238de2ad9d0f47b8ab4d478efacf2
       internalID: -1785021706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_devilroomdoor_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c04cfdff5a6607469522fa572462f90
+      internalID: 2038724425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_devilroomdoor_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a573d49f8472684793c89d499af9dd2
+      internalID: -298771123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_devilroomdoor_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68888af4ba2fe194893c3857aaf8b296
+      internalID: -1602645739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_devilroomdoor_10
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 80
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 139e3288f0d11674fb645bbe050c2b1a
+      internalID: -1908171554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_devilroomdoor_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f63e59f2787c61488d179d35f03f184
+      internalID: 1296340075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_devilroomdoor_12
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cebf2586fd0aced4dbb2e21786fafb4b
+      internalID: 203015557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_devilroomdoor_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d64350d7593e804baaceb3d32123f20
+      internalID: 628571056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_devilroomdoor_14
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af4395c101c40454cb40f450f68eca5c
+      internalID: 1630411404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_devilroomdoor_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e55116d3ca5acf4987fe0f16e3d6824
+      internalID: 37630270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_devilroomdoor_16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1046c242d34a67640b7e3ab9ab8d3623
+      internalID: -2086439951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_devilroomdoor_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4490c6f640c513f43ae5820c9b28ac0a
+      internalID: -214082798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_devilroomdoor_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20ea31cab3535684b94b7db6dad29727
+      internalID: 1739467399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_devilroomdoor_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f96e8aa67c41f44c8c664f1d672842e
+      internalID: -643487016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_devilroomdoor_20
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d4c3fc97606a44fb6e697d67284e89
+      internalID: -158579423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_devilroomdoor_21
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70920947b71bebd4a830bf0266da9716
+      internalID: -1430598741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_devilroomdoor_22
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58ef00f43a0190f47a806284c9a9e15f
+      internalID: -1053417170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_devilroomdoor_23
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b7fa12e4582b284a906543caa0b450d
+      internalID: -858938876
       vertices: []
       indices: 
       edges: []
@@ -310,8 +667,33 @@ TextureImporter:
       door_07_devilroomdoor_21: -1430598741
       door_07_devilroomdoor_22: -1053417170
       door_07_devilroomdoor_23: -858938876
+      door_07_devilroomdoor_24: 979291884
+      door_07_devilroomdoor_25: 247206730
+      door_07_devilroomdoor_26: 2065033637
+      door_07_devilroomdoor_27: -1461852815
+      door_07_devilroomdoor_28: -1523103021
+      door_07_devilroomdoor_29: -749260320
       door_07_devilroomdoor_3: 328698974
+      door_07_devilroomdoor_30: -2018891786
+      door_07_devilroomdoor_31: -749487650
+      door_07_devilroomdoor_32: 978658910
+      door_07_devilroomdoor_33: -71448228
+      door_07_devilroomdoor_34: -675002845
+      door_07_devilroomdoor_35: -602757018
+      door_07_devilroomdoor_36: -793719228
+      door_07_devilroomdoor_37: 1038117254
+      door_07_devilroomdoor_38: -1665107193
+      door_07_devilroomdoor_39: 1050910123
       door_07_devilroomdoor_4: -1091589008
+      door_07_devilroomdoor_40: 1808401204
+      door_07_devilroomdoor_41: 2051233968
+      door_07_devilroomdoor_42: -532453465
+      door_07_devilroomdoor_43: -1060147796
+      door_07_devilroomdoor_44: -314766506
+      door_07_devilroomdoor_45: 1172537057
+      door_07_devilroomdoor_46: -639527782
+      door_07_devilroomdoor_47: 1617018663
+      door_07_devilroomdoor_48: -1103225217
       door_07_devilroomdoor_5: -1804897141
       door_07_devilroomdoor_6: -1785021706
       door_07_devilroomdoor_7: 2038724425

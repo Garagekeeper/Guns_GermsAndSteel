@@ -139,12 +139,12 @@ TextureImporter:
       name: door_07_holyroomdoor_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 189
-        width: 49
-        height: 51
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 192
+        width: 64
+        height: 48
+      alignment: 9
+      pivot: {x: 0.5, y: 0.44}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,10 +160,10 @@ TextureImporter:
       name: door_07_holyroomdoor_1
       rect:
         serializedVersion: 2
-        x: 84
-        y: 200
-        width: 25
-        height: 24
+        x: 64
+        y: 192
+        width: 64
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +181,10 @@ TextureImporter:
       name: door_07_holyroomdoor_2
       rect:
         serializedVersion: 2
-        x: 19
-        y: 152
-        width: 14
-        height: 24
+        x: 0
+        y: 144
+        width: 64
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,10 +202,10 @@ TextureImporter:
       name: door_07_holyroomdoor_3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 152
-        width: 14
-        height: 24
+        x: 64
+        y: 144
+        width: 64
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,10 +223,10 @@ TextureImporter:
       name: door_07_holyroomdoor_5
       rect:
         serializedVersion: 2
-        x: 91
-        y: 104
-        width: 18
-        height: 24
+        x: 64
+        y: 96
+        width: 64
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,10 +244,10 @@ TextureImporter:
       name: door_07_holyroomdoor_6
       rect:
         serializedVersion: 2
-        x: 157
-        y: 104
-        width: 16
-        height: 24
+        x: 128
+        y: 96
+        width: 64
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,6 +257,384 @@ TextureImporter:
       bones: []
       spriteID: 8bb1f089bdcc70049892a89586b4542c
       internalID: -1596801858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60225d33ec580bd44b0dcfd56647ff70
+      internalID: 96340785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7d78e550f434e14dbe245aa3cb375c9
+      internalID: -2096629039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 80
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85d77c0caae1cda42ab133765afd030c
+      internalID: -1964093741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_9
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 80
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba3d06a7a8ec9b54b80c7b9fc62bd3a4
+      internalID: 600458603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_10
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 80
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 524f0e11288e81a44a90a6799f45c43d
+      internalID: 682804384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5464fbd099984784b985458be2a4bf33
+      internalID: 1833220350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_12
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79c4cab5c2a7417438058851a34a5d74
+      internalID: 567765752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bfef09955f055f4793a74e1486a0935
+      internalID: -828084412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_14
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32d2ce63d9c85864cba8103a80a739b1
+      internalID: -721964913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d9b8b3301789064da4fb731c71da0e4
+      internalID: 562396294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47cf143b92a7f5d4f8a3e0293b445166
+      internalID: -1406298807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_17
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 831b61ab1ddbde745a37b4add093c08f
+      internalID: 1538242778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_18
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3989038b26881247a60ec9987eb0fa8
+      internalID: -134577109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed0bfeb3b3338534b84e0a1188dc54bc
+      internalID: 268941374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_20
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d70fce5c23bc08b44a212a8d6dd86d0d
+      internalID: -364612199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_21
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63b3888badd2d824b994b0b28fd705bb
+      internalID: 185884199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_22
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf449381d347b804bb5a22788cfbbe8f
+      internalID: 259183817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: door_07_holyroomdoor_23
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a871591a3e0b5b469ce06369aab64d4
+      internalID: -82844709
       vertices: []
       indices: 
       edges: []
@@ -289,8 +667,33 @@ TextureImporter:
       door_07_holyroomdoor_21: 185884199
       door_07_holyroomdoor_22: 259183817
       door_07_holyroomdoor_23: -82844709
+      door_07_holyroomdoor_24: -1971772422
+      door_07_holyroomdoor_25: -530814268
+      door_07_holyroomdoor_26: 239993986
+      door_07_holyroomdoor_27: 371365698
+      door_07_holyroomdoor_28: -1253284095
+      door_07_holyroomdoor_29: 1432708053
       door_07_holyroomdoor_3: 1705079629
+      door_07_holyroomdoor_30: -118193174
+      door_07_holyroomdoor_31: -1945993851
+      door_07_holyroomdoor_32: -591924877
+      door_07_holyroomdoor_33: -84033062
+      door_07_holyroomdoor_34: -1096021448
+      door_07_holyroomdoor_35: 1849684302
+      door_07_holyroomdoor_36: 915685764
+      door_07_holyroomdoor_37: -657903737
+      door_07_holyroomdoor_38: -7007067
+      door_07_holyroomdoor_39: 1530391898
       door_07_holyroomdoor_4: 96340785
+      door_07_holyroomdoor_40: 1316697395
+      door_07_holyroomdoor_41: 466337134
+      door_07_holyroomdoor_42: 899849020
+      door_07_holyroomdoor_43: 968046817
+      door_07_holyroomdoor_44: 638795187
+      door_07_holyroomdoor_45: -1597996025
+      door_07_holyroomdoor_46: 55606882
+      door_07_holyroomdoor_47: -1144008993
+      door_07_holyroomdoor_48: 764534172
       door_07_holyroomdoor_5: -1635426176
       door_07_holyroomdoor_6: -1596801858
       door_07_holyroomdoor_7: -2096629039
