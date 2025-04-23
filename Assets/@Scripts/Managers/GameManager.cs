@@ -124,7 +124,13 @@ public class GameManager
         MoveCameraToNextRoom(currentRoom._adjacencentRooms[index]);
 
         Managers.Object.DespawnMonsters(Managers.Map.CurrentRoom);
+        // 미클리어후 폭탄, 아이템등 어떤 이유로 나가면 문을 닫힌상태로
+        if (currentRoom.IsClear == false)
+        {
+            currentRoom.Doors.GetComponent<Door>().ClosedAll();
+        }
 
+        // 현재 맵 변경
         Managers.Map.CurrentRoom = currentRoom._adjacencentRooms[index];
         //Managers.UI.PlayingUI.BossHpActive(true);
 
@@ -138,13 +144,17 @@ public class GameManager
 
         if (Managers.Map.CurrentRoom.IsClear == false)
         {
+            //Managers.Map.CurrentRoom.Doors.GetComponent<Door>().CloseAll();
             Managers.Map.SpawnMonsterAndBossInRoom(Managers.Map.CurrentRoom, () =>
             {
                 CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
             });
+
+
         }
         else
         {
+            //Managers.Map.CurrentRoom.Doors.GetComponent<Door>().OpenedAll();
             CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
         }
     }
@@ -332,7 +342,7 @@ public class GameManager
         var existingValue = curRoom.IsClear;
         curRoom.IsClear = true;
 
-        Managers.Map.ChangeDoorSprite(curRoom);
+        //curRoom.Doors.GetComponent<Door>().OpenAll();
         foreach (var player in Managers.Object.MainCharacters)
         {
             if (player.OneTimeActive)
@@ -346,7 +356,16 @@ public class GameManager
 
         // 원래 몬스터가 없던 방은 보상을 주지 않는다.
         if (curRoom.RoomType == ERoomType.Normal && existingValue == false)
+        {
             SpawnClearAward(curRoom.AwardSeed);
+            
+        }
+
+        // 클리어하지 않은 방만 Door의 열리는 모션을 재생한다
+        if (existingValue == false)
+        {
+            curRoom.Doors.GetComponent<Door>().OpenAll();
+        }
     }
 
     public void RoomConditionCheck()

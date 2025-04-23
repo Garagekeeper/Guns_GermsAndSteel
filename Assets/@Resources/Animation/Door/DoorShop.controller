@@ -263,7 +263,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BrokenOpened
+  m_Name: BrokenOpen
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -305,7 +305,7 @@ AnimatorStateMachine:
     m_Position: {x: 790, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4605632080301794867}
-    m_Position: {x: 1000, y: 50, z: 0}
+    m_Position: {x: 550, y: 110, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8802239880569065021}
     m_Position: {x: 790, y: 100, z: 0}
@@ -342,7 +342,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 1400, y: 290, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -5599740115218543717}
+  m_DefaultState: {fileID: 4605632080301794867}
 --- !u!1102 &4605632080301794867
 AnimatorState:
   serializedVersion: 6

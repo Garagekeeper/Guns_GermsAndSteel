@@ -13,6 +13,7 @@ using Transform = UnityEngine.Transform;
 using static Utility;
 using UnityEngine.SceneManagement;
 using System.Text.RegularExpressions;
+using static UnityEditor.PlayerSettings;
 
 public class RoomClass
 {
@@ -57,7 +58,7 @@ public class RoomClass
 
     public GameObject Doors { get { return _doors; } set { _doors = value; } }
     public Tilemap Tilemap { get { return _tilemap; } set { _tilemap = value; } }
-    
+
     public long AwardSeed { get { return _awardSeed; } set { _awardSeed = value; } }
     public long ObjectSeed { get { return _objectSeed; } set { _objectSeed = value; } }
 
@@ -78,12 +79,6 @@ public class RoomClass
 }
 public class MapManager
 {
-    public enum ECellType
-    {
-        UnVisited,
-        currentRoom,
-        Visited,
-    }
 
     string[,] doorFrame =
 {
@@ -161,8 +156,8 @@ public class MapManager
         if (y < StageColYMin || y > StageColYMax) return false;
         //Debug.Log("x: " + (x + XMax));
         //Debug.Log("y: " + (y + YMax));
-        if (collisionData[y + math.abs(StageColYMin)-1, x + math.abs(StageColXMin)-1]
-            == (int)ECellCollisionType.Wall || collisionData[y + math.abs(StageColYMin)-1, x + math.abs(StageColXMin)-1]
+        if (collisionData[y + math.abs(StageColYMin) - 1, x + math.abs(StageColXMin) - 1]
+            == (int)ECellCollisionType.Wall || collisionData[y + math.abs(StageColYMin) - 1, x + math.abs(StageColXMin) - 1]
             == (int)ECellCollisionType.SemiWall) return false;
         return true;
     }
@@ -331,7 +326,7 @@ public class MapManager
         {
             if (_currentRoom != value)
             {
-                if (SceneManager.GetActiveScene().name != "DevScene") 
+                if (SceneManager.GetActiveScene().name != "DevScene")
                 {
                     ChangeMinimapadjacencentCellSprite(value, _currentRoom);
                     ChangeRoomActive(value, _currentRoom);
@@ -357,6 +352,8 @@ public class MapManager
     public RoomClass TryPlacingSecretRoom()
     {
         Dictionary<Vector3, int> values = new();
+        int[] dx = { 0, 0, 1, -1 };
+        int[] dy = { 1, -1, 0, 0, };
 
         for (int i = 0; i < 9; i++)
         {
@@ -365,8 +362,7 @@ public class MapManager
                 if (s_roomGraph[i, j] == 1) break;
                 int adjacent = 0;
                 int weighjt = 14;
-                int[] dx = { 0, 0, 1, -1 };
-                int[] dy = { 1, -1, 0, 0, };
+
 
                 int itr = 0;
                 for (int k = 0; k < 4; k++)
@@ -414,6 +410,7 @@ public class MapManager
 
         s_roomGraph[(int)pos.x, (int)pos.y] = 1;
         RoomClass SecretRoom = new((int)pos.x, (int)pos.y);
+
         return (SecretRoom);
     }
 
@@ -754,8 +751,8 @@ public class MapManager
         //8.천사방, 악마방 설정
         if (Managers.Game.RNG.Chance(20))
         {
-            int[] dx = { 0, 0, 1, -1 };
-            int[] dy = { 1, -1, 0, 0, };
+            int[] dx = { 0, 1, 0, -1 };
+            int[] dy = { 1, 0, -1, 0 };
             List<RoomClass> reward = new();
             for (int i = 0; i < 4; i++)
             {
@@ -790,6 +787,8 @@ public class MapManager
 
         Rooms.Add(StartingRoom);
 
+        SetSecretAndDevilAngelRoomAdj();
+
         //temp
         using (var parser = File.CreateText($"Assets/@Resources/Data/MapData/Stage.txt"))
         {
@@ -799,7 +798,7 @@ public class MapManager
                 {
                     if (s_roomGraph[i, j] == 1)
                     {
-                        parser.Write((GetRoomClassByPos(Rooms, i, j).RoomType.ToString()+"("+i+","+j+")").PadLeft(10));
+                        parser.Write((GetRoomClassByPos(Rooms, i, j).RoomType.ToString() + "(" + i + "," + j + ")").PadLeft(10));
                     }
                     else
                     {
@@ -811,6 +810,46 @@ public class MapManager
         }
 
         return 1;
+    }
+
+    public void SetSecretAndDevilAngelRoomAdj()
+    {
+        int[] dx = { 0, 1, 0, -1 };
+        int[] dy = { 1, 0, -1, 0 };
+
+        foreach (var room in Rooms)
+        {
+            if (room.RoomType == ERoomType.Secret)
+            {
+                for (int k = 0; k < 4; k++)
+                {
+                    int nx = (int)room.XPos + dx[k];
+                    int ny = (int)room.YPos + dy[k];
+                    if (nx < 0 || nx >= s_mapMaxXofRoomArray) break;
+                    if (ny < 0 || ny >= s_mapMaxYofRoomArray) break;
+                    if (s_roomGraph[nx, ny] == 1)
+                    {
+                        RoomClass rc = null;
+                        foreach (var r in Rooms)
+                        {
+                            if (r.XPos == nx && r.YPos == ny)
+                            {
+                                rc = r;
+                                Debug.Log($"adj({rc.XPos}, {rc.YPos})");
+                                Debug.Log($"sec({room.XPos}, {room.YPos})");
+                                room._adjacencentRooms[k] = rc;
+                                rc._adjacencentRooms[(k + 2) % 4] = room;
+                            }
+                        }
+                        // 0 1 2 3
+                        // R D L U
+                        // 
+
+                    }
+                }
+            }
+        }
+
     }
     #endregion
 
@@ -919,27 +958,77 @@ public class MapManager
     {
         for (int i = 0; i < 4; i++)
         {
+            //if (room._adjacencentRooms[i] != null)
+            //{
+            //    // ??
+            //    int temp = (int)room.RoomType;
+
+            //    // Normal Start이외의 방이면 인접한 방의 스프라이트를 쓴다
+            //    if ((int)room.RoomType < (int)room._adjacencentRooms[i].RoomType)
+            //        temp = (int)room._adjacencentRooms[i].RoomType;
+
+            //    GameObject door = room.Doors.transform.GetChild(i).gameObject;
+            //    if (temp == (int)ERoomType.Curse) door.tag = "SpikeDoor";
+
+            //    door.SetActive(true);
+            //    //bg
+            //    door.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorBackGround[temp]);
+            //    //left
+            //    door.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorSide[temp, 0]);
+            //    //right
+            //    door.transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorSide[temp, 1]);
+            //    //frame
+            //    door.transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorFrame[temp, 0]);
+            //}
+
             if (room._adjacencentRooms[i] != null)
             {
-                // ??
-                int temp = (int)room.RoomType;
-
-                // Normal Start이외의 방이면 인접한 방의 스프라이트를 쓴다
+                ERoomType doorType = room.RoomType;
+                string animatorName = "Door";
                 if ((int)room.RoomType < (int)room._adjacencentRooms[i].RoomType)
-                    temp = (int)room._adjacencentRooms[i].RoomType;
+                    doorType = room._adjacencentRooms[i].RoomType;
 
-                GameObject door = room.Doors.transform.GetChild(i).gameObject;
-                if (temp == (int)ERoomType.Curse) door.tag = "SpikeDoor";
+                switch (doorType)
+                {
+                    case ERoomType.Normal:
+                    case ERoomType.Start:
+                        animatorName += "Normal";
+                        break;
+                    case ERoomType.Angel:
+                        animatorName += "Angel";
+                        break;
+                    case ERoomType.Devil:
+                        animatorName += "Devil";
+                        break;
+                    case ERoomType.Secret:
+                        animatorName += "Secret";
+                        break;
+                    case ERoomType.Shop:
+                        animatorName += "Shop";
+                        break;
+                    case ERoomType.Boss:
+                        animatorName += "Boss";
+                        break;
+                    case ERoomType.Sacrifice:
+                        animatorName += "Sacrifice";
+                        break;
+                    case ERoomType.Gold:
+                        animatorName += "Golden";
+                        break;
+                    case ERoomType.Curse:
+                        animatorName += "Curse";
+                        break;
+                    default:
+                        Debug.Log("RoomType Err Not Existing Type (MapManager)");
+                        break;
+                }
 
-                door.SetActive(true);
-                //bg
-                door.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorBackGround[temp]);
-                //left
-                door.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorSide[temp, 0]);
-                //right
-                door.transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorSide[temp, 1]);
-                //frame
-                door.transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorFrame[temp, 0]);
+                // 문에 맞는 애니메이션 컨트롤러 할당
+                room.Doors.GetComponent<Door>().SetAnimator(i, doorType, room.RoomType, animatorName);
+            }
+            else
+            {
+                room.Doors.transform.GetChild(i).gameObject.SetActive(false);
             }
         }
 
@@ -1000,7 +1089,7 @@ public class MapManager
 
         int stageNum = r.RoomType == ERoomType.Normal ? Managers.Game.StageNumber : 0;
         //roomName = "Tile_Map_Collision_" + r.RoomType.ToString() + "_" stageNum "_" + Managers.Game.RNG.RandInt(0, RoomCollisionCnt[(int)r.RoomType] - 1);
-        roomName = Managers.Data.RoomDic[r.RoomType][stageNum][Managers.Game.RNG.RandInt(0, Managers.Data.RoomDic[r.RoomType][stageNum].Count-1)];
+        roomName = Managers.Data.RoomDic[r.RoomType][stageNum][Managers.Game.RNG.RandInt(0, Managers.Data.RoomDic[r.RoomType][stageNum].Count - 1)];
         GameObject roomTileMap = Managers.Resource.Instantiate(roomName);
         roomTileMap.transform.SetParent(room.transform);
 
@@ -1027,11 +1116,11 @@ public class MapManager
 
         if (r.RoomType == ERoomType.Start)
         {
-            r.RoomObject.SetActive(true);
+            AltSetActive(r.RoomObject, true);
         }
         else
         {
-            r.RoomObject.SetActive(false);
+            AltSetActive(r.RoomObject, false);
         }
 
     }
@@ -1058,22 +1147,48 @@ public class MapManager
         return go;
     }
 
-    public void ChangeDoorSprite(RoomClass room)
+    public void ChangeDoorAnim(RoomClass room, EDoorState doorState)
     {
         GameObject doorParent = room.Doors;
+        Door doorScript = doorParent.GetComponent<Door>();
 
-        for (int i = 0; i < 4; i++)
+        switch (doorState)
         {
-            GameObject door = doorParent.transform.GetChild(i).gameObject;
-            if (door.activeSelf)
-            {
-                door.transform.GetChild(1).gameObject.SetActive(false);
-                door.transform.GetChild(2).gameObject.SetActive(false);
-            }
-        }
+            case EDoorState.Open:
+                doorParent.transform.Find("TrapDoor")?.gameObject.SetActive(true);
+                doorParent.transform.Find("ClearBox")?.gameObject.SetActive(true);
+                //doorScript.Open();
+                break;
+            case EDoorState.BrokenOpen:
+                break;
+            case EDoorState.CoinOpen:
+                break;
+            case EDoorState.KeyOpen:
+                break;
+            case EDoorState.KeyOpenGolden:
+                break;
+            case EDoorState.KeyOpenNoKey:
+                break;
+            case EDoorState.Opened:
+                //doorScript.Opened();
+                break;
+            case EDoorState.Close:
+                //doorScript.Close();
+                break;
+            case EDoorState.Closed:
+                //doorScript.Closed();
+                break;
+            case EDoorState.CoinClosed:
+                break;
+            case EDoorState.KeyClosed:
+                break;
+            case EDoorState.Broken:
+                break;
+            case EDoorState.Hidden:
+                break;
 
-        doorParent.transform.Find("TrapDoor")?.gameObject.SetActive(true);
-        doorParent.transform.Find("ClearBox")?.gameObject.SetActive(true);
+
+        }
     }
 
     public void ChangeMinimapCellSprite(GameObject cell, string spriteName)
@@ -1099,14 +1214,17 @@ public class MapManager
             if (before.IsClear) cellSpriteIedex = (int)ECellType.Visited;
             ChangeMinimapCellSprite(go.transform.Find(before.RoomObject.name).gameObject, cellSprite[cellSpriteIedex]);
         }
-        
+
         //바뀐 뒤 인접한 방
         for (int i = 0; i < 4; i++)
         {
-
             RoomClass adjacencentRoom = next._adjacencentRooms[i];
             if (adjacencentRoom != null)
             {
+                // 비밀방 미니맵 컨트롤은 Door에서 관리
+                if (adjacencentRoom.RoomType == ERoomType.Secret && adjacencentRoom.IsClear == false) break;
+                if (next.RoomType == ERoomType.Secret) break;
+                
                 Transform child = go.transform.Find(adjacencentRoom.RoomObject.name);
                 if (adjacencentRoom.RoomType != ERoomType.Normal && adjacencentRoom.RoomType != ERoomType.Start)
                 {
@@ -1136,13 +1254,13 @@ public class MapManager
     {
         if (next == null) return;
 
-       
+
         //이전 방 (원래 있던 방)
         if (before != null)
         {
-            FindChildByName(Map.transform, before.RoomObject.name).gameObject.SetActive(false);
+            AltSetActive(FindChildByName(Map.transform, before.RoomObject.name).gameObject, false);
         }
-        
+
         if (before != null)
         {
             for (int i = 0; i < 4; i++)
@@ -1150,14 +1268,14 @@ public class MapManager
                 RoomClass adjacencentRoom = before._adjacencentRooms[i];
                 if (adjacencentRoom != null)
                 {
-                    FindChildByName(Map.transform, adjacencentRoom.RoomObject.name).gameObject.SetActive(false);
+                    AltSetActive(FindChildByName(Map.transform, adjacencentRoom.RoomObject.name).gameObject, false);
                 }
 
             }
         }
 
         //다음 방
-        FindChildByName(Map.transform, next.RoomObject.name).gameObject.SetActive(true);
+        AltSetActive(FindChildByName(Map.transform, next.RoomObject.name).gameObject, true);
 
         //바뀐 뒤 인접한 방
         for (int i = 0; i < 4; i++)
@@ -1165,10 +1283,30 @@ public class MapManager
             RoomClass adjacencentRoom = next._adjacencentRooms[i];
             if (adjacencentRoom != null)
             {
-                FindChildByName(Map.transform, adjacencentRoom.RoomObject.name).gameObject.SetActive(true);
+                AltSetActive(FindChildByName(Map.transform, adjacencentRoom.RoomObject.name).gameObject, true);
             }
 
         }
+
+    }
+
+    public void AltSetActive(GameObject room, bool state)
+    {
+        FindChildByName(room.transform, "Tilemap")?.gameObject.SetActive(state);
+        FindChildByName(room.transform, "Obstacle")?.gameObject.SetActive(state);
+        FindChildByName(room.transform, "Collider")?.gameObject.SetActive(state);
+        FindChildByName(room.transform, "ProjectileCollider")?.gameObject.SetActive(state);
+        foreach (Transform child in FindChildByName(room.transform, "Doors"))
+        {
+            foreach (Transform sprites in child)
+                sprites.gameObject.SetActive(state);
+        }
+        foreach (Transform child in FindChildByName(room.transform, "Pickups"))
+        {
+            foreach (Transform sprites in child)
+                sprites.gameObject.SetActive(state);
+        }
+        FindChildByName(room.transform, "Monster")?.gameObject.SetActive(state);
 
     }
 
@@ -1353,7 +1491,7 @@ public class MapManager
             }
         }
         room.ObjectSeed = obsRng.Sn;
-        
+
     }
     public void SpawnMonsterAndBossInRoom(RoomClass room, Action callback = null)
     {
@@ -1362,7 +1500,7 @@ public class MapManager
         int minX = tmp.cellBounds.xMin;
         int maxY = tmp.cellBounds.yMax;
         int minY = tmp.cellBounds.yMin;
-        
+
         tmp = room.TilemapCollisionPrefab.transform.GetChild(0).GetComponent<Tilemap>();
 
         for (int y = maxY - 1; y > minY; y--)

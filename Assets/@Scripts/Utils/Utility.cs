@@ -140,4 +140,17 @@ public static class Utility
 
         return go.GetComponent<T>();
     }
+
+    public static bool HasItem(int TemplateId)
+    {
+        foreach (MainCharacter player in Managers.Object.MainCharacters)
+        {
+            foreach (Item item in player.AcquiredPassiveItemList)
+            {
+                if (item.TemplateId == TemplateId) return true;
+            }
+        }
+
+        return false;
+    }
 }

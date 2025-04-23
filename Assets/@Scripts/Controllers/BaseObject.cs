@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Define;
 
 public class BaseObject : MonoBehaviour
 {
@@ -20,5 +21,10 @@ public class BaseObject : MonoBehaviour
         //TODO
         //Dead Animation
         Destroy(gameObject);
+    }
+
+    public virtual void Onexplode(Creature owner)
+    { 
+
     }
 }

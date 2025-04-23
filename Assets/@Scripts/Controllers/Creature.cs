@@ -404,6 +404,11 @@ public class Creature : BaseObject
         return closestTarget;
     }
 
+    public override void Onexplode(Creature owner)
+    {
+        OnDamaged(owner, ESkillType.Bomb);
+    }
+
     public virtual void OnDamaged(Creature owner, ESkillType skillType, string name = "")
     {
         switch (skillType)

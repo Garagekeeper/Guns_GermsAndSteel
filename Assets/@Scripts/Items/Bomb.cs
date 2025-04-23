@@ -50,6 +50,10 @@ public class Bomb : MonoBehaviour
             //TODO 폭탄의 경우 여러 물체와 상호작용한다
             //모든 Object의 조상을 만들어서 Object 타입을 통해 적절한 상호작용으로 교체하자.
             temp.GetComponent<Creature>()?.OnDamaged(Owner, _skillType);
+            //Obstacle
+            //temp.GetComponent<Obstacle>()?
+            //Door
+            temp.transform.parent.GetComponent<Door>()?.Break(temp.name);
         }
     }
 

@@ -57,6 +57,60 @@ MonoBehaviour:
     - Sprite
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 637fa713446134f4da3eb20af4d03962
+    m_Address: DoorAngel
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d2908e63c729b3446ab3b86454d74ad3
+    m_Address: DoorSecret
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7adcadeec54ab1043bffae9a8d4a6c8e
+    m_Address: DoorSacrifice
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93830b02dbb732644a2db227b04331e4
+    m_Address: DoorDevil
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73753c53d1e075245828fc0d15cba398
+    m_Address: DoorShop
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48cc0845938c88e48aaad1797038c8c1
+    m_Address: DoorCurse
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c66934909167c443b4da76b01a715bc
+    m_Address: DoorNormal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac443f5bb028d804d989b52ab6a5ba91
+    m_Address: DoorBoss
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1abf22168684e9e47a40a989ad08c448
+    m_Address: DoorGolden
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

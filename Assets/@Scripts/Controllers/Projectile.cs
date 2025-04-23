@@ -216,6 +216,7 @@ public class Projectile : MonoBehaviour
         yield return null;
 
         float delay = anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        Collider.enabled = false;
         yield return new WaitForSeconds(delay);
 
         Destroy(gameObject);

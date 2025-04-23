@@ -16,7 +16,7 @@ public class MainCharacter : Creature
     //float PercentageOfDevil;
     //float PercentageOfAngel;
     public int Coin { get; private set; } = 0;
-    public int BombCount { get; private set; } = 1;
+    public int BombCount { get; private set; } = 12;
     public int KeyCount { get; private set; } = 0;
 
     //public float EmptyHearts { get; private set; } = 0;
@@ -144,6 +144,21 @@ public class MainCharacter : Creature
     //protected List<Item> _passiveItem;
 
     public float DamageByOtherConstant { get; set; } = 0.5f;
+
+    public void AddCoin(int amount)
+    {
+        Coin += amount;
+    }
+
+    public void AddKey(int amount)
+    {
+        KeyCount += amount;
+    }
+
+    public void AddBomb(int amount)
+    {
+        BombCount += amount;
+    }
 
     #endregion
 
@@ -680,10 +695,76 @@ public class MainCharacter : Creature
     private void OnCollisionEnter2D(Collision2D collision)
     {
 
-        if (collision.transform.CompareTag("Door") && Managers.Map.CurrentRoom.IsClear)
+        if (collision.transform.CompareTag("Door"))
         {
-            CanMove = false;
-            Managers.Game.GoToNextRoom(collision.transform.name);
+            int index = 0;
+            switch (collision.transform.name)
+            {
+                case "Right":
+                    index = 0;
+                    break;
+                case "Down":
+                    index = 1;
+                    break;
+                case "Left":
+                    index = 2;
+                    break;
+                case "Up":
+                    index = 3;
+                    break;
+            }
+
+            if (collision.transform.parent.GetComponent<Door>().eDoorState[index] == EDoorState.Broken || collision.transform.parent.GetComponent<Door>().eDoorState[index] == EDoorState.BrokenOpen)
+            {
+                CanMove = false;
+
+                Managers.Game.GoToNextRoom(collision.transform.name);
+                return;
+
+            }
+
+            if (collision.transform.parent.GetComponent<Door>().eDoorState[index] == EDoorState.KeyClosed || collision.transform.parent.GetComponent<Door>().eDoorState[index] == EDoorState.CoinClosed)
+            {
+                collision.transform.parent.GetComponent<Door>().Open(index, false, this);
+                return;
+            }
+            
+            if (Managers.Map.CurrentRoom.IsClear)
+            {
+                CanMove = false;
+                Managers.Game.GoToNextRoom(collision.transform.name);
+            }
+            
+        }
+
+        if (collision.transform.CompareTag("HoleInWall"))
+        {
+            int index = 0;
+            switch (collision.transform.name)
+            {
+                case "Right":
+                    index = 0;
+                    break;
+                case "Down":
+                    index = 1;
+                    break;
+                case "Left":
+                    index = 2;
+                    break;
+                case "Up":
+                    index = 3;
+                    break;
+            }
+
+
+            if (collision.transform.parent.GetComponent<Door>().eDoorState[index] == EDoorState.Opened)
+            {
+                CanMove = false;
+
+                Managers.Game.GoToNextRoom(collision.transform.name);
+                return;
+
+            }
         }
 
         if (collision.transform.CompareTag("SpikeDoor") && Managers.Map.CurrentRoom.IsClear)

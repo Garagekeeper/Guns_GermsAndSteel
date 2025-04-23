@@ -199,4 +199,29 @@ public static class Define
         SSecret,
     }
 
+    public enum EDoorState
+    {
+        Open,
+        BrokenOpen,
+        CoinOpen,
+        KeyOpen,
+        KeyOpenGolden,
+        KeyOpenNoKey,
+        Opened,
+        Close,
+        Closed,
+        CoinClosed,
+        KeyClosed,
+        Broken,
+        Hidden,
+
+    }
+
+    public enum ECellType
+    {
+        UnVisited,
+        currentRoom,
+        Visited,
+    }
+
 }
