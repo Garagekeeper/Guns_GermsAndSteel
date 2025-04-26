@@ -380,7 +380,7 @@ public class Creature : BaseObject
 
         Projectile projectile = go.GetComponent<Projectile>();
         Vector3 origin = transform.childCount == 0 ? transform.position : transform.GetChild(0).position;
-        projectile.SetInfo(origin + tarGetDir.normalized * 0.1f, pos, this, _isRandom, _isBlood);
+        projectile.SetInfo(origin + tarGetDir.normalized * 0.5f, pos, this, _isRandom, _isBlood);
     }
 
     public Creature FindClosetTarget(Creature src, List<Creature> targets)

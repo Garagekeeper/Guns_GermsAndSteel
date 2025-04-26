@@ -54,6 +54,7 @@ public class Bomb : MonoBehaviour
             //temp.GetComponent<Obstacle>()?
             //Door
             temp.transform.parent.GetComponent<Door>()?.Break(temp.name);
+            temp.GetComponent<Obstacle>()?.OnExplode();
         }
     }
 

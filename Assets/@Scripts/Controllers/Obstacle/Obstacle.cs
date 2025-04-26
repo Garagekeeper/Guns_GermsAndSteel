@@ -54,6 +54,7 @@ public class Obstacle : BaseObject
         if (type == "Rock")
         {
             ObstacleType = ObstacleTypes.Rock;
+            //stage 확장시 stage별 돌 크기 정해주기
             GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>("rocks_basement_normal_" + index);
             Collider = GetComponent<BoxCollider2D>();
         }
@@ -65,9 +66,12 @@ public class Obstacle : BaseObject
         }
     }
 
-    public void SubsFireHp(Creature owner)
+    public void SubsFireHp(Creature owner, bool byBomb = false)
     {
-        _hp = Mathf.Max(0, _hp - owner.AttackDamage);
+        if (byBomb)
+            _hp = 0;
+        else 
+            _hp = Mathf.Max(0, _hp - owner.AttackDamage);
         if (_hp <= 0f)
         {
             Destroy(Collider);
@@ -91,7 +95,23 @@ public class Obstacle : BaseObject
             Destroy(Collider);
             Destroy(this);
             
+            //TODO semiwall to cango
         }
+    }
+
+    public void OnExplode()
+    {
+        if (ObstacleType == ObstacleTypes.None) return;
+        if (ObstacleType == ObstacleTypes.Spike) return;
+        if (ObstacleType == ObstacleTypes.Poop) { PoopOnHit(true); return; };
+        if (ObstacleType == ObstacleTypes.Fire) { SubsFireHp(null, true); };
+
+        //TODO Rock은 흔적을 남기기
+        transform.GetComponent<SpriteRenderer>().enabled = false;
+        transform.GetComponent<Collider2D>().enabled = false;
+
+        Managers.Map.ChangeCollisionData(transform.position.x - 0.5f, transform.position.y-0.5f, ECellCollisionType.None);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

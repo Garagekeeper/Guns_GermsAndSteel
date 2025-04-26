@@ -244,7 +244,8 @@ public class Monster : Creature
         Rigidbody.velocity = Vector3.zero;
         CreatureState = ECreatureState.Dead;
         StopAllCoroutines();
-        AnimatorBottom.enabled = false;
+        if (AnimatorBottom != null)
+            AnimatorBottom.enabled = false;
 
         StartCoroutine(MonsterDeadAaim());
 

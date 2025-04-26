@@ -41,6 +41,42 @@
       "DataId": 10122,
       "Description": null,
       "SpriteName": null
+    },
+    {
+      "PrefabName": "Boss_DukeOfFlies",
+      "DataId": 20007,
+      "Description": null,
+      "SpriteName": null
+    },
+    {
+      "PrefabName": "Boss_Fistula",
+      "DataId": 20021,
+      "Description": null,
+      "SpriteName": null
+    },
+    {
+      "PrefabName": "Boss_Gurdy",
+      "DataId": 20025,
+      "Description": null,
+      "SpriteName": null
+    },
+    {
+      "PrefabName": "Boss_GurdyJr",
+      "DataId": 20030,
+      "Description": null,
+      "SpriteName": null
+    },
+    {
+      "PrefabName": "Boss_Monstro",
+      "DataId": 20004,
+      "Description": null,
+      "SpriteName": null
+    },
+    {
+      "PrefabName": "Boss_Mom",
+      "DataId": 20054,
+      "Description": null,
+      "SpriteName": null
     }
   ]
 }

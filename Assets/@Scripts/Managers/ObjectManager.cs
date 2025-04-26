@@ -23,7 +23,7 @@ public class ObjectManager
             GameObject go = Managers.Resource.Instantiate("Player");
             go.name = "Player" + Managers.Game.Seed;
             MainCharacter mc = go.GetComponent<MainCharacter>();
-            mc.transform.position = pos;
+            mc.transform.position = pos + new Vector3(0.5f, 0.5f, 0);
             MainCharacters.Add(mc);
             return mc as T;
         }
@@ -32,7 +32,7 @@ public class ObjectManager
             GameObject monster = Managers.Resource.Instantiate(prfabName, parent);
             monster.name = prfabName;
             Monster mt = monster.GetComponent<Monster>();
-            mt.transform.localPosition = pos;
+            mt.transform.localPosition = pos + new Vector3(0.5f, 0.5f, 0);
 
             GameObject spawn_effect = Managers.Resource.Instantiate("Monster_Spawn_Effect", monster.transform);
             spawn_effect.gameObject.SetActive(true);
@@ -50,7 +50,7 @@ public class ObjectManager
             GameObject go = Managers.Resource.Instantiate(prfabName, parent);
             go.name = prfabName;
             Boss bs = go.GetComponent<Boss>();
-            bs.transform.localPosition = pos;
+            bs.transform.localPosition = pos + new Vector3(0.5f, 0.5f, 0);
             Bosses.Add(bs);
             return bs as T;
         }
@@ -67,7 +67,7 @@ public class ObjectManager
         GameObject go = Managers.Resource.Instantiate(prefabName, parent);
 
         go.name = prefabName;
-        go.transform.localPosition = pos;
+        go.transform.localPosition = pos + new Vector3(0.5f,0.5f,0);
         Pickup pickup = go.GetComponent<Pickup>();
         
         if (pickup != null)

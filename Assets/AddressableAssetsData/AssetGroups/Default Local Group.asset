@@ -111,6 +111,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b74078660f3fbe04c8067008d8ceb6f5
+    m_Address: Tile_Map_Collision_Secret_0_0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d52eb89259f2e745a02e68e692a8a63
+    m_Address: Tile_Map_Collision_Devil_0_0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:

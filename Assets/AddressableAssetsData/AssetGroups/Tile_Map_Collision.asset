@@ -17,8 +17,8 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: f4f01e4ecd1768e46a2145ce27b47ed2
   m_SerializeEntries:
-  - m_GUID: 584a507e6cb9bdb46aa2a8b645efd2f7
-    m_Address: Tile_Map_Collision_Normal_1_0
+  - m_GUID: b6770949b8f9437488370d11729b062f
+    m_Address: Tile_Map_Collision_Normal_60
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame
@@ -29,74 +29,74 @@ MonoBehaviour:
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 33fc5c3b2ad41d84fb3e876edb48dc22
-    m_Address: Tile_Map_Collision_Normal_1_1
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 40677766717eb844eab18ac268ceb3cb
-    m_Address: Tile_Map_Collision_Normal_1_2
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3dd59eba649cb3d45a752cbdec837a7a
-    m_Address: Tile_Map_Collision_Normal_1_4
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 10375ecf3c168644097acb69e6de5ad6
-    m_Address: Tile_Map_Collision_Normal_1_3
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9d3810b835452084abb2c079e74fcbba
-    m_Address: Tile_Map_Collision_Normal_8_0
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5d9ec0693cc15194a8fb8e0fc840c39b
-    m_Address: Tile_Map_Collision_Normal_7_0
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ab404272fe6108c45892102b72f973f9
-    m_Address: Tile_Map_Collision_Normal_6_0
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 4831cfbf82f0034468464041f49903a1
-    m_Address: Tile_Map_Collision_Normal_5_0
+  - m_GUID: 1fdd1536396a09a4c9315aa4b0bb9296
+    m_Address: Tile_Map_Collision_Normal_61
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: da31132447577384fa02e289f3069c99
-    m_Address: Tile_Map_Collision_Normal_4_0
+    m_Address: Tile_Map_Collision_Normal_62
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c47b1424d181399428193e14542a781b
-    m_Address: Tile_Map_Collision_Normal_3_0
+  - m_GUID: 8a0e9b23871cfea41ad3a9ee5f825874
+    m_Address: Tile_Map_Collision_Normal_64
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2bdb76f92b4da484782c526269ace1eb
-    m_Address: Tile_Map_Collision_Normal_2_0
+  - m_GUID: eb5d15d75bfb34b4eaf95213711deff7
+    m_Address: Tile_Map_Collision_Normal_63
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 305d7b67fdbae5b41bb83bc16154b2cc
-    m_Address: Tile_Map_Collision_Normal_1_5
+  - m_GUID: 4f74a83c397d4034b99f44dd6e1ec91b
+    m_Address: Tile_Map_Collision_Normal_6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dbe75fa865e16fa4fa22456feab24d69
+    m_Address: Tile_Map_Collision_Normal_59
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f4cc5ec90474194397bc15ff8101f88
+    m_Address: Tile_Map_Collision_Normal_58
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c96fe91636cefd4d831b4a3baf439e0
+    m_Address: Tile_Map_Collision_Normal_57
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1ffb762cba47d84f8dd1daa3690d230
+    m_Address: Tile_Map_Collision_Normal_9
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a69e35281cfaa674cb889ce42274f412
+    m_Address: Tile_Map_Collision_Normal_8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8ef6254c17bd97438d158ab2aea7280
+    m_Address: Tile_Map_Collision_Normal_7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cdc0395b66fb0ea4f96156e6d00f8534
+    m_Address: Tile_Map_Collision_Normal_65
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame
@@ -113,12 +113,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c57f27c4e3373ea4095e41bac0c46064
-    m_Address: Tile_Map_Collision_Secret_0_0
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8ef1ff4740509d745a327966dc3d45e4
     m_Address: Tile_Map_Collision_Sacrifice_0_0
     m_ReadOnly: 0
@@ -131,20 +125,362 @@ MonoBehaviour:
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2e1a660299cd3824aa71d210f8a67bf9
-    m_Address: Tile_Map_Collision_Devil_0_0
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7dc277435ad1b0f47af3f99c4ffd41fb
-    m_Address: Tile_Map_Collision_Boss_0_0
+  - m_GUID: 7bd599667672c484aa5ab5bb1e511d0f
+    m_Address: Tile_Map_Collision_Boss_5
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1593c71e0d1963847a4118c54a2186d2
     m_Address: Tile_Map_Collision_Angel_0_0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7db762f640a5055478ccb117089879a3
+    m_Address: Tile_Map_Collision_Normal_56
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3f2a2728188d5f349848cb9c647321da
+    m_Address: Tile_Map_Collision_Normal_55
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31252520ded13c347bb3fa75499f6da5
+    m_Address: Tile_Map_Collision_Normal_54
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 68662608302adae49822380d12343ce4
+    m_Address: Tile_Map_Collision_Normal_53
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e3d88dadefad534e8cac9eab9ee7123
+    m_Address: Tile_Map_Collision_Normal_52
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 347648cb04f51f74883916ade3c5f66e
+    m_Address: Tile_Map_Collision_Normal_51
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d7a642f30c9abb459d0d13bcfadd0ff
+    m_Address: Tile_Map_Collision_Normal_50
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 305d7b67fdbae5b41bb83bc16154b2cc
+    m_Address: Tile_Map_Collision_Normal_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd861bf5f50883442ba58a472db04f22
+    m_Address: Tile_Map_Collision_Normal_49
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6af9c643e2425842a2bce4bb9d569a7
+    m_Address: Tile_Map_Collision_Normal_48
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c468bcf7006d6184380bfd42a1276381
+    m_Address: Tile_Map_Collision_Normal_47
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70907b8389595284ca675eb47c2c25dd
+    m_Address: Tile_Map_Collision_Normal_46
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cbaf951a127c2904e8d6d2e89c9825ba
+    m_Address: Tile_Map_Collision_Normal_45
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c47b1424d181399428193e14542a781b
+    m_Address: Tile_Map_Collision_Normal_44
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee3eeb4a46dd53b4ab32c262fab034d6
+    m_Address: Tile_Map_Collision_Normal_43
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 41e98965e073c5e41a81fcdacd439565
+    m_Address: Tile_Map_Collision_Normal_42
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a70d47cde86c92e4192ef71ba103be40
+    m_Address: Tile_Map_Collision_Normal_41
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 63e207a855c98c2489fcd1bfcc149efd
+    m_Address: Tile_Map_Collision_Normal_40
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3dd59eba649cb3d45a752cbdec837a7a
+    m_Address: Tile_Map_Collision_Normal_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 844e8f270de45dd40b7de729d8b90b03
+    m_Address: Tile_Map_Collision_Normal_39
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 027ebde97213a9e48860e94070670d5f
+    m_Address: Tile_Map_Collision_Normal_38
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e774f0e6752d683468fe502349481422
+    m_Address: Tile_Map_Collision_Normal_37
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7dc2183ae74c6e24599915c1e11fe38c
+    m_Address: Tile_Map_Collision_Normal_36
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4377da4451a0b8e43b69b4f80afdc8ac
+    m_Address: Tile_Map_Collision_Normal_35
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8bf4d08ba2c79347a08448a5fce1bb4
+    m_Address: Tile_Map_Collision_Normal_34
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 473921d42997b5a48918592a0481e132
+    m_Address: Tile_Map_Collision_Normal_33
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb5c2bab5e347b54a8957093730b255a
+    m_Address: Tile_Map_Collision_Normal_32
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79d3894614017ab45a63dec6413381ab
+    m_Address: Tile_Map_Collision_Normal_31
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a3bf285ca5fdbf4e9052a1325301e60
+    m_Address: Tile_Map_Collision_Normal_30
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10375ecf3c168644097acb69e6de5ad6
+    m_Address: Tile_Map_Collision_Normal_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 97cacf1f6251a3142ac4873ef28fb7d0
+    m_Address: Tile_Map_Collision_Normal_29
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: adb8bfbcf3b472a4c9b88bcaff2c83f0
+    m_Address: Tile_Map_Collision_Normal_28
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fa1c9f33fecc6d46ad5d94281187a00
+    m_Address: Tile_Map_Collision_Normal_27
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59a0a7294ffecc74db62749fcb0ba08d
+    m_Address: Tile_Map_Collision_Normal_26
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 083e7c18f2031ef41b4c7409c50a2904
+    m_Address: Tile_Map_Collision_Normal_25
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ccc8e14004f8e6b48baa80f47ee303cc
+    m_Address: Tile_Map_Collision_Normal_24
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc432614a18528d4e933f8bdf6d1065c
+    m_Address: Tile_Map_Collision_Normal_23
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1559c75494e173b4a80af3786f578b20
+    m_Address: Tile_Map_Collision_Normal_22
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87039ba44fb14754c876b15f1f8ab48a
+    m_Address: Tile_Map_Collision_Normal_21
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2bdb76f92b4da484782c526269ace1eb
+    m_Address: Tile_Map_Collision_Normal_20
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 40677766717eb844eab18ac268ceb3cb
+    m_Address: Tile_Map_Collision_Normal_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6201ed8421a626478622dfa77928c85
+    m_Address: Tile_Map_Collision_Normal_19
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a80e8398d730d1f4c972bbe4d20e7e88
+    m_Address: Tile_Map_Collision_Normal_18
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89658791e50b1b64184d2b529421b1f5
+    m_Address: Tile_Map_Collision_Normal_17
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 937ded0712a5832418ae02566ac4e1fd
+    m_Address: Tile_Map_Collision_Normal_16
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f6dc7b8cd5d42a34aac040c259338b85
+    m_Address: Tile_Map_Collision_Normal_15
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 465cebcb20dbcdf4b9e01e15072aee5f
+    m_Address: Tile_Map_Collision_Normal_14
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3fbbc6ea6194c1f4f8a666c742ffda36
+    m_Address: Tile_Map_Collision_Normal_13
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 311987ecd128ea84fa0ee4b3a24324ba
+    m_Address: Tile_Map_Collision_Normal_12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 457d6c16a8621aa45be7e74047fee71a
+    m_Address: Tile_Map_Collision_Normal_11
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eda32b5e28f504a4692ed1798d415d78
+    m_Address: Tile_Map_Collision_Normal_10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 33fc5c3b2ad41d84fb3e876edb48dc22
+    m_Address: Tile_Map_Collision_Normal_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 584a507e6cb9bdb46aa2a8b645efd2f7
+    m_Address: Tile_Map_Collision_Normal_0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09504a3ff949042429bdbf97285d624d
+    m_Address: Tile_Map_Collision_Boss_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71a12a7313d29ff4994bcb2eebccd20f
+    m_Address: Tile_Map_Collision_Boss_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3d0dceaea1c11ec4b98df5bed0ea3626
+    m_Address: Tile_Map_Collision_Boss_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a66c0dd54b5e294e9153f4a8c87d5f3
+    m_Address: Tile_Map_Collision_Boss_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7dc277435ad1b0f47af3f99c4ffd41fb
+    m_Address: Tile_Map_Collision_Boss_0
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame

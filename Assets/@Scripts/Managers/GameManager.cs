@@ -168,7 +168,7 @@ public class GameManager
         {
             temp.GetComponent<Monster>().enabled = true;
             if (FindChildByName(temp.transform, "Monster_Spawn_Effect") == null) continue;
-                Object.Destroy(FindChildByName(temp.transform, "Monster_Spawn_Effect").gameObject);
+            Object.Destroy(FindChildByName(temp.transform, "Monster_Spawn_Effect").gameObject);
         }
 
         foreach (var temp in Managers.Object.MainCharacters)
@@ -250,7 +250,7 @@ public class GameManager
     {
         Vector3 newPos = nextRoom.Transform.position;
         newPos.z = -10;
-        Managers.Game.Cam.TargetPos = newPos + new Vector3(-0.5f, -0.5f, 0);
+        Managers.Game.Cam.TargetPos = newPos;
     }
 
     public void TPToNormalRandom()
@@ -280,7 +280,7 @@ public class GameManager
 
         newPos.z = -10f;
         Cam.MoveCameraWithoutLerp(newPos);
-        
+
         Managers.Object.DespawnMonsters(Managers.Map.CurrentRoom);
 
         if (Managers.Map.CurrentRoom.ItemHolder != null)
@@ -295,7 +295,7 @@ public class GameManager
 
         if (Managers.Map.CurrentRoom.IsClear == false)
         {
-            Managers.Map.SpawnMonsterAndBossInRoom(Managers.Map.CurrentRoom, ()=>
+            Managers.Map.SpawnMonsterAndBossInRoom(Managers.Map.CurrentRoom, () =>
             {
                 CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
             });
@@ -354,11 +354,13 @@ public class GameManager
             //Managers.Map.CurrentRoom.ItemHolder.SetActive(true);
         }
 
-        // 원래 몬스터가 없던 방은 보상을 주지 않는다.
+        // 기존에 클리어한 방은 안줌
         if (curRoom.RoomType == ERoomType.Normal && existingValue == false)
         {
-            SpawnClearAward(curRoom.AwardSeed);
-            
+            // 원래 몬스터가 없던 방은 보상을 주지 않는다.
+            if (FindChildByName(curRoom.Transform, "Monster").childCount > 0)
+                SpawnClearAward(curRoom.AwardSeed);
+
         }
 
         // 클리어하지 않은 방만 Door의 열리는 모션을 재생한다
@@ -409,8 +411,10 @@ public class GameManager
         Managers.Map.LoadMap();
 
         Managers.UI.PlayingUI.gameObject.SetActive(false);
+        Managers.UI.PlayingUI.BossHpActive(false);
 
         Cam.MoveCameraWithoutLerp(new Vector3(-0.5f, -0.5f, -10f));
+
 
         //for (int i=0; i< Managers.Object.MainCharacters.Count; i++)
         //{
@@ -431,7 +435,7 @@ public class GameManager
         //    Managers.Object.Despawn(temp);
         //}
 
-        Managers.Object.Spawn<MainCharacter>(new Vector3(-0.5f, -0.5f, 0), 0, "Player");
+        Managers.Object.Spawn<MainCharacter>(Vector3.zero, 0, "Player");
         RoomConditionCheck();
 
         Managers.UI.GameOverUI.gameObject.SetActive(false);
@@ -627,7 +631,7 @@ public class GameManager
                 float nx = Random.Range(-1, 1);
                 float ny = Random.Range(-1, 1);
 
-                Managers.Object.Spawn<Pickup>(Vector3.zero, pickupAward[i], pickupsTransform, new Vector3(nx, ny, 0).normalized  * 4);
+                Managers.Object.Spawn<Pickup>(Vector3.zero, pickupAward[i], pickupsTransform, new Vector3(nx, ny, 0).normalized * 4);
             }
         }
 
@@ -672,8 +676,10 @@ public class GameManager
             }
             else if (pickupPercent < 0.88)
             {
-                pickupAward.Add(EPICKUP_TYPE.PICKUP_TRINKET);
-                pickupCount.Add(1);
+                //pickupAward.Add(EPICKUP_TYPE.PICKUP_TRINKET);
+                //pickupCount.Add(1);
+                pickupAward.Add(EPICKUP_TYPE.PICKUP_COIN);
+                pickupCount.Add(rng.RandInt(3) + 1);
             }
             else if (pickupPercent < 0.89)
             {
@@ -688,8 +694,8 @@ public class GameManager
             }
             else
             {
-                pickupAward.Add(EPICKUP_TYPE.PICKUP_PILL);
-                pickupCount.Add(1);
+                //pickupAward.Add(EPICKUP_TYPE.PICKUP_PILL);
+                //pickupCount.Add(1);
             }
         }
 
@@ -740,7 +746,7 @@ public class GameManager
                 pickupCount = 1;
                 sacrificeAward = EPICKUP_TYPE.PICKUP_COIN;
             }
-  
+
         }
         else if (count <= 3)
         {
@@ -798,7 +804,7 @@ public class GameManager
                 sacrificeAward = EPICKUP_TYPE.PICKUP_HEART;
             }
         }
-        
+
         else
         {
             return;

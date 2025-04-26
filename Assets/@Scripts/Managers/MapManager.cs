@@ -156,8 +156,8 @@ public class MapManager
         if (y < StageColYMin || y > StageColYMax) return false;
         //Debug.Log("x: " + (x + XMax));
         //Debug.Log("y: " + (y + YMax));
-        if (collisionData[y + math.abs(StageColYMin) - 1, x + math.abs(StageColXMin) - 1]
-            == (int)ECellCollisionType.Wall || collisionData[y + math.abs(StageColYMin) - 1, x + math.abs(StageColXMin) - 1]
+        if (collisionData[y + math.abs(StageColYMin), x + math.abs(StageColXMin)]
+            == (int)ECellCollisionType.Wall || collisionData[y + math.abs(StageColYMin), x + math.abs(StageColXMin)]
             == (int)ECellCollisionType.SemiWall) return false;
         return true;
     }
@@ -691,7 +691,7 @@ public class MapManager
         //5. 상점 설정
         if (dead_ends.Count > 0)
         {
-            if (Managers.Game.StageNumber < 5)
+            if (Managers.Game.StageNumber <= 5)
             {
                 dead_ends.Pop().RoomClass.RoomType = ERoomType.Shop;
             }
@@ -710,7 +710,7 @@ public class MapManager
         if (dead_ends.Count > 0)
         {
             if (dead_ends.Count == 0) return 0;
-            if (Managers.Game.StageNumber < 5)
+            if (Managers.Game.StageNumber <= 5)
                 dead_ends.Pop().RoomClass.RoomType = ERoomType.Gold;
 
             //TODO XL
@@ -835,8 +835,6 @@ public class MapManager
                             if (r.XPos == nx && r.YPos == ny)
                             {
                                 rc = r;
-                                Debug.Log($"adj({rc.XPos}, {rc.YPos})");
-                                Debug.Log($"sec({room.XPos}, {room.YPos})");
                                 room._adjacencentRooms[k] = rc;
                                 rc._adjacencentRooms[(k + 2) % 4] = room;
                             }
@@ -1034,7 +1032,8 @@ public class MapManager
 
         if (room.RoomType == ERoomType.Boss)
         {
-            if (Managers.Game.StageNumber == 8)
+            //if (Managers.Game.StageNumber == 8)
+            if (Managers.Game.StageNumber == 5)
                 GenerateClearBox(room);
             else
                 GenerateTrapDoor(room);
@@ -1089,7 +1088,10 @@ public class MapManager
 
         int stageNum = r.RoomType == ERoomType.Normal ? Managers.Game.StageNumber : 0;
         //roomName = "Tile_Map_Collision_" + r.RoomType.ToString() + "_" stageNum "_" + Managers.Game.RNG.RandInt(0, RoomCollisionCnt[(int)r.RoomType] - 1);
-        roomName = Managers.Data.RoomDic[r.RoomType][stageNum][Managers.Game.RNG.RandInt(0, Managers.Data.RoomDic[r.RoomType][stageNum].Count - 1)];
+        int stageIndex = 0;
+        if (r.RoomType == ERoomType.Boss && stageNum == 5)
+            stageIndex = 5;
+        roomName = Managers.Data.RoomDic[r.RoomType][stageIndex][Managers.Game.RNG.RandInt(0, Managers.Data.RoomDic[r.RoomType][stageIndex].Count - 1)];
         GameObject roomTileMap = Managers.Resource.Instantiate(roomName);
         roomTileMap.transform.SetParent(room.transform);
 
@@ -1224,7 +1226,7 @@ public class MapManager
                 // 비밀방 미니맵 컨트롤은 Door에서 관리
                 if (adjacencentRoom.RoomType == ERoomType.Secret && adjacencentRoom.IsClear == false) break;
                 if (next.RoomType == ERoomType.Secret) break;
-                
+
                 Transform child = go.transform.Find(adjacencentRoom.RoomObject.name);
                 if (adjacencentRoom.RoomType != ERoomType.Normal && adjacencentRoom.RoomType != ERoomType.Start)
                 {
@@ -1301,11 +1303,12 @@ public class MapManager
             foreach (Transform sprites in child)
                 sprites.gameObject.SetActive(state);
         }
-        foreach (Transform child in FindChildByName(room.transform, "Pickups"))
-        {
-            foreach (Transform sprites in child)
-                sprites.gameObject.SetActive(state);
-        }
+        FindChildByName(room.transform, "Pickups")?.gameObject?.SetActive(state);
+        //foreach (Transform child in FindChildByName(room.transform, "Pickups"))
+        //{
+        //    foreach (Transform sprites in child)
+        //        sprites.gameObject.SetActive(state);
+        //}
         FindChildByName(room.transform, "Monster")?.gameObject.SetActive(state);
 
     }
@@ -1363,15 +1366,19 @@ public class MapManager
     //에디팅 툴에서 장애물을 만들면 적용해서 충돌배열에 저장
     void ParseRoomCollisionData()
     {
+        StageColXMin = 1000;
+        StageColYMin = 1000;
+        StageColXMax = -1000;
+        StageColYMax = -1000;
 
         if (CellGrid == null)
             return;
 
         foreach (var room in Rooms)
         {
-            StageColXMin = Math.Min(StageColXMin, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.xMin + (int)room.Transform.position.x);
+            StageColXMin = Math.Min(StageColXMin, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.xMin + 1 + (int)room.Transform.position.x);
             StageColXMax = Math.Max(StageColXMax, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.xMax - 1 + (int)room.Transform.position.x);
-            StageColYMin = Math.Min(StageColYMin, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.yMin + (int)room.Transform.position.y);
+            StageColYMin = Math.Min(StageColYMin, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.yMin + 1 + (int)room.Transform.position.y);
             StageColYMax = Math.Max(StageColYMax, room.TilemapCollisionPrefab.GetComponent<Tilemap>().cellBounds.yMax - 1 + (int)room.Transform.position.y);
         }
 
@@ -1383,31 +1390,41 @@ public class MapManager
         foreach (var room in Rooms)
         {
             Tilemap tm = room.TilemapCollisionPrefab.GetComponent<Tilemap>();
-            for (int y = tm.cellBounds.yMax - 1; y >= tm.cellBounds.yMin; y--)
+            for (int y = tm.cellBounds.yMax - 1; y > tm.cellBounds.yMin + 1; y--)
             {
-                for (int x = tm.cellBounds.xMin; x < tm.cellBounds.xMax; x++)
+                for (int x = tm.cellBounds.xMin + 1; x < tm.cellBounds.xMax - 1; x++)
                 {
 
                     int collsionInt = 0;
                     if (!tm.HasTile(new Vector3Int(x, y))) continue;
                     var temp = tm.GetTile(new Vector3Int(x, y));
                     string t = tm.GetTile(new Vector3Int(x, y)).name;
-
                     switch (t)
                     {
                         case "CannotGo":
-                        case "Rock":
                             collsionInt = (int)ECellCollisionType.Wall;
                             break;
                         case "CanGo":
+                        case "pickuo_001_heart_0":
+                        case "pickup_002_coin_0":
+                        case "pickup_003_key_0":
+                        case "pickup_005_chests_5":
+                        case "pickup_005_chests_9":
                             collsionInt = (int)ECellCollisionType.None;
                             break;
                         case "Urn":
+                            Debug.Log($"{y + math.abs(StageColYMin) + (int)room.WorldCenterPos.y} {x + math.abs(StageColXMin) + (int)room.WorldCenterPos.x}");
+                            collsionInt = (int)ECellCollisionType.SemiWall;
+                            break;
                         case "Door":
                         case "Spike":
                         case "Fire":
-                        case "Poof":
+                        case "Poop":
+                        case "Rock":
                             collsionInt = (int)ECellCollisionType.SemiWall;
+                            break;
+                        default:
+                            Debug.Log("?");
                             break;
                     }
                     collisionData[y + math.abs(StageColYMin) + (int)room.WorldCenterPos.y, x + math.abs(StageColXMin) + (int)room.WorldCenterPos.x] = collsionInt;
@@ -1424,6 +1441,11 @@ public class MapManager
             }
             parser.WriteLine();
         }
+        parser.Write("{0,-4}", StageColXMax);
+        parser.Write("{0,-4}", StageColXMin);
+        parser.Write("{0,-4}", StageColYMax);
+        parser.Write("{0,-4}", StageColYMin);
+
         parser.Close();
 
 
@@ -1440,12 +1462,13 @@ public class MapManager
         int maxY = tmp.cellBounds.yMax;
         int minY = tmp.cellBounds.yMin;
 
-        for (int y = maxY - 1; y > minY; y--)
+        for (int y = maxY - 1; y > minY + 1; y--)
         {
-            for (int x = minX; x < maxX - 1; x++)
+            for (int x = minX + 1; x < maxX - 1; x++)
             {
                 Vector3Int tilePos = new Vector3Int(x, y, 0);
                 TileBase tile = tmp.GetTile(tilePos);
+                Pickup pickup;
                 int index;
                 switch (tile.name)
                 {
@@ -1469,7 +1492,7 @@ public class MapManager
                         // SetParent      vs  parent
                         // 로컬 좌표 유지      로컬 좌표가 부모 기준으로 변경
                         room.ItemHolder.transform.SetParent(room.Obstacle.transform);
-                        room.ItemHolder.transform.position = (room.Transform.position + new Vector3(-0.5f, -0.5f));
+                        room.ItemHolder.transform.position = (room.Transform.position + new Vector3(0.5f, 0.5f, 0f));
                         if (room.RoomType == ERoomType.Boss)
                             room.ItemHolder.SetActive(false);
                         break;
@@ -1484,6 +1507,25 @@ public class MapManager
                         index = obsRng.RandInt(1, 3);
                         Managers.Object.SpawnObstacle(tilePos, "Urn", room.Obstacle.transform, index);
                         break;
+                    case "pickuo_001_heart_0":
+
+                        pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_HEART, FindChildByName(room.Transform, "Pickups"));
+                        pickup.GetComponent<Collider2D>().enabled = true;
+                        break;
+                    case "pickup_002_coin_0":
+                        pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_COIN, FindChildByName(room.Transform, "Pickups"));
+                        pickup.GetComponent<Collider2D>().enabled = true;
+                        break;
+                    case "pickup_003_key_0":
+                        pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_KEY, FindChildByName(room.Transform, "Pickups"));
+                        pickup.GetComponent<Collider2D>().enabled = true;
+                        break;
+                    case "pickup_005_chests_5":
+                        pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_CHEST, FindChildByName(room.Transform, "Pickups"));
+                        pickup.GetComponent<Collider2D>().enabled = true;
+                        break;
+                    // locked chest
+                    //case "pickup_005_chests_9":
                     default:
                         break;
                 }
@@ -1512,7 +1554,6 @@ public class MapManager
 
                 string name = tile.name;
                 string result = Regex.Replace(name, @"[^0-9]", "");
-
                 //TODO
                 //id 값 조절
                 if (result != "")
@@ -1536,4 +1577,18 @@ public class MapManager
         callback.Invoke();
     }
 
+
+    public void ChangeCollisionData(float worldx, float worldy, ECellCollisionType colltype)
+    {
+       
+        Debug.Log($"before1 {worldy}, {worldx }");
+        Debug.Log($"before2 {(int)worldy}, {(int)worldx }");
+        Debug.Log($"before2 {(int)worldy}, {(int)worldx }");
+        Debug.Log($"before3 {StageColYMin}, {StageColXMin}");
+        Debug.Log($"before4 {collisionData[(int)worldy + math.abs(StageColYMin), (int)worldx + math.abs(StageColXMin)]}");
+        Debug.Log($"before5pos {worldy + math.abs(StageColYMin)} {worldx + math.abs(StageColXMin)}");
+        
+        collisionData[(int)worldy + math.abs(StageColYMin), (int)worldx + math.abs(StageColXMin)] = (int)colltype;
+        //Debug.Log($"after{collisionData[worldy + math.abs(StageColYMin) - 1, worldx + math.abs(StageColXMin) - 1]}");
+    }
 }

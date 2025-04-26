@@ -14,7 +14,7 @@ public class Boss : Creature
     /// when Boss need 2 Collider Use this for collision
     /// </summary>
     protected CircleCollider2D GPCollider2D;
-    protected List<SpriteRenderer> _flickerTarget;
+    protected List<SpriteRenderer> _flickerTarget = new List<SpriteRenderer>();
 
     /// <summary>
     /// Collider for general physics
