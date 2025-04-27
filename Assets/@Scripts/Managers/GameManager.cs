@@ -4,12 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Data;
-using Unity.Mathematics;
-using Unity.VisualScripting;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Windows;
-using UnityEngine.XR;
+using UnityEngine.Tilemaps;
 using static Define;
 using static Utility;
 using Object = UnityEngine.Object;
@@ -250,7 +248,7 @@ public class GameManager
     {
         Vector3 newPos = nextRoom.Transform.position;
         newPos.z = -10;
-        Managers.Game.Cam.TargetPos = newPos;
+        Managers.Game.Cam.TargetPos = newPos + new Vector3(0.5f, 0.5f);
     }
 
     public void TPToNormalRandom()
@@ -413,7 +411,7 @@ public class GameManager
         Managers.UI.PlayingUI.gameObject.SetActive(false);
         Managers.UI.PlayingUI.BossHpActive(false);
 
-        Cam.MoveCameraWithoutLerp(new Vector3(-0.5f, -0.5f, -10f));
+        Cam.MoveCameraWithoutLerp(new Vector3(0.5f, 0.5f, -10f));
 
 
         //for (int i=0; i< Managers.Object.MainCharacters.Count; i++)
@@ -848,4 +846,73 @@ public class GameManager
         Managers.Map.CurrentRoom.AwardSeed = rng.Sn;
     }
 
+    public void SpawnShopItem(Vector3Int pos, ref RoomClass room)
+    {
+        RNGManager rng = new RNGManager(room.AwardSeed);
+        var parent = FindChildByName(room.Transform, "ShopItems");
+        Tilemap tm = room.TilemapCollisionPrefab.GetComponent<Tilemap>();
+
+        if (parent.childCount == 0)
+        {
+            //SPAWN PASSIVE or ACtiveITem
+            room.ItemHolder = Managers.Resource.Instantiate("ItemHolder");
+            int TemplateId = Managers.Game.SlectItem();
+            room.ItemHolder.GetComponent<ItemHolder>().ItemOfItemHolder = new Item(TemplateId);
+            room.ItemHolder.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(Managers.Data.ItemDic[TemplateId].SpriteName);
+
+            room.ItemHolder.transform.SetParent(FindChildByName(room.Transform, "ShopItems"));
+            room.ItemHolder.transform.position = (room.Transform.position + new Vector3(0.5f, 0.5f, 0f));
+
+            FindChildByName(room.ItemHolder.transform, "ShopItemPrice").GetComponent<TextMeshPro>().gameObject.SetActive(true);
+            FindChildByName(room.ItemHolder.transform, "ShopItemPrice").GetComponent<TextMeshPro>().text = "15";
+
+            // for collision data
+            tm.SetTile(pos,Managers.Resource.Load<Tile>("ItemHolder_Tile"));
+        }
+        else
+        {
+            //Spawn random prickup
+
+            Pickup pickup;
+            EPICKUP_TYPE pickupType = EPICKUP_TYPE.PICKUP_COIN;
+            int price = 0;
+            var value = rng.RandInt(100);
+            if (value < 25)
+            {
+                pickupType = EPICKUP_TYPE.PICKUP_HEART;
+                price = 3;
+            }
+            else if (value > 50)
+            {
+                pickupType = EPICKUP_TYPE.PICKUP_KEY;
+                price = 5;
+            }
+            else if (value < 75)
+            {
+                pickupType = EPICKUP_TYPE.PICKUP_BOMB;
+                price = 5;
+            }
+            else
+            {
+                pickupType = EPICKUP_TYPE.PICKUP_GRAB_BAG;
+                price = 7;
+            }
+
+            if (pickupType == EPICKUP_TYPE.PICKUP_COIN)
+            {
+                throw new Exception($"EPICKUP_TYPE err while spawning shop item");
+            }
+
+            pickup = Managers.Object.Spawn<Pickup>(pos, pickupType, FindChildByName(room.Transform, "ShopItems"));
+            pickup.GetComponent<Collider2D>().enabled = true;
+            FindChildByName(pickup.transform, "ShopItemPrice").GetComponent<TextMeshPro>().gameObject.SetActive(true);
+            FindChildByName(pickup.transform, "ShopItemPrice").GetComponent<TextMeshPro>().text = price.ToString();
+
+            // for collision data
+            tm.SetTile(pos, Managers.Resource.Load<Tile>("CanGo"));
+        }
+
+
+        room.AwardSeed = rng.Sn;
+    }
 }

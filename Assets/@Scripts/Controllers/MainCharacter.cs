@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -643,6 +644,18 @@ public class MainCharacter : Creature
 
     public void GetPickup(Pickup pickup)
     {
+        
+        var priceGo = FindChildByName(pickup.transform, "ShopItemPrice");
+        if (priceGo.gameObject.activeSelf == true && Managers.Map.CurrentRoom.RoomType == ERoomType.Shop)
+        {
+            var price = Int32.Parse(priceGo.GetComponent<TextMeshPro>().text);
+            if (price == 0) throw new Exception($"price err while getting shop item");
+
+            if (price > Coin) return;
+
+            Coin -= price;
+        }
+
         EPICKUP_TYPE pickupType = pickup.PickupType;
         switch (pickupType)
         {

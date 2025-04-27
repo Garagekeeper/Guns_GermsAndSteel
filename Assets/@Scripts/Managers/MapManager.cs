@@ -1092,6 +1092,10 @@ public class MapManager
         if (r.RoomType == ERoomType.Boss && stageNum == 5)
             stageIndex = 5;
         roomName = Managers.Data.RoomDic[r.RoomType][stageIndex][Managers.Game.RNG.RandInt(0, Managers.Data.RoomDic[r.RoomType][stageIndex].Count - 1)];
+
+        if (r.RoomType == ERoomType.Shop)
+            Debug.Log(roomName);
+        
         GameObject roomTileMap = Managers.Resource.Instantiate(roomName);
         roomTileMap.transform.SetParent(room.transform);
 
@@ -1310,6 +1314,7 @@ public class MapManager
         //        sprites.gameObject.SetActive(state);
         //}
         FindChildByName(room.transform, "Monster")?.gameObject.SetActive(state);
+        FindChildByName(room.transform, "ShopItems")?.gameObject.SetActive(state);
 
     }
 
@@ -1413,7 +1418,6 @@ public class MapManager
                             collsionInt = (int)ECellCollisionType.None;
                             break;
                         case "Urn":
-                            Debug.Log($"{y + math.abs(StageColYMin) + (int)room.WorldCenterPos.y} {x + math.abs(StageColXMin) + (int)room.WorldCenterPos.x}");
                             collsionInt = (int)ECellCollisionType.SemiWall;
                             break;
                         case "Door":
@@ -1421,10 +1425,8 @@ public class MapManager
                         case "Fire":
                         case "Poop":
                         case "Rock":
-                            collsionInt = (int)ECellCollisionType.SemiWall;
                             break;
                         default:
-                            Debug.Log("?");
                             break;
                     }
                     collisionData[y + math.abs(StageColYMin) + (int)room.WorldCenterPos.y, x + math.abs(StageColXMin) + (int)room.WorldCenterPos.x] = collsionInt;
@@ -1508,7 +1510,6 @@ public class MapManager
                         Managers.Object.SpawnObstacle(tilePos, "Urn", room.Obstacle.transform, index);
                         break;
                     case "pickuo_001_heart_0":
-
                         pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_HEART, FindChildByName(room.Transform, "Pickups"));
                         pickup.GetComponent<Collider2D>().enabled = true;
                         break;
@@ -1523,6 +1524,9 @@ public class MapManager
                     case "pickup_005_chests_5":
                         pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_CHEST, FindChildByName(room.Transform, "Pickups"));
                         pickup.GetComponent<Collider2D>().enabled = true;
+                        break;
+                    case "ShopItem":
+                        Managers.Game.SpawnShopItem(tilePos, ref room);
                         break;
                     // locked chest
                     //case "pickup_005_chests_9":
@@ -1580,14 +1584,6 @@ public class MapManager
 
     public void ChangeCollisionData(float worldx, float worldy, ECellCollisionType colltype)
     {
-       
-        Debug.Log($"before1 {worldy}, {worldx }");
-        Debug.Log($"before2 {(int)worldy}, {(int)worldx }");
-        Debug.Log($"before2 {(int)worldy}, {(int)worldx }");
-        Debug.Log($"before3 {StageColYMin}, {StageColXMin}");
-        Debug.Log($"before4 {collisionData[(int)worldy + math.abs(StageColYMin), (int)worldx + math.abs(StageColXMin)]}");
-        Debug.Log($"before5pos {worldy + math.abs(StageColYMin)} {worldx + math.abs(StageColXMin)}");
-        
         collisionData[(int)worldy + math.abs(StageColYMin), (int)worldx + math.abs(StageColXMin)] = (int)colltype;
         //Debug.Log($"after{collisionData[worldy + math.abs(StageColYMin) - 1, worldx + math.abs(StageColXMin) - 1]}");
     }

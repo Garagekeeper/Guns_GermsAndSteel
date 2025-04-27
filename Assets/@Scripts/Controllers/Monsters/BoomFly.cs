@@ -44,6 +44,6 @@ public class BoomFly : Monster
     //Animation Event
     public void Destroyprefab()
     {
-        Destroy(gameObject);
+        base.OnDead();
     }
 }

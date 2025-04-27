@@ -485,6 +485,36 @@ MonoBehaviour:
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3aa25eddc30e5f44594ee4f1b2ee2000
+    m_Address: Tile_Map_Collision_Shop_0_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91bc1b643b00903408ae949d64648b99
+    m_Address: Tile_Map_Collision_Shop_0_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ab296a03e909434e81cf4791c08591f
+    m_Address: Tile_Map_Collision_Shop_0_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b74078660f3fbe04c8067008d8ceb6f5
+    m_Address: Tile_Map_Collision_Secret_0_0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0d52eb89259f2e745a02e68e692a8a63
+    m_Address: Tile_Map_Collision_Devil_0_0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:
