@@ -71,6 +71,6 @@ public class Boss_DukeOfFlies : Boss
     {
         Transform parent = transform.parent;
         for (int i = -2; i < 2; i++)
-            Managers.Object.Spawn<Monster>(transform.position - new Vector3(0.1f * i, 0.5f, 2), 10010, "Fly", parent);
+            Managers.Object.Spawn<Monster>(transform.localPosition - new Vector3(0.5f * i, 1f, 2), 10010, "Fly", parent);
     }
 }

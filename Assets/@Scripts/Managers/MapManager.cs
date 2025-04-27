@@ -1263,7 +1263,7 @@ public class MapManager
         if (next == null) return;
 
         //에디터에서는 다 보여주고, 실제에서는 원래방만
-#if UNITY_EDITOR
+#if !UNITY_EDITOR
         //이전 방 (원래 있던 방)
         if (before != null)
         {
@@ -1431,6 +1431,10 @@ public class MapManager
                         case "Poop":
                         case "Rock":
                             break;
+                        case "ItemHolder":
+                            if (room.RoomType == ERoomType.Boss)
+                                collsionInt = (int)ECellCollisionType.None;
+                            break;
                         default:
                             break;
                     }
@@ -1492,14 +1496,8 @@ public class MapManager
                         Managers.Object.SpawnObstacle(tilePos, "Fire", room.Obstacle.transform);
                         break;
                     case "ItemHolder":
-                        room.ItemHolder = Managers.Resource.Instantiate("ItemHolder");
-                        int TemplateId = Managers.Game.SlectItem();
-                        room.ItemHolder.GetComponent<ItemHolder>().ItemOfItemHolder = new Item(TemplateId);
-                        room.ItemHolder.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(Managers.Data.ItemDic[TemplateId].SpriteName);
-                        // SetParent      vs  parent
-                        // 로컬 좌표 유지      로컬 좌표가 부모 기준으로 변경
-                        room.ItemHolder.transform.SetParent(room.Obstacle.transform);
-                        room.ItemHolder.transform.position = (room.Transform.position + new Vector3(0.5f, 0.5f, 0f));
+                        room.ItemHolder = Managers.Resource.Instantiate("ItemHolder", room.Obstacle.transform);
+                        room.ItemHolder.GetComponent<ItemHolder>().Init(room, tilePos);
                         if (room.RoomType == ERoomType.Boss)
                             room.ItemHolder.SetActive(false);
                         break;

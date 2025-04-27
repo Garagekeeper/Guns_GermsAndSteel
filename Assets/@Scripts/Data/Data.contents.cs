@@ -51,6 +51,15 @@ namespace Data
     }
 
     [Serializable]
+    public class RoomItemArrayData
+    {
+        public int DataId;
+        public List<ERoomType> RoomType;
+        public int ItemId;
+    }
+
+
+    [Serializable]
     public class ItemDataLoader : ILoader<int, ItemData>
     {
         public List<ItemData> items = new List<ItemData>();
@@ -91,6 +100,17 @@ namespace Data
                 dict.Add(room.DataId, room);
 
             return dict;
+        }
+    }
+
+    public class RoomItemArrayDataLoader : IRALoader<RoomItemArrayData>
+    {
+        public List<RoomItemArrayData> RoomItemArray = new();
+
+
+        public List<RoomItemArrayData> MakeArray()
+        {
+            return RoomItemArray;
         }
     }
 

@@ -304,15 +304,58 @@ public class GameManager
         }
     }
 
-    public int SlectItem()
+    public int SelectItem(ERoomType roomType)
     {
         int TemplateId;
-        while (true)
+
+        if (roomType == ERoomType.Gold)
         {
-            TemplateId = RNG.RandInt(45001, 45044);
-            if (Managers.Data.ItemDic.ContainsKey(TemplateId) && Managers.Data.ItemDic[TemplateId].Weight != 0)
-                break;
+            // 해당 아이템 배열이 빈 경우 "lunch" 아이템으로 대체
+            if (Managers.Data.GoldArray.Count == 0)
+                TemplateId = 45022;
+            else
+            {
+                TemplateId = Managers.Data.GoldArray[RNG.RandInt(Managers.Data.GoldArray.Count - 1)];
+                Managers.Data.GoldArray.Remove(TemplateId);
+            }
         }
+        else if (roomType == ERoomType.Shop)
+        {
+            if (Managers.Data.ShopArray.Count == 0)
+                TemplateId = 45022;
+            else
+            {
+                TemplateId = Managers.Data.ShopArray[RNG.RandInt(Managers.Data.ShopArray.Count - 1)];
+                Managers.Data.ShopArray.Remove(TemplateId);
+            }
+        }
+        else if (roomType == ERoomType.Boss)
+        {
+            if (Managers.Data.BossArray.Count == 0)
+                TemplateId = 45022;
+            else
+            {
+                TemplateId = Managers.Data.BossArray[RNG.RandInt(Managers.Data.BossArray.Count - 1)];
+                Managers.Data.BossArray.Remove(TemplateId);
+            }
+        }
+        else if (roomType == ERoomType.Secret)
+        {
+            if (Managers.Data.SecretArray.Count == 0)
+                TemplateId = 45022;
+            else
+            {
+                TemplateId = Managers.Data.SecretArray[RNG.RandInt(Managers.Data.SecretArray.Count - 1)];
+                Managers.Data.SecretArray.Remove(TemplateId);
+            }
+        }
+        else
+        {
+            Debug.Log("err in selectItem, non exist RoomType");
+            return 0;
+        }
+
+        if (!Managers.Data.ItemDic.ContainsKey(TemplateId)) throw new Exception($"err nonexist itemID:{TemplateId}");
         //TODO 하드코딩 수정
         return TemplateId;
     }
@@ -349,7 +392,10 @@ public class GameManager
 
         if (curRoom.RoomType == ERoomType.Boss)
         {
-            //Managers.Map.CurrentRoom.ItemHolder.SetActive(true);
+            Managers.Map.CurrentRoom.ItemHolder.SetActive(true);
+            //보스방의 ItemHolder는 클리어 한 후 나타남
+            //굳이 보스 클리어하고 Collision Data갱신할 필요가 있을까
+            //TODO
         }
 
         // 기존에 클리어한 방은 안줌
@@ -856,18 +902,10 @@ public class GameManager
         {
             //SPAWN PASSIVE or ACtiveITem
             room.ItemHolder = Managers.Resource.Instantiate("ItemHolder");
-            int TemplateId = Managers.Game.SlectItem();
-            room.ItemHolder.GetComponent<ItemHolder>().ItemOfItemHolder = new Item(TemplateId);
-            room.ItemHolder.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(Managers.Data.ItemDic[TemplateId].SpriteName);
-
-            room.ItemHolder.transform.SetParent(FindChildByName(room.Transform, "ShopItems"));
-            room.ItemHolder.transform.localPosition = pos + new Vector3(0.5f, 0.5f);
-
-            FindChildByName(room.ItemHolder.transform, "ShopItemPrice").GetComponent<TextMeshPro>().gameObject.SetActive(true);
-            FindChildByName(room.ItemHolder.transform, "ShopItemPrice").GetComponent<TextMeshPro>().text = "15";
+            room.ItemHolder.GetComponent<ItemHolder>().Init(room, pos);
 
             // for collision data
-            tm.SetTile(pos,Managers.Resource.Load<Tile>("ItemHolder_Tile"));
+            tm.SetTile(pos, Managers.Resource.Load<Tile>("ItemHolder_Tile"));
         }
         else
         {

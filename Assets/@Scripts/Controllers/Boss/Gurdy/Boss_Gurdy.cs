@@ -135,8 +135,8 @@ public class Boss_Gurdy : Boss
         }
 
         Transform parent = transform.parent;
-        Managers.Object.Spawn<Monster>(transform.position + new Vector3(1f, -3f), 10087, "Boil", parent);
-        Managers.Object.Spawn<Monster>(transform.position + new Vector3(-1f, -3f), 10087, "Boil", parent);
+        Managers.Object.Spawn<Monster>(transform.localPosition + new Vector3(1f, -3f), 10087, "Boil", parent);
+        Managers.Object.Spawn<Monster>(transform.localPosition + new Vector3(-1f, -3f), 10087, "Boil", parent);
     }
 
     //Spawn 2 fly or 1 pooter
@@ -146,8 +146,8 @@ public class Boss_Gurdy : Boss
         Transform parent = transform.parent;
         if (randomValue > 50)
         {
-            Managers.Object.Spawn<Monster>(new Vector3(transform.position.x + 1f, -1.65f), 10010, "Fly", parent);
-            Managers.Object.Spawn<Monster>(new Vector3(transform.position.x - 1f, -1.65f), 10010, "Fly", parent);
+            Managers.Object.Spawn<Monster>(new Vector3(transform.localPosition.x + 1f, -1.65f), 10010, "Fly", parent);
+            Managers.Object.Spawn<Monster>(new Vector3(transform.localPosition.x - 1f, -1.65f), 10010, "Fly", parent);
         }
         else
         {

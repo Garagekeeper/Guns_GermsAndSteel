@@ -154,7 +154,8 @@ public class Boss_GurdyJr : Boss
 
     public void SpawnPooter()
     {
-        Managers.Object.Spawn<Monster>(transform.position - new Vector3(0, 0.5f, 0), 0, "Pooter");
+        Transform parent = transform.parent;
+        Managers.Object.Spawn<Monster>(transform.position - new Vector3(0, 0.5f, 0), 10001, "Pooter", parent);
     }
 
     public void Generate8Projectil()

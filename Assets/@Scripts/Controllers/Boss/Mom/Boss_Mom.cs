@@ -139,6 +139,8 @@ public class Boss_Mom : Boss
     public void SkillB()
     {
         if (_coWait != null) return;
+        Transform parent = transform.parent;
+
 
         List<int> numbers = new() { 0, 1, 2, 3 };
         Stack<Transform> stack = new();
@@ -170,7 +172,7 @@ public class Boss_Mom : Boss
                     spawnObject.GetComponent<SpriteRenderer>().sprite = spawnObjectSprite;
                     spawnObject.gameObject.SetActive(true);
                     //몬스터 소환
-                    Managers.Object.Spawn<Monster>(spawnDir, 0, "Boil");
+                    Managers.Object.Spawn<Monster>(transform.localPosition + spawnDir, 10087, "Boil", parent);
                 }, 0f, 0f))
                 //해당 애니메이션에서의 딜레이
                 .AppendInterval(2f)
