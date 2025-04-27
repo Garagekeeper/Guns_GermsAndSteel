@@ -1120,15 +1120,17 @@ public class MapManager
         GenerateDoor(r);
         r.TilemapCollisionPrefab.SetActive(false);
 
+#if !UNITY_EDITOR
         if (r.RoomType == ERoomType.Start)
         {
             AltSetActive(r.RoomObject, true);
         }
+
         else
         {
             AltSetActive(r.RoomObject, false);
         }
-
+#endif
     }
 
     public void GenerateTrapDoor(RoomClass room, Vector3 doorPos)
@@ -1140,7 +1142,7 @@ public class MapManager
     public GameObject GenerateTrapDoor(RoomClass room)
     {
         GameObject go = Managers.Resource.Instantiate("TrapDoor", room.Doors.transform);
-        go.transform.position = room.Doors.transform.position + new Vector3(-0.5f, -0.5f);
+        go.transform.position = room.Doors.transform.position + new Vector3(0.5f, 0.5f);
         go.SetActive(false);
         return go;
     }
@@ -1260,40 +1262,42 @@ public class MapManager
     {
         if (next == null) return;
 
-
+        //에디터에서는 다 보여주고, 실제에서는 원래방만
+#if UNITY_EDITOR
         //이전 방 (원래 있던 방)
         if (before != null)
         {
             AltSetActive(FindChildByName(Map.transform, before.RoomObject.name).gameObject, false);
         }
 
-        if (before != null)
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                RoomClass adjacencentRoom = before._adjacencentRooms[i];
-                if (adjacencentRoom != null)
-                {
-                    AltSetActive(FindChildByName(Map.transform, adjacencentRoom.RoomObject.name).gameObject, false);
-                }
 
-            }
-        }
+ 
+        //if (before != null)
+        //{
+        //    for (int i = 0; i < 4; i++)
+        //    {
+        //        RoomClass adjacencentRoom = before._adjacencentRooms[i];
+        //        if (adjacencentRoom != null)
+        //        {
+        //            AltSetActive(FindChildByName(Map.transform, adjacencentRoom.RoomObject.name).gameObject, false);
+        //        }
+
+        //    }
+        //}
 
         //다음 방
         AltSetActive(FindChildByName(Map.transform, next.RoomObject.name).gameObject, true);
 
         //바뀐 뒤 인접한 방
-        for (int i = 0; i < 4; i++)
-        {
-            RoomClass adjacencentRoom = next._adjacencentRooms[i];
-            if (adjacencentRoom != null)
-            {
-                AltSetActive(FindChildByName(Map.transform, adjacencentRoom.RoomObject.name).gameObject, true);
-            }
-
-        }
-
+        //for (int i = 0; i < 4; i++)
+        //{
+        //    RoomClass adjacencentRoom = next._adjacencentRooms[i];
+        //    if (adjacencentRoom != null)
+        //    {
+        //        AltSetActive(FindChildByName(Map.transform, adjacencentRoom.RoomObject.name).gameObject, true);
+        //    }
+        //}
+#endif
     }
 
     public void AltSetActive(GameObject room, bool state)

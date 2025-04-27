@@ -81,19 +81,19 @@
     {
       "DataId": 13,
       "RoomType": 5,
-      "Stage": 1,
+      "Stage": 0,
       "PrefabName": "Tile_Map_Collision_Shop_0_1"
     },
     {
       "DataId": 14,
       "RoomType": 5,
-      "Stage": 2,
+      "Stage": 0,
       "PrefabName": "Tile_Map_Collision_Shop_0_2"
     },
     {
       "DataId": 15,
       "RoomType": 5,
-      "Stage": 3,
+      "Stage": 0,
       "PrefabName": "Tile_Map_Collision_Shop_0_3"
     },
     {

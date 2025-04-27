@@ -861,7 +861,7 @@ public class GameManager
             room.ItemHolder.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(Managers.Data.ItemDic[TemplateId].SpriteName);
 
             room.ItemHolder.transform.SetParent(FindChildByName(room.Transform, "ShopItems"));
-            room.ItemHolder.transform.position = (room.Transform.position + new Vector3(0.5f, 0.5f, 0f));
+            room.ItemHolder.transform.localPosition = pos;
 
             FindChildByName(room.ItemHolder.transform, "ShopItemPrice").GetComponent<TextMeshPro>().gameObject.SetActive(true);
             FindChildByName(room.ItemHolder.transform, "ShopItemPrice").GetComponent<TextMeshPro>().text = "15";
@@ -907,6 +907,7 @@ public class GameManager
             pickup.GetComponent<Collider2D>().enabled = true;
             FindChildByName(pickup.transform, "ShopItemPrice").GetComponent<TextMeshPro>().gameObject.SetActive(true);
             FindChildByName(pickup.transform, "ShopItemPrice").GetComponent<TextMeshPro>().text = price.ToString();
+            pickup.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
 
             // for collision data
             tm.SetTile(pos, Managers.Resource.Load<Tile>("CanGo"));

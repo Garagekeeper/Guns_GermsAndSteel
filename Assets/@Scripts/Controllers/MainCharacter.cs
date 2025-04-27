@@ -424,6 +424,17 @@ public class MainCharacter : Creature
     {
         if (itemHolder == null) return;
 
+        var priceGo = FindChildByName(itemHolder.transform, "ShopItemPrice");
+        if (priceGo.gameObject.activeSelf == true && Managers.Map.CurrentRoom.RoomType == ERoomType.Shop)
+        {
+            var price = Int32.Parse(priceGo.GetComponent<TextMeshPro>().text);
+            if (price == 0) throw new Exception($"price err while getting shop item");
+
+            if (price > Coin) return;
+
+            Coin -= price;
+        }
+
         bool active = false;
         Item itemFromItemHolder = itemHolder.ItemOfItemHolder;
         Item itemFromItemPlayer = null;
