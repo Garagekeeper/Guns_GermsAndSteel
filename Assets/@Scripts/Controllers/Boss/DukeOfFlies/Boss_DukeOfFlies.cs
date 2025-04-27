@@ -42,7 +42,7 @@ public class Boss_DukeOfFlies : Boss
         if (Managers.Object.MainCharacters.Count == 0) return;
 
         //0. 스킬을 안쓸지 결정 50%
-        if (Random.Range(0, 101) <= 50 && Managers.Object.Monsters.Count==0)
+        if (Random.Range(0, 101) <= 50 && Managers.Object.Monsters.Count == 0)
         {
             BossState = EBossState.Skill;
             _currentSkill = EBossSkill.SkillA;
@@ -69,7 +69,8 @@ public class Boss_DukeOfFlies : Boss
 
     public void SpawnFlies()
     {
-        for (int i = 0; i < 5; i++)
-            Managers.Object.Spawn<Monster>(transform.position - new Vector3(0, 0.5f, 2), 0, "Fly");
+        Transform parent = transform.parent;
+        for (int i = -2; i < 2; i++)
+            Managers.Object.Spawn<Monster>(transform.position - new Vector3(0.1f * i, 0.5f, 2), 10010, "Fly", parent);
     }
 }

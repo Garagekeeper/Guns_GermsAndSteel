@@ -134,23 +134,24 @@ public class Boss_Gurdy : Boss
             if (m.MonsterType == EMonsterType.Boil) return;
         }
 
-        Managers.Object.Spawn<Monster>(transform.position + new Vector3(0.5f, -3f), 0, "Boil");
-        Managers.Object.Spawn<Monster>(transform.position + new Vector3(-0.5f, -3f), 0, "Boil");
+        Transform parent = transform.parent;
+        Managers.Object.Spawn<Monster>(transform.position + new Vector3(1f, -3f), 10087, "Boil", parent);
+        Managers.Object.Spawn<Monster>(transform.position + new Vector3(-1f, -3f), 10087, "Boil", parent);
     }
 
     //Spawn 2 fly or 1 pooter
     public void SkillC()
     {
         int randomValue = Random.Range(0, 100);
-
+        Transform parent = transform.parent;
         if (randomValue > 50)
         {
-            Managers.Object.Spawn<Monster>(new Vector3(transform.position.x + 1f, -1.65f), 0, "Fly");
-            Managers.Object.Spawn<Monster>(new Vector3(transform.position.x - 1f, -1.65f), 0, "Fly");
+            Managers.Object.Spawn<Monster>(new Vector3(transform.position.x + 1f, -1.65f), 10010, "Fly", parent);
+            Managers.Object.Spawn<Monster>(new Vector3(transform.position.x - 1f, -1.65f), 10010, "Fly", parent);
         }
         else
         {
-            Managers.Object.Spawn<Monster>(new Vector3(transform.position.x - 1f, -1.65f), 0, "Pooter");
+            Managers.Object.Spawn<Monster>(new Vector3(transform.position.x - 1f, -1.65f), 10001, "Pooter", parent);
         }
     }
 

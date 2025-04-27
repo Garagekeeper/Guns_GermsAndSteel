@@ -1419,6 +1419,7 @@ public class MapManager
                         case "pickup_003_key_0":
                         case "pickup_005_chests_5":
                         case "pickup_005_chests_9":
+                        case "pickup_016_bomb_0":
                             collsionInt = (int)ECellCollisionType.None;
                             break;
                         case "Urn":
@@ -1527,6 +1528,10 @@ public class MapManager
                         break;
                     case "pickup_005_chests_5":
                         pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_CHEST, FindChildByName(room.Transform, "Pickups"));
+                        pickup.GetComponent<Collider2D>().enabled = true;
+                        break;
+                    case "pickup_016_bomb_0":
+                        pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_BOMB, FindChildByName(room.Transform, "Pickups"));
                         pickup.GetComponent<Collider2D>().enabled = true;
                         break;
                     case "ShopItem":

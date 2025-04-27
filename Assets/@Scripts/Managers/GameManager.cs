@@ -861,7 +861,7 @@ public class GameManager
             room.ItemHolder.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(Managers.Data.ItemDic[TemplateId].SpriteName);
 
             room.ItemHolder.transform.SetParent(FindChildByName(room.Transform, "ShopItems"));
-            room.ItemHolder.transform.localPosition = pos;
+            room.ItemHolder.transform.localPosition = pos + new Vector3(0.5f, 0.5f);
 
             FindChildByName(room.ItemHolder.transform, "ShopItemPrice").GetComponent<TextMeshPro>().gameObject.SetActive(true);
             FindChildByName(room.ItemHolder.transform, "ShopItemPrice").GetComponent<TextMeshPro>().text = "15";

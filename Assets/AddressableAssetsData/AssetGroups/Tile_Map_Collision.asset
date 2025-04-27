@@ -503,14 +503,74 @@ MonoBehaviour:
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b74078660f3fbe04c8067008d8ceb6f5
-    m_Address: Tile_Map_Collision_Secret_0_0
+  - m_GUID: 7afeef34ea4b3b140b3ee0fb7bf5ef4f
+    m_Address: Tile_Map_Collision_Secret_0_9
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0d52eb89259f2e745a02e68e692a8a63
     m_Address: Tile_Map_Collision_Devil_0_0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 757587aab8592e745bd06739ac488df7
+    m_Address: Tile_Map_Collision_Secret_0_8
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0fa3b5983526dc4fba0e7a03fc38248
+    m_Address: Tile_Map_Collision_Secret_0_7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 150085984975f1a4082e358228c39606
+    m_Address: Tile_Map_Collision_Secret_0_6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dcc2059e814d2f24da9c858344c6cb77
+    m_Address: Tile_Map_Collision_Secret_0_5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e416343a5723986498f667910cd798af
+    m_Address: Tile_Map_Collision_Secret_0_4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7eb1ab929e7967f41b2b346a6afb16bc
+    m_Address: Tile_Map_Collision_Secret_0_3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce0ac09148378034a84e5777079d500a
+    m_Address: Tile_Map_Collision_Secret_0_2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 780d58a96b84de64c89aee4562a7e40e
+    m_Address: Tile_Map_Collision_Secret_0_10
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: edb43718398968f4b9a2f65ad4ecd721
+    m_Address: Tile_Map_Collision_Secret_0_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b74078660f3fbe04c8067008d8ceb6f5
+    m_Address: Tile_Map_Collision_Secret_0_0
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame
