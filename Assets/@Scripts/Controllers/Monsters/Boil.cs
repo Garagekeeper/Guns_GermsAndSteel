@@ -97,4 +97,10 @@ public class Boil : Monster
             //GenerateProjectile(Vector2.up, false, true);
         }
     }
+
+    public override void OnDead()
+    {
+        sequence.Kill();
+        base.OnDead();
+    }
 }

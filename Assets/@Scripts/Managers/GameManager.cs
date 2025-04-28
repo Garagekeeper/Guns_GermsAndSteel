@@ -310,9 +310,9 @@ public class GameManager
 
         if (roomType == ERoomType.Gold)
         {
-            // 해당 아이템 배열이 빈 경우 "lunch" 아이템으로 대체
+            // 해당 아이템 배열이 빈 경우 "Breakfast" 아이템으로 대체
             if (Managers.Data.GoldArray.Count == 0)
-                TemplateId = 45022;
+                TemplateId = 45025;
             else
             {
                 TemplateId = Managers.Data.GoldArray[RNG.RandInt(Managers.Data.GoldArray.Count - 1)];
@@ -322,7 +322,7 @@ public class GameManager
         else if (roomType == ERoomType.Shop)
         {
             if (Managers.Data.ShopArray.Count == 0)
-                TemplateId = 45022;
+                TemplateId = 45025;
             else
             {
                 TemplateId = Managers.Data.ShopArray[RNG.RandInt(Managers.Data.ShopArray.Count - 1)];
@@ -332,7 +332,7 @@ public class GameManager
         else if (roomType == ERoomType.Boss)
         {
             if (Managers.Data.BossArray.Count == 0)
-                TemplateId = 45022;
+                TemplateId = 45025;
             else
             {
                 TemplateId = Managers.Data.BossArray[RNG.RandInt(Managers.Data.BossArray.Count - 1)];
@@ -342,7 +342,7 @@ public class GameManager
         else if (roomType == ERoomType.Secret)
         {
             if (Managers.Data.SecretArray.Count == 0)
-                TemplateId = 45022;
+                TemplateId = 45025;
             else
             {
                 TemplateId = Managers.Data.SecretArray[RNG.RandInt(Managers.Data.SecretArray.Count - 1)];
@@ -441,6 +441,8 @@ public class GameManager
     public void RestartGame()
     {
         Init();
+
+        Managers.Data.SetItemArray();
 
         {
             Managers.Object.ClearObjectManager();

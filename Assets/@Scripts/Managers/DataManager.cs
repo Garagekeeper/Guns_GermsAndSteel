@@ -79,8 +79,13 @@ public class DataManager
         RoomDicTemp = null;
     }
 
-    private void SetItemArray()
+    public void SetItemArray()
     {
+        GoldArray.Clear();
+        ShopArray.Clear();
+        SecretArray.Clear();
+        BossArray.Clear();
+
         foreach (var item in RoomItemArray)
         {
             if (item.RoomType.Count < 1) return;

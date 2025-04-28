@@ -153,11 +153,11 @@ public class PlayingUI : UI_Base
         GetTextLegacy((int)Texts.LuckTextvariation).color = new Color(1, 1, 1, 0);
 
         GetTextLegacy((int)Texts.AttackDamageTextvariation).text = AttackDamagevariation.ToString("+0;-0;0") == "0" ? "" : AttackDamagevariation.ToString("+0;-0;0");
-        GetTextLegacy((int)Texts.TearsTextvariation).text = TearsTextvariation.ToString("+0;-0;0") == "0" ? "" : AttackDamagevariation.ToString("+0;-0;0");
-        GetTextLegacy((int)Texts.RangeTextvariation).text = RangeTextvariation.ToString("+0;-0;0") == "0" ? "" : AttackDamagevariation.ToString("+0;-0;0");
-        GetTextLegacy((int)Texts.ShotSpeedTextvariation).text = ShotSpeedTextvariation.ToString("+0;-0;0") == "0" ? "" : AttackDamagevariation.ToString("+0;-0;0");
-        GetTextLegacy((int)Texts.SpeedTextvariation).text = SpeedTextvariation.ToString("+0;-0;0") == "0" ? "" : AttackDamagevariation.ToString("+0;-0;0");
-        GetTextLegacy((int)Texts.LuckTextvariation).text = LuckTextvariation.ToString("+0;-0;0") == "0" ? "" : AttackDamagevariation.ToString("+0;-0;0");
+        GetTextLegacy((int)Texts.TearsTextvariation).text = TearsTextvariation.ToString("+0;-0;0") == "0" ? "" : TearsTextvariation.ToString("+0;-0;0");
+        GetTextLegacy((int)Texts.RangeTextvariation).text = RangeTextvariation.ToString("+0;-0;0") == "0" ? "" : RangeTextvariation.ToString("+0;-0;0");
+        GetTextLegacy((int)Texts.ShotSpeedTextvariation).text = ShotSpeedTextvariation.ToString("+0;-0;0") == "0" ? "" : ShotSpeedTextvariation.ToString("+0;-0;0");
+        GetTextLegacy((int)Texts.SpeedTextvariation).text = SpeedTextvariation.ToString("+0;-0;0") == "0" ? "" : SpeedTextvariation.ToString("+0;-0;0");
+        GetTextLegacy((int)Texts.LuckTextvariation).text = LuckTextvariation.ToString("+0;-0;0") == "0" ? "" : LuckTextvariation.ToString("+0;-0;0");
 
         GetTextLegacy((int)Texts.AttackDamageTextvariation).color = AttackDamagevariation > 0 ? new Color(0, 1, 0, 0) : new Color(1, 0, 0, 0);
         GetTextLegacy((int)Texts.TearsTextvariation).color = TearsTextvariation > 0 ? new Color(0, 1, 0, 0) : new Color(1, 0, 0, 0);

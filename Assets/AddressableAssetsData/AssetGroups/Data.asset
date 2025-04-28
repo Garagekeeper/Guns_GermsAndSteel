@@ -36,7 +36,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
-    - InGame
+    - Data
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9a82a980277e9fc4ab27256dee978514
     m_Address: Room_Data
@@ -44,6 +44,13 @@ MonoBehaviour:
     m_SerializedLabels:
     - Data
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39606ddf2b02391489539bd98fab4210
+    m_Address: Item_Array_Data
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Data
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
