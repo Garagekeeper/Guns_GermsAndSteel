@@ -30,6 +30,7 @@ public class Creature : BaseObject
         private set { _isFloating = value; }
     }
     private float _hp;
+    private float _tears;
     public float MaxHp { get; set; }
     //public float MaxDamage { get; set; } = 26f;
     public float Hp
@@ -50,7 +51,17 @@ public class Creature : BaseObject
             }
         }
     }
-    public float Tears { get; set; }
+    public float Tears {
+        get => _tears;
+        set
+        {
+            if (_tears != value)
+            {
+                _tears = value;
+                OnTearsChange();
+            }
+        }
+    }
     public float Speed { get; set; }
     public float AttackDamage { get; set; }
     public float Range { get; set; }
@@ -172,7 +183,10 @@ public class Creature : BaseObject
         }
     }
 
+    protected virtual void OnTearsChange()
+    {
 
+    }
 
     private void Awake()
     {
@@ -181,16 +195,6 @@ public class Creature : BaseObject
 
     public override void Init()
     {
-        //base stat
-        Hp = 3.5f;
-        MaxHp = 3.5f;
-        Tears = 10.0f;
-        Speed = 5.0f;
-        AttackDamage = 3.5f;
-        Range = 1.0f;
-        ShotSpeed = 1.0f;
-        Luck = 0f;
-        BombDamage = 100f;
 
         //상하체 분리형
         if (transform.childCount != 0)
@@ -207,6 +211,17 @@ public class Creature : BaseObject
             AnimatorBottom = transform.GetComponentInChildren<Animator>();
             Bottom = transform.GetComponent<SpriteRenderer>();
         }
+
+        //base stat
+        Hp = 3.5f;
+        MaxHp = 3.5f;
+        Tears = 2.73f;
+        Speed = 5.0f;
+        AttackDamage = 3.5f;
+        Range = 1.0f;
+        ShotSpeed = 1.0f;
+        Luck = 0f;
+        BombDamage = 100f;
 
 
         Rigidbody = GetComponent<Rigidbody2D>();

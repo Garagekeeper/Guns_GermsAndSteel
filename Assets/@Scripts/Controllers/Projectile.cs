@@ -132,7 +132,7 @@ public class Projectile : MonoBehaviour
         //?
         if (Vector2.Dot(targetDir, owner.Rigidbody.velocity) > 0)
             correction = owner.Rigidbody.velocity * 0.5f;
-        _target = targetDir * Owner.Tears + correction;
+        _target = targetDir * Owner.ShotSpeed * 10 + correction;
 
         LayerMask mask = 0;
         if (owner.CreatureType == ECreatureType.MainCharacter) mask |= (1 << 6);

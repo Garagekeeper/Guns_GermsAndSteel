@@ -338,6 +338,13 @@ public class MainCharacter : Creature
         #endregion
     }
 
+    protected override void OnTearsChange()
+    {
+        // 2.73 <- 기준
+        float animSpeed = (Tears / 2.73f);
+        AnimatorHead.SetFloat("AnimSpeed", animSpeed);
+    }
+
     private void UpdateMovement(Vector2 vel)
     {
         if (Rigidbody.velocity == vel) return;
