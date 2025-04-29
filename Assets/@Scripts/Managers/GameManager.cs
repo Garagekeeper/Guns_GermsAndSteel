@@ -32,9 +32,11 @@ public class GameManager
     }
 
     public event Action<int, int> ChargeBarEnevnt = null;
+    public event EventHandler ChargeBarEnevnt2 = null;
     public void UseActiveItem(int currentGage, int coolTime)
     {
         ChargeBarEnevnt?.Invoke(currentGage, coolTime);
+        //ChargeBarEnevnt(currentGage, coolTime);    
     }
 
     #region MAP_GENERATING
@@ -894,7 +896,7 @@ public class GameManager
         Managers.Map.CurrentRoom.AwardSeed = rng.Sn;
     }
 
-    public void SpawnShopItem(Vector3Int pos, ref RoomClass room)
+    public void SpawnShopItem(Vector3Int pos, RoomClass room)
     {
         RNGManager rng = new RNGManager(room.AwardSeed);
         var parent = FindChildByName(room.Transform, "ShopItems");

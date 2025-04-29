@@ -1533,7 +1533,7 @@ public class MapManager
                         pickup.GetComponent<Collider2D>().enabled = true;
                         break;
                     case "ShopItem":
-                        Managers.Game.SpawnShopItem(tilePos, ref room);
+                        Managers.Game.SpawnShopItem(tilePos, room);
                         break;
                     // locked chest
                     //case "pickup_005_chests_9":
