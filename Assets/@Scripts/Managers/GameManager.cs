@@ -968,8 +968,6 @@ public class GameManager
         {
             if (Managers.Map.CurrentRoom.ItemHolder == null) return;
             Managers.Map.CurrentRoom.ItemHolder.GetComponent<ItemHolder>().SetItem(Managers.Map.CurrentRoom);
-            var temp = player.transform.GetComponent<Animator>();
-            player.transform.GetComponent<Animator>().Play("UseItem");
         }
         else if (target == "pickup")
         {
