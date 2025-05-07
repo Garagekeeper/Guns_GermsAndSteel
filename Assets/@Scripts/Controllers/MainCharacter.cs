@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using static Define;
+using static UnityEngine.Rendering.DebugUI;
 using static Utility;
 public class MainCharacter : Creature
 {
@@ -27,7 +29,92 @@ public class MainCharacter : Creature
     public List<Item> AcquiredPassiveItemList { get; private set; }
     List<Familiar> AcquiredFamiliarItemList;
 
+    // Damage
 
+    // 캐릭터 기본 데미지
+    private float _charBaseDmg = 3.5f;
+    // 아이템으로 증가된 데미지의 총합
+    private float _totalDmgups = 0f;
+    //그냥 깡으로 올라가는 데미지
+    private float _flatDmgUps = 0f;
+    //최종으로 곱해지는 배율
+    private float _multiplier = 1f;
+
+    private float _tearDelay = 2.75f;
+    private float _tearMax = 5f;
+
+    public float CharBaseDmg
+    {
+        get { return _charBaseDmg; }
+        set
+        {
+            if (value != _charBaseDmg)
+            {
+                _charBaseDmg = value;
+            }
+        }
+
+    }
+    public float TotalDmgUp
+    {
+        get { return _totalDmgups; }
+        set
+        {
+            if (value != _totalDmgups)
+            {
+                _totalDmgups = value;
+            }
+        }
+    }
+    public float FlatDmgUp
+    {
+        get { return _flatDmgUps; }
+        set
+        {
+            _flatDmgUps = value;
+        }
+    }
+    public float Multiplier
+    {
+        get { return _multiplier; }
+        set
+        {
+            if (value != _multiplier)
+            {
+                if (value == 0) return;
+                _multiplier = value;
+            }
+        }
+    }
+
+
+    public override float Tears
+    {
+        get => _tears;
+        set
+        {
+            if (_tears != value)
+            {
+                _tears = value;
+                TearDelay = value;
+            }
+        }
+    }
+  
+
+    //value = Tears
+    public float TearDelay
+    {
+        get { return _tearDelay; }
+        set
+        {
+            if (value > _tearMax) _tearDelay = 5;
+            else if (value >= 0 && value < _tearMax) _tearDelay = (16 - 6 * MathF.Sqrt(value * 1.3f + 1));
+            else if (value < 0 && value > -0.77f) _tearDelay = (16 - 6 * MathF.Sqrt(value * 1.3f + 1));
+            else if (value <= -0.77f) _tearDelay = 16 - 6 * Tears;
+            OnTearsChange();
+        }
+    }
 
     public event Action<Item> UseActiveItem;
     public int SpaceItemId { get; set; } = 45044;
@@ -161,6 +248,11 @@ public class MainCharacter : Creature
         BombCount += amount;
     }
 
+    public void CalcAttackDamage()
+    {
+        AttackDamage = (float)Math.Round((CharBaseDmg * Mathf.Sqrt(TotalDmgUp * 1.2f + 1) + FlatDmgUp) * Multiplier , 2);
+    }
+
     #endregion
 
     public RoomClass CurrentRoom { get; set; }
@@ -192,7 +284,7 @@ public class MainCharacter : Creature
 
         base.Init();
 #if UNITY_EDITOR
-        AttackDamage = 3f;
+        CalcAttackDamage();
 #endif
         HeadSprite = new Sprite[]
        {
@@ -341,7 +433,7 @@ public class MainCharacter : Creature
     protected override void OnTearsChange()
     {
         // 2.73 <- 기준
-        float animSpeed = (Tears / 2.73f);
+        float animSpeed = (12f / (TearDelay + 1f)) / 4f;
         AnimatorHead.SetFloat("AnimSpeed", animSpeed);
     }
 
@@ -498,9 +590,6 @@ public class MainCharacter : Creature
             //그림자 끄끼
             if (itemHolder.transform.GetChild(1) != null) itemHolder.transform.GetChild(1).gameObject.SetActive(active);
 
-            //적용된 능력치 UI 갱신
-            Managers.UI.ResfreshUIAll(this);
-
             //기본 상태로 변환
             HeadState = ECreatureHeadState.Idle;
             HeadDirState = ECreatureHeadDirState.Down;
@@ -538,7 +627,9 @@ public class MainCharacter : Creature
         }
 
         Hp += item.Hp;
-        AttackDamage += item.AttackDamage;
+        TotalDmgUp += item.DmgUp;
+        FlatDmgUp += item.FlatDmgUp;
+        Multiplier = item.Multiplier;
         Tears += item.Tears;
         Range += item.Range;
         ShotSpeed += item.ShotSpeed;
@@ -547,6 +638,11 @@ public class MainCharacter : Creature
         Life += item.Life;
         //item.SetItem;
         //item.ShotType;
+
+        CalcAttackDamage();
+        //적용된 능력치 UI 갱신
+        Managers.UI.ResfreshUIAll(this);
+
     }
 
 

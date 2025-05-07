@@ -27,6 +27,9 @@ public class Maggot : Monster
         Init();
         //Player
         layerMask = 1 << 6;
+        layerMask = 1 << 13;
+        layerMask = 1 << 14;
+        
     }
 
     private void Start()

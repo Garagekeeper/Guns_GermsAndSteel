@@ -31,7 +31,7 @@ public class Creature : BaseObject
         private set { _isFloating = value; }
     }
     private float _hp;
-    private float _tears;
+    protected float _tears;
     public float MaxHp { get; set; }
     //public float MaxDamage { get; set; } = 26f;
     public float Hp
@@ -52,14 +52,13 @@ public class Creature : BaseObject
             }
         }
     }
-    public float Tears {
+    public virtual float Tears {
         get => _tears;
         set
         {
             if (_tears != value)
             {
                 _tears = value;
-                OnTearsChange();
             }
         }
     }

@@ -32,7 +32,6 @@ public class GameManager
     }
 
     public event Action<int, int> ChargeBarEnevnt = null;
-    public event EventHandler ChargeBarEnevnt2 = null;
     public void UseActiveItem(int currentGage, int coolTime)
     {
         ChargeBarEnevnt?.Invoke(currentGage, coolTime);
@@ -366,7 +365,9 @@ public class GameManager
     {
         player.OneTimeActive = false;
         player.Hp -= player.SpaceItem.Hp;
-        player.AttackDamage -= player.SpaceItem.AttackDamage;
+        player.TotalDmgUp -= player.SpaceItem.DmgUp;
+        player.FlatDmgUp -= player.SpaceItem.FlatDmgUp;
+        player.Multiplier = player.SpaceItem.Multiplier;
         player.Tears -= player.SpaceItem.Tears;
         player.Range -= player.SpaceItem.Range;
         player.ShotSpeed -= player.SpaceItem.ShotSpeed;

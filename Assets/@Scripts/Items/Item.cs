@@ -16,7 +16,9 @@ public class Item
     public EItemType ItemType { get; set; }
 
     public int Hp { get; set; }
-    public float AttackDamage { get; set; }
+    public float DmgUp { get; set; }
+    public float FlatDmgUp { get; set; }
+    public float Multiplier { get; set; }
     public float Tears { get; set; }
     public float Range { get; set; }
     public float ShotSpeed { get; set; }
@@ -52,7 +54,9 @@ public class Item
         Name = TemplateData.Name;
         CoolTime = TemplateData.CoolTime;
         ItemType = TemplateData.Type;
-        AttackDamage = TemplateData.AttackDamage;
+        DmgUp = TemplateData.DmgUp;
+        FlatDmgUp = TemplateData.FlatDmgUp;
+        Multiplier = TemplateData.Multiplier;
         Tears = TemplateData.Tears;
         Range = TemplateData.Range;
         ShotSpeed = TemplateData.ShotSpeed;

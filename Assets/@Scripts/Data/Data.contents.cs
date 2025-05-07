@@ -22,7 +22,9 @@ namespace Data
         public int CoolTime;
         public EItemType Type;
         public int Hp;
-        public float AttackDamage;
+        public float DmgUp;
+        public float FlatDmgUp;
+        public float Multiplier;
         public float Tears;
         public float Range;
         public float ShotSpeed;
