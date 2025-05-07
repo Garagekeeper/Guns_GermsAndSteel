@@ -199,7 +199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_chargebar_
+      name: ui_chargebar_6
       rect:
         serializedVersion: 2
         x: 52
@@ -356,7 +356,6 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ui_chargebar_: 1751803061
       ui_chargebar_0: 974125698
       ui_chargebar_1: 880832005
       ui_chargebar_10: 714438177
@@ -366,6 +365,7 @@ TextureImporter:
       ui_chargebar_3: -2035606807
       ui_chargebar_4: -285611144
       ui_chargebar_5: 1193948723
+      ui_chargebar_6: 1751803061
       ui_chargebar_9: 1471265143
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0

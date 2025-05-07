@@ -1231,12 +1231,12 @@ TextureImporter:
       name: isaac_52
       rect:
         serializedVersion: 2
-        x: 18
+        x: 0
         y: 263
-        width: 28
-        height: 33
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1252,12 +1252,12 @@ TextureImporter:
       name: isaac_53
       rect:
         serializedVersion: 2
-        x: 82
+        x: 64
         y: 263
-        width: 28
-        height: 31
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        width: 64
+        height: 64
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

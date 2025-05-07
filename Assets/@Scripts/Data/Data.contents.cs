@@ -32,6 +32,8 @@ namespace Data
         public float Luck;
         public int Life;
         public string SetItem;
+        public EPICKUP_TYPE PickupType;
+        public int PickupCount;
         public EShotType ShotType;
         public ESpecialEffectOfActive EffectOfActive;
         public int Weight;
@@ -56,8 +58,8 @@ namespace Data
     public class RoomItemArrayData
     {
         public int DataId;
-        public List<ERoomType> RoomType;
-        public int ItemId;
+        public ERoomType RoomType;
+        public List<int> ItemId;
     }
 
 

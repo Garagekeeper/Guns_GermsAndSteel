@@ -117,7 +117,7 @@ public class MainCharacter : Creature
     }
 
     public event Action<Item> UseActiveItem;
-    public int SpaceItemId { get; set; } = 45044;
+    public int SpaceItemId { get; set; } = 45105;
     public int QItemId { get; set; } = 44002;
 
     public Item SpaceItem { get; set; }
@@ -595,6 +595,7 @@ public class MainCharacter : Creature
             HeadDirState = ECreatureHeadDirState.Down;
             BottomState = ECreatureBottomState.None;
             BottomState = ECreatureBottomState.Idle;
+            transform.GetComponent<Animator>().enabled = true;
         }));
 
     }
@@ -603,6 +604,7 @@ public class MainCharacter : Creature
     {
         GameObject ItemImage = FindChildByName(transform, "Item").gameObject;
         Managers.UI.PlayingUI.ItemDescriptionActive(true);
+        transform.GetComponent<Animator>().enabled = false;
         ItemImage.SetActive(true);
         _canGetItem = false;
         yield return new WaitForSeconds(2f);
@@ -664,6 +666,8 @@ public class MainCharacter : Creature
                 case ESpecialEffectOfActive.UncheckedRoomTeleport:
                     break;
                 case ESpecialEffectOfActive.Roll:
+                    Managers.Game.Roll(this, "item");
+                    transform.GetComponent<Animator>().Play("UseItem",0,0);
                     break;
             }
         }
@@ -728,8 +732,12 @@ public class MainCharacter : Creature
         Managers.UI.PlayingUI.ChangeSpaceItem(SpaceItem.SpriteName);
         Managers.UI.PlayingUI.ChangeChargeBarSize("ui_chargebar_", SpaceItem.CoolTime);
         //?
-        Managers.Game.UseActiveItem(item.CurrentGage, item.CoolTime);
-    }
+        //Managers.Game.UseActiveItem(item.CurrentGage, item.CoolTime);
+
+        GameObject ItemImage = FindChildByName(transform, "Item").gameObject;
+        var spritename = Managers.Data.ItemDic[SpaceItemId].SpriteName;
+        ItemImage.GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(spritename);
+}
 
     //TODO
     //Pickup으로 바꾸기

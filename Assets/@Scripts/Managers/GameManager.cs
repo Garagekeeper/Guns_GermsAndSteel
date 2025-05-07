@@ -252,59 +252,6 @@ public class GameManager
         Managers.Game.Cam.TargetPos = newPos + new Vector3(0.5f, 0.5f);
     }
 
-    public void TPToNormalRandom()
-    {
-        List<RoomClass> list = new();
-        foreach (RoomClass r in Managers.Map.Rooms)
-        {
-            if (r.RoomType == ERoomType.Normal && r != Managers.Map.CurrentRoom)
-            {
-                list.Add(r);
-            }
-        }
-
-        RoomClass chosen = RNG.Choice(list);
-        Vector3 newPos = chosen.Transform.position + new Vector3(-0.5f, -0.5f, 0);
-        foreach (var mc in Managers.Object.MainCharacters)
-        {
-            mc.Collider.enabled = false;
-            mc.CanMove = false;
-            mc.CanAttack = false;
-        }
-
-        foreach (var mc in Managers.Object.MainCharacters)
-        {
-            mc.transform.position = newPos;
-        }
-
-        newPos.z = -10f;
-        Cam.MoveCameraWithoutLerp(newPos);
-
-        Managers.Object.DespawnMonsters(Managers.Map.CurrentRoom);
-
-        if (Managers.Map.CurrentRoom.ItemHolder != null)
-        {
-            int TemplateId = Managers.Map.CurrentRoom.ItemHolder.GetComponent<ItemHolder>().ItemOfItemHolder.TemplateId;
-            Managers.Data.ItemDic[TemplateId].Weight = 0;
-        }
-
-        Managers.Map.CurrentRoom = chosen;
-
-
-
-        if (Managers.Map.CurrentRoom.IsClear == false)
-        {
-            Managers.Map.SpawnMonsterAndBossInRoom(Managers.Map.CurrentRoom, () =>
-            {
-                CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
-            });
-        }
-        else
-        {
-            CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
-        }
-    }
-
     public int SelectItem(ERoomType roomType)
     {
         int TemplateId;
@@ -959,4 +906,81 @@ public class GameManager
 
         room.AwardSeed = rng.Sn;
     }
+
+
+    #region Active effect
+    public void TPToNormalRandom()
+    {
+        List<RoomClass> list = new();
+        foreach (RoomClass r in Managers.Map.Rooms)
+        {
+            if (r.RoomType == ERoomType.Normal && r != Managers.Map.CurrentRoom)
+            {
+                list.Add(r);
+            }
+        }
+
+        RoomClass chosen = RNG.Choice(list);
+        Vector3 newPos = chosen.Transform.position + new Vector3(0.5f, 0.5f, 0);
+        foreach (var mc in Managers.Object.MainCharacters)
+        {
+            mc.Collider.enabled = false;
+            mc.CanMove = false;
+            mc.CanAttack = false;
+        }
+
+        foreach (var mc in Managers.Object.MainCharacters)
+        {
+            mc.transform.position = newPos;
+        }
+
+        newPos.z = -10f;
+        Cam.MoveCameraWithoutLerp(newPos);
+
+        Managers.Object.DespawnMonsters(Managers.Map.CurrentRoom);
+
+        if (Managers.Map.CurrentRoom.ItemHolder != null)
+        {
+            int TemplateId = Managers.Map.CurrentRoom.ItemHolder.GetComponent<ItemHolder>().ItemOfItemHolder.TemplateId;
+            Managers.Data.ItemDic[TemplateId].Weight = 0;
+        }
+
+        Managers.Map.CurrentRoom = chosen;
+
+
+
+        if (Managers.Map.CurrentRoom.IsClear == false)
+        {
+            Managers.Map.SpawnMonsterAndBossInRoom(Managers.Map.CurrentRoom, () =>
+            {
+                CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
+            });
+        }
+        else
+        {
+            CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
+        }
+    }
+
+    public void Roll(MainCharacter player, string target = "item")
+    {
+        if (target == "item")
+        {
+            if (Managers.Map.CurrentRoom.ItemHolder == null) return;
+            Managers.Map.CurrentRoom.ItemHolder.GetComponent<ItemHolder>().SetItem(Managers.Map.CurrentRoom);
+            var temp = player.transform.GetComponent<Animator>();
+            player.transform.GetComponent<Animator>().Play("UseItem");
+        }
+        else if (target == "pickup")
+        {
+
+        }
+        else if (target == "all")
+        {
+
+        }
+    }
+
+    #endregion
+
 }

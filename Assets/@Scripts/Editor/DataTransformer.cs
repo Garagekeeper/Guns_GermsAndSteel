@@ -59,6 +59,8 @@ public class DataTransformer : EditorWindow
         where Loader : new()
         where LoaderData : new()
     {
+
+        Debug.Log(filename);
         // Loader 인스턴스 생성 (e.g. ItemDataLoader)
         Loader loader = new Loader();
         // Loader 내부 첫 번째 필드(보통 List<LoaderData>) 가져오기
@@ -218,6 +220,7 @@ public class DataTransformer : EditorWindow
     {
         if (string.IsNullOrEmpty(value)) return null;
         TypeConverter converter = TypeDescriptor.GetConverter(type);
+        //Debug.Log(value);
         return converter.ConvertFromString(value);
     }
 

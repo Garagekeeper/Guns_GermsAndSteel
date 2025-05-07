@@ -88,27 +88,44 @@ public class DataManager
 
         foreach (var item in RoomItemArray)
         {
-            if (item.RoomType.Count < 1) return;
-            foreach (var type in item.RoomType)
+            if (item.RoomType == ERoomType.Gold)
             {
-                if (type == ERoomType.Gold)
-                {
-                    GoldArray.Add(item.ItemId);
-                }
-                else if (type == ERoomType.Shop)
-                {
-                    ShopArray.Add(item.ItemId);
-                }
-                else if (type == ERoomType.Secret)
-                {
-                    SecretArray.Add(item.ItemId);
-                }
-                else if (type == ERoomType.Boss)
-                {
-                    BossArray.Add(item.ItemId);
-                }
-                //TODO Angel, Devile
+                GoldArray = item.ItemId;
             }
+            else if (item.RoomType == ERoomType.Shop)
+            {
+                ShopArray = item.ItemId;
+            }
+            else if (item.RoomType == ERoomType.Secret)
+            {
+                SecretArray = item.ItemId;
+            }
+            else if (item.RoomType == ERoomType.Boss)
+            {
+                BossArray = item.ItemId;
+            }
+
+            //if (item.RoomType.Count < 1) return;
+            //foreach (var type in item.RoomType)
+            //{
+            //    if (type == ERoomType.Gold)
+            //    {
+            //        GoldArray.Add(item.ItemId);
+            //    }
+            //    else if (type == ERoomType.Shop)
+            //    {
+            //        ShopArray.Add(item.ItemId);
+            //    }
+            //    else if (type == ERoomType.Secret)
+            //    {
+            //        SecretArray.Add(item.ItemId);
+            //    }
+            //    else if (type == ERoomType.Boss)
+            //    {
+            //        BossArray.Add(item.ItemId);
+            //    }
+            //    //TODO Angel, Devile
+            //}
         }
     }
 }

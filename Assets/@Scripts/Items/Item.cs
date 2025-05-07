@@ -26,6 +26,8 @@ public class Item
     public float Luck { get; set; }
     public int Life { get; set; }
     public string SetItem { get; set; }
+    public EPICKUP_TYPE PickupType { get; set; }
+    public int PickupCount { get; set; }
     public EShotType ShotType { get; set; }
     public ESpecialEffectOfActive EffectOfActive { get; set; }
     public int FamiliarID { get; set; }
@@ -63,6 +65,8 @@ public class Item
         Speed = TemplateData.Speed;
         Luck = TemplateData.Luck;
         SetItem = TemplateData.SetItem;
+        PickupType = TemplateData.PickupType;
+        PickupCount = TemplateData.PickupCount;
         ShotType = TemplateData.ShotType;
         EffectOfActive = TemplateData.EffectOfActive;
         CurrentGage = CoolTime;
