@@ -15,7 +15,7 @@ public class Item
     public int CoolTime { get; private set; }
     public EItemType ItemType { get; set; }
 
-    public int Hp { get; set; }
+    public float Hp { get; set; }
     public float DmgUp { get; set; }
     public float FlatDmgUp { get; set; }
     public float Multiplier { get; set; }
@@ -56,6 +56,7 @@ public class Item
         Name = TemplateData.Name;
         CoolTime = TemplateData.CoolTime;
         ItemType = TemplateData.Type;
+        Hp = TemplateData.Hp;
         DmgUp = TemplateData.DmgUp;
         FlatDmgUp = TemplateData.FlatDmgUp;
         Multiplier = TemplateData.Multiplier;

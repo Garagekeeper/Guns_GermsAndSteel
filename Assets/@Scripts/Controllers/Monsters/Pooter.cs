@@ -26,6 +26,7 @@ public class Pooter : Monster
         Hp = 8.0f;
         MaxHp = 8.0f;
         AttackDamage = 2f;
+        ShotSpeed = 0.7f;
         _isFloating = true;
     }
 

@@ -39,7 +39,7 @@ public class Gaper : Monster
         Vector2 vel = Rigidbody.velocity;
         if (vel != Vector2.zero)
         {
-            if (vel.y != 0 && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))
+            if (vel.y != 0)
             {
                 BottomState = vel.y > 0 ? ECreatureBottomState.MoveUp : ECreatureBottomState.MoveDown;
             }

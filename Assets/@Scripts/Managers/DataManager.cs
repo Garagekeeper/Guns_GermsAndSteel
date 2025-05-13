@@ -42,7 +42,7 @@ public class DataManager
     }
     private Loader LoadJson<Loader, Key, Value>(string path) where Loader : ILoader<Key, Value>
     {
-        Debug.Log($"{path}");
+        //Debug.Log($"{path}");
         TextAsset textAsset = Managers.Resource.Load<TextAsset>($"{path}");
         return JsonConvert.DeserializeObject<Loader>(textAsset.text);
     }

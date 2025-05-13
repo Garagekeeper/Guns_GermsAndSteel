@@ -17,10 +17,10 @@ DataId,Description,SpriteName,Name,CoolTime,Type,Hp,DmgUp,FlatDmgUp,Multiplier,T
 45014,Speed and range up,collectibles_014_roidrage,roidrage,0,Passive,,,,,,1,,0.3,,,,,,Null,Null,10
 45015,HP up,collectibles_015_heart,<3,0,Passive,2,,,,,,,,,,,,,Null,Null,10
 45016,HP up,collectibles_016_rawliver,rawliver,0,Passive,2,,,,,,,,,,,,,Null,Null,10
-45017,99 keys,collectibles_017_skeletonkey,skeletonkey,0,Passive,,,,,,,,,,,,,,Null,Null,10
-45018,$$$,collectibles_018_adollar,adollar,0,Passive,,,,,,,,,,,,PICKUP_KEY,99,Null,Null,10
-45019,10 bombs,collectibles_019_boom,boom,0,Passive,,,,,,,,,,,,PICKUP_COIN,100,Null,Null,10
-45020,We all float down here¡¦,collectibles_020_transcendence,transcendence,0,Passive,,,,,,,,,,,,PICKUP_BOMB,10,Null,Null,10
+45017,99 keys,collectibles_017_skeletonkey,skeletonkey,0,Passive,,,,,,,,,,,,PICKUP_KEY,99,Null,Null,10
+45018,$$$,collectibles_018_adollar,adollar,0,Passive,,,,,,,,,,,,PICKUP_COIN,100,Null,Null,10
+45019,10 bombs,collectibles_019_boom,boom,0,Passive,,,,,,,,,,,,PICKUP_BOMB,10,Null,Null,10
+45020,We all float down here¡¦,collectibles_020_transcendence,transcendence,0,Passive,,,,,,,,,,,,,,Null,Null,10
 45021,The end is near,collectibles_021_thecompass,thecompass,0,Passive,,,,,,,,,,,,,,Null,Null,10
 45022,HP up,collectibles_022_lunch,lunch,0,Passive,1,,,,,,,,,,,,,Null,Null,10
 45023,HP up,collectibles_023_dinner,dinner,0,Passive,1,,,,,,,,,,,,,Null,Null,10

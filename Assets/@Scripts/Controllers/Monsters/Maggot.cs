@@ -27,8 +27,8 @@ public class Maggot : Monster
         Init();
         //Player
         layerMask = 1 << 6;
-        layerMask = 1 << 13;
-        layerMask = 1 << 14;
+        //layerMask = 1 << 13;
+        //layerMask = 1 << 14;
         
     }
 
@@ -237,6 +237,15 @@ public class Maggot : Monster
         }
 
         Rigidbody.velocity = TargetPos * 10f;
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+       if (CreatureState == ECreatureState.Skill)
+        {
+            CreatureState = ECreatureState.Idle;
+            _accumulatedTime = 0f;
+        }
     }
 
 }

@@ -426,6 +426,7 @@ public class Creature : BaseObject
 
     public virtual void OnDamaged(Creature owner, ESkillType skillType, string name = "")
     {
+        if (CreatureState == ECreatureState.Dead || CreatureState == ECreatureState.Explosion) return;
         switch (skillType)
         {
             case ESkillType.BodySlam:

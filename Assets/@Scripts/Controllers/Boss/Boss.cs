@@ -75,6 +75,7 @@ public class Boss : Creature
         Range = 10;
         Tears = 5.0f;
         Speed = 3f;
+        ShotSpeed = 1.0f;
 
         LayerMask mask = 0;
         mask |= (1 << 15);

@@ -100,7 +100,7 @@ public class MainCharacter : Creature
             }
         }
     }
-  
+
 
     //value = Tears
     public float TearDelay
@@ -116,7 +116,6 @@ public class MainCharacter : Creature
         }
     }
 
-    public event Action<Item> UseActiveItem;
     public int SpaceItemId { get; set; } = 45105;
     public int QItemId { get; set; } = 44002;
 
@@ -159,7 +158,7 @@ public class MainCharacter : Creature
         get { return _isInvincible; }
         set
         {
-           
+
             if (_isInvincible != value)
             {
                 ////왜인진 mask 부분이 동작하지 않는데
@@ -250,7 +249,7 @@ public class MainCharacter : Creature
 
     public void CalcAttackDamage()
     {
-        AttackDamage = (float)Math.Round((CharBaseDmg * Mathf.Sqrt(TotalDmgUp * 1.2f + 1) + FlatDmgUp) * Multiplier , 2);
+        AttackDamage = (float)Math.Round((CharBaseDmg * Mathf.Sqrt(TotalDmgUp * 1.2f + 1) + FlatDmgUp) * Multiplier, 2);
     }
 
     #endregion
@@ -300,8 +299,6 @@ public class MainCharacter : Creature
         SpaceItem = new Item();
         QItem = new Item();
 
-        UseActiveItem -= HandleUsingActiveItem;
-        UseActiveItem += HandleUsingActiveItem;
         CreatureType = ECreatureType.MainCharacter;
         CanMove = true;
 
@@ -395,8 +392,7 @@ public class MainCharacter : Creature
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            SpaceItem.CurrentGage = Math.Min(SpaceItem.CurrentGage + 1, SpaceItem.CoolTime);
-            Managers.Game.UseActiveItem(SpaceItem.CurrentGage, SpaceItem.CoolTime);
+            Managers.Game.ChangeItemGage(SpaceItem, 1);
         }
 
         if (Input.GetKeyDown(KeyCode.X))
@@ -404,7 +400,7 @@ public class MainCharacter : Creature
             Managers.Game.RoomClear();
         }
 
-        
+
 
         //Restart with fade out
         if (Input.GetKey(KeyCode.R))
@@ -497,25 +493,27 @@ public class MainCharacter : Creature
 
     public void UseItem(Item item)
     {
-        if (item == null)
+        if (item == null || item.CurrentGage == 0)
             return;
+
+        if (item.ItemType == EItemType.Passive) return;
 
         if (item.ItemType == EItemType.ActiveItem)
         {
-            if (item.CurrentGage == item.CoolTime)
-            {
-                item.CurrentGage = 0;
-                UseActiveItem?.Invoke(item);
-                Managers.Game.UseActiveItem(item.CurrentGage, item.CoolTime);
-                //ApplyItemEffect(item);
-            }
+            if (item.CurrentGage != item.CoolTime) return;
+
+            Managers.Game.ChangeItemGage(item, item.CoolTime * -1);
+
+            //Managers.Game.UseActiveItem(item.CurrentGage, item.CoolTime);
+            //ApplyItemEffect(item);
+
         }
         else if (item.ItemType == EItemType.Cards || item.ItemType == EItemType.Pills)
         {
-            UseActiveItem?.Invoke(item);
             ChangeQItem(null);
             QItem = null;
         }
+        HandleUsingActiveItem(item);
         Managers.UI.ResfreshUIAll(this);
     }
 
@@ -527,17 +525,20 @@ public class MainCharacter : Creature
         if (priceGo.gameObject.activeSelf == true && Managers.Map.CurrentRoom.RoomType == ERoomType.Shop)
         {
             var price = Int32.Parse(priceGo.GetComponent<TextMeshPro>().text);
-            if (price == 0) throw new Exception($"price err while getting shop item");
+            if (price > 0)
+            {
+                if (price > Coin) return;
 
-            if (price > Coin) return;
-
-            Coin -= price;
+                Coin -= price;
+                priceGo.GetComponent<TextMeshPro>().text = "0";
+                priceGo.gameObject.SetActive(false);
+            }
         }
 
         bool active = false;
         Item itemFromItemHolder = itemHolder.ItemOfItemHolder;
         Item itemFromItemPlayer = null;
-        
+
         //0. ItemHolder의 아이템변경
         if (itemFromItemHolder.ItemType == EItemType.ActiveItem)
         {
@@ -559,7 +560,8 @@ public class MainCharacter : Creature
         //1. player의 state가 GetItem으로 변함
         HeadState = ECreatureHeadState.GetItem;
         //2. 코루틴을 호출, 코루틴이 완료될 때 아이템이 플레이어에게 들어온다.
-        StartCoroutine(DelayedGet(() => {
+        StartCoroutine(DelayedGet(() =>
+        {
             // 2-0) active item의 경우 들고있는 아이템과 item holder의 아이템을 swap
             if (itemFromItemHolder.ItemType == EItemType.ActiveItem)
             {
@@ -590,6 +592,10 @@ public class MainCharacter : Creature
             //그림자 끄끼
             if (itemHolder.transform.GetChild(1) != null) itemHolder.transform.GetChild(1).gameObject.SetActive(active);
 
+            GameObject ItemImage = FindChildByName(transform, "Item").gameObject;
+            if (SpaceItem != null)
+                ItemImage.GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(SpaceItem.SpriteName);
+
             //기본 상태로 변환
             HeadState = ECreatureHeadState.Idle;
             HeadDirState = ECreatureHeadDirState.Down;
@@ -613,7 +619,7 @@ public class MainCharacter : Creature
         callback.Invoke();
         yield return new WaitForSeconds(1.5f);
         _canGetItem = true;
-        
+
     }
 
     public void DeleteItem(Item item)
@@ -638,6 +644,18 @@ public class MainCharacter : Creature
         Speed += item.Speed;
         Luck += item.Luck;
         Life += item.Life;
+        if (item.PickupType == EPICKUP_TYPE.PICKUP_COIN)
+        {
+            Coin += item.PickupCount;
+        }
+        else if (item.PickupType == EPICKUP_TYPE.PICKUP_KEY)
+        {
+            KeyCount += item.PickupCount;
+        }
+        else if (item.PickupType == EPICKUP_TYPE.PICKUP_BOMB)
+        {
+            BombCount += item.PickupCount;
+        }
         //item.SetItem;
         //item.ShotType;
 
@@ -667,7 +685,7 @@ public class MainCharacter : Creature
                     break;
                 case ESpecialEffectOfActive.Roll:
                     Managers.Game.Roll(this, "item");
-                    transform.GetComponent<Animator>().Play("UseItem",0,0);
+                    transform.GetComponent<Animator>().Play("UseItem", 0, 0);
                     break;
             }
         }
@@ -731,13 +749,12 @@ public class MainCharacter : Creature
         SpaceItemId = item.TemplateId;
         Managers.UI.PlayingUI.ChangeSpaceItem(SpaceItem.SpriteName);
         Managers.UI.PlayingUI.ChangeChargeBarSize("ui_chargebar_", SpaceItem.CoolTime);
-        //?
-        //Managers.Game.UseActiveItem(item.CurrentGage, item.CoolTime);
+        Managers.Game.ChangeItemGage(SpaceItem, SpaceItem.CoolTime);
 
         GameObject ItemImage = FindChildByName(transform, "Item").gameObject;
         var spritename = Managers.Data.ItemDic[SpaceItemId].SpriteName;
         ItemImage.GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(spritename);
-}
+    }
 
     //TODO
     //Pickup으로 바꾸기
@@ -766,7 +783,7 @@ public class MainCharacter : Creature
 
     public void GetPickup(Pickup pickup)
     {
-        
+
         var priceGo = FindChildByName(pickup.transform, "ShopItemPrice");
         if (priceGo.gameObject.activeSelf == true && Managers.Map.CurrentRoom.RoomType == ERoomType.Shop)
         {
@@ -863,13 +880,13 @@ public class MainCharacter : Creature
                 collision.transform.parent.GetComponent<Door>().Open(index, false, this);
                 return;
             }
-            
+
             if (Managers.Map.CurrentRoom.IsClear)
             {
                 CanMove = false;
                 Managers.Game.GoToNextRoom(collision.transform.name);
             }
-            
+
         }
 
         if (collision.transform.CompareTag("HoleInWall"))
@@ -905,7 +922,7 @@ public class MainCharacter : Creature
         if (collision.transform.CompareTag("SpikeDoor") && Managers.Map.CurrentRoom.IsClear)
         {
             CanMove = false;
-            OnDamaged(this,ESkillType.Spike);
+            OnDamaged(this, ESkillType.Spike);
             Managers.Game.GoToNextRoom(collision.transform.name);
         }
 
@@ -954,7 +971,7 @@ public class MainCharacter : Creature
             CreatureState = ECreatureState.Dead;
             Managers.Game.GameOver();
         }
-            
+
     }
 
 }

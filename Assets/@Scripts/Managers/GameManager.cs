@@ -31,11 +31,11 @@ public class GameManager
         }
     }
 
-    public event Action<int, int> ChargeBarEnevnt = null;
-    public void UseActiveItem(int currentGage, int coolTime)
+    public void ChangeItemGage(Item item, int value)
     {
-        ChargeBarEnevnt?.Invoke(currentGage, coolTime);
-        //ChargeBarEnevnt(currentGage, coolTime);    
+        item.CurrentGage = Math.Clamp(item.CurrentGage+value, 0, item.CoolTime);
+
+        Managers.UI.PlayingUI.ChangeChargeGage(item);
     }
 
     #region MAP_GENERATING
@@ -55,8 +55,6 @@ public class GameManager
 
     public void Init()
     {
-        ChargeBarEnevnt = null;
-
         Seed = GenerateSeed();
         RNG = new RNGManager(Seed);
         Debug.Log(Seed);
@@ -348,15 +346,24 @@ public class GameManager
             //TODO
         }
 
+        // 보상
         // 기존에 클리어한 방은 안줌
         if (curRoom.RoomType == ERoomType.Normal && existingValue == false)
         {
             // 원래 몬스터가 없던 방은 보상을 주지 않는다.
-            if (FindChildByName(curRoom.Transform, "Monster").childCount > 0)
+            if (FindChildByName(curRoom.Transform, "Monster").childCount >0)
+            {
                 SpawnClearAward(curRoom.AwardSeed);
+                foreach (var player in Managers.Object.MainCharacters)
+                {
+                    if (player.SpaceItem == null) continue;
+                    ChangeItemGage(player.SpaceItem, 1);
+                }
+            }
 
         }
 
+        // DoorAnim
         // 클리어하지 않은 방만 Door의 열리는 모션을 재생한다
         if (existingValue == false)
         {
@@ -627,7 +634,7 @@ public class GameManager
                 float nx = Random.Range(-1, 1);
                 float ny = Random.Range(-1, 1);
 
-                Managers.Object.Spawn<Pickup>(Vector3.zero, pickupAward[i], pickupsTransform, new Vector3(nx, ny, 0).normalized * 4);
+                Managers.Object.Spawn<Pickup>(pickup.transform.localPosition, pickupAward[i], pickupsTransform, new Vector3(nx, ny, 0).normalized * 4);
             }
         }
 
@@ -966,6 +973,7 @@ public class GameManager
     {
         if (target == "item")
         {
+            if (player.SpaceItem == null) return;
             if (Managers.Map.CurrentRoom.ItemHolder == null) return;
             Managers.Map.CurrentRoom.ItemHolder.GetComponent<ItemHolder>().SetItem(Managers.Map.CurrentRoom);
         }

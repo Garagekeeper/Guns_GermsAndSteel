@@ -73,13 +73,17 @@ public class PlayingUI : UI_Base
         BindTextLegacy(typeof(Texts));
         BindObject(typeof(GameObjects));
         BindText(typeof(TTexts));
-        Managers.Game.ChargeBarEnevnt -= ChangeChargeGage;
-        Managers.Game.ChargeBarEnevnt += ChangeChargeGage;
     }
 
-    protected void ChangeChargeGage(int currentGage, int coolTime)
+    //protected void ChangeChargeGage(int currentGage, int coolTime)
+    //{
+    //    GetImage((int)Images.ChargedBar).fillAmount = (1f / coolTime) * currentGage;
+    //}
+
+    public void ChangeChargeGage (Item item)
     {
-        GetImage((int)Images.ChargedBar).fillAmount = (1f / coolTime) * currentGage;
+        var temp = GetImage((int)Images.ChargeBar);
+        GetImage((int)Images.ChargedBar).fillAmount = (1f / item.CoolTime) * item.CurrentGage;
     }
 
     public void ChangeChargeBarSize(string name, int coolTime)

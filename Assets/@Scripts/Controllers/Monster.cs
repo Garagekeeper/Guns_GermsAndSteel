@@ -166,7 +166,6 @@ public class Monster : Creature
             var temp = collider.gameObject;
             temp.GetComponent<Creature>()?.OnDamaged(this, ESkillType.Bomb);
         }
-        CreatureState = ECreatureState.Dead;
         AnimatorBottom.Play("Explosion");
     }
 
@@ -247,6 +246,7 @@ public class Monster : Creature
         if (AnimatorBottom != null)
             AnimatorBottom.enabled = false;
 
+        if (MonsterType != EMonsterType.BoomFly)
         StartCoroutine(MonsterDeadAaim());
 
     }

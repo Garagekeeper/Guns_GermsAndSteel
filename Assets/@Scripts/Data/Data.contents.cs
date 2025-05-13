@@ -21,7 +21,7 @@ namespace Data
         public string Name;
         public int CoolTime;
         public EItemType Type;
-        public int Hp;
+        public float Hp;
         public float DmgUp;
         public float FlatDmgUp;
         public float Multiplier;

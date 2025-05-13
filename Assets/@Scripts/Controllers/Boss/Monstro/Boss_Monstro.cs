@@ -35,7 +35,7 @@ public class Boss_Monstro : Boss
         BossType = EBossType.Monstro;
         BossState = EBossState.Idle;
         CreatureMoveState = ECreatureMoveState.TargetCreature;
-        AttackDamage = 5f;
+        AttackDamage = 3f;
 
         _flickerTarget.Add(FindChildByName(transform, "Boss_Monstro_Sprite").GetComponent<SpriteRenderer>());
         //Debug
@@ -129,7 +129,7 @@ public class Boss_Monstro : Boss
 
         for (int i = 0; i < 10; i++)
         {
-            GenerateProjectile(projectileDir, true);
+            GenerateProjectile(projectileDir, true, true);
         }
     }
 }

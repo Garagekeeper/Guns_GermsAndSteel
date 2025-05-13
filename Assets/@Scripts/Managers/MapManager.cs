@@ -1092,9 +1092,6 @@ public class MapManager
         if (r.RoomType == ERoomType.Boss && stageNum == 5)
             stageIndex = 5;
         roomName = Managers.Data.RoomDic[r.RoomType][stageIndex][Managers.Game.RNG.RandInt(0, Managers.Data.RoomDic[r.RoomType][stageIndex].Count - 1)];
-
-        if (r.RoomType == ERoomType.Shop)
-            Debug.Log(roomName);
         
         GameObject roomTileMap = Managers.Resource.Instantiate(roomName);
         roomTileMap.transform.SetParent(room.transform);
@@ -1230,8 +1227,8 @@ public class MapManager
             if (adjacencentRoom != null)
             {
                 // 비밀방 미니맵 컨트롤은 Door에서 관리
-                if (adjacencentRoom.RoomType == ERoomType.Secret && adjacencentRoom.IsClear == false) break;
-                if (next.RoomType == ERoomType.Secret) break;
+                if (adjacencentRoom.RoomType == ERoomType.Secret && adjacencentRoom.IsClear == false) continue;
+                if (next.RoomType == ERoomType.Secret) continue;
 
                 Transform child = go.transform.Find(adjacencentRoom.RoomObject.name);
                 if (adjacencentRoom.RoomType != ERoomType.Normal && adjacencentRoom.RoomType != ERoomType.Start)
