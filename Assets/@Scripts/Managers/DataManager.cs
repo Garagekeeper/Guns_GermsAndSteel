@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using static Define;
+using static CoroutineHelper;
+using System.Collections;
 
 public interface ILoader<Key, Value>
 {
@@ -27,7 +29,7 @@ public class DataManager
     public List<int> SecretArray { get; private set; } = new();
     public List<int> BossArray { get; private set; } = new();
 
-    public List<Data.RoomItemArrayData> RoomItemArray {  get; private set; } = new();  
+    public List<Data.RoomItemArrayData> RoomItemArray { get; private set; } = new();
 
 
     public void Init()
@@ -85,47 +87,25 @@ public class DataManager
         ShopArray.Clear();
         SecretArray.Clear();
         BossArray.Clear();
-
         foreach (var item in RoomItemArray)
         {
             if (item.RoomType == ERoomType.Gold)
             {
-                GoldArray = item.ItemId;
+                GoldArray = new List<int>(item.ItemId);
             }
             else if (item.RoomType == ERoomType.Shop)
             {
-                ShopArray = item.ItemId;
+                ShopArray = new List<int>(item.ItemId);
             }
             else if (item.RoomType == ERoomType.Secret)
             {
-                SecretArray = item.ItemId;
+                SecretArray = new List<int>(item.ItemId);
             }
             else if (item.RoomType == ERoomType.Boss)
             {
-                BossArray = item.ItemId;
+                BossArray = new List<int>(item.ItemId);
             }
-
-            //if (item.RoomType.Count < 1) return;
-            //foreach (var type in item.RoomType)
-            //{
-            //    if (type == ERoomType.Gold)
-            //    {
-            //        GoldArray.Add(item.ItemId);
-            //    }
-            //    else if (type == ERoomType.Shop)
-            //    {
-            //        ShopArray.Add(item.ItemId);
-            //    }
-            //    else if (type == ERoomType.Secret)
-            //    {
-            //        SecretArray.Add(item.ItemId);
-            //    }
-            //    else if (type == ERoomType.Boss)
-            //    {
-            //        BossArray.Add(item.ItemId);
-            //    }
-            //    //TODO Angel, Devile
-            //}
         }
+
     }
 }
