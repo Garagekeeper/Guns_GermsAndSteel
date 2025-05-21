@@ -18,9 +18,9 @@ public class MainCharacter : Creature
     //Todo
     //float PercentageOfDevil;
     //float PercentageOfAngel;
-    public int Coin { get; private set; } = 0;
-    public int BombCount { get; private set; } = 12;
-    public int KeyCount { get; private set; } = 0;
+    public int Coin { get; private set; } = 15;
+    public int BombCount { get; private set; } = 10;
+    public int KeyCount { get; private set; } = 1;
 
     //public float EmptyHearts { get; private set; } = 0;
     //TODO
@@ -32,7 +32,7 @@ public class MainCharacter : Creature
     // Damage
 
     // 캐릭터 기본 데미지
-    private float _charBaseDmg = 3.5f;
+    private float _charBaseDmg = 6.5f;
     // 아이템으로 증가된 데미지의 총합
     private float _totalDmgups = 0f;
     //그냥 깡으로 올라가는 데미지
@@ -41,6 +41,7 @@ public class MainCharacter : Creature
     private float _multiplier = 1f;
 
     private float _tearDelay = 2.75f;
+    //private float _tearDelay = 0.7f;
     private float _tearMax = 5f;
 
     public float CharBaseDmg
@@ -96,7 +97,9 @@ public class MainCharacter : Creature
             if (_tears != value)
             {
                 _tears = value;
-                TearDelay = value;
+                if (value > _tearMax)
+                    _tears = _tearMax;
+                TearDelay = _tears;
             }
         }
     }
@@ -108,7 +111,7 @@ public class MainCharacter : Creature
         get { return _tearDelay; }
         set
         {
-            if (value > _tearMax) _tearDelay = 5;
+            if (value > _tearMax) _tearDelay = 0;
             else if (value >= 0 && value < _tearMax) _tearDelay = (16 - 6 * MathF.Sqrt(value * 1.3f + 1));
             else if (value < 0 && value > -0.77f) _tearDelay = (16 - 6 * MathF.Sqrt(value * 1.3f + 1));
             else if (value <= -0.77f) _tearDelay = 16 - 6 * Tears;
@@ -229,6 +232,11 @@ public class MainCharacter : Creature
         }
     }
     //protected List<Item> _passiveItem;
+
+    // 게임오브젝트가 비활성화 될 때 애니메이터의 파라미터가 초기화되기때문에
+    // 별도로 저장
+    private float _animSpeedSave = 1;
+
 
     public float DamageByOtherConstant { get; set; } = 0.5f;
 
@@ -431,6 +439,7 @@ public class MainCharacter : Creature
         // 2.73 <- 기준
         float animSpeed = (12f / (TearDelay + 1f)) / 4f;
         AnimatorHead.SetFloat("AnimSpeed", animSpeed);
+        _animSpeedSave = animSpeed;
     }
 
     private void UpdateMovement(Vector2 vel)
@@ -617,7 +626,6 @@ public class MainCharacter : Creature
         ItemImage.SetActive(false);
         Managers.UI.PlayingUI.ItemDescriptionActive(false);
         callback.Invoke();
-        yield return new WaitForSeconds(1.5f);
         _canGetItem = true;
 
     }
@@ -695,7 +703,10 @@ public class MainCharacter : Creature
     {
         if (IsInvincible) return;
 
+//에디터에서는 무적
+#if !UNITY_EDITOR
         Hp -= DamageByOtherConstant;
+#endif
         IsInvincible = true;
         StartCoroutine(CoInvincible());
         Managers.UI.ResfreshUIAll(this);
@@ -972,6 +983,11 @@ public class MainCharacter : Creature
             Managers.Game.GameOver();
         }
 
+    }
+
+    private void OnEnable()
+    {
+        AnimatorHead.SetFloat("AnimSpeed", _animSpeedSave);
     }
 
 }

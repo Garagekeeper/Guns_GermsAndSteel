@@ -43,6 +43,7 @@ public class ObjectManager
             spawn_effect.GetComponent<Animator>().Play(spawn_effect_string);
 
             Monsters.Add(mt);
+            CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
             return mt as T;
         }
         if (type == typeof(Boss))
@@ -55,6 +56,19 @@ public class ObjectManager
             return bs as T;
         }
         return null;
+    }
+
+    public IEnumerator WaitSpawn()
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+
+
+        foreach (var temp in Managers.Object.Monsters)
+        {
+            temp.GetComponent<Monster>().enabled = true;
+            if (FindChildByName(temp.transform, "Monster_Spawn_Effect") == null) continue;
+            Object.Destroy(FindChildByName(temp.transform, "Monster_Spawn_Effect").gameObject);
+        }
     }
 
     //spawn pickup

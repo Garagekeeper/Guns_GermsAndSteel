@@ -17,6 +17,7 @@ using static UnityEditor.PlayerSettings;
 
 public class RoomClass
 {
+    public EDeadEndType DeadEndType { get; set; }
     public ERoomType RoomType { get; set; }
     public int XPos { get; private set; }
     public int YPos { get; private set; }
@@ -681,9 +682,13 @@ public class MapManager
         BossRoom = dead_ends.Pop().RoomClass;
         for (int i = 0; i < 4; i++)
         {
+            // 보스방이 시작방과 붙어있는 경우는 맵이 잘못 생성된것
+            // 보스방과 붙어있는 인접방의 형태를 기반으로 DeadEndType 보스방 위에 인접방이 있으면 U
+            // R D L U
             RoomClass temp = BossRoom._adjacencentRooms[i];
             if (temp == null) continue;
             if (temp == StartingRoom) return 0;
+            BossRoom.DeadEndType = (EDeadEndType)(i+1);
         }
 
         BossRoom.RoomType = ERoomType.Boss;
@@ -1073,7 +1078,6 @@ public class MapManager
         float yDiif = StartingPos.x - r.XPos;
         Vector2 posDiff = new Vector2(1 * xDiif, 1 * yDiif) * new Vector2(21, 13);
         r.WorldCenterPos = posDiff;
-        //Debug.Log(r.RoomType + " diff: (" + posDiff.x + "|" + posDiff.y + ") ");
 
         //room prfab 생성
         string roomPrefabname = "Room_";
@@ -1083,17 +1087,33 @@ public class MapManager
         GameObject room = Managers.Resource.Instantiate(roomPrefabname);
 
         // Select Random Map Collision
-        //Debug.Log(r.RoomType.ToString());
-        string roomName;
+        
 
         int stageNum = r.RoomType == ERoomType.Normal ? Managers.Game.StageNumber : 0;
         //roomName = "Tile_Map_Collision_" + r.RoomType.ToString() + "_" stageNum "_" + Managers.Game.RNG.RandInt(0, RoomCollisionCnt[(int)r.RoomType] - 1);
         int stageIndex = 0;
-        if (r.RoomType == ERoomType.Boss && stageNum == 5)
-            stageIndex = 5;
-        roomName = Managers.Data.RoomDic[r.RoomType][stageIndex][Managers.Game.RNG.RandInt(0, Managers.Data.RoomDic[r.RoomType][stageIndex].Count - 1)];
+        int roomId;
+
+        if (r.RoomType == ERoomType.Boss)
+        {
+            if (Managers.Game.StageNumber == 5)
+            {
+                stageIndex = 5;
+            }
+            roomId = Managers.Data.RoomDic[r.RoomType][stageIndex][Managers.Game.RNG.RandInt(0, Managers.Data.RoomDic[r.RoomType][stageIndex].Count - 1)];
+            // 현재방과 연결된 인접방의 형태가 소환하기에 적합한 상태가 될때까지 방을 재선정
+            while (Managers.Data.RoomDicTotal[roomId].CannotSpawnType == r.DeadEndType)
+            {
+                if (stageNum == 5) break;
+                roomId = Managers.Data.RoomDic[r.RoomType][stageIndex][Managers.Game.RNG.RandInt(0, Managers.Data.RoomDic[r.RoomType][stageIndex].Count - 1)];
+            }
+        }
+        else
+        {
+            roomId = Managers.Data.RoomDic[r.RoomType][stageIndex][Managers.Game.RNG.RandInt(0, Managers.Data.RoomDic[r.RoomType][stageIndex].Count - 1)];
+        }
         
-        GameObject roomTileMap = Managers.Resource.Instantiate(roomName);
+        GameObject roomTileMap = Managers.Resource.Instantiate(Managers.Data.RoomDicTotal[roomId].PrefabName);
         roomTileMap.transform.SetParent(room.transform);
 
         //room 위치, 이름 조정
@@ -1147,7 +1167,7 @@ public class MapManager
     public GameObject GenerateClearBox(RoomClass room)
     {
         GameObject go = Managers.Resource.Instantiate("ClearBox", room.Doors.transform);
-        go.transform.position = room.Doors.transform.position + new Vector3(-0.5f, -0.5f);
+        go.transform.position = room.Doors.transform.position + new Vector3(0.5f, 0.5f);
         go.SetActive(false);
         return go;
     }

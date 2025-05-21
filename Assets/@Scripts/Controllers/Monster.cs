@@ -91,7 +91,7 @@ public class Monster : Creature
 
     protected override void UpdateMove()
     {
-        if (_isFloating || CreatureMoveState == ECreatureMoveState.Designated )
+        if (_isFloating || CreatureMoveState == ECreatureMoveState.Designated)
         {
             UpdateMovementByDV();
         }
@@ -246,14 +246,21 @@ public class Monster : Creature
         if (AnimatorBottom != null)
             AnimatorBottom.enabled = false;
 
-        if (MonsterType != EMonsterType.BoomFly)
-        StartCoroutine(MonsterDeadAaim());
+        if (MonsterType == EMonsterType.BoomFly)
+        {
+            base.OnDead();
+        }
+
+        else
+        {
+            StartCoroutine(MonsterDeadAaim());
+        }
 
     }
 
     IEnumerator MonsterDeadAaim()
     {
-        if (Collider != null) 
+        if (Collider != null)
             Collider.enabled = false;
 
         float delay;

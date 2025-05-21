@@ -104,7 +104,7 @@ public class Projectile : MonoBehaviour
             radius = 0.43f;
             size = 11;
         }
-        else if (atk > 10f)
+        else if (atk >= 9f)
         {
             radius = 0.46f;
             size = 12;
@@ -178,6 +178,9 @@ public class Projectile : MonoBehaviour
         {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
+        }else if (other.gameObject.CompareTag("Boss") && Owner.CreatureType == ECreatureType.Monster)
+        {
+            return;
         }
         else
         {

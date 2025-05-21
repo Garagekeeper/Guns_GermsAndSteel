@@ -39,7 +39,7 @@ public class Boss_GurdyJr : Boss
         BossState = EBossState.Idle;
         CreatureMoveState = ECreatureMoveState.None;
         AttackDamage = 5f;
-        Speed = 10f;
+        Speed = 8f;
         Bottom = FindChildByName(transform, transform.gameObject.name.Replace("(Clone)", "").Trim() + "_Face").GetComponent<SpriteRenderer>();
 
         _flickerTarget.Add(FindChildByName(transform, "Boss_GurdyJr_Sprite").GetComponent<SpriteRenderer>());
@@ -155,7 +155,7 @@ public class Boss_GurdyJr : Boss
     public void SpawnPooter()
     {
         Transform parent = transform.parent;
-        Managers.Object.Spawn<Monster>(transform.position - new Vector3(0, 0.5f, 0), 10001, "Pooter", parent);
+        Managers.Object.Spawn<Monster>(transform.localPosition - new Vector3(0, 0.5f, 0), 10001, "Pooter", parent);
     }
 
     public void Generate8Projectil()

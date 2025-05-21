@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,8 +24,10 @@ public class BaseObject : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public virtual void Onexplode(Creature owner)
-    { 
+}
 
-    }
+public interface IExplodable
+{
+     void OnExplode(Creature owner);
+     void OnExplode(Creature owner, object args);
 }

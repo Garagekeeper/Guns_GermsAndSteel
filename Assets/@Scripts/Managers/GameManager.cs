@@ -160,14 +160,6 @@ public class GameManager
     {
         yield return new WaitForSecondsRealtime(0.5f);
 
-
-        foreach (var temp in Managers.Object.Monsters)
-        {
-            temp.GetComponent<Monster>().enabled = true;
-            if (FindChildByName(temp.transform, "Monster_Spawn_Effect") == null) continue;
-            Object.Destroy(FindChildByName(temp.transform, "Monster_Spawn_Effect").gameObject);
-        }
-
         foreach (var temp in Managers.Object.MainCharacters)
         {
             if (temp.OneTimeActive)
@@ -206,11 +198,11 @@ public class GameManager
         }
 
         //Move Camera to new starting room
-        Cam.MoveCameraWithoutLerp(new Vector3(-0.5f, -0.5f, -10f));
+        Cam.MoveCameraWithoutLerp(new Vector3(0.5f, 0.5f, -10f));
         foreach (var temp in Managers.Object.MainCharacters)
         {
             temp.gameObject.SetActive(true);
-            temp.transform.position = new Vector3(-0.5f, -0.5f, 0);
+            temp.transform.position = new Vector3(0.5f, 0.5f, 0);
             temp.CanMove = true;
             temp.CanAttack = true;
         }
@@ -295,6 +287,16 @@ public class GameManager
                 Managers.Data.SecretArray.Remove(TemplateId);
             }
         }
+        else if (roomType == ERoomType.Curse)
+        {
+            if (Managers.Data.CurseArray.Count == 0)
+                TemplateId = 45025;
+            else
+            {
+                TemplateId = Managers.Data.CurseArray[RNG.RandInt(Managers.Data.CurseArray.Count - 1)];
+                Managers.Data.CurseArray.Remove(TemplateId);
+            }
+        }
         else
         {
             Debug.Log("err in selectItem, non exist RoomType");
@@ -340,7 +342,7 @@ public class GameManager
 
         if (curRoom.RoomType == ERoomType.Boss)
         {
-            Managers.Map.CurrentRoom.ItemHolder.SetActive(true);
+            Managers.Map.CurrentRoom.ItemHolder?.SetActive(true);
             //보스방의 ItemHolder는 클리어 한 후 나타남
             //굳이 보스 클리어하고 Collision Data갱신할 필요가 있을까
             //TODO
@@ -348,7 +350,7 @@ public class GameManager
 
         // 보상
         // 기존에 클리어한 방은 안줌
-        if (curRoom.RoomType == ERoomType.Normal && existingValue == false)
+        if (existingValue == false)
         {
             // 원래 몬스터가 없던 방은 보상을 주지 않는다.
             if (FindChildByName(curRoom.Transform, "Monster").childCount >0)
@@ -699,6 +701,8 @@ public class GameManager
             {
                 //pickupAward.Add(EPICKUP_TYPE.PICKUP_PILL);
                 //pickupCount.Add(1);
+                pickupAward.Add(EPICKUP_TYPE.PICKUP_COIN);
+                pickupCount.Add(10);
             }
         }
 

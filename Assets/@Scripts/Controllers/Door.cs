@@ -8,7 +8,7 @@ using static TMPro.SpriteAssetUtilities.TexturePacker_JsonArray;
 using Unity.VisualScripting;
 using UnityEngine.UI;
 
-public class Door : BaseObject
+public class Door : BaseObject, IExplodable
 {
     // RDLU
     public GameObject[] DoorsGameObject { get; private set; } = new GameObject[4];
@@ -58,7 +58,7 @@ public class Door : BaseObject
                 if (doorType == ERoomType.Gold || doorType == ERoomType.Shop)
                 {
                     Animators[index].Play("KeyClosed");
-                    eDoorState[index] = EDoorState.KeyClosed;
+                    state = EDoorState.KeyClosed;
                 }
                 //TODO Coin Closed
             }
@@ -73,7 +73,8 @@ public class Door : BaseObject
         {
             if (DoorsGameObject[i].activeSelf == false) continue;
 
-            Open(i);
+            if (eDoorState[i] == EDoorState.Closed)
+                Open(i);
         }
         FindChildByName(transform, "TrapDoor")?.gameObject.SetActive(true);
         FindChildByName(transform, "ClearBox")?.gameObject.SetActive(true);
@@ -94,6 +95,7 @@ public class Door : BaseObject
             if (forced)
             {
                 clipName = "CoinOpen";
+                eDoorState[index] = EDoorState.Opened;
             }
             // 플레이어에 의해서 열릴때
             else if (Player != null)
@@ -103,6 +105,7 @@ public class Door : BaseObject
                 {
                     clipName = "CoinOpen";
                     Player.AddCoin(-1);
+                    eDoorState[index] = EDoorState.Opened;
                 }
             }
         }
@@ -114,6 +117,7 @@ public class Door : BaseObject
             if (forced)
             {
                 clipName = "KeyOpen";
+                eDoorState[index] = EDoorState.Opened;
             }
             // 플레이어에 의해서 열릴때
             else if (Player != null)
@@ -124,6 +128,7 @@ public class Door : BaseObject
                 {
                     clipName = "KeyOpen";
                     Player.AddKey(-1);
+                    eDoorState[index] = EDoorState.Opened;
                 }
             }
         }
@@ -155,6 +160,7 @@ public class Door : BaseObject
         string clipName = "Closed";
         for (int index = 0; index < 4; index++)
         {
+            if (Animators[index].gameObject.activeSelf == false) continue;
             if (_eDoorType[index] == ERoomType.Secret)
             {
                 clipName = "Close";
@@ -256,5 +262,13 @@ public class Door : BaseObject
         eDoorState[index] = EDoorState.BrokenOpen;
     }
 
+    public void OnExplode(Creature own)
+    {
+        
+    }
 
+    public void OnExplode(Creature own, object args)
+    {
+        Break(args as string);
+    }
 }

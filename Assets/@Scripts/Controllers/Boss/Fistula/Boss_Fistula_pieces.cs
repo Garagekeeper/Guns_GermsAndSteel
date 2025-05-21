@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss_Fistula_pieces : MonoBehaviour
+public class Boss_Fistula_pieces : MonoBehaviour, IExplodable
 {
     private Vector3 _dirVec;
     private Rigidbody2D _rb;
+    //큰 덩어리 게임 오브젝트
+    private Boss_Fistula _fistula;
     public float Speed { get; private set; }
 
     public Vector3 DirVec
@@ -27,11 +29,12 @@ public class Boss_Fistula_pieces : MonoBehaviour
         _rb.velocity = DirVec.normalized * Speed;
     }
 
-    public void Init(Vector3 dirVec, float speed)
+    public void Init(Vector3 dirVec, float speed, Boss_Fistula fistula)
     {
         _rb = GetComponent<Rigidbody2D>();
         Speed = speed;
         DirVec = dirVec;
+        _fistula = fistula;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -66,5 +69,14 @@ public class Boss_Fistula_pieces : MonoBehaviour
 
         //Change Sprite
         yield return null;
+    }
+
+    public void OnExplode(Creature owner)
+    {
+        _fistula.OnExplode(owner, gameObject.name);
+    }
+    public void OnExplode(Creature owner, object args)
+    {
+        
     }
 }

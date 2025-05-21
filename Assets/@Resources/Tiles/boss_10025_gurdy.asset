@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: boss_10030_gurdy
+  m_Name: boss_10025_gurdy
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 2035824174, guid: f67a23587b4fbff42ac64d9c5f604b11, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

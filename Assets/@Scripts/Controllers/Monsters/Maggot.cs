@@ -245,6 +245,7 @@ public class Maggot : Monster
         {
             CreatureState = ECreatureState.Idle;
             _accumulatedTime = 0f;
+            AnimatorBottom.enabled = true;
         }
     }
 

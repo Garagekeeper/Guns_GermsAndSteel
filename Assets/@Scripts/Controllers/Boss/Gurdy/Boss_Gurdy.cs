@@ -22,6 +22,7 @@ public class Boss_Gurdy : Boss
         BossState = EBossState.Idle;
         CreatureMoveState = ECreatureMoveState.None;
         AttackDamage = 3f;
+        PTCollider2D = GetComponent<PolygonCollider2D>();
 
         _flickerTarget.Add(GetComponent<SpriteRenderer>());
         foreach (var spriteRenderer in GetComponentsInChildren<SpriteRenderer>())
@@ -135,8 +136,8 @@ public class Boss_Gurdy : Boss
         }
 
         Transform parent = transform.parent;
-        Managers.Object.Spawn<Monster>(transform.localPosition + new Vector3(1f, -3f), 10087, "Boil", parent);
-        Managers.Object.Spawn<Monster>(transform.localPosition + new Vector3(-1f, -3f), 10087, "Boil", parent);
+        Managers.Object.Spawn<Monster>(transform.localPosition + new Vector3(1.5f, -4f), 10087, "Boil", parent);
+        Managers.Object.Spawn<Monster>(transform.localPosition + new Vector3(-2.5f, -4f), 10087, "Boil", parent);
     }
 
     //Spawn 2 fly or 1 pooter
@@ -151,7 +152,7 @@ public class Boss_Gurdy : Boss
         }
         else
         {
-            Managers.Object.Spawn<Monster>(new Vector3(transform.position.x - 1f, -1.65f), 10001, "Pooter", parent);
+            Managers.Object.Spawn<Monster>(new Vector3(transform.localPosition.x - 1f, -1.65f), 10001, "Pooter", parent);
         }
     }
 

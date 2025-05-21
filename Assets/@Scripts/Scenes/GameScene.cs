@@ -70,7 +70,7 @@ public class GameScene : MonoBehaviour
 
     public void SpawnCharacter()
     {
-        MainCharacter mc = Managers.Object.Spawn<MainCharacter>(new Vector3(-0.5f, -0.5f, 0));
+        MainCharacter mc = Managers.Object.Spawn<MainCharacter>(Vector3.zero);
     }
 
     public void LoadMiniMap()

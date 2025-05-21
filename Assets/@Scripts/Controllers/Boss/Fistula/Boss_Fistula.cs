@@ -22,7 +22,9 @@ public class Boss_Fistula : Boss
     private void Update()
     {
         //Rigidbody.velocity = TargetPos.normalized * Speed;
-        UpdateMove();
+        // 큰 몸체가 살아있는 경우
+        if (MaxHp == 60f)
+            UpdateMove();
     }
 
     public override void Init()
@@ -85,8 +87,8 @@ public class Boss_Fistula : Boss
             index = (name[name.Length - 1] - '0') - 1;
             if (smallHp[index] <= 0) return;
 
-            Hp += Mathf.Max(value, -1 * smallHp[index]);
             smallHp[index] += value;
+            Hp += Mathf.Max(value, -1 * smallHp[index]);
             if (smallHp[index] <= 0)
             {
                 smallHp[index] = 0;
@@ -118,7 +120,7 @@ public class Boss_Fistula : Boss
                 else
                 {
                     t.gameObject.SetActive(true);
-                    t.gameObject.GetComponent<Boss_Fistula_pieces>().Init(dV[i], 4f);
+                    t.gameObject.GetComponent<Boss_Fistula_pieces>().Init(dV[i], 4f, this);
                     ChangepiecesHpValue(15);
                     MaxHp += 15f;
                     i++;
@@ -159,7 +161,7 @@ public class Boss_Fistula : Boss
             {
                 ChangepiecesHpValue(8f);
                 MaxHp += 8f;
-                t.gameObject.GetComponent<Boss_Fistula_pieces>().Init(dV[i], 5f);
+                t.gameObject.GetComponent<Boss_Fistula_pieces>().Init(dV[i], 5f, this);
             }
             i++;
         }

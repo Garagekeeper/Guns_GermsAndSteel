@@ -52,6 +52,8 @@ namespace Data
         public ERoomType RoomType;
         public int Stage = 0;
         public string PrefabName;
+        public EDeadEndType CannotSpawnType;
+
     }
 
     [Serializable]

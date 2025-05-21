@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Define;
 
-public class Obstacle : BaseObject
+public class Obstacle : BaseObject, IExplodable
 {
     public enum ObstacleTypes
     {
@@ -99,7 +99,7 @@ public class Obstacle : BaseObject
         }
     }
 
-    public void OnExplode()
+    public void OnExplode(Creature owner)
     {
         if (ObstacleType == ObstacleTypes.None) return;
         if (ObstacleType == ObstacleTypes.Spike) return;
@@ -112,6 +112,11 @@ public class Obstacle : BaseObject
 
         Managers.Map.ChangeCollisionData(transform.position.x - 0.5f, transform.position.y-0.5f, ECellCollisionType.None);
 
+    }
+
+    public void OnExplode(Creature owner, object args)
+    {
+        //
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -140,4 +145,6 @@ public class Obstacle : BaseObject
                 creature.OnDamaged(null, ESkillType.Fire);
         }
     }
+
+
 }

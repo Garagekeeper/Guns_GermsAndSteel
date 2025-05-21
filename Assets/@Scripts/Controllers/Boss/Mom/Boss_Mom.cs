@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using static Define;
 using static Utility;
@@ -12,7 +13,7 @@ public class Boss_Mom : Boss
     Transform _legTransForm;
     CapsuleCollider2D _legCollider;
     Transform[] _doorTransform = new Transform[4];
-
+    private DG.Tweening.Sequence sequence;
     float _timer = 0;
     bool _bR = false;
     bool _bD = false;
@@ -25,6 +26,8 @@ public class Boss_Mom : Boss
     {
         Init();
         StartCoroutine(CoUpdateAI());
+        Managers.Map.CurrentRoom.Doors.SetActive(false);
+
     }
 
     public override void Init()
@@ -56,7 +59,6 @@ public class Boss_Mom : Boss
 
         _flickerTarget.Add(FindChildByName(transform, "Boss_Mom_Leg_Thigh").GetComponent<SpriteRenderer>());
         _flickerTarget.Add(FindChildByName(transform, "Boss_Mom_Leg_Calf").GetComponent<SpriteRenderer>());
-        _flickerTarget.Add(FindChildByName(transform, "Boss_Mom_Leg_Shadow").GetComponent<SpriteRenderer>());
 
         _flickerTarget.Add(FindChildByName(transform, "Boss_Mom_Door_Right_Spawn_Object").GetComponent<SpriteRenderer>());
         _flickerTarget.Add(FindChildByName(transform, "Boss_Mom_Door_Right_Hand").GetComponent<SpriteRenderer>());
@@ -88,8 +90,6 @@ public class Boss_Mom : Boss
     {
         if (_bR || _bD || _bL || _bU) _timer = MathF.Max(_timer + Time.deltaTime, 3f);
         else _timer = 0;
-
-        Debug.Log(_timer);
     }
 
     protected override void UpdateIdle()
@@ -155,13 +155,13 @@ public class Boss_Mom : Boss
             var tf = _doorTransform[numbers[i]];
             Transform spawnObject = tf.GetChild(0);
             Sprite spawnObjectSprite = Managers.Resource.Load<Sprite>(spawnObjectName[numbers[i]]);
-            Vector3 spawnDir = (Vector3)VectorRotation2D(new Vector2(2, -2), tf.eulerAngles.z) + tf.position;
+            Vector3 spawnDir = (Vector3)VectorRotation2D(new Vector2(2, -2), tf.eulerAngles.z) + tf.localPosition;
             Vector2 shakeDir = VectorRotation2D(new Vector2(0.1f, 0), tf.eulerAngles.z);
 
             stack.Push(tf);
-            Sequence seq = DOTween.Sequence();
+            sequence = DOTween.Sequence();
             //로컬 기준 좌우
-            seq.Append(tf.DOShakePosition(1f, shakeDir, 10, 90, false, false))
+            sequence.Append(tf.DOShakePosition(1f, shakeDir, 10, 90, false, false))
                 //상하 크기
                 .Join(tf.DOScaleY(1.2f, 0.5f).SetLoops(2, LoopType.Yoyo))
                 .Append(DOTween.To(() => 0f, x =>
@@ -198,11 +198,11 @@ public class Boss_Mom : Boss
         float delay = 0f;
         while (stack.Count > 0)
         {
-            Sequence seq = DOTween.Sequence();
+            sequence = DOTween.Sequence();
             var tf = stack.Pop();
             Vector2 shakeDir = VectorRotation2D(new Vector2(0.1f, 0), tf.eulerAngles.z);
 
-            seq.Append(tf.DOShakePosition(1f, shakeDir, 10, 90, false, false))
+            sequence.Append(tf.DOShakePosition(1f, shakeDir, 10, 90, false, false))
                 .Join(tf.DOScaleY(1.2f, 0.5f).SetLoops(2, LoopType.Yoyo))
                 .Append(DOTween.To(() => 0f, x =>
                 {
@@ -223,7 +223,7 @@ public class Boss_Mom : Boss
     {
         if (_coWait != null) return;
 
-        Sequence seq = DOTween.Sequence();
+        sequence = DOTween.Sequence();
         Transform doorTransform = null;
         Transform handTransform = null; ;
 
@@ -252,7 +252,7 @@ public class Boss_Mom : Boss
 
         Vector2 shakeDir = VectorRotation2D(new Vector2(0.1f, 0), doorTransform.eulerAngles.z);
 
-        seq.Append(doorTransform.DOShakePosition(1f, shakeDir, 10, 90, false, false))
+        sequence.Append(doorTransform.DOShakePosition(1f, shakeDir, 10, 90, false, false))
                //상하 크기
                .Join(doorTransform.DOScaleY(1.2f, 0.5f).SetLoops(2, LoopType.Yoyo))
                .Append(DOTween.To(() => 0f, x =>
@@ -286,11 +286,15 @@ public class Boss_Mom : Boss
         BossState = EBossState.Dead;
         Managers.Object.Despawn(this);
         Managers.UI.PlayingUI.BossHpActive(false);
+        Managers.Map.CurrentRoom.Doors.SetActive(true);
+        sequence.Kill();
+        sequence = null;
     }
 
     private void OnDestroy()
     {
-        DOTween.Kill(this);
+        sequence.Kill();
+        sequence = null;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -299,7 +303,7 @@ public class Boss_Mom : Boss
         if (BossState != EBossState.Idle) return;
 
         // 1. 어느 구역인지 확인
-       
+
 
         foreach (Transform tf in _doorTransform)
         {
@@ -320,6 +324,6 @@ public class Boss_Mom : Boss
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _bR = _bD = _bL = _bU = false ;
+        _bR = _bD = _bL = _bU = false;
     }
 }

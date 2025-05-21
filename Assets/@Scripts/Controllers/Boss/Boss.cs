@@ -1,3 +1,4 @@
+using System.Buffers.Text;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -13,7 +14,7 @@ public class Boss : Creature
     /// <br/>
     /// when Boss need 2 Collider Use this for collision
     /// </summary>
-    protected CircleCollider2D GPCollider2D;
+    protected Collider2D GPCollider2D;
     protected List<SpriteRenderer> _flickerTarget = new List<SpriteRenderer>();
 
     /// <summary>
@@ -21,7 +22,7 @@ public class Boss : Creature
     /// <br/>
     /// when Boss need second collider, Use this for projectile
     /// </summary>
-    protected CircleCollider2D PTCollider2D;
+    protected Collider2D PTCollider2D;
     public EBossType BossType { get; protected set; } = 0;
     protected EBossState _bossState;
     public virtual EBossState BossState
@@ -145,7 +146,7 @@ public class Boss : Creature
         BossState = bossState;
     }
 
-    public void ChangeCollider(CircleCollider2D collider, bool on)
+    public void ChangeCollider(Collider2D collider, bool on)
     {
         collider.enabled = on;
     }
@@ -157,9 +158,12 @@ public class Boss : Creature
         Rigidbody.velocity = Vector3.zero;
         BossState = EBossState.Dead;
         Managers.UI.PlayingUI.BossHpActive(false);
-
         if (gameObject.GetComponent<Animator>() != null)
             StartCoroutine(BossDeadAnim());
+        else
+        {
+            base.OnDead();
+        }
     }
 
     IEnumerator BossDeadAnim()
@@ -206,7 +210,7 @@ public class Boss : Creature
         _startPos = transform.position;
     }
 
-    public IEnumerator CoFlicker()
+    public virtual IEnumerator CoFlicker()
     {
         //Change Sprite
         for (int i = 1; i <= 2; i++)

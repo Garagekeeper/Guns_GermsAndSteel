@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -142,13 +143,20 @@ public class PlayingUI : UI_Base
 
     IEnumerator CRefreshUI(MainCharacter player)
     {
-
         float AttackDamagevariation = player.AttackDamage - float.Parse(GetTextLegacy((int)Texts.AttackDamageText).text);
         float TearsTextvariation = player.Tears - float.Parse(GetTextLegacy((int)Texts.TearsText).text);
         float RangeTextvariation = player.Range - float.Parse(GetTextLegacy((int)Texts.RangeText).text);
         float ShotSpeedTextvariation = player.ShotSpeed - float.Parse(GetTextLegacy((int)Texts.ShotSpeedText).text);
         float SpeedTextvariation = player.Speed - float.Parse(GetTextLegacy((int)Texts.SpeedText).text);
         float LuckTextvariation = player.Luck - float.Parse(GetTextLegacy((int)Texts.LuckText).text);
+
+
+        AttackDamagevariation = (float)Math.Truncate(AttackDamagevariation * 100) / 100;
+        TearsTextvariation = (float)Math.Truncate(TearsTextvariation * 100) / 100;
+        RangeTextvariation = (float)Math.Truncate(RangeTextvariation * 100) / 100;
+        ShotSpeedTextvariation = (float)Math.Truncate(ShotSpeedTextvariation * 100) / 100;
+        SpeedTextvariation = (float)Math.Truncate(SpeedTextvariation * 100) / 100;
+        LuckTextvariation = (float)Math.Truncate(LuckTextvariation * 100) / 100;
 
         GetTextLegacy((int)Texts.AttackDamageTextvariation).color = new Color(1, 1, 1, 0);
         GetTextLegacy((int)Texts.TearsTextvariation).color = new Color(1, 1, 1, 0);
@@ -273,6 +281,7 @@ public class PlayingUI : UI_Base
     public void BossHpActive(bool isActive)
     {
         GetObject((int)GameObjects.BossHp).SetActive(isActive);
+        if (isActive) GetObject((int)GameObjects.BossHp).GetComponent<Slider>().value = 1;
     }
 
     public void ChangeBossHpSliderRatio(float ratio)

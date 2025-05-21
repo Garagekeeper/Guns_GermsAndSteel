@@ -4,6 +4,7 @@ using System.Drawing;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using static Define;
+using static Utility;
 using static UnityEngine.GraphicsBuffer;
 
 public class Bomb : MonoBehaviour
@@ -20,8 +21,6 @@ public class Bomb : MonoBehaviour
     private List<GameObject> _transparentObject;
 
     private Collider2D[] colliders;
-
-    private ESkillType _skillType = ESkillType.Bomb;
 
     private Animator _animator;
 
@@ -46,15 +45,17 @@ public class Bomb : MonoBehaviour
         Collider2D[] hit = Physics2D.OverlapBoxAll(transform.position, new Vector2(Range, Range), 0);
         foreach (Collider2D collider in hit)
         {
-            var temp = collider.gameObject;
-            //TODO 폭탄의 경우 여러 물체와 상호작용한다
-            //모든 Object의 조상을 만들어서 Object 타입을 통해 적절한 상호작용으로 교체하자.
-            temp.GetComponent<Creature>()?.OnDamaged(Owner, _skillType);
-            //Obstacle
-            //temp.GetComponent<Obstacle>()?
-            //Door
-            temp.transform.parent?.GetComponent<Door>()?.Break(temp.name);
-            temp.GetComponent<Obstacle>()?.OnExplode();
+            var go = collider.GetComponent<MonoBehaviour>();
+            if (go == null) go = collider.GetComponentInParent<MonoBehaviour>();
+            if (go is IExplodable)
+            {
+                var targetGo = go as IExplodable;
+
+                if (go is Door)
+                    targetGo.OnExplode(Owner, collider.gameObject.name);
+                else
+                    targetGo.OnExplode(Owner);
+            }
         }
     }
 

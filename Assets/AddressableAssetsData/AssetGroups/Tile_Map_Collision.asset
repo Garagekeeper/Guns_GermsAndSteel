@@ -107,11 +107,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2a57aefb6adbf9842806aa9105451ac1
-    m_Address: Tile_Map_Collision_Curse_0_0
+  - m_GUID: 5b7e4acb952df6748987612d84a28217
+    m_Address: Tile_Map_Collision_Curse_0_1
     m_ReadOnly: 0
     m_SerializedLabels:
-    - InGame
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 8ef1ff4740509d745a327966dc3d45e4
     m_Address: Tile_Map_Collision_Sacrifice_0_0
@@ -574,6 +574,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9a63ce9c0068be48b28013b8c4b2a00
+    m_Address: Tile_Map_Collision_Curse_0_0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}

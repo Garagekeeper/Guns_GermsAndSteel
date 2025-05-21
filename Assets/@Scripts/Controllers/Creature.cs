@@ -5,7 +5,7 @@ using UnityEngine;
 using static Define;
 using static Utility;
 
-public class Creature : BaseObject
+public class Creature : BaseObject, IExplodable
 {
     #region BaseStat
 
@@ -419,9 +419,17 @@ public class Creature : BaseObject
         return closestTarget;
     }
 
-    public override void Onexplode(Creature owner)
+    public void OnExplode(Creature owner)
     {
         OnDamaged(owner, ESkillType.Bomb);
+    }
+
+    public void OnExplode(Creature owner, object args)
+    {
+        if (args is string)
+        {
+            OnDamaged(owner, ESkillType.Bomb, args as string);
+        }
     }
 
     public virtual void OnDamaged(Creature owner, ESkillType skillType, string name = "")
@@ -525,7 +533,7 @@ public class Creature : BaseObject
 
     protected virtual void UpdateSkill() { }
 
-    protected virtual void UpdateIdle() { if (Managers.Object.MainCharacters.Count == 0) return; }
+    protected virtual void UpdateIdle() { if (Managers.Object.MainCharacters.Count == 0) return;  if (CreatureState == ECreatureState.Dead) return; }
 
     protected virtual void UpdateMove() { }
 
@@ -561,5 +569,6 @@ public class Creature : BaseObject
         TargetPos = Vector3.Reflect(TargetPos, contactPoint.normalized);
 
     }
+
 }
     

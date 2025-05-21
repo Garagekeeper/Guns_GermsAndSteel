@@ -224,4 +224,12 @@ public static class Define
         Visited,
     }
 
+    public enum EDeadEndType
+    {
+        None,
+        R,
+        D,
+        L,
+        U,
+    }
 }

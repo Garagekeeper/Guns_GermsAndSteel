@@ -21,7 +21,7 @@ public class BoomFly : Monster
     {
         base.Init();
         Vector3[] dV = { new Vector3(1, 1), new Vector3(1, -1), new Vector3(-1, 1), new Vector3(-1, -1) };
-        MonsterType = EMonsterType.Fly;
+        MonsterType = EMonsterType.BoomFly;
         CreatureSize = ECreatureSize.Small;
         CreatureMoveState = ECreatureMoveState.Designated;
         _isFloating = true;
