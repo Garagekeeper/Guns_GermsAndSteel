@@ -1,0 +1,685 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Sound
+  m_EditorClassIdentifier: 
+  m_GroupName: Sound
+  m_Data:
+    m_SerializedData: []
+  m_GUID: beb946a4aaa898446a7f2a3baf5bf489
+  m_SerializeEntries:
+  - m_GUID: 0224bedce27d2c24da90d1971c2b4466
+    m_Address: penny pickup 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0340fcdb37509424f844a7c0dec5c7a1
+    m_Address: monster grunt 5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03a51bc2c8873cb49b0ef24f5302a441
+    m_Address: monster grunt 4 b
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 091cf13a4d7d1124f824f6a7f6a64ff6
+    m_Address: key drop 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0bb6e38983f1e2445925cb86a207c43b
+    m_Address: boss spit blob barf 3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c326ce5698d99d4087b949ff348c47b
+    m_Address: death burst small 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0de0fe9eb60ae6a47997ff5814cf6b25
+    m_Address: plop
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e37a5f439e5de242ad2c6296f078252
+    m_Address: grunt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 100a1fd5c7614eb4c9f9e309b68993df
+    m_Address: basic boss fight
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15176e29ef2f64542b52bcf190e684c9
+    m_Address: tear block
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 16909a8dd7201e54db4608609ee1688c
+    m_Address: maggot2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b06a773533f74045a9be8e592c04408
+    m_Address: baby hurt 3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b87f1242f27c304eb7df6d842c09473
+    m_Address: insect swarm
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c8a5c7acbec410479a3fa8278127b30
+    m_Address: evil laugh
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ce79921068d7a64d8a663d4026a3cf4
+    m_Address: mom1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1d94114f71fe9364ab58ae3b563fa40c
+    m_Address: unlock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1f18d0b3fa0137c439062a1e8d6ce2c8
+    m_Address: hurt grunt 0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1fecbc8c83746b84fb299ea7796da125
+    m_Address: summonsound
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 205902c1c6b3c36408f9830a6c3b91f0
+    m_Address: isaac dies new
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20fcb212291283941bf6ce697310ca61
+    m_Address: hell portal
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2291f8cc66b55404d835892e70a913e9
+    m_Address: title screen jingle v1_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22a49b28392653c4c997b5d9f08507c9
+    m_Address: monster roar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24ef555855d6a9549a030357e5c38901
+    m_Address: firedeath hiss
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 29a9568e9b851ac4d9f26aa9dd8c51b2
+    m_Address: boss fight jingle outro v2_12
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a392073f006cdb44893919b17c42ee3
+    m_Address: isaac died_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2c602b70e5b98fa4fb812ee2bc4249bd
+    m_Address: secret room find v2_07
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2fc1e7e954105244e91f246982942839
+    m_Address: rock crumble 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30389a5b71d11864d8a16fc8dad7ac5e
+    m_Address: pickup_penny_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30499deea7a8e1c40a7f599faa305a64
+    m_Address: hurt grunt 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32cfb38fdc53f954aa9372047d4ad1db
+    m_Address: filter evil laugh
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3398b1108574b014bb3a42914d9646f8
+    m_Address: vox death
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 359a3f6f568de784fb8dcee0a31da2fe
+    m_Address: child angry roar 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 35e3712ff9f8a304c92f24f7957b320f
+    m_Address: death_burst_large_1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37618c3115a1dc7459d0fc9e08b73ada
+    m_Address: castleportcullis
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 38b5c8324ccf8904b8360ede3539db47
+    m_Address: menu_scroll
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3cb7e10910fee95499473f9a19b00f86
+    m_Address: mom muffle
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ea3be054ac096c4ea28be92b773eece
+    m_Address: pickup_nickel_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ea53e1410565db488b3f29c7ebe1fef
+    m_Address: key pickup guantlet 4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4292f3f3056e8644fa9b5e86bfdd27a2
+    m_Address: death burst small 0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44ca85ea24f739b479b22ae4d190d271
+    m_Address: boss 2 bubbles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48030f97343775b4cb9ecfbeb73bfe53
+    m_Address: isaac dies new 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 491431299223fc84890fc6af3517c89d
+    m_Address: derp 0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 537bef99dc2c1f94389210676526a043
+    m_Address: pot breaking sound 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53c71fc9bcebf054b99ae6e18956679b
+    m_Address: door heavy open
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5542c61f71be0d9449b4e99ce191580a
+    m_Address: hurt grunt 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 55598db5e6d80ec49a85d9e9252aa5a8
+    m_Address: baby hurt 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b7c080a0c056bc46b7d2b67ff5b1467
+    m_Address: character select right
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 614bc1d025dc2744d8753a93aa56c878
+    m_Address: door heavy close
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 625c9df32a155204998c5b8d0b1999a1
+    m_Address: regenesis (loop) v3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6455a8744dca5354983be9aaf897a056
+    m_Address: monster yell 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 69da956dc7c9d9e47b5ddaff250eec3a
+    m_Address: boss explosions 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70375fef66699674b897289ea66a7ffa
+    m_Address: fetus land
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 70bf8a842397fde4eb9dfa4d5c1ecccd
+    m_Address: maggot1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 720bc5a6f211ddb42af95b5f9a0b9323
+    m_Address: grunt 3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 734d4aaaaf4e6a04892d759a7506942d
+    m_Address: beep
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 736e927fe2dd31c4ca21bf05a6513de0
+    m_Address: mom muffle 3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 777af865f82b00e48abecb15f375d6f9
+    m_Address: fetus feet
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ab4b205ab2f2b045b78ac2061f42219
+    m_Address: boss fight intro jingle_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c4875e721d37ca4fb22dc3a1d368a77
+    m_Address: boil hatch
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e4292f9980a6074fadb4277468cd0a3
+    m_Address: isaac dies new 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e9a02c822327da49937d01f66accbdf
+    m_Address: forest boss stomp
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f637259a773d9f4eb8028e3f649de64
+    m_Address: hurt 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f83a05020582ea459eaa2ff5eb16fe3
+    m_Address: explosion_weak1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80a9fa77f4378ab43b0380a952cecd20
+    m_Address: grunt 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 842c336f0865a544b8ab1a7914727810
+    m_Address: baby hurt 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88257c6ffaea47f4d81243883a629ef8
+    m_Address: thumbs up
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a9bbff5372b16b4696c3a2b17d95f4e
+    m_Address: character select left
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c942b125cf9c7e47b9fb7758104a070
+    m_Address: leech
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d8ad25741a81fe46b6301243d0cbc6a
+    m_Address: book page turn
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8e1113cf51d334f4fbc5ad1b10776945
+    m_Address: filter hurt 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f5df33db0dfc2c47af18896dc64306a
+    m_Address: penny drop 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f9dbf420618034439e346c0ad1e99d9
+    m_Address: title screen
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 92b190fe0348ee345a02c55fcf338cbb
+    m_Address: pickup_lucky_02
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 979fe833b2b737e41987fbc52bbe7b5c
+    m_Address: paper_in
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98402136cc052194ab9386e5f360a402
+    m_Address: boss fight intro jingle v2.1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 98b33695635961b4a86f2484be766d80
+    m_Address: death burst small 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ab1473c3bf52364d86b279ebba36f39
+    m_Address: pot breaking sound 0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e9c4ca72b0584f4bbfef9e5ebad794d
+    m_Address: power up 7
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9f92dfb3f481d204d81811f775c2607f
+    m_Address: pickup_dime_01
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a13355b762461d14895e583ee5635af8
+    m_Address: derp 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a27a9f163e697e149a1e6d88cc2d1df0
+    m_Address: death_burst_large_0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aba3d48cad7de7140adf59ec95e28b74
+    m_Address: hurt 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: af21538466dfd044eb06b6090ff4c566
+    m_Address: rock crumble 0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b487a9c235f8a2541926722207215114
+    m_Address: fire burning
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b694fdd9dddc0694c9a45698396e4b39
+    m_Address: leech 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bce25cc6c7fc8b54b803847b8dfce4b9
+    m_Address: rock crumble 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be9758921d32da240b3793f1764c88f1
+    m_Address: pot breaking sound 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf370c553c066ce47b12940d8a8e65c2
+    m_Address: battery charge
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c039787cc2997ac4ebf2ecf9fddf9f98
+    m_Address: filter death 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c07f9127f0aaaf341b4bfc05741d1189
+    m_Address: grunt 4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c23f39b6779b0244d897129b37ce5b2c
+    m_Address: mom3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c4e5f1ba90ee6014b90c899720d0f999
+    m_Address: thumbs down
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6ad2e5a9a967a041999cecc2fe73fee
+    m_Address: tear fire 4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6b876bc9b777e04799d9882dfbb550b
+    m_Address: boss spit blob barf 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7fc74c0e6d6f7a46ad11f4eda225f62
+    m_Address: filter hurt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8231c652337bc0459b013171c0c807b
+    m_Address: hell portal 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb5b5236c0d0e964392bd8cac43e5164
+    m_Address: steam half sec
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0948a94ca745134980361abdec62dbb
+    m_Address: mom muffle 4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d0f5c465a83e3fa478fbd55fd8180521
+    m_Address: mom2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d263cf91f75334243aa4fca898aed000
+    m_Address: chest open 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d50d6abb79722c7458b3e32d28258b78
+    m_Address: boss expolsions 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8233f7b8b6b83449b6b92a08331bc9b
+    m_Address: boss explosions 0
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d946f4111da41904f8cfcdf81a3caf4e
+    m_Address: chest drop 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc94d98b791b1ab4dbdbefae0469ecae
+    m_Address: paper_out
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eef8e1b1a6a1aff4babb62d0435e4245
+    m_Address: boss spit blob barf 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f78de3aad9df4fa4a8179e1e45e58fad
+    m_Address: filter hurt 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb0b14092a4db104bb1ec97b83437256
+    m_Address: tear fire 5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc5c8beb5fb0f0c43bc2125a5534178d
+    m_Address: child angry roar 1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe3075ae163e6ee4d9ee68707448ad91
+    m_Address: mom muffle 2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fe6c39f7be8a83749ad0f781b3608b8c
+    m_Address: hurt 3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 6756122b9f6abb140a467a7d13fe1b0e, type: 2}
+    - {fileID: 11400000, guid: f7b415db0dac76e47b7029ae2780e686, type: 2}
