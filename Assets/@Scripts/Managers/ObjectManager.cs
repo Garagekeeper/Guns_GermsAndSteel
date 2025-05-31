@@ -17,6 +17,7 @@ public class ObjectManager
     // spawn creature
     public T Spawn<T>(Vector3 pos, int templateID = 0, string prfabName = "", Transform parent = null) where T : Creature
     {
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>("summonsound");
         System.Type type = typeof(T);
         if (type == typeof(MainCharacter))
         {
@@ -37,13 +38,14 @@ public class ObjectManager
             GameObject spawn_effect = Managers.Resource.Instantiate("Monster_Spawn_Effect", monster.transform);
             spawn_effect.gameObject.SetActive(true);
             spawn_effect.transform.localPosition = Vector3.zero;
-            
+
             string spawn_effect_string = "Monster_Spawn_Effect";
             if (mt.CreatureSize == ECreatureSize.Small) spawn_effect_string = "Monster_Spawn_Effect_Small";
             spawn_effect.GetComponent<Animator>().Play(spawn_effect_string);
 
             Monsters.Add(mt);
             CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
+            Managers.Sound.PlaySFX(audioClip, 0.1f);
             return mt as T;
         }
         if (type == typeof(Boss))
@@ -56,6 +58,10 @@ public class ObjectManager
             return bs as T;
         }
         return null;
+    }
+    public T Spawn<T>(Vector3 pos, int templateID, Transform parent) where T : Creature
+    {
+        return Spawn<T>(pos, templateID, Managers.Data.MonsterDic[templateID].PrefabName, parent);
     }
 
     public IEnumerator WaitSpawn()
@@ -72,7 +78,7 @@ public class ObjectManager
     }
 
     //spawn pickup
-    public T Spawn<T>(Vector3 pos, EPICKUP_TYPE epickup_type, Transform parent = null, Vector3 dir = default) where T : Pickup
+    public T Spawn<T>(Vector3 pos, EPICKUP_TYPE epickup_type, Transform parent = null, Vector3 dir = default, bool soundPlay = false) where T : Pickup
     {
         if (epickup_type == EPICKUP_TYPE.PICKUP_NULL) return null;
 
@@ -81,12 +87,12 @@ public class ObjectManager
         GameObject go = Managers.Resource.Instantiate(prefabName, parent);
 
         go.name = prefabName;
-        go.transform.localPosition = pos + new Vector3(0.5f,0.5f,0);
+        go.transform.localPosition = pos + new Vector3(0.5f, 0.5f, 0);
         Pickup pickup = go.GetComponent<Pickup>();
-        
+
         if (pickup != null)
         {
-            pickup.Init(epickup_type, dir);
+            pickup.Init(epickup_type, dir, soundPlay);
             Pickups.Add(pickup);
             return pickup as T;
         }
@@ -100,7 +106,7 @@ public class ObjectManager
         GameObject go = Managers.Resource.Instantiate(prefabName, parent);
 
         go.name = prefabName;
-        go.transform.localPosition = localPos + new Vector3(0.5f, 0.5f,0);
+        go.transform.localPosition = localPos + new Vector3(0.5f, 0.5f, 0);
         Obstacle obstacle = go.GetComponent<Obstacle>();
 
         if (obstacle != null)
@@ -112,7 +118,7 @@ public class ObjectManager
         return null;
     }
 
-    
+
     public void Despawn<T>(T obj) where T : BaseObject
     {
         if (obj is Creature creature)
@@ -129,18 +135,19 @@ public class ObjectManager
             {
                 Bosses.Remove(obj as Boss);
             }
+            Object.Destroy(obj.gameObject);
         }
         else if (obj is Pickup pickup)
         {
             Pickups.Remove(pickup);
+            pickup.DestroyPickup();
         }
-       Object.Destroy(obj.gameObject);
     }
 
     public void DespawnMonsters(RoomClass room)
     {
         Transform mgo = FindChildByName(room.Transform, "Monster");
-        foreach(Transform monsters in mgo)
+        foreach (Transform monsters in mgo)
         {
             Despawn(monsters.gameObject.GetComponent<Creature>());
         }

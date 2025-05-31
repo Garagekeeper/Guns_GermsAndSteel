@@ -15,10 +15,11 @@ public class Fly : Monster
 
     EFlyType FlyType { get; set; }
 
+    public GameObject SFXSource { get; private set; }
+
     private void Awake()
     {
         Init();
-        
     }
 
     private void Start()
@@ -46,6 +47,10 @@ public class Fly : Monster
             FlyType = EFlyType.Hostile;
             AnimatorBottom.Play("HostileIdle");
         }
+
+        //audio
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>("insect swarm");
+        SFXSource = Managers.Sound.PlaySFX(audioClip, 0.05f, true);
     }
 
     protected override void UpdateIdle()
@@ -67,7 +72,13 @@ public class Fly : Monster
             CreatureState = ECreatureState.Move;
             AnimatorBottom.Play("HostileMove");
         }
+    }
 
+    public override void OnDead()
+    {
+        // pool에 반납
+        Managers.Sound.ReturnSFXToPool(SFXSource);
+        base.OnDead();
     }
 
 }

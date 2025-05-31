@@ -128,12 +128,12 @@ public class PlayingUI : UI_Base
 
         }
 
-        GetTextLegacy((int)Texts.AttackDamageText).text = player.AttackDamage.ToString();
-        GetTextLegacy((int)Texts.TearsText).text = player.Tears.ToString();
-        GetTextLegacy((int)Texts.RangeText).text = player.Range.ToString();
-        GetTextLegacy((int)Texts.ShotSpeedText).text = player.ShotSpeed.ToString();
-        GetTextLegacy((int)Texts.SpeedText).text = player.Speed.ToString();
-        GetTextLegacy((int)Texts.LuckText).text = player.Luck.ToString();
+        GetTextLegacy((int)Texts.AttackDamageText).text = (Math.Truncate((decimal)player.AttackDamage * 100) / 100).ToString();
+        GetTextLegacy((int)Texts.TearsText).text = (Math.Truncate((decimal)player.Tears * 100) / 100).ToString();
+        GetTextLegacy((int)Texts.RangeText).text = (Math.Truncate((decimal)player.Range * 100) / 100).ToString();
+        GetTextLegacy((int)Texts.ShotSpeedText).text = (Math.Truncate((decimal)player.ShotSpeed * 100) / 100).ToString();
+        GetTextLegacy((int)Texts.SpeedText).text = (Math.Truncate((decimal)player.Speed * 100) / 100).ToString();
+        GetTextLegacy((int)Texts.LuckText).text = (Math.Truncate((decimal)player.Luck * 100) / 100).ToString();
         GetTextLegacy((int)Texts.CoinText).text = player.Coin.ToString();
         GetTextLegacy((int)Texts.BombText).text = player.BombCount.ToString();
         GetTextLegacy((int)Texts.KeyText).text = player.KeyCount.ToString();
@@ -143,20 +143,20 @@ public class PlayingUI : UI_Base
 
     IEnumerator CRefreshUI(MainCharacter player)
     {
-        float AttackDamagevariation = player.AttackDamage - float.Parse(GetTextLegacy((int)Texts.AttackDamageText).text);
-        float TearsTextvariation = player.Tears - float.Parse(GetTextLegacy((int)Texts.TearsText).text);
-        float RangeTextvariation = player.Range - float.Parse(GetTextLegacy((int)Texts.RangeText).text);
-        float ShotSpeedTextvariation = player.ShotSpeed - float.Parse(GetTextLegacy((int)Texts.ShotSpeedText).text);
-        float SpeedTextvariation = player.Speed - float.Parse(GetTextLegacy((int)Texts.SpeedText).text);
-        float LuckTextvariation = player.Luck - float.Parse(GetTextLegacy((int)Texts.LuckText).text);
+        decimal AttackDamagevariation = (decimal)player.AttackDamage - decimal.Parse(GetTextLegacy((int)Texts.AttackDamageText).text);
+        decimal TearsTextvariation = (decimal) player.Tears - decimal.Parse(GetTextLegacy((int)Texts.TearsText).text);
+        decimal RangeTextvariation = (decimal) player.Range - decimal.Parse(GetTextLegacy((int)Texts.RangeText).text);
+        decimal ShotSpeedTextvariation = (decimal) player.ShotSpeed - decimal.Parse(GetTextLegacy((int)Texts.ShotSpeedText).text);
+        decimal SpeedTextvariation = (decimal) player.Speed - decimal.Parse(GetTextLegacy((int)Texts.SpeedText).text);
+        decimal LuckTextvariation = (decimal) player.Luck - decimal.Parse(GetTextLegacy((int)Texts.LuckText).text);
 
 
-        AttackDamagevariation = (float)Math.Truncate(AttackDamagevariation * 100) / 100;
-        TearsTextvariation = (float)Math.Truncate(TearsTextvariation * 100) / 100;
-        RangeTextvariation = (float)Math.Truncate(RangeTextvariation * 100) / 100;
-        ShotSpeedTextvariation = (float)Math.Truncate(ShotSpeedTextvariation * 100) / 100;
-        SpeedTextvariation = (float)Math.Truncate(SpeedTextvariation * 100) / 100;
-        LuckTextvariation = (float)Math.Truncate(LuckTextvariation * 100) / 100;
+        AttackDamagevariation = Math.Truncate(AttackDamagevariation * 100) / 100;
+        TearsTextvariation =  Math.Truncate(TearsTextvariation * 100) / 100;
+        RangeTextvariation = Math.Truncate(RangeTextvariation * 100) / 100;
+        ShotSpeedTextvariation = Math.Truncate(ShotSpeedTextvariation * 100) / 100;
+        SpeedTextvariation = Math.Truncate(SpeedTextvariation * 100) / 100;
+        LuckTextvariation = Math.Truncate(LuckTextvariation * 100) / 100;
 
         GetTextLegacy((int)Texts.AttackDamageTextvariation).color = new Color(1, 1, 1, 0);
         GetTextLegacy((int)Texts.TearsTextvariation).color = new Color(1, 1, 1, 0);
@@ -316,16 +316,16 @@ public class PlayingUI : UI_Base
         GetText((int)TTexts.Description).text = item.Description;
     }
 
-    public void activeStatgeLoading()
+    public void activeStatgeLoading(Action callback)
     {
         GameObject stageLoadingUi = GetObject((int)GameObjects.StageLoadingUI);
         stageLoadingUi.SetActive(true);
 
         float delay = stageLoadingUi.GetComponent<Animator>().GetCurrentAnimatorClipInfo(0)[0].clip.length;
-        StartCoroutine(BubbleActive(delay));
+        StartCoroutine(BubbleActive(delay, callback));
     }
 
-    IEnumerator BubbleActive(float delay)
+    IEnumerator BubbleActive(float delay , Action callback)
     {
         yield return new WaitForSeconds(delay);
         GameObject stageLoadingUi = GetObject((int)GameObjects.StageLoadingUI);
@@ -339,6 +339,7 @@ public class PlayingUI : UI_Base
 
         yield return new WaitForSeconds(delay);
         stageLoadingUi.SetActive(false);
+        callback?.Invoke();
     }
 
     void OnDisable()

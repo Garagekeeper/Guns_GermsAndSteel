@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor.Build.Pipeline.Interfaces;
 using UnityEngine;
 using static Define;
 using static Utility;
@@ -48,7 +49,7 @@ public class Boss_Mom : Boss
         BossState = EBossState.Idle;
         CreatureMoveState = ECreatureMoveState.TargetCreature;
         AttackDamage = 5f;
-        _legTransForm = FindChildByName(transform, "Boss_Mom_Leg_Whole");
+        _legTransForm = FindChildByName(transform, "Boss_Mom_Leg");
         _legCollider = FindChildByName(_legTransForm, "Boss_Mom_Leg_Calf").GetComponent<CapsuleCollider2D>();
 
         _doorTransform[0] = FindChildByName(transform, "Boss_Mom_Door_Right");
@@ -94,6 +95,7 @@ public class Boss_Mom : Boss
 
     protected override void UpdateIdle()
     {
+        UpdateAITick = 0f;
         // 0. 현재 맵에 소환된 몬스터가 있으면 종료, player가 없으면 종료
         if (Managers.Object.MainCharacters.Count == 0) return;
         if (Managers.Object.Monsters.Count > 0) return;
@@ -101,16 +103,17 @@ public class Boss_Mom : Boss
         _currentSkill = EBossSkill.Normal;
 
         // 1. 플레이어가 문에 가까이 있는경우 SkillC 실행
-        if (_timer >= 2f)
+        if (_timer >= 1.5f)
         {
             _currentSkill = EBossSkill.SkillC;
         }
-        // 2.대략 50프로의 확률로 2개의 스킬중 하나 실행
+        // 2.30프로의 확률로 발찍기
         else if (randValue < 50f)
         {
             Target = FindClosetTarget(this, Managers.Object.MainCharacters.ToList<Creature>());
             _currentSkill = EBossSkill.SkillA;
         }
+        // 70프로 확률로 SkillB
         else
         {
             _currentSkill = EBossSkill.SkillB;
@@ -122,6 +125,7 @@ public class Boss_Mom : Boss
 
     protected override void UpdateSkill()
     {
+        UpdateAITick = 0.5f;
         switch (_currentSkill)
         {
             case EBossSkill.SkillA:
@@ -131,7 +135,6 @@ public class Boss_Mom : Boss
             case EBossSkill.SkillC:
                 SkillC(); break;
         }
-
     }
 
     // 1) 4방향 문에 object 소환
@@ -141,6 +144,8 @@ public class Boss_Mom : Boss
         if (_coWait != null) return;
         Transform parent = transform.parent;
 
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>($"mom{UnityEngine.Random.Range(1, 4)}");
+        Managers.Sound.PlaySFX(audioClip, 0.2f);
 
         List<int> numbers = new() { 0, 1, 2, 3 };
         Stack<Transform> stack = new();
@@ -172,7 +177,8 @@ public class Boss_Mom : Boss
                     spawnObject.GetComponent<SpriteRenderer>().sprite = spawnObjectSprite;
                     spawnObject.gameObject.SetActive(true);
                     //몬스터 소환
-                    Managers.Object.Spawn<Monster>(transform.localPosition + spawnDir, 10087, "Boil", parent);
+                    int id = Managers.Game.SelectRandomMonster();
+                    Managers.Object.Spawn<Monster>(transform.localPosition + spawnDir, id, parent);
                 }, 0f, 0f))
                 //해당 애니메이션에서의 딜레이
                 .AppendInterval(2f)
@@ -194,8 +200,10 @@ public class Boss_Mom : Boss
 
     public void EndSkillB(Stack<Transform> stack)
     {
+        if (BossState == EBossState.Dead) return;
         Sprite closed = Managers.Resource.Load<Sprite>("boss_054_mom_10");
         float delay = 0f;
+
         while (stack.Count > 0)
         {
             sequence = DOTween.Sequence();
@@ -222,6 +230,9 @@ public class Boss_Mom : Boss
     public void SkillC()
     {
         if (_coWait != null) return;
+
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>($"mom{UnityEngine.Random.Range(1, 4)}");
+        Managers.Sound.PlaySFX(audioClip, 0.2f);
 
         sequence = DOTween.Sequence();
         Transform doorTransform = null;
@@ -258,6 +269,8 @@ public class Boss_Mom : Boss
                .Append(DOTween.To(() => 0f, x =>
                {
                    handTransform.gameObject.SetActive(true);
+                   AudioClip audioClip = Managers.Resource.Load<AudioClip>("evil laugh");
+                   Managers.Sound.PlaySFX(audioClip, 0.2f);
                }, 0f, 0f))
                //해당 애니메이션에서의 딜레이
                .AppendInterval(2f)
@@ -272,28 +285,42 @@ public class Boss_Mom : Boss
 
     }
 
+
+    // 발찍기할 때 움직임
     protected override void UpdateMove()
     {
         if (BossState == EBossState.Dead) return;
+        UpdateAITick = 0f;
 
         if (CreatureMoveState == ECreatureMoveState.TargetCreature && BossState == EBossState.Move)
-            _legTransForm.position = Vector3.Lerp(_legTransForm.position, TargetPos, Time.deltaTime * 2f);
+            _legTransForm.position = Vector3.Lerp(_legTransForm.position, Target.transform.position, Time.deltaTime * 2f);
 
     }
 
     public override void OnDead()
     {
         BossState = EBossState.Dead;
+        // dotween anim kill
+        sequence.Kill(true);
+        sequence = null;
+
+        //audio
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>("vox death");
+        Managers.Sound.PlaySFX(audioClip, 0.3f);
+
         Managers.Object.Despawn(this);
         Managers.UI.PlayingUI.BossHpActive(false);
         Managers.Map.CurrentRoom.Doors.SetActive(true);
-        sequence.Kill();
-        sequence = null;
+
+        CreatureState = ECreatureState.Dead;
+        StopAllCoroutines();
+        Managers.Game.RoomConditionCheck();
+
     }
 
     private void OnDestroy()
     {
-        sequence.Kill();
+        sequence.Kill(true);
         sequence = null;
     }
 
@@ -318,12 +345,31 @@ public class Boss_Mom : Boss
                 return;
             }
         }
+    }
 
-
+    public override void OnExplode(Creature owner)
+    {
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>($"hurt {UnityEngine.Random.Range(1, 4)}");
+        Managers.Sound.PlaySFX(audioClip, 0.3f);
+        base.OnExplode(owner);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         _bR = _bD = _bL = _bU = false;
+    }
+
+    public void PlayEvilLaugh()
+    {
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>("forest boss stomp");
+        Managers.Sound.PlaySFX(audioClip, 0.3f);
+    }
+
+    public void PlayStampSound()
+    {
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>("grunt");
+        Managers.Sound.PlaySFX(audioClip, 0.3f);
+        audioClip = Managers.Resource.Load<AudioClip>("forest boss stomp");
+        Managers.Sound.PlaySFX(audioClip, 0.3f);
     }
 }

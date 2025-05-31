@@ -17,22 +17,68 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: bcf93c60f8fb9f64ba5d4e1acb34a855
   m_SerializeEntries:
-  - m_GUID: ac76395a68c7c90429ecf4ee17741f09
-    m_Address: character_001_isaac
+  - m_GUID: 07ada6c95989a86469410ec2a2c93fb1
+    m_Address: boss_021_gurdyjr
     m_ReadOnly: 0
     m_SerializedLabels:
+    - InGame
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0be19fcdb1b6a6c43a386d7c8650e5ad
+    m_Address: monster_113_charger
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1372975d47ec0144ca62ddd639dea56d
+    m_Address: death portraits
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
     - Preload
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3051f1af65d661348904298d6db137cd
-    m_Address: bulletatlas
+  - m_GUID: 21499bc0954a8c14cba5ac9bd5c03feb
+    m_Address: rocks_basement
     m_ReadOnly: 0
     m_SerializedLabels:
+    - InGame
     - Preload
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2301727e45ebbe849a76d845bd598568
     m_Address: effect_029_explosion
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2312d70f3c2ffcb4ead2624c8c3cd16f
+    m_Address: monster_105_maggot
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 257fcf4409fd9d842ab7c6b84d404451
+    m_Address: ui_hearts
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a1495e6956f69b42b5a8914efa74c70
+    m_Address: grid_poop
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3051f1af65d661348904298d6db137cd
+    m_Address: bulletatlas
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
@@ -45,10 +91,18 @@ MonoBehaviour:
     - Preload
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c9e00eac2f8b2944bae018530a7d6134
-    m_Address: ui_chargebar
+  - m_GUID: 523f4a0aee5f5c24b8210fee684fc184
+    m_Address: effect_005_fire
     m_ReadOnly: 0
     m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 533734b9ecc2d49439063e9f305df812
+    m_Address: monster_087_boil
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
     - Preload
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
@@ -59,15 +113,51 @@ MonoBehaviour:
     - Preload
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f16a191db9e7fd5458ab41fe39812dd4
-    m_Address: ui_cardspills
+  - m_GUID: 578ed0ca9dcb78b4b8052f311b6dc22c
+    m_Address: minimap_icons
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8343369ff4e3a9545a453295300b18c0
+    m_Address: boss_054_mom
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a415c5d09e3f15c4b9e837b45214c8f6
     m_Address: questionmark
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a65d028e582fcef43a892bf5ce25b1c6
+    m_Address: pausescreen
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac76395a68c7c90429ecf4ee17741f09
+    m_Address: character_001_isaac
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c9e00eac2f8b2944bae018530a7d6134
+    m_Address: ui_chargebar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf7690f21966e3e42b0a24fd61e825fa
+    m_Address: minimap1
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
@@ -87,19 +177,13 @@ MonoBehaviour:
     - Preload
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 523f4a0aee5f5c24b8210fee684fc184
-    m_Address: effect_005_fire
+  - m_GUID: e0344d54a366bef4a91795bed7d890fa
+    m_Address: monster_122_host
     m_ReadOnly: 0
     m_SerializedLabels:
+    - InGame
     - Preload
     - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 257fcf4409fd9d842ab7c6b84d404451
-    m_Address: ui_hearts
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ef172b79fbf06fb40a2ebef51ae8ba47
     m_Address: minimap2
@@ -108,62 +192,10 @@ MonoBehaviour:
     - Preload
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cf7690f21966e3e42b0a24fd61e825fa
-    m_Address: minimap1
+  - m_GUID: f16a191db9e7fd5458ab41fe39812dd4
+    m_Address: ui_cardspills
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Preload
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 578ed0ca9dcb78b4b8052f311b6dc22c
-    m_Address: minimap_icons
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2312d70f3c2ffcb4ead2624c8c3cd16f
-    m_Address: monster_105_maggot
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - InGame
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0be19fcdb1b6a6c43a386d7c8650e5ad
-    m_Address: monster_113_charger
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8343369ff4e3a9545a453295300b18c0
-    m_Address: boss_054_mom
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 533734b9ecc2d49439063e9f305df812
-    m_Address: monster_087_boil
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 07ada6c95989a86469410ec2a2c93fb1
-    m_Address: boss_021_gurdyjr
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    - Sprite
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e0344d54a366bef4a91795bed7d890fa
-    m_Address: monster_122_host
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
     - Preload
     - Sprite
     FlaggedDuringContentUpdateRestriction: 0

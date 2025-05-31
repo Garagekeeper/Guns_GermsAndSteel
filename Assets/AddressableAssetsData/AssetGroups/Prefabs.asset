@@ -17,16 +17,11 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 00896083e9867ac48848951de0426046
   m_SerializeEntries:
-  - m_GUID: 15f8608cd5270db42b7da2c7c426952c
-    m_Address: Player
+  - m_GUID: 035b5d1bbf1f6f74ba239a207a9d473f
+    m_Address: PlayingUI
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 64460f28b6f239946ba0a5bddd41a9d8
-    m_Address: Projectile
-    m_ReadOnly: 0
-    m_SerializedLabels:
+    - InGame
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1038986df4c28d245ba760a1ce79c575
@@ -35,14 +30,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7b877421f6f3f234ba474966d07af59b
-    m_Address: Bomb
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e7e997309a9371749a42e510d2cc27f0
-    m_Address: Stage
+  - m_GUID: 15f8608cd5270db42b7da2c7c426952c
+    m_Address: Player
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
@@ -53,14 +42,27 @@ MonoBehaviour:
     m_SerializedLabels:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a9203eacff6dbd7408ebe3c9230c56db
-    m_Address: TrapDoor
+  - m_GUID: 64460f28b6f239946ba0a5bddd41a9d8
+    m_Address: Projectile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7788e058db7f2714b8814266bd4b301a
+    m_Address: Pickup
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d8b7c5a748df2cc458fd00db294a451e
-    m_Address: BossDeathEffect
+  - m_GUID: 7b877421f6f3f234ba474966d07af59b
+    m_Address: Bomb
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7cd3bdf6255583b4581f678b2ab99863
+    m_Address: ClearBox
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame
@@ -71,35 +73,28 @@ MonoBehaviour:
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7cd3bdf6255583b4581f678b2ab99863
-    m_Address: ClearBox
+  - m_GUID: 9e3fd8169aaf7e04db5cd1c60f168246
+    m_Address: Monster_Dead_Effect
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9203eacff6dbd7408ebe3c9230c56db
+    m_Address: TrapDoor
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7788e058db7f2714b8814266bd4b301a
-    m_Address: Pickup
+  - m_GUID: b642e32d2d2ed564c9ddb56bccede619
+    m_Address: sfx
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Preload
     - InGame
+    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bb9c5181fef03fc44a2078a1dac1867c
     m_Address: GameOverUI
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - InGame
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 035b5d1bbf1f6f74ba239a207a9d473f
-    m_Address: PlayingUI
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d8907a11cd5f48143af290702a10bfd8
-    m_Address: PauseUI
     m_ReadOnly: 0
     m_SerializedLabels:
     - InGame
@@ -109,15 +104,27 @@ MonoBehaviour:
     m_Address: Monster_Spawn_Effect
     m_ReadOnly: 0
     m_SerializedLabels:
+    - InGame
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8907a11cd5f48143af290702a10bfd8
+    m_Address: PauseUI
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8b7c5a748df2cc458fd00db294a451e
+    m_Address: BossDeathEffect
+    m_ReadOnly: 0
+    m_SerializedLabels:
     - InGame
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9e3fd8169aaf7e04db5cd1c60f168246
-    m_Address: Monster_Dead_Effect
+  - m_GUID: e7e997309a9371749a42e510d2cc27f0
+    m_Address: Stage
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
-    - InGame
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}

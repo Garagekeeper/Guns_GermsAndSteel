@@ -20,9 +20,13 @@ public class Boss_GurdyJr : Boss
 
     private void FixedUpdate()
     {
-        if (BossState == EBossState.Dead) return;
+        if (BossState == EBossState.Dead)
+        {
+            Rigidbody.velocity = Vector2.zero;
+            return;
+        }
 
-        if (Rigidbody.velocity.magnitude > 0.01f)
+            if (Rigidbody.velocity.magnitude > 0.01f)
         {
             _previousVelocity = Rigidbody.velocity;
         }
@@ -131,11 +135,15 @@ public class Boss_GurdyJr : Boss
     //Jump and generate 8 projectile
     public void SkillB()
     {
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>("monster roar");
+        Managers.Sound.PlaySFX(audioClip, 0.1f);
+
         sequence.Append(DOTween.To(() => 0f, x => x = 1, 0f, 0.5f));
         sequence.Append(transform.DOShakeScale(1, 0.1f, 10, 90, false));
         sequence.Join(transform.DOJump(transform.position, 3, 1, 0.5f));
         sequence.Insert(0.7f, DOTween.To(() => 0f, x => Bottom.sprite = Managers.Resource.Load<Sprite>("boss_021_gurdyjr_4"), 0f, 0f));
         sequence.Insert(0.9f, DOTween.To(() => 0f, x => Bottom.sprite = Managers.Resource.Load<Sprite>("boss_021_gurdyjr_8"), 0f, 0f));
+        sequence.Insert(0.9f, DOTween.To(() => 0f, x => Managers.Sound.PlaySFX(Managers.Resource.Load<AudioClip>("forest boss stomp"), 0.1f), 0f, 0f));
         sequence.Insert(0.95f, DOTween.To(() => 0f, x => Generate8Projectil(), 0f, 0f));
         sequence.Append(transform.DOShakeScale(0.5f, 0.1f, 10, 90, false));
         sequence.OnComplete(() => { BossState = EBossState.Idle; _currentSkill = EBossSkill.Normal; });
@@ -187,6 +195,13 @@ public class Boss_GurdyJr : Boss
         {
             _vel = Vector3.Reflect(_previousVelocity, collision.GetContact(0).normal);
         }
+    }
+
+    public override void OnDead()
+    {
+        sequence.Kill();
+        sequence = null;
+        base.OnDead();
     }
 
     private void OnDestroy()

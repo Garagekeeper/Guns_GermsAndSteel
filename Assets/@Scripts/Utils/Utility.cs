@@ -89,11 +89,12 @@ public static class Utility
         return new Vector2(x, y);
     }
 
-    public static void Shuffle(List<int> list)
+    // Fisher-Yates 셔플
+    public static void Shuffle(List<int> list, RNGManager rng = null)
     {
         for (int i = list.Count - 1; i > 0; i--)
         {
-            int randomIndex = Random.Range(0, i + 1);
+            int randomIndex = rng != null ? rng.RandInt(0, i) : Random.Range(0, i + 1);
             (list[i], list[randomIndex]) = (list[randomIndex], list[i]); // Swap
         }
     }

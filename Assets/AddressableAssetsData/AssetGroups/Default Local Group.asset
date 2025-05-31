@@ -17,45 +17,23 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 661158fbcd809d048818ff93521f4887
   m_SerializeEntries:
-  - m_GUID: 1372975d47ec0144ca62ddd639dea56d
-    m_Address: death portraits
+  - m_GUID: 1abf22168684e9e47a40a989ad08c448
+    m_Address: DoorGolden
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
-    - InGame
-    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a65d028e582fcef43a892bf5ce25b1c6
-    m_Address: pausescreen
+  - m_GUID: 1c66934909167c443b4da76b01a715bc
+    m_Address: DoorNormal
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
-    - InGame
-    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2a1495e6956f69b42b5a8914efa74c70
-    m_Address: grid_poop
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 21499bc0954a8c14cba5ac9bd5c03feb
-    m_Address: rocks_basement
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    - InGame
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7f5e0f4a91f598040a0e5bcbf923541e
-    m_Address: door_08_holeinwall
+  - m_GUID: 48cc0845938c88e48aaad1797038c8c1
+    m_Address: DoorCurse
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
-    - Sprite
-    - InGame
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 637fa713446134f4da3eb20af4d03962
     m_Address: DoorAngel
@@ -63,8 +41,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d2908e63c729b3446ab3b86454d74ad3
-    m_Address: DoorSecret
+  - m_GUID: 73753c53d1e075245828fc0d15cba398
+    m_Address: DoorShop
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
@@ -81,32 +59,14 @@ MonoBehaviour:
     m_SerializedLabels:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 73753c53d1e075245828fc0d15cba398
-    m_Address: DoorShop
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 48cc0845938c88e48aaad1797038c8c1
-    m_Address: DoorCurse
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1c66934909167c443b4da76b01a715bc
-    m_Address: DoorNormal
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ac443f5bb028d804d989b52ab6a5ba91
     m_Address: DoorBoss
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1abf22168684e9e47a40a989ad08c448
-    m_Address: DoorGolden
+  - m_GUID: d2908e63c729b3446ab3b86454d74ad3
+    m_Address: DoorSecret
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
@@ -115,5 +75,5 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: a0dadad243827f04cb4f931de65097c5, type: 2}
     - {fileID: 11400000, guid: 3a4dc96f25ea76146bf7561970b31dc6, type: 2}
+    - {fileID: 11400000, guid: a0dadad243827f04cb4f931de65097c5, type: 2}

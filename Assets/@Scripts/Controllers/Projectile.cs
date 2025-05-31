@@ -218,6 +218,9 @@ public class Projectile : MonoBehaviour
         anim.Play(animstr);
         yield return null;
 
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>("tear block");
+        Managers.Sound.PlaySFX(audioClip, 0.3f);
+
         float delay = anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
         Collider.enabled = false;
         yield return new WaitForSeconds(delay);
@@ -225,6 +228,7 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
 
+    // 점차 아래로 떨어지는 애니메이션
     private void SpriteDownAnim()
     {
         //transform.GetChild(0).position = Vector3.Lerp(transform.position, new Vector3(0,-0.4f,0), 6f * Time.fixedDeltaTime);

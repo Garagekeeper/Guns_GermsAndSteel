@@ -45,6 +45,7 @@ public class Bomb : MonoBehaviour
         Collider2D[] hit = Physics2D.OverlapBoxAll(transform.position, new Vector2(Range, Range), 0);
         foreach (Collider2D collider in hit)
         {
+            if (collider.CompareTag("TimerTrigger")) continue;
             var go = collider.GetComponent<MonoBehaviour>();
             if (go == null) go = collider.GetComponentInParent<MonoBehaviour>();
             if (go is IExplodable)
@@ -57,6 +58,18 @@ public class Bomb : MonoBehaviour
                     targetGo.OnExplode(Owner);
             }
         }
+    }
+
+    public void PlayExplosionSound()
+    {
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>($"boss explosions {Random.Range(0,2)}");
+        Managers.Sound.PlaySFX(audioClip, 0.15f);
+    }
+
+    public void PlayAppearSound()
+    {
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>("fetus land");
+        Managers.Sound.PlaySFX(audioClip, 0.15f);
     }
 
     public void Destroyprefab()

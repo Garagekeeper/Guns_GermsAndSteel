@@ -17,264 +17,272 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 813731f3d20f9554fb6bafcd6b57173f
   m_SerializeEntries:
-  - m_GUID: d9094c4a2081f5941ab7039567fe18cd
-    m_Address: door_01_normaldoor
+  - m_GUID: 030b35cea7b629b4f9bc046df23ffef1
+    m_Address: door_28_scarredroomdoor
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Sprite
     - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6d5fdeb746abbe847b6e8d98498ac002
-    m_Address: door_00_diceroomdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
     - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0c93d8b4602e3c546b814893d1c88a4a
-    m_Address: door_00_sacrificeroomdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8382e838080596b4e865d797ce67bf88
-    m_Address: door_00_shopdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ed998865f5ab2f6439f434ec086b3321
-    m_Address: door_01_burningbasement
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 30554585796c0ab44bc1ca2d914e01f8
-    m_Address: door_02_treasureroomdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 496259c152a789b4690ff07d422702a0
-    m_Address: door_02b_chestroomdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 498d6a447b3c24d418bb31093195a582
-    m_Address: door_03_ambushroomdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a8e2a83dc4448184a952d18722ad1bb5
-    m_Address: door_04_curseroomdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b8ffc7e77b9cb3d4899825ffc08178cd
-    m_Address: door_05_arcaderoomdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9901166526b38fd4c9b39168ad71a659
-    m_Address: door_07_devilroomdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fa87595a99b03f940b2f806685b8321e
-    m_Address: door_07_holyroomdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7a0def87d42900d4dbe449eb5dfa3718
-    m_Address: door_09_bossambushroomdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 77ff32fbfe5f45a46b0d533b00c99b6c
-    m_Address: door_10_bossroomdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d8a58cea69d364d4d916dec8eff95828
-    m_Address: door_11_trapdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b99bd6475ac87d946883b975193aefc9
-    m_Address: door_11_wombhole
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bc11406176fda7d4e85981ff5fe58a96
-    m_Address: door_11_wombhole_blue
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2e0bdc794c0a8d24f9ad086a86f420f7
-    m_Address: door_12_cellardoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: dadc092eb36b3b64c8da30a01df25c32
-    m_Address: door_13_librarydoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0c81648f5facf044997346d4a561e3b7
-    m_Address: door_14_depthsdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0580820eab83db34aaedac774f850ad5
     m_Address: door_15_bossrushdoor
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Sprite
     - Preload
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5c8fd3c71dcb4724e8610b5128a023e7
-    m_Address: door_16_doublelock
+  - m_GUID: 0c81648f5facf044997346d4a561e3b7
+    m_Address: door_14_depthsdoor
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Sprite
     - Preload
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2aeb12884490ee24fa5bae922853bb33
-    m_Address: door_19_sheoldoor
+  - m_GUID: 0c93d8b4602e3c546b814893d1c88a4a
+    m_Address: door_00_sacrificeroomdoor
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Sprite
     - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 384c623c47bfdd84ea73ce3627663df8
-    m_Address: door_20_secrettrapdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
     - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 30e8bf353d54120469c575b8106a5972
-    m_Address: door_21_darkroomdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: d743f10887cbc074ea0025a04a2b5b97
-    m_Address: door_22_cathedraldoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8cdd4fc04d8a91242a704063a3cc42b2
-    m_Address: door_23_chestdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9ae8129fb591eda4dafd60b6f0014535
-    m_Address: door_24_megasatandoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f43fd9ea800c3bf4a828024a68b4b1ab
-    m_Address: door_25_wombdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: dd4f6ac7a3bd8204e94768c5cbf7582f
-    m_Address: door_26_paytoplaydoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c5c27a3e0e6e902459164e705a9c9bb6
-    m_Address: door_27_drownedcaves
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 030b35cea7b629b4f9bc046df23ffef1
-    m_Address: door_28_scarredroomdoor
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Sprite
-    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 26af0fb3b04066848a4b0f0b2ba562e4
     m_Address: door_29_doortobluewomb
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Sprite
     - Preload
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 395e932ad5e25f142adfb5e19fedaff2
-    m_Address: door_29_doortobluewomb_blue
+  - m_GUID: 2aeb12884490ee24fa5bae922853bb33
+    m_Address: door_19_sheoldoor
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Sprite
     - Preload
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: fa32f70f9e948be46b07d0f0cb1120b1
-    m_Address: door_30_hushdoor
+  - m_GUID: 2e0bdc794c0a8d24f9ad086a86f420f7
+    m_Address: door_12_cellardoor
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Sprite
     - Preload
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f629e60146f8a944cb21ff31cddba698
-    m_Address: door_31_treasureroomdoorgreed
-    m_ReadOnly: 0
-    m_SerializedLabels:
     - Sprite
-    - Preload
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2f0bd718c1929c049aee7aeb932d6a60
     m_Address: door_32_exitdoor
     m_ReadOnly: 0
     m_SerializedLabels:
-    - Sprite
     - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30554585796c0ab44bc1ca2d914e01f8
+    m_Address: door_02_treasureroomdoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 30e8bf353d54120469c575b8106a5972
+    m_Address: door_21_darkroomdoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 384c623c47bfdd84ea73ce3627663df8
+    m_Address: door_20_secrettrapdoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 395e932ad5e25f142adfb5e19fedaff2
+    m_Address: door_29_doortobluewomb_blue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 496259c152a789b4690ff07d422702a0
+    m_Address: door_02b_chestroomdoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 498d6a447b3c24d418bb31093195a582
+    m_Address: door_03_ambushroomdoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c8fd3c71dcb4724e8610b5128a023e7
+    m_Address: door_16_doublelock
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d5fdeb746abbe847b6e8d98498ac002
+    m_Address: door_00_diceroomdoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77ff32fbfe5f45a46b0d533b00c99b6c
+    m_Address: door_10_bossroomdoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a0def87d42900d4dbe449eb5dfa3718
+    m_Address: door_09_bossambushroomdoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f5e0f4a91f598040a0e5bcbf923541e
+    m_Address: door_08_holeinwall
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - InGame
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8382e838080596b4e865d797ce67bf88
+    m_Address: door_00_shopdoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8cdd4fc04d8a91242a704063a3cc42b2
+    m_Address: door_23_chestdoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9901166526b38fd4c9b39168ad71a659
+    m_Address: door_07_devilroomdoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ae8129fb591eda4dafd60b6f0014535
+    m_Address: door_24_megasatandoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a8e2a83dc4448184a952d18722ad1bb5
+    m_Address: door_04_curseroomdoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8ffc7e77b9cb3d4899825ffc08178cd
+    m_Address: door_05_arcaderoomdoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b99bd6475ac87d946883b975193aefc9
+    m_Address: door_11_wombhole
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bc11406176fda7d4e85981ff5fe58a96
+    m_Address: door_11_wombhole_blue
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c5c27a3e0e6e902459164e705a9c9bb6
+    m_Address: door_27_drownedcaves
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d743f10887cbc074ea0025a04a2b5b97
+    m_Address: door_22_cathedraldoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8a58cea69d364d4d916dec8eff95828
+    m_Address: door_11_trapdoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9094c4a2081f5941ab7039567fe18cd
+    m_Address: door_01_normaldoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dadc092eb36b3b64c8da30a01df25c32
+    m_Address: door_13_librarydoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd4f6ac7a3bd8204e94768c5cbf7582f
+    m_Address: door_26_paytoplaydoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ed998865f5ab2f6439f434ec086b3321
+    m_Address: door_01_burningbasement
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f43fd9ea800c3bf4a828024a68b4b1ab
+    m_Address: door_25_wombdoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f629e60146f8a944cb21ff31cddba698
+    m_Address: door_31_treasureroomdoorgreed
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa32f70f9e948be46b07d0f0cb1120b1
+    m_Address: door_30_hushdoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fa87595a99b03f940b2f806685b8321e
+    m_Address: door_07_holyroomdoor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+    - Sprite
     FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a068f5b2d6615ac4ca43dc6cc7b5a502, type: 2}

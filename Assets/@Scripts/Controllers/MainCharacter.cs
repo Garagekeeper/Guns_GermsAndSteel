@@ -32,7 +32,7 @@ public class MainCharacter : Creature
     // Damage
 
     // 캐릭터 기본 데미지
-    private float _charBaseDmg = 6.5f;
+    private float _charBaseDmg = 5.5f;
     // 아이템으로 증가된 데미지의 총합
     private float _totalDmgups = 0f;
     //그냥 깡으로 올라가는 데미지
@@ -111,7 +111,7 @@ public class MainCharacter : Creature
         get { return _tearDelay; }
         set
         {
-            if (value > _tearMax) _tearDelay = 0;
+            if (value >= _tearMax) _tearDelay = 0;
             else if (value >= 0 && value < _tearMax) _tearDelay = (16 - 6 * MathF.Sqrt(value * 1.3f + 1));
             else if (value < 0 && value > -0.77f) _tearDelay = (16 - 6 * MathF.Sqrt(value * 1.3f + 1));
             else if (value <= -0.77f) _tearDelay = 16 - 6 * Tears;
@@ -120,7 +120,7 @@ public class MainCharacter : Creature
     }
 
     public int SpaceItemId { get; set; } = 45105;
-    public int QItemId { get; set; } = 44002;
+    //public int QItemId { get; set; } = 44002;
 
     public Item SpaceItem { get; set; }
     public Item QItem { get; set; }
@@ -243,16 +243,19 @@ public class MainCharacter : Creature
     public void AddCoin(int amount)
     {
         Coin += amount;
+        Managers.UI.ResfreshUIAll(this);
     }
 
     public void AddKey(int amount)
     {
         KeyCount += amount;
+        Managers.UI.ResfreshUIAll(this);
     }
 
     public void AddBomb(int amount)
     {
         BombCount += amount;
+        Managers.UI.ResfreshUIAll(this);
     }
 
     public void CalcAttackDamage()
@@ -319,7 +322,7 @@ public class MainCharacter : Creature
         AcquiredFamiliarItemList = new List<Familiar>();
 
         ChangeSpaceItem(SpaceItemId);
-        ChangeQItem(QItemId);
+        //ChangeQItem(QItemId);
 
 
         IsPause = false;
@@ -406,6 +409,11 @@ public class MainCharacter : Creature
         if (Input.GetKeyDown(KeyCode.X))
         {
             Managers.Game.RoomClear();
+        }
+
+        if (Input.GetKeyDown (KeyCode.C))
+        {
+            Managers.Game.GoToNextStage();
         }
 
 
@@ -547,6 +555,9 @@ public class MainCharacter : Creature
         bool active = false;
         Item itemFromItemHolder = itemHolder.ItemOfItemHolder;
         Item itemFromItemPlayer = null;
+
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>("power up 7");
+        Managers.Sound.PlaySFX(audioClip, 0.3f);
 
         //0. ItemHolder의 아이템변경
         if (itemFromItemHolder.ItemType == EItemType.ActiveItem)
@@ -710,6 +721,8 @@ public class MainCharacter : Creature
         IsInvincible = true;
         StartCoroutine(CoInvincible());
         Managers.UI.ResfreshUIAll(this);
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>($"hurt grunt {UnityEngine.Random.Range(0, 3)}");
+        Managers.Sound.PlaySFX(audioClip, 0.2f);
         //Debug.Log(Hp);
     }
 
@@ -840,7 +853,7 @@ public class MainCharacter : Creature
             case EPICKUP_TYPE.PICKUP_CHEST:
                 Managers.Game.SpawnChestAndGrabBagAward(pickup);
                 pickup.SetPickupSprite("pickup_005_chests_6");
-                Destroy(pickup);
+                pickup.DestroyPickup();
                 return;
             case EPICKUP_TYPE.PICKUP_GRAB_BAG:
                 Managers.Game.SpawnChestAndGrabBagAward(pickup);
@@ -939,8 +952,12 @@ public class MainCharacter : Creature
 
         if (collision.transform.CompareTag("TrapDoor") && Managers.Map.CurrentRoom.IsClear)
         {
-            Managers.UI.PlayingUI.activeStatgeLoading();
+            Managers.Sound.PlaySFX(Managers.Resource.Load<AudioClip>("boss fight intro jingle_01"), 0.3f);
+            Managers.Game.GameScene.StopPlayingBG();
             Managers.Game.GoToNextStage();
+            Managers.UI.PlayingUI.activeStatgeLoading(() => { // stage bgm
+                Managers.Game.GameScene.PlayStageBGM();
+            });
         }
 
         if (collision.transform.CompareTag("Monster") || collision.transform.CompareTag("Boss"))

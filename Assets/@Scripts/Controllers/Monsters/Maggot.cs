@@ -208,16 +208,6 @@ public class Maggot : Monster
 
     public void UpdateChargerSkill()
     {
-        _accumulatedTime += Time.deltaTime;
-        if (_accumulatedTime > 1.5f)
-        {
-            Rigidbody.velocity = Vector3.zero;
-            AnimatorBottom.enabled = true;
-            CreatureState = ECreatureState.Idle;
-            _accumulatedTime = 0f;
-            return;
-        }
-
         switch ((Vector2)TargetPos)
         {
             case Vector2 v when v.Equals(Vector2.right):
@@ -237,6 +227,10 @@ public class Maggot : Monster
         }
 
         Rigidbody.velocity = TargetPos * 10f;
+        CreatureState = ECreatureState.None;
+
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>($"maggot{Random.Range(1,3)}");
+        Managers.Sound.PlaySFX(audioClip, 0.1f);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

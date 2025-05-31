@@ -10,8 +10,6 @@ public class Monster : Creature
     //public HashSet<>
 
     private LineRenderer lr = null;
-
-    //나중에 creature 타음으로 통일하자.... 넘 반복됨...
     public EMonsterType MonsterType { get; protected set; }
     private void Awake()
     {
@@ -22,20 +20,12 @@ public class Monster : Creature
     {
         base.Init();
 
-        //TODO 하드코딩 수정하기
         CreatureSize = ECreatureSize.Middle;
         CreatureType = ECreatureType.Monster;
         Speed = 1.0f;
         Hp = 10.0f;
         Range = 3f;
 
-
-        ////Monster끼리는 충돌 X
-        //LayerMask mask = 0;
-        //mask |= (1 << 7);
-        //Collider.excludeLayers = mask;
-
-        //TODO 몬스터 종류에 따른 스프라이트 불러오기
         HeadSprite = new Sprite[]
        {
             Managers.Resource.Load<Sprite>("isaac_up"),
@@ -44,17 +34,17 @@ public class Monster : Creature
        };
 
 #if UNITY_EDITOR
-        if (!_isFloating)
-        {
-            lr = GetComponent<LineRenderer>();
-            if (lr != null)
-            {
-                lr.startWidth = lr.endWidth = 0.05f;
-                lr.material.color = Random.ColorHSV();
-                lr.enabled = false;
-            }
+        //if (!_isFloating)
+        //{
+        //    lr = GetComponent<LineRenderer>();
+        //    if (lr != null)
+        //    {
+        //        lr.startWidth = lr.endWidth = 0.05f;
+        //        lr.material.color = Random.ColorHSV();
+        //        lr.enabled = false;
+        //    }
 
-        }
+        //}
 #endif
     }
 
@@ -70,18 +60,18 @@ public class Monster : Creature
 
     void drawPath(List<Vector3Int> path)
     {
-        lr.enabled = true;
-        //점의 개수 
-        lr.positionCount = path.Count;
+        //lr.enabled = true;
+        ////점의 개수 
+        //lr.positionCount = path.Count;
 
-        var from = path.First();
-        for (int i = 0; i < path.Count - 1; i++)
-        {
-            var to = path[i + 1];
-            lr.SetPosition(i, from);
-            lr.SetPosition(i + 1, to);
-            from = to;
-        }
+        //var from = path.First();
+        //for (int i = 0; i < path.Count - 1; i++)
+        //{
+        //    var to = path[i + 1];
+        //    lr.SetPosition(i, from);
+        //    lr.SetPosition(i + 1, to);
+        //    from = to;
+        //}
     }
 
     protected override void UpdateIdle()
@@ -166,6 +156,7 @@ public class Monster : Creature
             var temp = collider.gameObject;
             temp.GetComponent<Creature>()?.OnDamaged(this, ESkillType.Bomb);
         }
+
         AnimatorBottom.Play("Explosion");
     }
 
@@ -192,7 +183,7 @@ public class Monster : Creature
                     UpdateDead();
                     break;
                 case ECreatureState.Explosion:
-                    UpdateAITick = 0.0f;
+                    UpdateAITick = 1.0f;
                     UpdateExplosion();
                     break;
             }
@@ -265,16 +256,23 @@ public class Monster : Creature
 
         float delay;
 
+        //Dead Anim
         GameObject go = Managers.Resource.Instantiate("Monster_Dead_Effect");
         go.transform.SetParent(transform, false);
         go.transform.localPosition = Vector3.zero;
         go.GetComponent<Animator>().Play("Monster_Dead_Effect");
 
+        //Dead Sound
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>("death burst small 1");
+        Managers.Sound.PlaySFX(audioClip, 0.1f);
+
+        //일체형인 경우
         if (transform.GetComponent<SpriteRenderer>() != null)
         {
             transform.GetComponent<SpriteRenderer>().enabled = false;
             delay = 0.1f;
         }
+        // 상하체 분리형의 경우
         else
         {
             FindChildByNameContain(transform, "Head").GetComponent<SpriteRenderer>().enabled = false;

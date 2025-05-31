@@ -56,6 +56,12 @@ public class RNGManager
     }
 
     // 반드시 0이상의 수를 입력
+    /// <summary>
+    /// [left, right]
+    /// </summary>
+    /// <param name="left">MinInclusive</param>
+    /// <param name="right">MaxInclusive</param>
+    /// <returns></returns>
     public int RandInt(int left, int right)
     {
         if (left == 0 && right == 0) return 0;

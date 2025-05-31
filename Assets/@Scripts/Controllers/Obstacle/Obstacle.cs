@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static Define;
 
@@ -20,6 +21,8 @@ public class Obstacle : BaseObject, IExplodable
     private ObstacleTypes _obstacleType;
 
     private int _sacrificeCnt;
+    bool _isInitDone = false;
+    public AudioSource AudioSource { get; private set; }
 
     public ObstacleTypes ObstacleType
     {
@@ -27,9 +30,15 @@ public class Obstacle : BaseObject, IExplodable
         set { _obstacleType = value; }
     }
 
-    private void Awake()
+    public void OnEnable()
     {
-
+        if (!_isInitDone) return;
+        
+        if (ObstacleType == ObstacleTypes.Fire)
+        {
+            AudioSource.loop = true;
+            AudioSource.Play();
+        }
     }
 
     public void Init(string type, int index = 1)
@@ -54,7 +63,6 @@ public class Obstacle : BaseObject, IExplodable
         if (type == "Rock")
         {
             ObstacleType = ObstacleTypes.Rock;
-            //stage 확장시 stage별 돌 크기 정해주기
             GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>("rocks_basement_normal_" + index);
             Collider = GetComponent<BoxCollider2D>();
         }
@@ -64,52 +72,80 @@ public class Obstacle : BaseObject, IExplodable
             GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>("rocks_basement_urn_" + index);
             ObstacleType = ObstacleTypes.Urn;
         }
+
+        AudioSource = GetComponent<AudioSource>();
+        _isInitDone = true;
     }
 
+    // Firewood가 데미지를 받을 때
     public void SubsFireHp(Creature owner, bool byBomb = false)
     {
+        // 폭탄은 한번에 없앰
         if (byBomb)
             _hp = 0;
         else 
             _hp = Mathf.Max(0, _hp - owner.AttackDamage);
+
         if (_hp <= 0f)
         {
+            // 그냥 타일맵에 올려진 형태로 남음
             Destroy(Collider);
             Destroy(this);
             GetComponent<SpriteRenderer>().enabled = false;
+
+            //파괴시 소리 재생
+            AudioClip audioClip = Managers.Resource.Load<AudioClip>("firedeath hiss");
+            Managers.Sound.PlaySFX(audioClip, 0.3f);
+            AudioSource.enabled = false;
             return;
         }
     }
 
+    // Poop이 데미지를 받을 때
     public void PoopOnHit(bool byBomb = false)
     {
+        AudioClip audioClip = null;
+        // 폭탄은 한번에 없앰
         if (byBomb)
             _hp = 0;
 
         _hp = Mathf.Max(0, _hp - 1);
         int index = 4 - (int)_hp;
         GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>("grid_poop_" + index);
+
         if (_hp <= 0f)
         {
+            // 그냥 타일맵에 올려진 형태로 남음
             Destroy(GetComponent<Rigidbody2D>());
             Destroy(Collider);
             Destroy(this);
-            
+
+            audioClip = Managers.Resource.Load<AudioClip>("plop");
+            Managers.Sound.PlaySFX(audioClip, 0.1f);
             //TODO semiwall to cango
         }
+        if (audioClip != null)
+        Managers.Sound.PlaySFX(audioClip, 0.1f);
     }
 
     public void OnExplode(Creature owner)
     {
+        AudioClip audioClip = null;
         if (ObstacleType == ObstacleTypes.None) return;
         if (ObstacleType == ObstacleTypes.Spike) return;
         if (ObstacleType == ObstacleTypes.Poop) { PoopOnHit(true); return; };
         if (ObstacleType == ObstacleTypes.Fire) { SubsFireHp(null, true); };
+        if (ObstacleType == ObstacleTypes.Rock) { audioClip = Managers.Resource.Load<AudioClip>($"rock crumble {Random.Range(0,3)}"); }
+        if (ObstacleType == ObstacleTypes.Urn) { audioClip = Managers.Resource.Load<AudioClip>($"pot breaking sound {Random.Range(0,3)}"); }
 
         //TODO Rock은 흔적을 남기기
         transform.GetComponent<SpriteRenderer>().enabled = false;
         transform.GetComponent<Collider2D>().enabled = false;
 
+        if (audioClip != null)
+            Managers.Sound.PlaySFX(audioClip, 0.1f);
+
+        // 길찾기에 쓰이는 충돌 데이터 갱신
         Managers.Map.ChangeCollisionData(transform.position.x - 0.5f, transform.position.y-0.5f, ECellCollisionType.None);
 
     }
@@ -145,6 +181,5 @@ public class Obstacle : BaseObject, IExplodable
                 creature.OnDamaged(null, ESkillType.Fire);
         }
     }
-
 
 }

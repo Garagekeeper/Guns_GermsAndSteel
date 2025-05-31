@@ -31,14 +31,27 @@ public class GameManager
         }
     }
 
+
+
+    /// <summary>
+    /// 액티브 아이템의 게이지를 변화시키는 함수
+    /// </summary>
+    /// <param name="item">대상 아이템</param>
+    /// <param name="value">변화 값</param>
     public void ChangeItemGage(Item item, int value)
     {
-        item.CurrentGage = Math.Clamp(item.CurrentGage+value, 0, item.CoolTime);
+        // 꽉차지 않은 상태에서는 비프음 재생
+        if (item.CurrentGage < item.CoolTime)
+        {
+            AudioClip audioClip = Managers.Resource.Load<AudioClip>("beep");
+            Managers.Sound.PlaySFX(audioClip, 0.3f);
+        }
+
+        item.CurrentGage = Math.Clamp(item.CurrentGage + value, 0, item.CoolTime);
 
         Managers.UI.PlayingUI.ChangeChargeGage(item);
     }
 
-    #region MAP_GENERATING
 
     public RNGManager RNG;
 
@@ -48,10 +61,12 @@ public class GameManager
     public int N { get; set; }
 
     public int StageNumber { get; set; } = 1;
+    public int MAXStageNumber { get; private set; } = 5;
 
     private int _baseRoomCountMax = 15;
     private int _baseRoomCountMin = 10;
 
+    public GameScene GameScene { get; set; }
 
     public void Init()
     {
@@ -67,6 +82,10 @@ public class GameManager
         //Debug.Log(N);
     }
 
+    /// <summary>
+    /// 게임에서 사용될 시드문자 생성
+    /// </summary>
+    /// <returns>시드가 문자열로 반환</returns>
     private string GenerateSeed()
     {
         string temp = "";
@@ -82,9 +101,10 @@ public class GameManager
         return temp;
     }
 
-    #endregion
-
-
+    /// <summary>
+    /// (클리어된 상태의) 문에 접촉하면 호출되는 함수
+    /// </summary>
+    /// <param name="dir">접촉한 문의 이름</param>
     public void GoToNextRoom(string dir)
     {
         RoomClass currentRoom = Managers.Map.CurrentRoom;
@@ -141,21 +161,23 @@ public class GameManager
 
         if (Managers.Map.CurrentRoom.IsClear == false)
         {
-            //Managers.Map.CurrentRoom.Doors.GetComponent<Door>().CloseAll();
+            Managers.Map.SpawnPickUp(Managers.Map.CurrentRoom);
             Managers.Map.SpawnMonsterAndBossInRoom(Managers.Map.CurrentRoom, () =>
             {
                 CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
             });
-
-
         }
         else
         {
-            //Managers.Map.CurrentRoom.Doors.GetComponent<Door>().OpenedAll();
             CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
         }
+
+        // stage bgm
+        GameScene.PlayStageBGM();
     }
 
+    // 다음 방을 넘어갈때 캐릭터를 0.5초 컨트롤 할 수 없음
+    // 몬스터 소환등을 기다리기 위함
     public IEnumerator WaitSpawn()
     {
         yield return new WaitForSecondsRealtime(0.5f);
@@ -172,6 +194,9 @@ public class GameManager
         RoomConditionCheck();
     }
 
+    /// <summary>
+    /// 다음 스테이지 이동 (플레이어, 카메라)
+    /// </summary>
     public void GoToNextStage()
     {
         foreach (var temp in Managers.Object.MainCharacters)
@@ -210,6 +235,10 @@ public class GameManager
         RoomConditionCheck();
     }
 
+    /// <summary>
+    /// 다음 방 이동 (플레이어)
+    /// </summary>
+    /// <param name="index">이동 방향</param>
     public void MovePlayerToNextRoom(int index)
     {
         Vector3 newPos = new();
@@ -235,6 +264,10 @@ public class GameManager
         }
     }
 
+    /// <summary>
+    /// 다음 방 이동 (카메라)
+    /// </summary>
+    /// <param name="nextRoom">이동할 방</param>
     public void MoveCameraToNextRoom(RoomClass nextRoom)
     {
         Vector3 newPos = nextRoom.Transform.position;
@@ -242,6 +275,11 @@ public class GameManager
         Managers.Game.Cam.TargetPos = newPos + new Vector3(0.5f, 0.5f);
     }
 
+    /// <summary>
+    /// ItemHolder에 소환될 아이템 설정,
+    /// roomType에 따라서 아이템 pool이 달라짐
+    /// </summary>
+    /// <param name="roomType">아이템이 소환될 방의 타입</param>
     public int SelectItem(ERoomType roomType)
     {
         int TemplateId;
@@ -304,10 +342,13 @@ public class GameManager
         }
 
         if (!Managers.Data.ItemDic.ContainsKey(TemplateId)) throw new Exception($"err nonexist itemID:{TemplateId}");
-        //TODO 하드코딩 수정
         return TemplateId;
     }
 
+    /// <summary>
+    /// 일회성 아이템 능력치 회수
+    /// </summary>
+    /// <param name="player">대상 플레이어</param>
     public void WithdrawOneTimeItemEffect(MainCharacter player)
     {
         player.OneTimeActive = false;
@@ -325,8 +366,9 @@ public class GameManager
         //item.ShotType;
     }
 
-    //방의 클리어 조건을 충족했을 때 실행되는 함수
-    //DoorTile이 열린 모양으로 변경됨
+    /// <summary>
+    /// 방이 클리어 조건이 충족되면 호출하는 함수
+    /// </summary>
     public void RoomClear()
     {
         var curRoom = Managers.Map.CurrentRoom;
@@ -334,6 +376,7 @@ public class GameManager
         curRoom.IsClear = true;
 
         //curRoom.Doors.GetComponent<Door>().OpenAll();
+        // 1회성 아이템이 있으면 능력치 회수
         foreach (var player in Managers.Object.MainCharacters)
         {
             if (player.OneTimeActive)
@@ -343,9 +386,8 @@ public class GameManager
         if (curRoom.RoomType == ERoomType.Boss)
         {
             Managers.Map.CurrentRoom.ItemHolder?.SetActive(true);
+            GameScene.PlayStageBGM();
             //보스방의 ItemHolder는 클리어 한 후 나타남
-            //굳이 보스 클리어하고 Collision Data갱신할 필요가 있을까
-            //TODO
         }
 
         // 보상
@@ -353,9 +395,11 @@ public class GameManager
         if (existingValue == false)
         {
             // 원래 몬스터가 없던 방은 보상을 주지 않는다.
-            if (FindChildByName(curRoom.Transform, "Monster").childCount >0)
+            if (FindChildByName(curRoom.Transform, "Monster").childCount > 0)
             {
-                SpawnClearAward(curRoom.AwardSeed);
+                // 보스방은 픽업 안줌
+                if (curRoom.RoomType != ERoomType.Boss)
+                    SpawnClearAward(curRoom.AwardSeed);
                 foreach (var player in Managers.Object.MainCharacters)
                 {
                     if (player.SpaceItem == null) continue;
@@ -369,27 +413,37 @@ public class GameManager
         // 클리어하지 않은 방만 Door의 열리는 모션을 재생한다
         if (existingValue == false)
         {
-            curRoom.Doors.GetComponent<Door>().OpenAll();
+            curRoom.Doors.GetComponent<Door>().TryOpenAll();
         }
     }
 
+    /// <summary>
+    /// 방의 클리어 조건을 충족하는지 확인,
+    /// 충족하면 RoomClear() 호출
+    /// </summary>
     public void RoomConditionCheck()
     {
-        // already clear
+        //0. 이미 클리어한 방은 건너뜀
         if (Managers.Map.CurrentRoom.IsClear == true) return;
 
+        //1. 몬스터가 없는 경우에 클리어 판정
         if (Managers.Object.Monsters.Count == 0 && Managers.Object.Bosses.Count == 0)
             RoomClear();
         return;
     }
 
+    /// <summary>
+    /// 게임 클리어
+    /// </summary>
     public void ClearGame()
     {
         Managers.Map.DestroyMap();
-        //Object.Destroy(GameObject.Find("@Managers"));
         SceneManager.LoadScene("Title");
     }
 
+    /// <summary>
+    /// 게임 종료 (플레이어 죽음, ESC)
+    /// </summary>
     public void GameOver()
     {
         Time.timeScale = 0;
@@ -397,16 +451,22 @@ public class GameManager
         Managers.UI.GameOverUI.gameObject.SetActive(true);
     }
 
+    /// <summary>
+    /// 게임 재시작
+    /// </summary>
     public void RestartGame()
     {
         Init();
 
+        // 아이템 배열 초기화
         Managers.Data.SetItemArray();
 
         {
+            // 소환된 오브젝트 정리 (플레이어 제외)
             Managers.Object.ClearObjectManager();
         }
 
+        // 맵 제거후 재생성
         Managers.Map.DestroyMap();
         while (true)
         {
@@ -420,7 +480,7 @@ public class GameManager
 
         Cam.MoveCameraWithoutLerp(new Vector3(0.5f, 0.5f, -10f));
 
-
+        // 멀티플레이인 경우
         //for (int i=0; i< Managers.Object.MainCharacters.Count; i++)
         //{
         //    Managers.Object.Despawn(Managers.Object.MainCharacters.);
@@ -432,6 +492,7 @@ public class GameManager
         {
             Managers.Object.Despawn(players[i]);
         }
+        //멀티 플레이인 경우
         //foreach (var temp in Managers.Object.MainCharacters)
         //{
         //    //temp.gameObject.SetActive(true);
@@ -446,8 +507,13 @@ public class GameManager
         Managers.UI.GameOverUI.gameObject.SetActive(false);
         Managers.UI.PlayingUI.gameObject.SetActive(true);
 
+        GameScene.RestartAuodioSource();
     }
 
+    /// <summary>
+    /// 방을 클리어 했을 때 보상 설정
+    /// </summary>
+    /// <param name="seed">보상 선정을 위한 시드</param>
     public void SpawnClearAward(long seed)
     {
         EPICKUP_TYPE pickupAward = EPICKUP_TYPE.PICKUP_NULL;
@@ -460,7 +526,8 @@ public class GameManager
         {
             Vector2 roomCenterPos = Managers.Map.CurrentRoom.WorldCenterPos;
             Transform pickupsTransform = FindChildByName(Managers.Map.CurrentRoom.Transform, "Pickups");
-            //collisionData[y + math.abs(StageColYMin) + (int)room.WorldCenterPos.y, x + math.abs(StageColXMin) + (int)room.WorldCenterPos.x] = collsionInt;
+
+            // 픽업이 1개 이상인 경우 나선형 모양으로 소환
             List<Vector3Int> spawnPoses = SpriralPos(roomCenterPos, pickupCount);
             int done = 0;
             foreach (var spawnPos in spawnPoses)
@@ -470,7 +537,7 @@ public class GameManager
                 {
                     //spawn
                     Vector3 newSpawnPos = (spawnPos - (Vector3)roomCenterPos);
-                    Managers.Object.Spawn<Pickup>(newSpawnPos, pickupAward, pickupsTransform);
+                    Managers.Object.Spawn<Pickup>(newSpawnPos, pickupAward, pickupsTransform, default, true);
                     done++;
                 }
 
@@ -478,6 +545,11 @@ public class GameManager
         }
     }
 
+    /// <summary>
+    /// 희생방 보상 소환
+    /// </summary>
+    /// <param name="pickupCount">개수</param>
+    /// <param name="sacrificeAward">보상 종류</param>
     public void SpawnSacrificeAward(int pickupCount, EPICKUP_TYPE sacrificeAward)
     {
         if (pickupCount <= 0) return;
@@ -493,13 +565,19 @@ public class GameManager
             if (Managers.Map.CanGo(pos))
             {
                 //spawn
-                Vector3 newSpawnPos = (pos - (Vector3)roomCenterPos);
-                Managers.Object.Spawn<Pickup>(newSpawnPos, sacrificeAward, pickupsTransform);
+                Vector3 newSpawnPos = ((pos + new Vector3(0.5f, 0.5f)) - (Vector3)roomCenterPos);
+                Managers.Object.Spawn<Pickup>(newSpawnPos, sacrificeAward, pickupsTransform, default, true);
                 done++;
             }
         }
     }
 
+    /// <summary>
+    /// 방 클리어 보상 종류 및 개수 선정
+    /// </summary>
+    /// <param name="pickupCount">(참조)보상 개수</param>
+    /// <param name="pickupAward">(참조)보상 종류</param>
+    /// <param name="seed">보상 시드</param>
     public void SelectClearAwardTypeAndCount(ref int pickupCount, ref EPICKUP_TYPE pickupAward, long seed)
     {
         RNGManager rng = new(seed);
@@ -521,6 +599,7 @@ public class GameManager
                 //    pickupAward = EPICKUP_TYPE.PICKUP_TRINKET;
                 //else
                 //    pickupAward = EPICKUP_TYPE.PICKUP_PILL;
+                pickupAward = EPICKUP_TYPE.PICKUP_COIN;
             }
         }
         else if (pickupPercent < 0.45f)
@@ -609,6 +688,11 @@ public class GameManager
 
     }
 
+    /// <summary>
+    /// 상자, 가방의 보상 소환
+    /// , 픽업의 타입에 따라서 테이블 달라짐
+    /// </summary>
+    /// <param name="pickupt">접촉한 픽업</param>
     public void SpawnChestAndGrabBagAward(Pickup pickup)
     {
         List<EPICKUP_TYPE> pickupAward = new();
@@ -636,12 +720,18 @@ public class GameManager
                 float nx = Random.Range(-1, 1);
                 float ny = Random.Range(-1, 1);
 
-                Managers.Object.Spawn<Pickup>(pickup.transform.localPosition, pickupAward[i], pickupsTransform, new Vector3(nx, ny, 0).normalized * 4);
+                Managers.Object.Spawn<Pickup>(pickup.transform.localPosition, pickupAward[i], pickupsTransform, new Vector3(nx, ny, 0).normalized * 4, true);
             }
         }
 
     }
 
+    /// <summary>
+    /// 상자, 가방의 보상 설정
+    /// </summary>
+    /// <param name="pickupCount">개수를 담은 List</param>
+    /// <param name="pickupAward">보상 종류를 담은 Lsit</param>
+    /// <param name="epickupType">접촉한 pickup 타입</param>
     public void SelectChestAndGrabBagAwardTypeAndCount(List<int> pickupCount, List<EPICKUP_TYPE> pickupAward, EPICKUP_TYPE epickupType)
     {
         RNGManager rng = new(Managers.Map.CurrentRoom.AwardSeed);
@@ -735,6 +825,10 @@ public class GameManager
         Managers.Map.CurrentRoom.AwardSeed = rng.Next();
     }
 
+    /// <summary>
+    /// 희생방 보상 설정
+    /// </summary>
+    /// <param name="count">희생(spike 접촉) 횟수</param>
     public void GetSacrificeReward(int count)
     {
         long awardSeed = Managers.Map.CurrentRoom.AwardSeed;
@@ -742,8 +836,6 @@ public class GameManager
 
         int pickupCount = 0;
         EPICKUP_TYPE sacrificeAward = EPICKUP_TYPE.PICKUP_COIN;
-
-        Debug.Log(count);
 
         if (count <= 2)
         {
@@ -855,12 +947,18 @@ public class GameManager
         Managers.Map.CurrentRoom.AwardSeed = rng.Sn;
     }
 
+    /// <summary>
+    /// 상점 아이템 소환 (맵을 생성하는 과정에서 호출)
+    /// </summary>
+    /// <param name="pos">ShopItem 타일이 존재하는 위치</param>
+    /// <param name="room">해당 방의 room class</param>
     public void SpawnShopItem(Vector3Int pos, RoomClass room)
     {
         RNGManager rng = new RNGManager(room.AwardSeed);
         var parent = FindChildByName(room.Transform, "ShopItems");
         Tilemap tm = room.TilemapCollisionPrefab.GetComponent<Tilemap>();
 
+        // 첫번쨰 소환은 무조건 ItemHolder 아이템
         if (parent.childCount == 0)
         {
             //SPAWN PASSIVE or ACtiveITem
@@ -918,10 +1016,32 @@ public class GameManager
         room.AwardSeed = rng.Sn;
     }
 
+    public int SelectRandomMonster()
+    {
+        List<int> monsterList = new List<int>();
+        // id가 제일작은 몬스터 (첫번째 몬스터)
+        int firstId = Managers.Data.MonsterDic.First().Key - 1;
+
+        foreach (var monsterData in Managers.Data.MonsterDic)
+        {
+            if (monsterData.Key / firstId == 1)
+            {
+                monsterList.Add(monsterData.Key);
+            }
+        }
+
+        int selectedindex = Random.Range(0, monsterList.Count());
+        return monsterList[selectedindex];
+    }
+
 
     #region Active effect
+    /// <summary>
+    /// 스테이지의 일반방 중에서 한곳으로 랜덤 텔레포트
+    /// </summary>
     public void TPToNormalRandom()
     {
+        // TP할 방 선택
         List<RoomClass> list = new();
         foreach (RoomClass r in Managers.Map.Rooms)
         {
@@ -932,6 +1052,8 @@ public class GameManager
         }
 
         RoomClass chosen = RNG.Choice(list);
+
+        // 플레이어 이동
         Vector3 newPos = chosen.Transform.position + new Vector3(0.5f, 0.5f, 0);
         foreach (var mc in Managers.Object.MainCharacters)
         {
@@ -945,21 +1067,25 @@ public class GameManager
             mc.transform.position = newPos;
         }
 
+        // 카메라 이동
         newPos.z = -10f;
         Cam.MoveCameraWithoutLerp(newPos);
 
+        // 기존 방에 소환된 몬스터 디스폰
         Managers.Object.DespawnMonsters(Managers.Map.CurrentRoom);
 
+        // 아이템 비중 조정 
         if (Managers.Map.CurrentRoom.ItemHolder != null)
         {
             int TemplateId = Managers.Map.CurrentRoom.ItemHolder.GetComponent<ItemHolder>().ItemOfItemHolder.TemplateId;
             Managers.Data.ItemDic[TemplateId].Weight = 0;
         }
 
+        // 현재방 정보 변경
         Managers.Map.CurrentRoom = chosen;
 
 
-
+        // 소환될 몬스터 있는경우 소환ㅇㄴ
         if (Managers.Map.CurrentRoom.IsClear == false)
         {
             Managers.Map.SpawnMonsterAndBossInRoom(Managers.Map.CurrentRoom, () =>
@@ -973,12 +1099,20 @@ public class GameManager
         }
     }
 
+    /// <summary>
+    /// Item roll(아이템 바꾸기)
+    /// </summary>
+    /// <param name="player">혹시 모를 사고예방, 아이템을 들고있는지 확인용도</param>
+    /// <param name="target">돌리려는 타겟</param>
     public void Roll(MainCharacter player, string target = "item")
     {
         if (target == "item")
         {
             if (player.SpaceItem == null) return;
+            // 아이템 홀더가 없으면 리턴
             if (Managers.Map.CurrentRoom.ItemHolder == null) return;
+            // 아이템 홀더에 패시브 아이템을 이미 먹은 경우
+            if (Managers.Map.CurrentRoom.ItemHolder.GetComponent<ItemHolder>().ItemOfItemHolder ==  null) return;
             Managers.Map.CurrentRoom.ItemHolder.GetComponent<ItemHolder>().SetItem(Managers.Map.CurrentRoom);
         }
         else if (target == "pickup")

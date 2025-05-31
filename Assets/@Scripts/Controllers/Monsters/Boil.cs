@@ -91,6 +91,9 @@ public class Boil : Monster
 
     public void SkillA()
     {
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>("boil hatch");
+        Managers.Sound.PlaySFX(audioClip, 0.15f);
+
         for (int i = 0; i < 4; i++)
         {
             GenerateProjectile((Target.transform.position - transform.position).normalized, true, true);

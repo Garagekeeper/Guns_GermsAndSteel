@@ -7,6 +7,8 @@ using Unity.Burst.CompilerServices;
 
 public class BoomFly : Monster
 {
+    public GameObject SFXSource { get; private set; }
+
     void Awake()
     {
         Init();
@@ -30,6 +32,10 @@ public class BoomFly : Monster
 
         TargetPos = dV[Random.Range(0, 4)];
         CreatureState = ECreatureState.Move;
+
+        //audio
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>("insect swarm");
+        SFXSource = Managers.Sound.PlaySFX(audioClip, 0.05f, true);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -44,6 +50,15 @@ public class BoomFly : Monster
     //Animation Event
     public void Destroyprefab()
     {
+        // pool에 반납
+        Managers.Sound.ReturnSFXToPool(SFXSource);
         base.OnDead();
     }
+
+    public void PlayExplosionSound()
+    {
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>($"boss explosions {Random.Range(0, 2)}");
+        Managers.Sound.PlaySFX(audioClip, 0.15f);
+    }
+
 }

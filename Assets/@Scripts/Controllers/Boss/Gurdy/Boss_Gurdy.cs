@@ -100,6 +100,9 @@ public class Boss_Gurdy : Boss
 
     public void Generate5Projectil(int vec)
     {
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>("monster grunt 5");
+        Managers.Sound.PlaySFX(audioClip, 0.1f);
+
         Vector2 dV = Vector2.zero;
         if (vec == 0)
         {
@@ -135,6 +138,9 @@ public class Boss_Gurdy : Boss
             if (m.MonsterType == EMonsterType.Boil) return;
         }
 
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>("monster yell 2");
+        Managers.Sound.PlaySFX(audioClip, 0.1f);
+
         Transform parent = transform.parent;
         Managers.Object.Spawn<Monster>(transform.localPosition + new Vector3(1.5f, -4f), 10087, "Boil", parent);
         Managers.Object.Spawn<Monster>(transform.localPosition + new Vector3(-2.5f, -4f), 10087, "Boil", parent);
@@ -145,6 +151,10 @@ public class Boss_Gurdy : Boss
     {
         int randomValue = Random.Range(0, 100);
         Transform parent = transform.parent;
+
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>("monster yell 2");
+        Managers.Sound.PlaySFX(audioClip, 0.1f);
+
         if (randomValue > 50)
         {
             Managers.Object.Spawn<Monster>(new Vector3(transform.localPosition.x + 1f, -1.65f), 10010, "Fly", parent);

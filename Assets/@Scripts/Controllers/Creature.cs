@@ -254,6 +254,7 @@ public class Creature : BaseObject, IExplodable
         {
             switch (HeadDirState)
             {
+
                 case ECreatureHeadDirState.Up:
                     Head.flipX = false;
                     AnimatorHead.Play("Attack_Up");
@@ -365,6 +366,8 @@ public class Creature : BaseObject, IExplodable
 
     public void GenerateProjectile()
     {
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>($"tear fire {Random.Range(4,6)}");
+        Managers.Sound.PlaySFX(audioClip, 0.3f);
         switch (HeadDirState)
         {
             case ECreatureHeadDirState.Up:
@@ -419,12 +422,12 @@ public class Creature : BaseObject, IExplodable
         return closestTarget;
     }
 
-    public void OnExplode(Creature owner)
+    public virtual void OnExplode(Creature owner)
     {
         OnDamaged(owner, ESkillType.Bomb);
     }
 
-    public void OnExplode(Creature owner, object args)
+    public virtual void OnExplode(Creature owner, object args)
     {
         if (args is string)
         {

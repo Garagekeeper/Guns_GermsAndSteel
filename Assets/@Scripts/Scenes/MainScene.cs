@@ -10,15 +10,16 @@ public class MainScene : UI_Base
     private Stack<GameObject> _uiStack = new Stack<GameObject>();
     public enum UIGameObjects
     {
-        TitleImageUI = 0,
+        None,
+        TitleImageUI = 1,
         FileSelectUI,
-        GameMenuUI = 2,
+        GameMenuUI = 3,
         NEWRUN,
         CONTINUE,
         CHALLENGES,
         STATS,
         OPTIONS,
-        OptionMenuUI = 8,
+        OptionMenuUI = 9,
         SFX,
         MUSIC,
         CONTROLS,
@@ -32,17 +33,31 @@ public class MainScene : UI_Base
         FULLSCREEN,
     }
 
-    private int _cursoredUI = 0;
+    private int _currentUI = 0;
+    private int _targetUI = 0;
 
-    public int CursoredUI
+    private AudioClip _audioClip;
+
+    public int CurrentUI
     {
-        get { return _cursoredUI; }
+        get { return _currentUI; }
         set
         {
-            if (_cursoredUI != value)
+            if (_currentUI != value)
             {
-                MoveArrow(_cursoredUI, value);
-                _cursoredUI = value;
+                _currentUI = value;
+            }
+        }
+    }
+    public int TargetUI
+    {
+        get { return _targetUI; }
+        set
+        {
+            if (_targetUI != value)
+            {
+                MoveArrow(_targetUI, value);
+                _targetUI = value;
             }
         }
     }
@@ -72,10 +87,12 @@ public class MainScene : UI_Base
         }
 
         Managers.Game.Init();
+        Managers.Sound.Init();
         TargetPos = new Vector3(0, 0, -10);
         BindObject(typeof(UIGameObjects));
         _uiStack.Push(GetObject((int)UIGameObjects.TitleImageUI));
-        CursoredUI = (int)UIGameObjects.FileSelectUI;
+        CurrentUI = (int)UIGameObjects.TitleImageUI;
+        TargetUI = (int)UIGameObjects.None;
     }
 
     void Update()
@@ -84,7 +101,7 @@ public class MainScene : UI_Base
         {
 
             //push ui;
-            PushUI();
+            GoToNextUI();
 
         }
 
@@ -92,7 +109,7 @@ public class MainScene : UI_Base
         {
 
             //pop ui;
-            PopUI();
+            GoToPrevUI();
 
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -101,27 +118,34 @@ public class MainScene : UI_Base
             int maxValue;
             int range;
 
-            if (CursoredUI >= 3 && CursoredUI <= 7)
+            if (CurrentUI < (int)UIGameObjects.GameMenuUI) return;
+
+            if (TargetUI >= (int)UIGameObjects.NEWRUN && TargetUI <= (int)UIGameObjects.OPTIONS)
             {
-                minValue = 3;
-                maxValue = 7;
+                _audioClip = Managers.Resource.Load<AudioClip>("menu_scroll");
+                Managers.Sound.PlaySFX(_audioClip, 1f);
+                minValue = (int)UIGameObjects.NEWRUN;
+                maxValue = (int)UIGameObjects.OPTIONS;
 
                 // 모듈 연산으로 순환
                 range = maxValue - minValue + 1;
-                CursoredUI = ((CursoredUI - minValue - 1 + range) % range + minValue);
+                TargetUI = ((TargetUI - minValue - 1 + range) % range + minValue);
                 return;
             }
 
-            if (CursoredUI >= 9 && CursoredUI <= 19)
+            if (TargetUI >= (int)UIGameObjects.SFX && TargetUI <= (int)UIGameObjects.FULLSCREEN)
             {
-                minValue = 9;
-                maxValue = 19;
+                _audioClip = Managers.Resource.Load<AudioClip>("menu_scroll");
+                Managers.Sound.PlaySFX(_audioClip, 1f);
+                minValue = (int)UIGameObjects.SFX;
+                maxValue = (int)UIGameObjects.FULLSCREEN;
 
                 // 모듈 연산으로 순환
                 range = maxValue - minValue + 1;
-                CursoredUI = ((CursoredUI - minValue - 1 + range) % range + minValue);
+                TargetUI = ((TargetUI - minValue - 1 + range) % range + minValue);
                 return;
             }
+
 
         }
 
@@ -132,25 +156,33 @@ public class MainScene : UI_Base
             int maxValue;
             int range;
 
-            if (CursoredUI >= 3 && CursoredUI <= 7)
+            if (CurrentUI < (int)UIGameObjects.GameMenuUI) return;
+
+            if (TargetUI >= (int)UIGameObjects.NEWRUN && TargetUI <= (int)UIGameObjects.OPTIONS)
             {
-                minValue = 3;
-                maxValue = 7;
+                _audioClip = Managers.Resource.Load<AudioClip>("menu_scroll");
+                Managers.Sound.PlaySFX(_audioClip, 1f);
+
+                minValue = (int)UIGameObjects.NEWRUN;
+                maxValue = (int)UIGameObjects.OPTIONS;
 
                 // 모듈 연산으로 순환
                 range = maxValue - minValue + 1;
-                CursoredUI = ((CursoredUI - minValue + 1 + range) % range + minValue);
+                TargetUI = ((TargetUI - minValue + 1 + range) % range + minValue);
                 return;
             }
 
-            if (CursoredUI >= 9 && CursoredUI <= 19)
+            if (TargetUI >= (int)UIGameObjects.SFX && TargetUI <= (int)UIGameObjects.FULLSCREEN)
             {
-                minValue = 9;
-                maxValue = 19;
+                _audioClip = Managers.Resource.Load<AudioClip>("menu_scroll");
+                Managers.Sound.PlaySFX(_audioClip, 1f);
+
+                minValue = (int)UIGameObjects.SFX;
+                maxValue = (int)UIGameObjects.FULLSCREEN;
 
                 // 모듈 연산으로 순환
                 range = maxValue - minValue + 1;
-                CursoredUI = ((CursoredUI - minValue + 1 + range) % range + minValue);
+                TargetUI = ((TargetUI - minValue + 1 + range) % range + minValue);
                 return;
             }
         }
@@ -166,50 +198,47 @@ public class MainScene : UI_Base
         _cam.transform.position = Vector3.Lerp(_cam.transform.position, TargetPos, smoothSpeed * Time.fixedDeltaTime);
     }
 
-    public void PushUI()
+    // CurrentUI <= 현재 보여지는 UI
+    // TargetUI  <= 현재 UI에서 선택된 메뉴 
+    public void GoToNextUI()
     {
-        if (CursoredUI == (int)UIGameObjects.NEWRUN)
+        if (TargetUI != (int)UIGameObjects.NEWRUN)
         {
-            SceneManager.LoadScene("GameScene");
+            _audioClip = Managers.Resource.Load<AudioClip>("paper_in");
+            Managers.Sound.PlaySFX(_audioClip, 1f);
         }
-        else
-        {
-            if (CursoredUI == (int)UIGameObjects.OPTIONS)
-            {
-                _uiStack.Push(GetObject((int)UIGameObjects.OptionMenuUI));
-            }
-            else if (CursoredUI == (int)UIGameObjects.FileSelectUI)
-            {
-                _uiStack.Push(GetObject((int)UIGameObjects.GameMenuUI));
-            }
-            else
-            {
-                _uiStack.Push(GetObject(CursoredUI));
-            }
 
-            switch (CursoredUI)
-            {
-                case (int)UIGameObjects.FileSelectUI:
-                    CursoredUI = (int)UIGameObjects.GameMenuUI;
-                    TargetPos += new Vector3(0, -13.5f, 0);
-                    break;
-                case (int)UIGameObjects.GameMenuUI:
-                    CursoredUI = (int)UIGameObjects.NEWRUN;
-                    TargetPos += new Vector3(0, -13.5f, 0);
-                    break;
-                case (int)UIGameObjects.OPTIONS:
+        switch (CurrentUI)
+        {
+            case (int)UIGameObjects.TitleImageUI:
+                CurrentUI = (int)UIGameObjects.FileSelectUI;
+                TargetPos += new Vector3(0, -13.5f, 0);
+                break;
+            case (int)UIGameObjects.FileSelectUI:
+                CurrentUI = (int)UIGameObjects.GameMenuUI;
+                TargetUI = (int)UIGameObjects.NEWRUN;
+                TargetPos += new Vector3(0, -13.5f, 0);
+                break;
+            case (int)UIGameObjects.GameMenuUI:
+                if (TargetUI == (int)UIGameObjects.NEWRUN)
+                {
+                    SceneManager.LoadScene("GameScene");
+                }
+                else if (TargetUI == (int)UIGameObjects.OPTIONS)
+                {
+                    CurrentUI = (int)UIGameObjects.OptionMenuUI;
+                    TargetUI = (int)UIGameObjects.SFX;
                     TargetPos += new Vector3(24f, -13.5f, 0);
-                    CursoredUI = (int)UIGameObjects.SFX;
-                    break;
-            }
+                }
+                break;
         }
-
-
     }
 
-    public void PopUI()
+    // CurrentUI <= 현재 보여지는 UI
+    // TargetUI  <= 현재 UI에서 선택된 메뉴 
+    public void GoToPrevUI()
     {
-        if (_uiStack.Count == 1)
+        if (CurrentUI == (int)UIGameObjects.TitleImageUI)
         {
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
@@ -217,37 +246,44 @@ public class MainScene : UI_Base
         Application.Quit(); // 어플리케이션 종료
 #endif
         }
+        _audioClip = Managers.Resource.Load<AudioClip>("paper_out");
+        Managers.Sound.PlaySFX(_audioClip, 1f);
+        switch (CurrentUI)
+        {
+            case (int)UIGameObjects.FileSelectUI:
+                CurrentUI = (int)UIGameObjects.TitleImageUI;
+                TargetUI = (int)UIGameObjects.None;
+                TargetPos += new Vector3(0, 13.5f, 0);
+                break;
+            case (int)UIGameObjects.GameMenuUI:
+                CurrentUI = (int)UIGameObjects.FileSelectUI;
+                TargetUI = (int)UIGameObjects.None;
+                TargetPos += new Vector3(0, 13.5f, 0);
+                break;
+            case (int)UIGameObjects.OptionMenuUI:
+                CurrentUI = (int)UIGameObjects.GameMenuUI;
+                TargetUI = (int)UIGameObjects.NEWRUN;
+                TargetPos += new Vector3(-24f, 13.5f, 0);
+                break;
+        }
 
-        if (_uiStack.Peek().gameObject.name == UIGameObjects.OptionMenuUI.ToString())
-        {
-            _uiStack.Pop();
-            TargetPos -= new Vector3(24f, -13.5f, 0);
-            CursoredUI = (int)UIGameObjects.NEWRUN;
-        }
-        else if (_uiStack.Peek().gameObject.name == UIGameObjects.GameMenuUI.ToString())
-        {
-            _uiStack.Pop();
-            TargetPos -= new Vector3(0, -13.5f, 0);
-            CursoredUI = (int)UIGameObjects.FileSelectUI;
-        }
-        else if (_uiStack.Peek().gameObject.name == UIGameObjects.GameMenuUI.ToString())
-        {
-            _uiStack.Pop();
-            TargetPos -= new Vector3(0, -13.5f, 0);
-            CursoredUI = (int)UIGameObjects.TitleImageUI;
-        }
     }
 
     public void MoveArrow(int origin, int next)
     {
+
         if (origin == 0)
         {
-
+            FindChildByName(GetObject(next).transform, "Arrow", false)?.gameObject.SetActive(true);
+        }
+        else if (next == 0)
+        {
+            FindChildByName(GetObject(origin).transform, "Arrow", false)?.gameObject.SetActive(false);
         }
         else
         {
-            FindChildByName(GetObject(origin).transform, "Arrow",false)?.gameObject.SetActive(false);
-            FindChildByName(GetObject(next).transform, "Arrow",false)?.gameObject.SetActive(true);
+            FindChildByName(GetObject(origin).transform, "Arrow", false)?.gameObject.SetActive(false);
+            FindChildByName(GetObject(next).transform, "Arrow", false)?.gameObject.SetActive(true);
         }
     }
 }

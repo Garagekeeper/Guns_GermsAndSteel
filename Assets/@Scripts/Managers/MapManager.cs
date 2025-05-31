@@ -2,18 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Unity.Mathematics;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using static Define;
 using static RoomClass;
+using static UnityEditor.PlayerSettings;
+using static Utility;
 using Object = UnityEngine.Object;
 using Transform = UnityEngine.Transform;
-using static Utility;
-using UnityEngine.SceneManagement;
-using System.Text.RegularExpressions;
-using static UnityEditor.PlayerSettings;
 
 public class RoomClass
 {
@@ -80,46 +81,6 @@ public class RoomClass
 }
 public class MapManager
 {
-
-    string[,] doorFrame =
-{
-    { "door_01_normaldoor_0" , "door_01_normaldoor_4"},
-    { "door_01_normaldoor_0" , "door_01_normaldoor_4"},
-    { "door_02_treasureroomdoor_0" , "door_01_normaldoor_4"},
-    { "door_03_sacrificeroomdoor_0" , "door_03_sacrificeroomdoor_4"},
-    { "door_04_curseroomdoor_0" , "door_04_curseroomdoor_4"},
-    { "door_05_shopdoor_0" , "door_05_shopdoor_4"},
-    { "door_06_bossroomdoor_0" , "door_06_bossroomdoor_4"},
-    { "door_07_devilroomdoor_0" , "door_07_devilroomdoor_4"},
-    { "door_07_holyroomdoor_0" , "door_07_holyroomdoor_4"},
-};
-
-    string[] doorBackGround =
-    {
-    "door_01_normaldoor_1",
-    "door_01_normaldoor_1",
-    "door_01_normaldoor_1",
-    "door_03_sacrificeroomdoor_1",
-    "door_01_normaldoor_1",
-    "door_05_shopdoor_1",
-    "door_06_bossroomdoor_1",
-    "door_07_devilroomdoor_1",
-    "door_07_holyroomdoor_1",
-};
-
-    string[,] doorSide =
-    {
-    { "door_01_normaldoor_2", "door_01_normaldoor_3","door_01_normaldoor_5", "door_01_normaldoor_6"},
-    { "door_01_normaldoor_2", "door_01_normaldoor_3","door_01_normaldoor_5", "door_01_normaldoor_6"},
-    { "door_01_normaldoor_2", "door_01_normaldoor_3", "door_02_treasureroomdoor_5", "door_02_treasureroomdoor_6"},
-    { "door_03_sacrificeroomdoor_2","door_03_sacrificeroomdoor_3","door_03_sacrificeroomdoor_5","door_03_sacrificeroomdoor_6"},
-    { "door_04_curseroomdoor_2","door_04_curseroomdoor_3","door_04_curseroomdoor_5","door_04_curseroomdoor_6"},
-    { "door_05_shopdoor_2","door_05_shopdoor_3","door_05_shopdoor_5","door_05_shopdoor_6"},
-    { "door_06_bossroomdoor_2","door_06_bossroomdoor_3","door_06_bossroomdoor_5","door_06_bossroomdoor_6"},
-    { "door_07_devilroomdoor_2","door_07_devilroomdoor_3","door_07_devilroomdoor_5","door_07_devilroomdoor_6"},
-    { "door_07_holyroomdoor_2","door_07_holyroomdoor_3","door_07_holyroomdoor_5","door_07_holyroomdoor_6"},
-};
-
     #region A* pathFinding
     public struct PQNode : IComparable<PQNode>
     {
@@ -336,6 +297,8 @@ public class MapManager
             }
         }
     }
+
+    private Dictionary<int, int> BossToStage = new Dictionary<int, int>();
 
     public bool CanCreateRoom(int x, int y)
     {
@@ -867,6 +830,8 @@ public class MapManager
 
     public void Init(Action callback)
     {
+
+
         RoomCollisionCnt.Clear();
         for (int i = 0; i < Enum.GetValues(typeof(ERoomType)).Length; i++)
             RoomCollisionCnt.Add(0);
@@ -900,6 +865,28 @@ public class MapManager
             return;
         }
 
+        // 사용될 보스방 미리 배정
+        List<int> bossRoomList = new ();
+        // 5스테이지를 제외한 스테이지에서 사용되는 보스방의 index로 list 초기화
+        for (int i=0; i < Managers.Data.RoomDic[ERoomType.Boss][0].Count; i++)
+        {
+            bossRoomList.Add(Managers.Data.RoomDic[ERoomType.Boss][0][i]);
+        }
+
+        Shuffle(bossRoomList, Managers.Game.RNG);
+
+        // 마지막 스테이지를 제외하고 보스가 출연할 스테이지 적용
+        for (int stage=1; stage <= Managers.Game.MAXStageNumber - 1; stage++)
+        {
+            BossToStage[stage] = bossRoomList[stage - 1];
+        }
+
+        // 5스테이지에 보스방 설정
+        BossToStage[Managers.Game.MAXStageNumber] = Managers.Data.RoomDic[ERoomType.Boss][5][0];
+        // 예비로 사용될 보스방
+        BossToStage[Managers.Game.MAXStageNumber + 1] = bossRoomList[Managers.Game.MAXStageNumber - 1];
+
+
         Managers.Resource.LoadAllAsync<Object>("InGame", (key, count, totalCount) =>
         {
             foreach (string name in Enum.GetNames(typeof(ERoomType)))
@@ -923,6 +910,8 @@ public class MapManager
                 callback?.Invoke();
             }
         });
+
+        
     }
 
     public GameObject Map { get; private set; }
@@ -1094,25 +1083,20 @@ public class MapManager
         int stageIndex = 0;
         int roomId;
 
+        // 보스방
         if (r.RoomType == ERoomType.Boss)
         {
-            if (Managers.Game.StageNumber == 5)
-            {
-                stageIndex = 5;
-            }
-            roomId = Managers.Data.RoomDic[r.RoomType][stageIndex][Managers.Game.RNG.RandInt(0, Managers.Data.RoomDic[r.RoomType][stageIndex].Count - 1)];
-            // 현재방과 연결된 인접방의 형태가 소환하기에 적합한 상태가 될때까지 방을 재선정
-            while (Managers.Data.RoomDicTotal[roomId].CannotSpawnType == r.DeadEndType)
-            {
-                if (stageNum == 5) break;
-                roomId = Managers.Data.RoomDic[r.RoomType][stageIndex][Managers.Game.RNG.RandInt(0, Managers.Data.RoomDic[r.RoomType][stageIndex].Count - 1)];
-            }
+            roomId = BossToStage[Managers.Game.StageNumber];
+            // 선택된 보스가 현재 맵에 소환될 수 없는 타입이면 예비로 남겨둔 보스 사용
+            if (Managers.Data.RoomDicTotal[roomId].CannotSpawnType == r.DeadEndType)
+                roomId = BossToStage[Managers.Game.StageNumber + 1];
         }
+        // 보스방을 제외한 모든 방
         else
         {
             roomId = Managers.Data.RoomDic[r.RoomType][stageIndex][Managers.Game.RNG.RandInt(0, Managers.Data.RoomDic[r.RoomType][stageIndex].Count - 1)];
         }
-        
+
         GameObject roomTileMap = Managers.Resource.Instantiate(Managers.Data.RoomDicTotal[roomId].PrefabName);
         roomTileMap.transform.SetParent(room.transform);
 
@@ -1137,7 +1121,7 @@ public class MapManager
         GenerateDoor(r);
         r.TilemapCollisionPrefab.SetActive(false);
 
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         if (r.RoomType == ERoomType.Start)
         {
             AltSetActive(r.RoomObject, true);
@@ -1280,7 +1264,7 @@ public class MapManager
         if (next == null) return;
 
         //에디터에서는 다 보여주고, 실제에서는 원래방만
-#if !UNITY_EDITOR
+#if UNITY_EDITOR
         //이전 방 (원래 있던 방)
         if (before != null)
         {
@@ -1319,7 +1303,7 @@ public class MapManager
 
     public void AltSetActive(GameObject room, bool state)
     {
-        FindChildByName(room.transform, "Tilemap")?.gameObject.SetActive(state);
+        //FindChildByName(room.transform, "Tilemap")?.gameObject.SetActive(state);
         FindChildByName(room.transform, "Obstacle")?.gameObject.SetActive(state);
         FindChildByName(room.transform, "Collider")?.gameObject.SetActive(state);
         FindChildByName(room.transform, "ProjectileCollider")?.gameObject.SetActive(state);
@@ -1496,7 +1480,6 @@ public class MapManager
             {
                 Vector3Int tilePos = new Vector3Int(x, y, 0);
                 TileBase tile = tmp.GetTile(tilePos);
-                Pickup pickup;
                 int index;
                 switch (tile.name)
                 {
@@ -1529,29 +1512,6 @@ public class MapManager
                         index = obsRng.RandInt(1, 3);
                         Managers.Object.SpawnObstacle(tilePos, "Urn", room.Obstacle.transform, index);
                         break;
-                    case "pickuo_001_heart_0":
-                        pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_HEART, FindChildByName(room.Transform, "Pickups"));
-                        pickup.GetComponent<Collider2D>().enabled = true;
-                        break;
-                    case "pickup_002_coin_0":
-                        pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_COIN, FindChildByName(room.Transform, "Pickups"));
-                        pickup.GetComponent<Collider2D>().enabled = true;
-                        break;
-                    case "pickup_003_key_0":
-                        pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_KEY, FindChildByName(room.Transform, "Pickups"));
-                        pickup.GetComponent<Collider2D>().enabled = true;
-                        break;
-                    case "pickup_005_chests_5":
-                        pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_CHEST, FindChildByName(room.Transform, "Pickups"));
-                        pickup.GetComponent<Collider2D>().enabled = true;
-                        break;
-                    case "pickup_016_bomb_0":
-                        pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_BOMB, FindChildByName(room.Transform, "Pickups"));
-                        pickup.GetComponent<Collider2D>().enabled = true;
-                        break;
-                    case "ShopItem":
-                        Managers.Game.SpawnShopItem(tilePos, room);
-                        break;
                     // locked chest
                     //case "pickup_005_chests_9":
                     default:
@@ -1561,7 +1521,6 @@ public class MapManager
             }
         }
         room.ObjectSeed = obsRng.Sn;
-
     }
     public void SpawnMonsterAndBossInRoom(RoomClass room, Action callback = null)
     {
@@ -1601,8 +1560,55 @@ public class MapManager
                 }
             }
         }
-
         callback.Invoke();
+    }
+
+    public void SpawnPickUp(RoomClass room, Action callback = null)
+    {
+        Tilemap tmp = room.TilemapCollisionPrefab.GetComponent<Tilemap>();
+        int maxX = tmp.cellBounds.xMax;
+        int minX = tmp.cellBounds.xMin;
+        int maxY = tmp.cellBounds.yMax;
+        int minY = tmp.cellBounds.yMin;
+
+        for (int y = maxY - 1; y > minY + 1; y--)
+        {
+            for (int x = minX + 1; x < maxX - 1; x++)
+            {
+                Vector3Int tilePos = new Vector3Int(x, y, 0);
+                TileBase tile = tmp.GetTile(tilePos);
+                Pickup pickup;
+                switch (tile.name)
+                {
+                    case "pickuo_001_heart_0":
+                        pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_HEART, FindChildByName(room.Transform, "Pickups"), default, true);
+                        pickup.GetComponent<Collider2D>().enabled = true;
+                        break;
+                    case "pickup_002_coin_0":
+                        pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_COIN, FindChildByName(room.Transform, "Pickups"), default, true);
+                        pickup.GetComponent<Collider2D>().enabled = true;
+                        break;
+                    case "pickup_003_key_0":
+                        pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_KEY, FindChildByName(room.Transform, "Pickups"),default, true);
+                        pickup.GetComponent<Collider2D>().enabled = true;
+                        break;
+                    case "pickup_005_chests_5":
+                        pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_CHEST, FindChildByName(room.Transform, "Pickups"), default, true);
+                        pickup.GetComponent<Collider2D>().enabled = true;
+                        break;
+                    case "pickup_016_bomb_0":
+                        pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_BOMB, FindChildByName(room.Transform, "Pickups"), default, true);
+                        pickup.GetComponent<Collider2D>().enabled = true;
+                        break;
+                    case "ShopItem":
+                        Managers.Game.SpawnShopItem(tilePos, room);
+                        break;
+                    default:
+                        break;
+                }
+
+            }
+        }
     }
 
 

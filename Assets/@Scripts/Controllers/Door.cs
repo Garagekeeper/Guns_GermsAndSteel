@@ -30,6 +30,7 @@ public class Door : BaseObject, IExplodable
         }
     }
 
+    // Door에 사용될 애니메이터 설정
     public void SetAnimator(int index, ERoomType doorType, ERoomType roomType, string animatorName)
     {
         RuntimeAnimatorController animController;
@@ -67,7 +68,8 @@ public class Door : BaseObject, IExplodable
         eDoorState[index] = state;
     }
 
-    public void OpenAll()
+    // 모든 문 열기
+    public void TryOpenAll()
     {
         for (int i = 0; i < 4; i++)
         {
@@ -80,13 +82,17 @@ public class Door : BaseObject, IExplodable
         FindChildByName(transform, "ClearBox")?.gameObject.SetActive(true);
     }
 
+    // 문 열기
     public void Open(int index, bool forced = false, MainCharacter Player = null)
     {
         string clipName = "";
+        string audioClipNmae = "";
+        AudioClip audioClip = null;
 
         if (eDoorState[index] == EDoorState.Closed)
         {
             clipName = "Open";
+            audioClipNmae = "door heavy open";
         }
         // 코인을 사용해서 열어야하는 방
         else if (eDoorState[index] == EDoorState.CoinClosed)
@@ -96,6 +102,7 @@ public class Door : BaseObject, IExplodable
             {
                 clipName = "CoinOpen";
                 eDoorState[index] = EDoorState.Opened;
+                audioClipNmae = "door heavy open";
             }
             // 플레이어에 의해서 열릴때
             else if (Player != null)
@@ -104,6 +111,7 @@ public class Door : BaseObject, IExplodable
                 if (Player.Coin > 0)
                 {
                     clipName = "CoinOpen";
+                    audioClipNmae = "unlock";
                     Player.AddCoin(-1);
                     eDoorState[index] = EDoorState.Opened;
                 }
@@ -117,6 +125,7 @@ public class Door : BaseObject, IExplodable
             if (forced)
             {
                 clipName = "KeyOpen";
+                audioClipNmae = "door heavy open";
                 eDoorState[index] = EDoorState.Opened;
             }
             // 플레이어에 의해서 열릴때
@@ -127,6 +136,7 @@ public class Door : BaseObject, IExplodable
                 if (Player.KeyCount > 0)
                 {
                     clipName = "KeyOpen";
+                    audioClipNmae = "unlock";
                     Player.AddKey(-1);
                     eDoorState[index] = EDoorState.Opened;
                 }
@@ -135,6 +145,11 @@ public class Door : BaseObject, IExplodable
 
 
         if (clipName == "") return;
+        if (audioClipNmae != "")
+        {
+            audioClip = Managers.Resource.Load<AudioClip>(audioClipNmae);
+            Managers.Sound.PlaySFX(audioClip, 0.2f);
+        }
 
         Animators[index].Play(clipName);
         StartCoroutine(Copened(index));
@@ -155,12 +170,15 @@ public class Door : BaseObject, IExplodable
         eDoorState[index] = EDoorState.Opened;
     }
 
+    // 
     public void ClosedAll()
     {
         string clipName = "Closed";
         for (int index = 0; index < 4; index++)
         {
+            // 문이 없으면 넘어감
             if (Animators[index].gameObject.activeSelf == false) continue;
+            // 비밀방인경우 클립이 다름
             if (_eDoorType[index] == ERoomType.Secret)
             {
                 clipName = "Close";
@@ -183,8 +201,16 @@ public class Door : BaseObject, IExplodable
 
     public void Close(int index)
     {
+        string audioClipNmae = "door heavy close";
         string clipName = "Close";
+        AudioClip audioClip = null;
         if (eDoorState[index] == EDoorState.Hidden) return;
+
+        if (audioClipNmae != "")
+        {
+            audioClip = Managers.Resource.Load<AudioClip>(audioClipNmae);
+            Managers.Sound.PlaySFX(audioClip, 0.1f);
+        }
 
         StartCoroutine(CClosed(index));
         Animators[index].Play(clipName);
@@ -199,6 +225,7 @@ public class Door : BaseObject, IExplodable
         eDoorState[index] = EDoorState.Opened;
     }
 
+    // 폭탄 등에 의해서 문이 파괴
     public void Break(string dir)
     {
         int index = _dirIndex[dir];
@@ -211,9 +238,16 @@ public class Door : BaseObject, IExplodable
             if (Managers.Map.CurrentRoom.IsClear)
             {
                 clipName = "Opened";
-                var adjRoom = Managers.Map.CurrentRoom._adjacencentRooms[index];
 
+                // 넘어갈 다음 방 문을 열기
+                var adjRoom = Managers.Map.CurrentRoom._adjacencentRooms[index];
                 adjRoom.Doors.GetComponent<Door>().Open((index + 2) % 4, true);
+
+                if (Managers.Map.CurrentRoom.RoomType != ERoomType.Secret)
+                {
+                    AudioClip audioClip = Managers.Resource.Load<AudioClip>("secret room find v2_07");
+                    Managers.Sound.PlaySFX(audioClip, 0.1f);
+                }
             }
         }
 
@@ -267,6 +301,7 @@ public class Door : BaseObject, IExplodable
         
     }
 
+    // 폭탄에 의해서 문이 파괴될때
     public void OnExplode(Creature own, object args)
     {
         Break(args as string);

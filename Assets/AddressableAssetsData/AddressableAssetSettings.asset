@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 661158fbcd809d048818ff93521f4887
   m_currentHash:
     serializedVersion: 2
-    Hash: 033e0cf42861c41c92cc1de7b9405b22
+    Hash: cff145fed06b2e10f727cfcbfa8f061e
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -44,21 +44,22 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
-  - {fileID: 11400000, guid: 9c658d0feba7e34459ea570435bef236, type: 2}
-  - {fileID: 11400000, guid: 63bb155c6659ae54ca6fec35597101bf, type: 2}
   - {fileID: 11400000, guid: da42f7d6b28a5124f942f46369e8b96e, type: 2}
-  - {fileID: 11400000, guid: 607f8686cda55b64c9a1c8824367f236, type: 2}
-  - {fileID: 11400000, guid: 45c46409486e58e4488ceb666531a11d, type: 2}
-  - {fileID: 11400000, guid: d0edfe2045b2e5e499871d61108f88c1, type: 2}
-  - {fileID: 11400000, guid: 2edcef8ac12657640b09f467b86ab684, type: 2}
-  - {fileID: 11400000, guid: c184b41105145d54bb5dde935b222980, type: 2}
-  - {fileID: 11400000, guid: 5ab1b803a96f7bf4881591b7d4cca52a, type: 2}
   - {fileID: 11400000, guid: a4d2d089f166ec443aa6733fabdf7b70, type: 2}
-  - {fileID: 11400000, guid: c0c08a54808d45046996d2076066e5ae, type: 2}
-  - {fileID: 11400000, guid: 63c297b770a5f2f4a88a6889bba50de0, type: 2}
+  - {fileID: 11400000, guid: 45c46409486e58e4488ceb666531a11d, type: 2}
   - {fileID: 11400000, guid: 594d20b319f7e4f4399a2e112ce0f065, type: 2}
   - {fileID: 11400000, guid: 56066a9c7f26f404bbb81437f6b11ab1, type: 2}
   - {fileID: 11400000, guid: 6c219505d6a635940b2127d730d0f610, type: 2}
+  - {fileID: 11400000, guid: 63bb155c6659ae54ca6fec35597101bf, type: 2}
+  - {fileID: 11400000, guid: c184b41105145d54bb5dde935b222980, type: 2}
+  - {fileID: 11400000, guid: 607f8686cda55b64c9a1c8824367f236, type: 2}
+  - {fileID: 11400000, guid: c0c08a54808d45046996d2076066e5ae, type: 2}
+  - {fileID: 11400000, guid: 29c43ef297b87804d9883c488714093d, type: 2}
+  - {fileID: 11400000, guid: 63c297b770a5f2f4a88a6889bba50de0, type: 2}
+  - {fileID: 11400000, guid: 5ab1b803a96f7bf4881591b7d4cca52a, type: 2}
+  - {fileID: 11400000, guid: 9c658d0feba7e34459ea570435bef236, type: 2}
+  - {fileID: 11400000, guid: 2edcef8ac12657640b09f467b86ab684, type: 2}
+  - {fileID: 11400000, guid: d0edfe2045b2e5e499871d61108f88c1, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -70,31 +71,31 @@ MonoBehaviour:
       m_Id: 0985748921cfec042a33776b73e40982
       m_ProfileName: Default
       m_Values:
-      - m_Id: 72438059583766242bb8d883f127cb7c
-        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
-      - m_Id: 145d6ffa32648e74f89b0230a2a3a01c
-        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
       - m_Id: 09e4f3b9062ac7e48bb516b4f051361e
         m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: 145d6ffa32648e74f89b0230a2a3a01c
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
       - m_Id: 3976f3b75a98bfc4e84eb53b9d5aa583
         m_Value: ServerData/[BuildTarget]
       - m_Id: 5c07d173ed65c4749a40fb9888041314
         m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+      - m_Id: 72438059583766242bb8d883f127cb7c
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
     m_ProfileEntryNames:
-    - m_Id: 72438059583766242bb8d883f127cb7c
-      m_Name: BuildTarget
+    - m_Id: 09e4f3b9062ac7e48bb516b4f051361e
+      m_Name: Local.LoadPath
       m_InlineUsage: 0
     - m_Id: 145d6ffa32648e74f89b0230a2a3a01c
       m_Name: Local.BuildPath
-      m_InlineUsage: 0
-    - m_Id: 09e4f3b9062ac7e48bb516b4f051361e
-      m_Name: Local.LoadPath
       m_InlineUsage: 0
     - m_Id: 3976f3b75a98bfc4e84eb53b9d5aa583
       m_Name: Remote.BuildPath
       m_InlineUsage: 0
     - m_Id: 5c07d173ed65c4749a40fb9888041314
       m_Name: Remote.LoadPath
+      m_InlineUsage: 0
+    - m_Id: 72438059583766242bb8d883f127cb7c
+      m_Name: BuildTarget
       m_InlineUsage: 0
     m_ProfileVersion: 1
   m_LabelTable:
