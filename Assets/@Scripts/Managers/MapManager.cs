@@ -4,14 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Unity.Mathematics;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 using static Define;
-using static RoomClass;
-using static UnityEditor.PlayerSettings;
 using static Utility;
 using Object = UnityEngine.Object;
 using Transform = UnityEngine.Transform;
@@ -651,7 +648,7 @@ public class MapManager
             RoomClass temp = BossRoom._adjacencentRooms[i];
             if (temp == null) continue;
             if (temp == StartingRoom) return 0;
-            BossRoom.DeadEndType = (EDeadEndType)(i+1);
+            BossRoom.DeadEndType = (EDeadEndType)(i + 1);
         }
 
         BossRoom.RoomType = ERoomType.Boss;
@@ -866,9 +863,9 @@ public class MapManager
         }
 
         // 사용될 보스방 미리 배정
-        List<int> bossRoomList = new ();
+        List<int> bossRoomList = new();
         // 5스테이지를 제외한 스테이지에서 사용되는 보스방의 index로 list 초기화
-        for (int i=0; i < Managers.Data.RoomDic[ERoomType.Boss][0].Count; i++)
+        for (int i = 0; i < Managers.Data.RoomDic[ERoomType.Boss][0].Count; i++)
         {
             bossRoomList.Add(Managers.Data.RoomDic[ERoomType.Boss][0][i]);
         }
@@ -876,7 +873,7 @@ public class MapManager
         Shuffle(bossRoomList, Managers.Game.RNG);
 
         // 마지막 스테이지를 제외하고 보스가 출연할 스테이지 적용
-        for (int stage=1; stage <= Managers.Game.MAXStageNumber - 1; stage++)
+        for (int stage = 1; stage <= Managers.Game.MAXStageNumber - 1; stage++)
         {
             BossToStage[stage] = bossRoomList[stage - 1];
         }
@@ -911,7 +908,6 @@ public class MapManager
             }
         });
 
-        
     }
 
     public GameObject Map { get; private set; }
@@ -943,36 +939,165 @@ public class MapManager
         ParseRoomCollisionData();
     }
 
-    //Door Tile을 생성하거나, 변경하는 함수
-    //TODO 여러 종류의 타일
-    //여러 타일 바꾸도록
-    public void GenerateDoor(RoomClass room)
+    public void GenerateMinimap()
+    {
+        foreach (RoomClass room in Rooms)
+        {
+            //unvisited, currenet room, visited
+            string[] cellSprite = { "minimap1_4", "minimap1_3", "minimap1_2", };
+
+            //Instantiate prefab
+            GameObject cell = Managers.Resource.Instantiate("Minimap_Cell");
+            cell.GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>(cellSprite[(int)ECellType.UnVisited]);
+            cell.name = room.RoomObject.name;
+
+            GameObject pannel = Managers.UI.PlayingUI.GetMinimapPannel();
+            cell.transform.SetParent(pannel.transform);
+
+            //set pos
+            cell.transform.localPosition = new Vector3(room.YPos - 4, 4 - room.XPos) * 30;
+
+            if (room.RoomType == ERoomType.Start) cell.SetActive(true);
+            else cell.SetActive(false);
+        }
+
+    }
+
+
+    #region Room prefab Initialization
+    public void GenerateRoom(RoomClass r, int index)
+    {
+        //1.room 생성
+        r.WorldCenterPos = CalcRoomsWorldPos(r);
+
+        //room prfab 생성
+        GameObject room = CreateRoomPrefab(r);
+
+        // Select Random Map Collision
+        int roomId = SelectRoomId(r);
+
+        InitRoomClassField(r, room, roomId);
+
+        //room 위치, 이름 조정
+        SetRoomNameAndPos(r, room, index);
+
+        SetObstacle(r);
+        GenerateDoor(r);
+        r.TilemapCollisionPrefab.SetActive(false);
+
+#if UNITY_EDITOR
+        AltSetActive(r.RoomObject, r.RoomType == ERoomType.Start);
+#endif
+    }
+
+    private Vector2 CalcRoomsWorldPos(RoomClass r)
+    {
+        const int roomWidth = 21;
+        const int roomHeight = 13;
+
+        //배열과 좌표의 차이 때문에 신경써줘야함
+        //배열은 0,0이 왼쪽 위
+        float xDiif = r.YPos - StartingPos.y;
+        float yDiif = StartingPos.x - r.XPos;
+        Vector2 posDiff = new Vector2(xDiif, yDiif) * new Vector2(roomWidth, roomHeight);
+
+        return posDiff;
+    }
+
+    private GameObject CreateRoomPrefab(RoomClass r)
+    {
+        // Room_<RoomType>_(stagenum_)
+        string roomPrefabName = "Room_";
+
+        if (r.RoomType == ERoomType.Start && Managers.Game.StageNumber == 1)
+        {
+            roomPrefabName += r.RoomType.ToString();
+        }
+        else if (r.RoomType is ERoomType.Gold or ERoomType.Boss or ERoomType.Normal or ERoomType.Start)
+        {
+            roomPrefabName += "Normal_" + Managers.Game.StageNumber;
+        }
+        else
+        {
+            roomPrefabName += r.RoomType.ToString();
+        }
+
+        return Managers.Resource.Instantiate(roomPrefabName);
+    }
+
+    private int GetBossRoomId(EDeadEndType currentDeadEndType)
+    {
+        int selectedId = BossToStage[Managers.Game.StageNumber];
+        var selectedRoom = Managers.Data.RoomDicTotal[selectedId];
+        // 소환할 수 없는 DeadEnd의 경우 예비로 남긴 방 사용
+        if (selectedRoom.CannotSpawnType == currentDeadEndType)
+        {
+            // 예비 보스 룸 ID
+            selectedId = BossToStage[Managers.Game.MAXStageNumber + 1];
+        }
+        return selectedId;
+    }
+
+    private int GetRoomId(ERoomType type)
+    {
+        //현재 에디팅한 방이 많지 않아서 현재는 0스테이지에 모두 몰아 넣었음
+        //향후에는 Manager.Game.StageNumber 사용
+        int stage = 0;
+        var rooms = Managers.Data.RoomDic[type][stage];
+        int index = Managers.Game.RNG.RandInt(0, rooms.Count - 1);
+        return rooms[index];
+    }
+
+    private void InitRoomClassField(RoomClass r, GameObject room, int roomId)
+    {
+        //클래스 멤버 변수 초기화
+
+        // Room instance 생성
+        GameObject roomTileMap = InstantiateRoom(roomId, room.transform);
+
+        r.RoomObject = room;
+        r.Transform = room.transform;
+        r.TilemapPrefab = FindChildByName(r.Transform, "Tilemap").gameObject;
+        r.Obstacle = FindChildByName(r.Transform, "Obstacle").gameObject;
+        r.CollidePrefab = FindChildByName(r.Transform, "Collider").gameObject;
+        r.Doors = FindChildByName(r.Transform, "Doors").gameObject;
+        r.TilemapCollisionPrefab = roomTileMap;
+        r.Tilemap = r.TilemapPrefab.GetComponent<Tilemap>();
+    }
+    private GameObject InstantiateRoom(int roomId, Transform parent)
+    {
+        string prefabName = Managers.Data.RoomDicTotal[roomId].PrefabName;
+        GameObject instance = Managers.Resource.Instantiate(prefabName);
+        instance.transform.SetParent(parent);
+        return instance;
+    }
+
+    private int SelectRoomId(RoomClass r)
+    {
+        // 보스방
+        if (r.RoomType == ERoomType.Boss)
+        {
+            return GetBossRoomId(r.DeadEndType);
+        }
+        // 나머지 모든 방
+        else
+        {
+            return GetRoomId(r.RoomType);
+        }
+    }
+    private void SetRoomNameAndPos(RoomClass r, GameObject room, int index)
+    {
+        room.transform.Translate(r.WorldCenterPos);
+        room.name = Managers.Game.Seed + " " + Managers.Game.StageNumber + r.RoomType.ToString() +
+            (r.RoomType == ERoomType.Normal ? index : "");
+        room.transform.parent = Map.transform;
+    }
+
+    //Door Anim 할당
+    private void GenerateDoor(RoomClass room)
     {
         for (int i = 0; i < 4; i++)
         {
-            //if (room._adjacencentRooms[i] != null)
-            //{
-            //    // ??
-            //    int temp = (int)room.RoomType;
-
-            //    // Normal Start이외의 방이면 인접한 방의 스프라이트를 쓴다
-            //    if ((int)room.RoomType < (int)room._adjacencentRooms[i].RoomType)
-            //        temp = (int)room._adjacencentRooms[i].RoomType;
-
-            //    GameObject door = room.Doors.transform.GetChild(i).gameObject;
-            //    if (temp == (int)ERoomType.Curse) door.tag = "SpikeDoor";
-
-            //    door.SetActive(true);
-            //    //bg
-            //    door.transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorBackGround[temp]);
-            //    //left
-            //    door.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorSide[temp, 0]);
-            //    //right
-            //    door.transform.GetChild(2).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorSide[temp, 1]);
-            //    //frame
-            //    door.transform.GetChild(3).GetComponent<SpriteRenderer>().sprite = Managers.Resource.Load<Sprite>(doorFrame[temp, 0]);
-            //}
-
             if (room._adjacencentRooms[i] != null)
             {
                 ERoomType doorType = room.RoomType;
@@ -1034,113 +1159,13 @@ public class MapManager
         }
     }
 
-    public void GenerateMinimap()
-    {
-        foreach (RoomClass room in Rooms)
-        {
-            //unvisited, currenet room, visited
-            string[] cellSprite = { "minimap1_4", "minimap1_3", "minimap1_2", };
-
-            //Instantiate prefab
-            GameObject cell = Managers.Resource.Instantiate("Minimap_Cell");
-            cell.GetComponent<Image>().sprite = Managers.Resource.Load<Sprite>(cellSprite[(int)ECellType.UnVisited]);
-            cell.name = room.RoomObject.name;
-
-            GameObject pannel = Managers.UI.PlayingUI.GetMinimapPannel();
-            cell.transform.SetParent(pannel.transform);
-
-            //set pos
-            cell.transform.localPosition = new Vector3(room.YPos - 4, 4 - room.XPos) * 30;
-
-            if (room.RoomType == ERoomType.Start) cell.SetActive(true);
-            else cell.SetActive(false);
-        }
-
-    }
-
-    public void GenerateRoom(RoomClass r, int index)
-    {
-        //1.room 생성
-        //배열과 좌표의 차이 때문에 신경써줘야함
-        //배열은 0,0이 왼쪽 위
-        float xDiif = r.YPos - StartingPos.y;
-        float yDiif = StartingPos.x - r.XPos;
-        Vector2 posDiff = new Vector2(1 * xDiif, 1 * yDiif) * new Vector2(21, 13);
-        r.WorldCenterPos = posDiff;
-
-        //room prfab 생성
-        string roomPrefabname = "Room_";
-        if (r.RoomType == ERoomType.Start && Managers.Game.StageNumber == 1) roomPrefabname += r.RoomType.ToString();
-        else if (r.RoomType == ERoomType.Gold || r.RoomType == ERoomType.Boss || r.RoomType == ERoomType.Normal || r.RoomType == ERoomType.Start) roomPrefabname += "Normal_" + Managers.Game.StageNumber.ToString();
-        else roomPrefabname += r.RoomType.ToString();
-        GameObject room = Managers.Resource.Instantiate(roomPrefabname);
-
-        // Select Random Map Collision
-        
-
-        int stageNum = r.RoomType == ERoomType.Normal ? Managers.Game.StageNumber : 0;
-        //roomName = "Tile_Map_Collision_" + r.RoomType.ToString() + "_" stageNum "_" + Managers.Game.RNG.RandInt(0, RoomCollisionCnt[(int)r.RoomType] - 1);
-        int stageIndex = 0;
-        int roomId;
-
-        // 보스방
-        if (r.RoomType == ERoomType.Boss)
-        {
-            roomId = BossToStage[Managers.Game.StageNumber];
-            // 선택된 보스가 현재 맵에 소환될 수 없는 타입이면 예비로 남겨둔 보스 사용
-            if (Managers.Data.RoomDicTotal[roomId].CannotSpawnType == r.DeadEndType)
-                roomId = BossToStage[Managers.Game.StageNumber + 1];
-        }
-        // 보스방을 제외한 모든 방
-        else
-        {
-            roomId = Managers.Data.RoomDic[r.RoomType][stageIndex][Managers.Game.RNG.RandInt(0, Managers.Data.RoomDic[r.RoomType][stageIndex].Count - 1)];
-        }
-
-        GameObject roomTileMap = Managers.Resource.Instantiate(Managers.Data.RoomDicTotal[roomId].PrefabName);
-        roomTileMap.transform.SetParent(room.transform);
-
-        //room 위치, 이름 조정
-        room.transform.Translate(posDiff);
-        room.name = Managers.Game.Seed + " " + Managers.Game.StageNumber + r.RoomType.ToString() + (r.RoomType == ERoomType.Normal ? index : "");
-        room.transform.parent = Map.transform;
-
-        //클래스 멤버 변수 초기화
-        r.RoomObject = room;
-        r.Transform = room.transform;
-        r.TilemapPrefab = FindChildByName(r.Transform, "Tilemap").gameObject;
-        r.Obstacle = FindChildByName(r.Transform, "Obstacle").gameObject;
-        r.CollidePrefab = FindChildByName(r.Transform, "Collider").gameObject;
-        r.Doors = FindChildByName(r.Transform, "Doors").gameObject;
-        r.TilemapCollisionPrefab = roomTileMap;
-
-        r.Tilemap = r.TilemapPrefab.GetComponent<Tilemap>();
-
-
-        SetObstacle(r);
-        GenerateDoor(r);
-        r.TilemapCollisionPrefab.SetActive(false);
-
-#if UNITY_EDITOR
-        if (r.RoomType == ERoomType.Start)
-        {
-            AltSetActive(r.RoomObject, true);
-        }
-
-        else
-        {
-            AltSetActive(r.RoomObject, false);
-        }
-#endif
-    }
-
-    public void GenerateTrapDoor(RoomClass room, Vector3 doorPos)
+    private void GenerateTrapDoor(RoomClass room, Vector3 doorPos)
     {
         GameObject go = GenerateTrapDoor(room);
         go.transform.transform.position += doorPos;
     }
 
-    public GameObject GenerateTrapDoor(RoomClass room)
+    private GameObject GenerateTrapDoor(RoomClass room)
     {
         GameObject go = Managers.Resource.Instantiate("TrapDoor", room.Doors.transform);
         go.transform.position = room.Doors.transform.position + new Vector3(0.5f, 0.5f);
@@ -1148,13 +1173,16 @@ public class MapManager
         return go;
     }
 
-    public GameObject GenerateClearBox(RoomClass room)
+    private GameObject GenerateClearBox(RoomClass room)
     {
         GameObject go = Managers.Resource.Instantiate("ClearBox", room.Doors.transform);
         go.transform.position = room.Doors.transform.position + new Vector3(0.5f, 0.5f);
         go.SetActive(false);
         return go;
     }
+
+    #endregion
+
 
     public void ChangeDoorAnim(RoomClass room, EDoorState doorState)
     {
@@ -1271,8 +1299,6 @@ public class MapManager
             AltSetActive(FindChildByName(Map.transform, before.RoomObject.name).gameObject, false);
         }
 
-
- 
         //if (before != null)
         //{
         //    for (int i = 0; i < 4; i++)
@@ -1321,39 +1347,6 @@ public class MapManager
         FindChildByName(room.transform, "Monster")?.gameObject.SetActive(state);
         FindChildByName(room.transform, "ShopItems")?.gameObject.SetActive(state);
 
-    }
-
-
-    //실행 도중 collider가 변경될 필요가 있을 때 사용
-    //더이상 사용되지 않음
-    public void ChangeCollider(RoomClass room)
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            int[] dx = { 8, -1, -10, -1 };
-            int[] dy = { -1, -6, -1, 5 };
-
-            int[] qx = { 8, -2, -10, -2 };
-            int[] qy = { -2, -6, -2, 4 };
-            int[] qx2 = { 8, 0, -10, 0 };
-            int[] qy2 = { 0, -6, 0, 4 };
-
-            float[] qx3 = { 0, 0f, 0, 0f };
-            float[] qy3 = { -0.3f, 0, -.3f, 0.2f };
-            if (room._adjacencentRooms[i] != null)
-            {
-                int nx = 0 + dx[i];
-                int ny = 0 + dy[i];
-                Vector3Int newPos = new(nx, ny);
-                Tilemap tm = room.CollidePrefab.GetComponent<Tilemap>();
-                if (i == 3)
-                    tm.SetTransformMatrix(newPos, Matrix4x4.Translate(new Vector3(qx3[i], qy3[i], 0)));
-                else
-                    tm.SetTile(newPos, null);
-                tm.SetTransformMatrix(new Vector3Int(qx[i], qy[i], 0), Matrix4x4.Translate(new Vector3(qx3[i], qy3[i], 0)));
-                tm.SetTransformMatrix(new Vector3Int(qx2[i], qy2[i], 0), Matrix4x4.Translate(new Vector3(-qx3[i], -qy3[i], 0)));
-            }
-        }
     }
 
     public void DestroyMap()
@@ -1467,8 +1460,10 @@ public class MapManager
     // 단 spike, hole, fire의 장작 부분은 타일맵에 타일을 올리는 방식으로
     public void SetObstacle(RoomClass room)
     {
+        // 오브젝트 스프라이트 종류를 정하기위한 rng
         RNGManager obsRng = new RNGManager(room.ObjectSeed);
         Tilemap tmp = room.TilemapCollisionPrefab.GetComponent<Tilemap>();
+        // 타일맵의 크기정보
         int maxX = tmp.cellBounds.xMax;
         int minX = tmp.cellBounds.xMin;
         int maxY = tmp.cellBounds.yMax;
@@ -1480,48 +1475,45 @@ public class MapManager
             {
                 Vector3Int tilePos = new Vector3Int(x, y, 0);
                 TileBase tile = tmp.GetTile(tilePos);
-                int index;
-                switch (tile.name)
-                {
-                    case "CannotGo":
-                        break;
-                    case "CanGo":
-                        break;
-                    case "Door":
-                        break;
-                    case "Spike":
-                        Managers.Object.SpawnObstacle(tilePos, "Spike", room.Obstacle.transform);
-                        break;
-                    case "Fire":
-                        Managers.Object.SpawnObstacle(tilePos, "Fire", room.Obstacle.transform);
-                        break;
-                    case "ItemHolder":
-                        room.ItemHolder = Managers.Resource.Instantiate("ItemHolder", room.Obstacle.transform);
-                        room.ItemHolder.GetComponent<ItemHolder>().Init(room, tilePos);
-                        if (room.RoomType == ERoomType.Boss)
-                            room.ItemHolder.SetActive(false);
-                        break;
-                    case "Poop":
-                        Managers.Object.SpawnObstacle(tilePos, "Poop", room.Obstacle.transform);
-                        break;
-                    case "Rock":
-                        index = obsRng.RandInt(1, 3);
-                        Managers.Object.SpawnObstacle(tilePos, "Rock", room.Obstacle.transform, index);
-                        break;
-                    case "Urn":
-                        index = obsRng.RandInt(1, 3);
-                        Managers.Object.SpawnObstacle(tilePos, "Urn", room.Obstacle.transform, index);
-                        break;
-                    // locked chest
-                    //case "pickup_005_chests_9":
-                    default:
-                        break;
-                }
+                if (tile == null) continue;
+
+                HandleObstacleTile(room, tile.name, tilePos, obsRng);
 
             }
         }
+        // 시드 갱신
         room.ObjectSeed = obsRng.Sn;
     }
+
+    private void HandleObstacleTile(RoomClass room, string tileName, Vector3Int tilePos, RNGManager rng)
+    {
+        // 스프라이트가 여러개 있어서 하나를 골라야하는 장애물
+        string[] randomObstacles = { "Rock", "Urn" };
+        // 스프라이트가 고정된 장애물
+        string[] fixedObstacles = { "Spike", "Fire", "Poop" };
+
+        if (tileName == "ItemHolder")
+        {
+            GameObject itemHolder = Managers.Resource.Instantiate("ItemHolder", room.Obstacle.transform);
+            itemHolder.GetComponent<ItemHolder>().Init(room, tilePos);
+            // 보스방은 클리어 한 후에 활성화
+            if (room.RoomType == ERoomType.Boss)
+                itemHolder.SetActive(false);
+
+            room.ItemHolder = itemHolder;
+        }
+        else if (fixedObstacles.Contains(tileName))
+        {
+            Managers.Object.SpawnObstacle(tilePos, tileName, room.Obstacle.transform);
+        }
+        else if (randomObstacles.Contains(tileName))
+        {
+            int spriteIndex = rng.RandInt(1, 3);
+            Managers.Object.SpawnObstacle(tilePos, tileName, room.Obstacle.transform, spriteIndex);
+        }
+        // "CanGo", "CannotGo", "Door" 등은 무시
+    }
+
     public void SpawnMonsterAndBossInRoom(RoomClass room, Action callback = null)
     {
         Tilemap tmp = room.TilemapCollisionPrefab.GetComponent<Tilemap>();
@@ -1589,7 +1581,7 @@ public class MapManager
                         pickup.GetComponent<Collider2D>().enabled = true;
                         break;
                     case "pickup_003_key_0":
-                        pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_KEY, FindChildByName(room.Transform, "Pickups"),default, true);
+                        pickup = Managers.Object.Spawn<Pickup>(tilePos, EPICKUP_TYPE.PICKUP_KEY, FindChildByName(room.Transform, "Pickups"), default, true);
                         pickup.GetComponent<Collider2D>().enabled = true;
                         break;
                     case "pickup_005_chests_5":
@@ -1610,7 +1602,6 @@ public class MapManager
             }
         }
     }
-
 
     public void ChangeCollisionData(float worldx, float worldy, ECellCollisionType colltype)
     {
