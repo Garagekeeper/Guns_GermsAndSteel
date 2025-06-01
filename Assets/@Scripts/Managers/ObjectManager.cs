@@ -106,6 +106,8 @@ public class ObjectManager
         GameObject go = Managers.Resource.Instantiate(prefabName, parent);
 
         go.name = prefabName;
+        // 타일은 좌하단에서 시작
+        // 우리가 보는 중앙에 위치하기위한 보장
         go.transform.localPosition = localPos + new Vector3(0.5f, 0.5f, 0);
         Obstacle obstacle = go.GetComponent<Obstacle>();
 

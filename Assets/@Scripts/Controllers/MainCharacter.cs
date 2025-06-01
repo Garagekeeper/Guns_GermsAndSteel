@@ -646,13 +646,16 @@ public class MainCharacter : Creature
 
     }
 
+    // 패시브 아이템 적용
     public void ApplyPassiveItemEffect(Item item, bool isOneTime = false)
     {
+        // 1회성 아이템인지 확인
         if (isOneTime)
         {
             OneTimeActive = true;
         }
 
+        // 기본 스택 적용
         Hp += item.Hp;
         TotalDmgUp += item.DmgUp;
         FlatDmgUp += item.FlatDmgUp;
@@ -663,6 +666,8 @@ public class MainCharacter : Creature
         Speed += item.Speed;
         Luck += item.Luck;
         Life += item.Life;
+
+        // 픽업 아이템인 경우
         if (item.PickupType == EPICKUP_TYPE.PICKUP_COIN)
         {
             Coin += item.PickupCount;
@@ -675,9 +680,8 @@ public class MainCharacter : Creature
         {
             BombCount += item.PickupCount;
         }
-        //item.SetItem;
-        //item.ShotType;
 
+        //데미지 계산
         CalcAttackDamage();
         //적용된 능력치 UI 갱신
         Managers.UI.ResfreshUIAll(this);
@@ -695,6 +699,7 @@ public class MainCharacter : Creature
             ApplyPassiveItemEffect(item, true);
         else
         {
+            transform.GetComponent<Animator>().Play("UseItem", 0, 0);
             switch (item.EffectOfActive)
             {
                 case ESpecialEffectOfActive.RandomTeleport:
@@ -704,7 +709,6 @@ public class MainCharacter : Creature
                     break;
                 case ESpecialEffectOfActive.Roll:
                     Managers.Game.Roll(this, "item");
-                    transform.GetComponent<Animator>().Play("UseItem", 0, 0);
                     break;
             }
         }
