@@ -61,6 +61,7 @@ public class GameScene : MonoBehaviour
         _audioSource.Stop();
         _audioSource.clip = null;
         PlayStageBGM();
+        Managers.Sound.ReturnSFXToPoolAll();
     }
 
     // 로딩 종료

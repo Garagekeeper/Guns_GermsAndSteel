@@ -222,7 +222,6 @@ public class Monster : Creature
             }
             yield return new WaitForSeconds(0.05f);
         }
-
         //Change Sprite
         yield return null;
     }
@@ -241,7 +240,6 @@ public class Monster : Creature
         {
             base.OnDead();
         }
-
         else
         {
             StartCoroutine(MonsterDeadAaim());

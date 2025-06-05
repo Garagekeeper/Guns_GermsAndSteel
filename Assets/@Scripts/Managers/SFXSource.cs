@@ -32,9 +32,4 @@ public class SFXSource : MonoBehaviour
         yield return new WaitForSeconds(_audioSource.clip.length + 0.1f);
         Managers.Sound.ReturnSFXToPool(gameObject);
     }
-
-    private void OnDisable()
-    {
-
-    }
 }

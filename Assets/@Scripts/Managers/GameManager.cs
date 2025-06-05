@@ -31,28 +31,6 @@ public class GameManager
         }
     }
 
-
-
-    /// <summary>
-    /// 액티브 아이템의 게이지를 변화시키는 함수
-    /// </summary>
-    /// <param name="item">대상 아이템</param>
-    /// <param name="value">변화 값</param>
-    public void ChangeItemGage(Item item, int value)
-    {
-        // 꽉차지 않은 상태에서는 비프음 재생
-        if (item.CurrentGage < item.CoolTime)
-        {
-            AudioClip audioClip = Managers.Resource.Load<AudioClip>("beep");
-            Managers.Sound.PlaySFX(audioClip, 0.3f);
-        }
-
-        item.CurrentGage = Math.Clamp(item.CurrentGage + value, 0, item.CoolTime);
-
-        Managers.UI.PlayingUI.ChangeChargeGage(item);
-    }
-
-
     public RNGManager RNG;
 
     private string SeedString = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -75,11 +53,9 @@ public class GameManager
         Debug.Log(Seed);
         StageNumber = 1;
         //0. N(스테이지에 만들 방의 개수) 설정
-        //N = (int)(Sn % ((_baseRoomCountMax - _baseRoomCountMin) + 1 + StageNumber * 2) + _baseRoomCountMin);
         //https://gist.github.com/bladecoding/d75aef7e830c738ad5e3d66d146a095c
         //위 링크와는 다르게 특수방의 개수가 늘어났기 때문에 적절한 수치 변경
         N = Math.Min(_baseRoomCountMax, RNG.RandInt(0, 1) + 5 + ((StageNumber * _baseRoomCountMin) / 5));
-        //Debug.Log(N);
     }
 
     /// <summary>
@@ -114,7 +90,6 @@ public class GameManager
         {
             Debug.Log("Err Current Room is Null!");
         }
-
 
         switch (dir)
         {
@@ -908,40 +883,6 @@ public class GameManager
         {
             return;
         }
-
-        /* original 
-         * 
-        else if (count <= 6)
-        {
-            //  33p tp angel devil 67 chest
-        }
-        else if (count <= 7)
-        {
-            // 33p angelroom 67 soulheart
-        }
-        else if (count <= 8)
-        {
-            // nothing (trollibomb)
-        }
-        else if (count <= 9)
-        {
-            // battle
-        }
-        else if (count <= 10)
-        {
-            // 50 30penny 50 7soulheart 
-        }
-        else if (count <= 11)
-        {
-            // battle
-        }
-        else if (count <= 11)
-        {
-            // 50 % Nothing
-            // 50 % Teleport directly to the Dark Room.
-        }
-        */
-
         SpawnSacrificeAward(pickupCount, sacrificeAward);
 
         Managers.Map.CurrentRoom.AwardSeed = rng.Sn;
@@ -1036,6 +977,25 @@ public class GameManager
 
 
     #region Active effect
+    /// <summary>
+    /// 액티브 아이템의 게이지를 변화시키는 함수
+    /// </summary>
+    /// <param name="item">대상 아이템</param>
+    /// <param name="value">변화 값</param>
+    public void ChangeItemGage(Item item, int value)
+    {
+        // 꽉차지 않은 상태에서는 비프음 재생
+        if (item.CurrentGage < item.CoolTime)
+        {
+            AudioClip audioClip = Managers.Resource.Load<AudioClip>("beep");
+            Managers.Sound.PlaySFX(audioClip, 0.3f);
+        }
+
+        item.CurrentGage = Math.Clamp(item.CurrentGage + value, 0, item.CoolTime);
+
+        Managers.UI.PlayingUI.ChangeChargeGage(item);
+    }
+
     /// <summary>
     /// 스테이지의 일반방 중에서 한곳으로 랜덤 텔레포트
     /// </summary>
