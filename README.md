@@ -1,4 +1,4 @@
-![thumbnail](ㅁssets/Guns_GermsAndSteel_Thumbnail.png)
+![thumbnail](Assets/Guns_GermsAndSteel_Thumbnail.png)
 
 
 # 🎮 프로젝트 소개
