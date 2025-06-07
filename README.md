@@ -1,4 +1,4 @@
-![thumbnail](Assets/Guns_GermsAndSteel_Thumbnail.png)
+[▶️ 데모 영상 보기](https://www.youtube.com/watch?v=X_B_yyo6mb8)
 
 
 # 🎮 프로젝트 소개
