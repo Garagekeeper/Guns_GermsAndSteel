@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using static Define;
-using static UnityEditor.Progress;
 
 
 namespace Data

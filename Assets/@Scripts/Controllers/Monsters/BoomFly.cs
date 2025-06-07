@@ -7,8 +7,6 @@ using Unity.Burst.CompilerServices;
 
 public class BoomFly : Monster
 {
-    public GameObject SFXSource { get; private set; }
-
     void Awake()
     {
         Init();

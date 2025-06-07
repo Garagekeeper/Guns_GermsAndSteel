@@ -11,6 +11,8 @@ public class Monster : Creature
 
     private LineRenderer lr = null;
     public EMonsterType MonsterType { get; protected set; }
+
+    public GameObject SFXSource { get; protected set; }
     private void Awake()
     {
         Init();

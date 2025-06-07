@@ -15,8 +15,6 @@ public class Fly : Monster
 
     EFlyType FlyType { get; set; }
 
-    public GameObject SFXSource { get; private set; }
-
     private void Awake()
     {
         Init();

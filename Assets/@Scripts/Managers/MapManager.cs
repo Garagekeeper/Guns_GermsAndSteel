@@ -754,6 +754,7 @@ public class MapManager
 
         SetSecretAndDevilAngelRoomAdj();
 
+#if UNITY_EDITOR
         //temp
         using (var parser = File.CreateText($"Assets/@Resources/Data/MapData/Stage.txt"))
         {
@@ -773,7 +774,7 @@ public class MapManager
                 parser.WriteLine();
             }
         }
-
+#endif
         return 1;
     }
 
@@ -1436,7 +1437,13 @@ public class MapManager
                 }
             }
         }
+#if UNITY_EDITOR
         var parser = File.CreateText($"Assets/@Resources/Data/MapData/StageCollision.txt");
+#else
+        var exePath = Directory.GetParent(Application.dataPath).FullName;
+        string filePath = Path.Combine(exePath, "StageCollision.txt");
+        var parser = File.CreateText($"filePath");
+#endif
         for (int i = StageColYMax - StageColYMin; i >= 0; i--)
         {
             parser.Write("{0,-4}", i);

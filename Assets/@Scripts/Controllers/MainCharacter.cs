@@ -293,9 +293,8 @@ public class MainCharacter : Creature
         StopAllCoroutines();
 
         base.Init();
-#if UNITY_EDITOR
         CalcAttackDamage();
-#endif
+
         HeadSprite = new Sprite[]
        {
             Managers.Resource.Load<Sprite>("isaac_up"),
@@ -401,6 +400,7 @@ public class MainCharacter : Creature
         if (Input.GetKeyDown(KeyCode.Space))
             UseItem(SpaceItem);
 
+# if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Z))
         {
             Managers.Game.ChangeItemGage(SpaceItem, 1);
@@ -415,8 +415,7 @@ public class MainCharacter : Creature
         {
             Managers.Game.GoToNextStage();
         }
-
-
+# endif
 
         //Restart with fade out
         if (Input.GetKey(KeyCode.R))

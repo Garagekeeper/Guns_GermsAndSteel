@@ -141,14 +141,13 @@ public class GameManager
             {
                 CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
             });
+            // stage bgm
+            GameScene.PlayStageBGM();
         }
         else
         {
             CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
         }
-
-        // stage bgm
-        GameScene.PlayStageBGM();
     }
 
     // 다음 방을 넘어갈때 캐릭터를 0.5초 컨트롤 할 수 없음

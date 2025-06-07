@@ -28,6 +28,10 @@ public class Pooter : Monster
         AttackDamage = 2f;
         ShotSpeed = 0.7f;
         _isFloating = true;
+
+        //audio
+        AudioClip audioClip = Managers.Resource.Load<AudioClip>("insect swarm");
+        SFXSource = Managers.Sound.PlaySFX(audioClip, 0.05f, true);
     }
 
     protected override void UpdateIdle()
@@ -66,4 +70,12 @@ public class Pooter : Monster
         Vector3 targetDir = (Target.transform.position - transform.position).normalized;
         GenerateProjectile(targetDir, false, true);
     }
+
+    public override void OnDead()
+    {
+        // pool에 반납
+        Managers.Sound.ReturnSFXToPool(SFXSource);
+        base.OnDead();
+    }
+
 }
