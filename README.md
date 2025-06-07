@@ -1,5 +1,4 @@
-[▶️ 데모 영상 보기](https://www.youtube.com/watch?v=X_B_yyo6mb8)
-
+[![영상 설명](https://img.youtube.com/vi/X_B_yyo6mb8/0.jpg)](https://www.youtube.com/watch?v=X_B_yyo6mb8)
 
 # 🎮 프로젝트 소개
 
