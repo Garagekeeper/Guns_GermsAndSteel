@@ -1,5 +1,5 @@
 [![영상 설명](https://img.youtube.com/vi/X_B_yyo6mb8/0.jpg)](https://www.youtube.com/watch?v=X_B_yyo6mb8)
-
+>이미지 클릭시 데모 영상으로 이동합니다.
 # 🎮 프로젝트 소개
 
 **Guns, Germs & Steel**는 2D 로그라이크 게임인 **The Binding of Isaac**의 모작 프로젝트 입니다.
