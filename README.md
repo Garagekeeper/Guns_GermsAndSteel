@@ -1,3 +1,5 @@
+# ✨ 주의! 2025/06/16 이전에 제공받으신 실행파일은 메모리 이슈가 있습니다 메모리가 급격하게 늘어나기 때문에 플레이 하지 않기를 권장 드리고, 실행 하더라도 5분 이내의 사용을 추천드립니다. 
+
 [![영상 설명](https://img.youtube.com/vi/X_B_yyo6mb8/0.jpg)](https://www.youtube.com/watch?v=X_B_yyo6mb8)
 >이미지 클릭시 데모 영상으로 이동합니다.
 # 🎮 프로젝트 소개
@@ -44,7 +46,6 @@ Guns_GermsAndSteel/
 │  ├── @Scenes/  # 유니티 씬 파일
 │  ├── @Scripts/ # 게임 로직 관련 스크립트
 ├── ProjectSettings/
-├── Release/
 └── README.md
 ```
 ## 🚀 실행 방법
