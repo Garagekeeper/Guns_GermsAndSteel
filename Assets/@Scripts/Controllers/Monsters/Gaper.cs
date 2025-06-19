@@ -27,7 +27,7 @@ public class Gaper : Monster
         CreatureMoveState = ECreatureMoveState.TargetCreature;
 
         AudioClip audioClip = Managers.Resource.Load<AudioClip>("monster roar");
-        Managers.Sound.PlaySFX(audioClip, 0.1f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
     }
 
     protected override void UpdateIdle()

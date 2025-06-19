@@ -5,13 +5,13 @@ public class Managers : MonoBehaviour
     private static Managers m_instance;
     public static Managers Instance { get { Init(); return m_instance; } }
 
-    private DataManager _data = new DataManager();
-    private MapManager _map = new MapManager();
-    private ResourceManager _resource = new ResourceManager();
-    private GameManager _game = new GameManager();
-    private UIManager _ui = new UIManager();
-    private ObjectManager _object = new ObjectManager();
-    private SoundManager _sound = new SoundManager();
+    private  DataManager _data = new DataManager();
+    private  MapManager _map = new MapManager();
+    private  ResourceManager _resource = new ResourceManager();
+    private  GameManager _game = new GameManager();
+    private  UIManager _ui = new UIManager();
+    private  ObjectManager _object = new ObjectManager();
+    private  SoundManager _sound = new SoundManager();
 
     public static DataManager Data { get { return Instance?._data; } }
     public static MapManager Map { get { return Instance?._map; } }

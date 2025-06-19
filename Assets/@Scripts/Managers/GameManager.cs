@@ -987,7 +987,7 @@ public class GameManager
         if (item.CurrentGage < item.CoolTime)
         {
             AudioClip audioClip = Managers.Resource.Load<AudioClip>("beep");
-            Managers.Sound.PlaySFX(audioClip, 0.3f);
+            Managers.Sound.PlaySFX(audioClip, 0.5f);
         }
 
         item.CurrentGage = Math.Clamp(item.CurrentGage + value, 0, item.CoolTime);

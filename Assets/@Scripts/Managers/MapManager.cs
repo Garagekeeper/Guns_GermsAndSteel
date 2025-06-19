@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
@@ -895,7 +896,7 @@ public class MapManager
                 }
             }
 
-            //Debug.Log($"{key} {count}/{totalCount}");
+            Debug.Log($"{key} {count}/{totalCount}");
 
             if (count == totalCount)
             {
@@ -986,9 +987,8 @@ public class MapManager
         GenerateDoor(r);
         r.TilemapCollisionPrefab.SetActive(false);
 
-#if UNITY_EDITOR
+
         AltSetActive(r.RoomObject, r.RoomType == ERoomType.Start);
-#endif
     }
 
     private Vector2 CalcRoomsWorldPos(RoomClass r)
@@ -1293,7 +1293,6 @@ public class MapManager
         if (next == null) return;
 
         //에디터에서는 다 보여주고, 실제에서는 원래방만
-#if UNITY_EDITOR
         //이전 방 (원래 있던 방)
         if (before != null)
         {
@@ -1325,12 +1324,10 @@ public class MapManager
         //        AltSetActive(FindChildByName(Map.transform, adjacencentRoom.RoomObject.name).gameObject, true);
         //    }
         //}
-#endif
     }
 
     public void AltSetActive(GameObject room, bool state)
     {
-        //FindChildByName(room.transform, "Tilemap")?.gameObject.SetActive(state);
         FindChildByName(room.transform, "Obstacle")?.gameObject.SetActive(state);
         FindChildByName(room.transform, "Collider")?.gameObject.SetActive(state);
         FindChildByName(room.transform, "ProjectileCollider")?.gameObject.SetActive(state);
@@ -1340,11 +1337,8 @@ public class MapManager
                 sprites.gameObject.SetActive(state);
         }
         FindChildByName(room.transform, "Pickups")?.gameObject?.SetActive(state);
-        //foreach (Transform child in FindChildByName(room.transform, "Pickups"))
-        //{
-        //    foreach (Transform sprites in child)
-        //        sprites.gameObject.SetActive(state);
-        //}
+
+
         FindChildByName(room.transform, "Monster")?.gameObject.SetActive(state);
         FindChildByName(room.transform, "ShopItems")?.gameObject.SetActive(state);
 

@@ -63,13 +63,13 @@ public class Bomb : MonoBehaviour
     public void PlayExplosionSound()
     {
         AudioClip audioClip = Managers.Resource.Load<AudioClip>($"boss explosions {Random.Range(0,2)}");
-        Managers.Sound.PlaySFX(audioClip, 0.15f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
     }
 
     public void PlayAppearSound()
     {
         AudioClip audioClip = Managers.Resource.Load<AudioClip>("fetus land");
-        Managers.Sound.PlaySFX(audioClip, 0.15f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
     }
 
     public void Destroyprefab()

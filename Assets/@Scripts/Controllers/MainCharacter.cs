@@ -556,7 +556,7 @@ public class MainCharacter : Creature
         Item itemFromItemPlayer = null;
 
         AudioClip audioClip = Managers.Resource.Load<AudioClip>("power up 7");
-        Managers.Sound.PlaySFX(audioClip, 0.3f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
 
         //0. ItemHolder의 아이템변경
         if (itemFromItemHolder.ItemType == EItemType.ActiveItem)
@@ -725,7 +725,7 @@ public class MainCharacter : Creature
         StartCoroutine(CoInvincible());
         Managers.UI.ResfreshUIAll(this);
         AudioClip audioClip = Managers.Resource.Load<AudioClip>($"hurt grunt {UnityEngine.Random.Range(0, 3)}");
-        Managers.Sound.PlaySFX(audioClip, 0.2f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
         //Debug.Log(Hp);
     }
 

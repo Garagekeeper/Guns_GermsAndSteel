@@ -82,9 +82,7 @@ public class Boss : Creature
         mask |= (1 << 15);
         GPCollider2D.excludeLayers = mask;
 
-#if UNITY_EDITOR
         Managers.UI.PlayingUI.BossHpActive(true);
-#endif 
     }
 
     //코루틴을 사용한 유한상태 머신

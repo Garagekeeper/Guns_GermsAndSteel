@@ -128,7 +128,7 @@ public class Boss_Monstro : Boss
         //}
 
         AudioClip audioClip = Managers.Resource.Load<AudioClip>("boss spit blob barf 1");
-        Managers.Sound.PlaySFX(audioClip, 0.1f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
 
         for (int i = 0; i < 10; i++)
         {
@@ -139,6 +139,6 @@ public class Boss_Monstro : Boss
     public void PlayStompSound()
     {
         AudioClip audioClip = Managers.Resource.Load<AudioClip>("forest boss stomp");
-        Managers.Sound.PlaySFX(audioClip, 0.1f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
     }
 }

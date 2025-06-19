@@ -44,7 +44,7 @@ public class GameScene : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
         _audioSource.playOnAwake = false;
         _audioSource.spatialBlend = 0;
-        _audioSource.volume = 0.05f;
+        _audioSource.volume = 0.3f;
 
 
         LoadImage.GetComponent<Animator>().Play("loadimages-" + Random.Range(1, 57).ToString("D3"));
@@ -157,7 +157,7 @@ public class GameScene : MonoBehaviour
         {
             if (Managers.Map.CurrentRoom.IsClear)
             {
-                Managers.Sound.PlaySFX(_audioclips[(int)Eclips.BossFightJingleOutro], 0.1f);
+                Managers.Sound.PlaySFX(_audioclips[(int)Eclips.BossFightJingleOutro], 0.5f);
                 _audioSource.loop = true;
                 _audioSource.Stop();
                 StartCoroutine(CPlayBGMLoop(enumIndex));

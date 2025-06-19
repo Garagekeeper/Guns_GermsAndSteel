@@ -264,7 +264,7 @@ public class Monster : Creature
 
         //Dead Sound
         AudioClip audioClip = Managers.Resource.Load<AudioClip>("death burst small 1");
-        Managers.Sound.PlaySFX(audioClip, 0.1f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
 
         //일체형인 경우
         if (transform.GetComponent<SpriteRenderer>() != null)

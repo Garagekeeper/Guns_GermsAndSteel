@@ -367,7 +367,7 @@ public class Creature : BaseObject, IExplodable
     public void GenerateProjectile()
     {
         AudioClip audioClip = Managers.Resource.Load<AudioClip>($"tear fire {Random.Range(4,6)}");
-        Managers.Sound.PlaySFX(audioClip, 0.3f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
         switch (HeadDirState)
         {
             case ECreatureHeadDirState.Up:

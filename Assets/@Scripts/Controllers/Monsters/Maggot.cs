@@ -230,7 +230,7 @@ public class Maggot : Monster
         CreatureState = ECreatureState.None;
 
         AudioClip audioClip = Managers.Resource.Load<AudioClip>($"maggot{Random.Range(1,3)}");
-        Managers.Sound.PlaySFX(audioClip, 0.1f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
     }
 
     public void OnCollisionEnter2D(Collision2D collision)

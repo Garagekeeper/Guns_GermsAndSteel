@@ -36,9 +36,7 @@ public class Boss_Mom : Boss
         Bottom = FindChildByName(transform, transform.gameObject.name.Replace("(Clone)", "").Trim() + "_Sprite")?.GetComponent<SpriteRenderer>();
         Speed = 3f;
 
-#if UNITY_EDITOR
         Managers.UI.PlayingUI.BossHpActive(true);
-#endif 
 
         Hp = 645.0f;
         MaxHp = 645.0f;
@@ -142,7 +140,7 @@ public class Boss_Mom : Boss
         Transform parent = transform.parent;
 
         AudioClip audioClip = Managers.Resource.Load<AudioClip>($"mom{UnityEngine.Random.Range(1, 4)}");
-        Managers.Sound.PlaySFX(audioClip, 0.2f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
 
         List<int> numbers = new() { 0, 1, 2, 3 };
         Stack<Transform> stack = new();
@@ -229,7 +227,7 @@ public class Boss_Mom : Boss
         if (_coWait != null) return;
 
         AudioClip audioClip = Managers.Resource.Load<AudioClip>($"mom{UnityEngine.Random.Range(1, 4)}");
-        Managers.Sound.PlaySFX(audioClip, 0.2f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
 
         sequence = DOTween.Sequence();
         Transform doorTransform = null;
@@ -267,7 +265,7 @@ public class Boss_Mom : Boss
                {
                    handTransform.gameObject.SetActive(true);
                    AudioClip audioClip = Managers.Resource.Load<AudioClip>("evil laugh");
-                   Managers.Sound.PlaySFX(audioClip, 0.2f);
+                   Managers.Sound.PlaySFX(audioClip, 0.5f);
                }, 0f, 0f))
                //해당 애니메이션에서의 딜레이
                .AppendInterval(2f)
@@ -303,7 +301,7 @@ public class Boss_Mom : Boss
 
         //audio
         AudioClip audioClip = Managers.Resource.Load<AudioClip>("vox death");
-        Managers.Sound.PlaySFX(audioClip, 0.3f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
 
         Managers.Object.Despawn(this);
         Managers.UI.PlayingUI.BossHpActive(false);
@@ -347,7 +345,7 @@ public class Boss_Mom : Boss
     public override void OnExplode(Creature owner)
     {
         AudioClip audioClip = Managers.Resource.Load<AudioClip>($"hurt {UnityEngine.Random.Range(1, 4)}");
-        Managers.Sound.PlaySFX(audioClip, 0.3f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
         base.OnExplode(owner);
     }
 
@@ -359,14 +357,14 @@ public class Boss_Mom : Boss
     public void PlayEvilLaugh()
     {
         AudioClip audioClip = Managers.Resource.Load<AudioClip>("forest boss stomp");
-        Managers.Sound.PlaySFX(audioClip, 0.3f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
     }
 
     public void PlayStampSound()
     {
         AudioClip audioClip = Managers.Resource.Load<AudioClip>("grunt");
-        Managers.Sound.PlaySFX(audioClip, 0.3f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
         audioClip = Managers.Resource.Load<AudioClip>("forest boss stomp");
-        Managers.Sound.PlaySFX(audioClip, 0.3f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
     }
 }

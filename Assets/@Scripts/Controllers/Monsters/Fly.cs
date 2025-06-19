@@ -48,7 +48,7 @@ public class Fly : Monster
 
         //audio
         AudioClip audioClip = Managers.Resource.Load<AudioClip>("insect swarm");
-        SFXSource = Managers.Sound.PlaySFX(audioClip, 0.05f, true);
+        SFXSource = Managers.Sound.PlaySFX(audioClip, 0.5f, true);
     }
 
     protected override void UpdateIdle()

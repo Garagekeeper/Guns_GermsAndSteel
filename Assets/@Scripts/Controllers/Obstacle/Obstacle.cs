@@ -95,7 +95,7 @@ public class Obstacle : BaseObject, IExplodable
 
             //파괴시 소리 재생
             AudioClip audioClip = Managers.Resource.Load<AudioClip>("firedeath hiss");
-            Managers.Sound.PlaySFX(audioClip, 0.3f);
+            Managers.Sound.PlaySFX(audioClip, 0.5f);
             AudioSource.enabled = false;
             return;
         }
@@ -121,11 +121,11 @@ public class Obstacle : BaseObject, IExplodable
             Destroy(this);
 
             audioClip = Managers.Resource.Load<AudioClip>("plop");
-            Managers.Sound.PlaySFX(audioClip, 0.1f);
+            Managers.Sound.PlaySFX(audioClip, 0.5f);
             //TODO semiwall to cango
         }
         if (audioClip != null)
-        Managers.Sound.PlaySFX(audioClip, 0.1f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
     }
 
     public void OnExplode(Creature owner)
@@ -143,7 +143,7 @@ public class Obstacle : BaseObject, IExplodable
         transform.GetComponent<Collider2D>().enabled = false;
 
         if (audioClip != null)
-            Managers.Sound.PlaySFX(audioClip, 0.1f);
+            Managers.Sound.PlaySFX(audioClip, 0.5f);
 
         // 길찾기에 쓰이는 충돌 데이터 갱신
         Managers.Map.ChangeCollisionData(transform.position.x - 0.5f, transform.position.y-0.5f, ECellCollisionType.None);

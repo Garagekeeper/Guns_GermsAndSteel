@@ -74,7 +74,7 @@ public class Pickup : BaseObject
         }
 
         if (audioClip != null && _playSpawnSound)
-            Managers.Sound.PlaySFX(audioClip, 0.3f);
+            Managers.Sound.PlaySFX(audioClip, 0.5f);
     }
 
     public void Init(EPICKUP_TYPE epickup_type, Vector3 dir = default, bool spawnSoundPlay = false)
@@ -184,7 +184,7 @@ public class Pickup : BaseObject
 
         if (audioClip != null)
         {
-            Managers.Sound.PlaySFX(audioClip, 0.3f);
+            Managers.Sound.PlaySFX(audioClip, 0.5f);
             PickupCollider.enabled = false;
 
             // 상자의 경우 오브젝트가 남아있어야함

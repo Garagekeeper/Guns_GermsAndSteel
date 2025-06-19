@@ -136,7 +136,7 @@ public class Boss_GurdyJr : Boss
     public void SkillB()
     {
         AudioClip audioClip = Managers.Resource.Load<AudioClip>("monster roar");
-        Managers.Sound.PlaySFX(audioClip, 0.1f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
 
         sequence.Append(DOTween.To(() => 0f, x => x = 1, 0f, 0.5f));
         sequence.Append(transform.DOShakeScale(1, 0.1f, 10, 90, false));

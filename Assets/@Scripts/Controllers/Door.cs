@@ -148,7 +148,7 @@ public class Door : BaseObject, IExplodable
         if (audioClipNmae != "")
         {
             audioClip = Managers.Resource.Load<AudioClip>(audioClipNmae);
-            Managers.Sound.PlaySFX(audioClip, 0.2f);
+            Managers.Sound.PlaySFX(audioClip, 0.5f);
         }
 
         Animators[index].Play(clipName);
@@ -209,7 +209,7 @@ public class Door : BaseObject, IExplodable
         if (audioClipNmae != "")
         {
             audioClip = Managers.Resource.Load<AudioClip>(audioClipNmae);
-            Managers.Sound.PlaySFX(audioClip, 0.1f);
+            Managers.Sound.PlaySFX(audioClip, 0.5f);
         }
 
         StartCoroutine(CClosed(index));
@@ -246,7 +246,7 @@ public class Door : BaseObject, IExplodable
                 if (Managers.Map.CurrentRoom.RoomType != ERoomType.Secret)
                 {
                     AudioClip audioClip = Managers.Resource.Load<AudioClip>("secret room find v2_07");
-                    Managers.Sound.PlaySFX(audioClip, 0.1f);
+                    Managers.Sound.PlaySFX(audioClip, 0.5f);
                 }
             }
         }

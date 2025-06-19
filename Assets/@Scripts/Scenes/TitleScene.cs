@@ -11,6 +11,8 @@ public class TitleScene : UI_Base
     {
         base.Init();
 
+        Screen.SetResolution(1920, 1080, FullScreenMode.Windowed);
+
         //EventSystem이 없으면  UI가 동작하지 않기 때문에
         //체크하고 없으면 붙여준다
         Object obj = GameObject.FindObjectOfType(typeof(EventSystem));

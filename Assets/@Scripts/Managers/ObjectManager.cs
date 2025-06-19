@@ -45,7 +45,7 @@ public class ObjectManager
 
             Monsters.Add(mt);
             CoroutineHelper.Instance.StartMyCoroutine(WaitSpawn());
-            Managers.Sound.PlaySFX(audioClip, 0.1f);
+            Managers.Sound.PlaySFX(audioClip, 0.5f);
             return mt as T;
         }
         if (type == typeof(Boss))

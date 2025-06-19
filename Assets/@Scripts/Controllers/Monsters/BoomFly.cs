@@ -56,7 +56,7 @@ public class BoomFly : Monster
     public void PlayExplosionSound()
     {
         AudioClip audioClip = Managers.Resource.Load<AudioClip>($"boss explosions {Random.Range(0, 2)}");
-        Managers.Sound.PlaySFX(audioClip, 0.15f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
     }
 
 }

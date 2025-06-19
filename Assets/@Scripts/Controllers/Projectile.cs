@@ -219,7 +219,7 @@ public class Projectile : MonoBehaviour
         yield return null;
 
         AudioClip audioClip = Managers.Resource.Load<AudioClip>("tear block");
-        Managers.Sound.PlaySFX(audioClip, 0.3f);
+        Managers.Sound.PlaySFX(audioClip, 0.5f);
 
         float delay = anim.GetCurrentAnimatorClipInfo(0)[0].clip.length;
         Collider.enabled = false;
